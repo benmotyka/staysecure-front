@@ -1,10 +1,12 @@
-import Navbar from 'components/Navbar/Navbar';
+import Notebook from "components/Notebook/Notebook";
 import Routes from "routes";
 
 function App() {
   return (
-    <Routes>
-    </Routes>
+    <>
+    <Routes/>
+    <Notebook/>
+    </>
   );
 }
 

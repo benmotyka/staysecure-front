@@ -1,7 +1,12 @@
 import { Redirect, Route, Switch } from "react-router-dom";
 
 // import HomePage from "pages/HomePage";
-import HomePage from "pages/home.js"
+import home from "pages/home.js"
+import wiki from "pages/wiki.js"
+import courses from "pages/courses.js"
+import login from "pages/login";
+import register from "pages/register";
+import wikiArticle from "pages/wikiArticle";
 // import CoursesPage from "pages/CoursesPage";
 // import LoginPage from "pages/LoginPage";
 // import WikiPage from "pages/WikiPage";
@@ -19,25 +24,27 @@ import HomePage from "pages/home.js"
 const Routes = () => {
   return (
     <Switch>
-        <Route path="/" component={HomePage} exact/>
-      {/* <Route path="/" component={HomePage} exact />
-      <Route path="/courses" component={CoursesPage} exact />
-      <Route path="/login" component={LoginPage} exact />
-      <Route path="/wiki" component={WikiPage} exact />
+        <Route path="/" component={home} exact/>
+        <Route path="/wiki" component={wiki} exact/>
+        <Route path="/courses" component={courses} exact/>
+        <Route path="/login" component={login} exact/>
+        <Route path="/register" component={register} exact/>
+        <Route path="/wiki/:articleName" component={wikiArticle} />
+      {/* 
       <Route path="/wiki/keylogger" component={KeyloggerPage} exact />
       <Route path="/my-account" component={MyAccountPage} exact />
       <Route path="/reset-password" component={ResetPasswordPage} exact />
       <Route path="/forgot-password" component={ForgotPasswordPage} exact />
       <Route
-        path="/registration/confirm/:token"
-        component={RegistrationConfirmPage}
+      path="/registration/confirm/:token"
+      component={RegistrationConfirmPage}
       />
       <Route
-        path="/forgot-password/:token"
-        component={ForgotPasswordChangePage}
+      path="/forgot-password/:token"
+      component={ForgotPasswordChangePage}
       />
       <Route path="/course/sql-injection" component={SqlInjectionCourse} />
-      <Route path="/quiz/:courseName" component={QuizPage} /> */}
+    <Route path="/quiz/:courseName" component={QuizPage} /> */}
       <Redirect to="/" />
     </Switch>
   );

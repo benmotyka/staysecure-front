@@ -4,7 +4,7 @@ import {ButtonStyled, Arrow} from "./Button.styles"
 
 const Button = (props) => {
     return (
-        <ButtonStyled>{props.text}<Arrow/></ButtonStyled>
+        <ButtonStyled onClick={props.onClick} full={props.full}>{props.text}{props.noArrow?'':<Arrow/>}</ButtonStyled>
     )
 }
 

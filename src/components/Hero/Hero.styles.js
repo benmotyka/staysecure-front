@@ -4,10 +4,10 @@ import backgroundImage from './Background.png'
 export const Container = styled.div`
 background-image: url(${backgroundImage});
 width: 100%;
-height: 600px;
+height: 500px;
 background-repeat: no-repeat;
 background-size: cover;
-background-position: 0 80%;
+background-position: 0 70%;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -15,7 +15,6 @@ flex-direction: column;
 `
 
 const Text = css`
-font-family: 'Poppins', sans-serif;
 color: ${colors.white};
 `
 export const Header = styled.h1`

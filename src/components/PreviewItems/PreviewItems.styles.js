@@ -1,9 +1,12 @@
 import styled from "styled-components";
+import colors from "constans/colors"
 
-export const Container = styled.div``
+export const Container = styled.div`
+width: 55%;
+margin-bottom: 80px;
+`
 export const Header = styled.h2`
-font-family: 'Poppins', sans-serif;
-color: #FFFFFF;
+color: ${colors.white};
 font-size: 26px;
 margin: 0;
 `
@@ -15,6 +18,5 @@ opacity: 10%;
 export const ItemsWrapper = styled.div`
 display: grid;
 grid-template-columns: repeat(3, 1fr);
-gap: 40px;
 grid-template-rows: 1fr;
 `

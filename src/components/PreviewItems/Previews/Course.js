@@ -3,7 +3,7 @@ import React from 'react'
 import {Container, ImageContainer,Image, Body, HeaderContainer, Header, Arrow, Description } from "./Previews.styles"
 const Course = (props) => {
     return (
-<Container>
+<Container to={props.to}>
 <ImageContainer>
     <Image src={props.img}/>
 </ImageContainer>

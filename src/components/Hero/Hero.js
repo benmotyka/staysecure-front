@@ -1,4 +1,4 @@
-import React from "react";
+import { useHistory } from "react-router-dom";
 
 import {
   Container,
@@ -8,8 +8,10 @@ import {
 } from "components/Hero/Hero.styles";
 
 import Logo from "components/Logo/Logo.js";
-import Button from "components/Button/Button.js"
+import Button from "components/Button/Button.js";
 const Hero = () => {
+  const history = useHistory();
+
   return (
     <Container>
       <Header>Cyber Security Training</Header>
@@ -17,7 +19,12 @@ const Hero = () => {
         <Subheader>by</Subheader>
         <Logo />
       </SubheaderContainer>
-      <Button text="Rejestracja"/>
+      <Button
+        onClick={() => {
+          history.push("/register");
+        }}
+        text="Rejestracja"
+      />
     </Container>
   );
 };

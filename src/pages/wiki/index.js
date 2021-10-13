@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Navbar from 'components/Navbar/Navbar'
 import LatestArticles from 'components/PreviewItems/LatestArticles'
 import AllArticles from 'components/PreviewItems/AllArticles'

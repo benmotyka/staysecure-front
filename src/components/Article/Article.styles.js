@@ -6,7 +6,6 @@ width: 55%;
 margin-bottom: 80px;
 min-height: 200px;
 `
-export const ArrowBack = styled.div``
 export const Header = styled.h2`
 color: ${colors.white};
 font-size: 26px;

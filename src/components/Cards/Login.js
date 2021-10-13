@@ -8,10 +8,10 @@ const Login = () => {
         <Container>
             {/* <Loader/> */}
             <Header>Logowanie</Header>
-            <Input placeholder="Email" type="email"></Input>
-            <Input placeholder="Hasło" type="password"></Input>
+            <Input placeholder="Email" type="email"/>
+            <Input placeholder="Hasło" type="password"/>
             <Wrapper>
-            <Input id="checkbox" type="checkbox"></Input>
+            <Input id="checkbox" type="checkbox"/>
             <Label for="checkbox">Zapamiętaj mnie</Label>
             </Wrapper>
             <Button text="Logowanie" full/>

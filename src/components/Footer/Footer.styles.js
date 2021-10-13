@@ -8,7 +8,7 @@ display: flex;
 bottom: 0;
 align-items: center;
 justify-content: space-between;
-padding: 0 255px;
+padding: 0 270px;
 background-color: ${props => props.noBackground ? "none": colors.darkPurple};
 `
 

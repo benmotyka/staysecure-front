@@ -8,7 +8,7 @@ height: 80px;
 display: flex;
 align-items: center;
 justify-content: space-between;
-padding: 0 255px;
+padding: ${props => props.smallPadding ? "0 30px": "0 270px"};
 `
 
 export const Section = styled.section``

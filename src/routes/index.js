@@ -1,12 +1,14 @@
 import { Redirect, Route, Switch } from "react-router-dom";
 
 // import HomePage from "pages/HomePage";
-import home from "pages/home.js"
-import wiki from "pages/wiki.js"
-import courses from "pages/courses.js"
+import home from "pages/home"
+import wiki from "pages/wiki/index"
+import courses from "pages/courses"
 import login from "pages/login";
 import register from "pages/register";
-import wikiArticle from "pages/wikiArticle";
+import wikiArticle from "pages/wiki/article";
+import accountSettings from "pages/account/settings";
+import accountCourses from "pages/account/courses";
 // import CoursesPage from "pages/CoursesPage";
 // import LoginPage from "pages/LoginPage";
 // import WikiPage from "pages/WikiPage";
@@ -30,10 +32,9 @@ const Routes = () => {
         <Route path="/login" component={login} exact/>
         <Route path="/register" component={register} exact/>
         <Route path="/wiki/:articleName" component={wikiArticle} />
+        <Route path="/account/settings" component={accountSettings} />
+        <Route path="/account/courses" component={accountCourses} />
       {/* 
-      <Route path="/wiki/keylogger" component={KeyloggerPage} exact />
-      <Route path="/my-account" component={MyAccountPage} exact />
-      <Route path="/reset-password" component={ResetPasswordPage} exact />
       <Route path="/forgot-password" component={ForgotPasswordPage} exact />
       <Route
       path="/registration/confirm/:token"

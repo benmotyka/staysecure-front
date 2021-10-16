@@ -12,6 +12,7 @@ border: 1px solid ${colors.mediumDarkPurple};
 transition: 0.2s all ease-in-out;
 z-index: 100;
 max-height: 130px;
+min-width: 300px;
 `
 
 const Text = css`

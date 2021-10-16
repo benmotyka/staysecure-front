@@ -9,6 +9,15 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 padding: ${props => props.smallPadding ? "0 30px": "0 270px"};
+
+@media screen and (max-width: 1000px) {
+    padding: 0 30px;
+}
+
+@media screen and (max-width: 650px) {
+    padding: 0 10px;
+}
+min-width: 500px;
 `
 
 export const Section = styled.section``
@@ -21,6 +30,10 @@ align-items: center;
 
 export const Item = styled.li`
 margin: 0 25px;
+
+@media screen and (max-width: 650px) {
+margin: 0 10px;
+}
 `
 
 export const Link = styled(NavbarLink)`

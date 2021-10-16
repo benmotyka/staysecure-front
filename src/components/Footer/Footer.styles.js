@@ -10,6 +10,10 @@ align-items: center;
 justify-content: space-between;
 padding: 0 270px;
 background-color: ${props => props.noBackground ? "none": colors.darkPurple};
+
+@media screen and (max-width: 1000px) {
+    padding: 0 130px;
+}
 `
 
 export const Section = styled.section`
@@ -21,6 +25,11 @@ opacity: 0.7;
 margin: 0 15px;
 font-size: 16px;
 color: ${colors.white};
+@media screen and (max-width: 1000px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 `
 
 export const Link = styled(FooterLink)`

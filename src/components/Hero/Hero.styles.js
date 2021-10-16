@@ -22,6 +22,11 @@ ${Text};
 font-size: 33px;
 letter-spacing: 1px;
 margin-bottom: 0;
+text-align: center;
+
+@media screen and (max-width: 650px) {
+font-size: 25px;
+}
 `
 export const SubheaderContainer = styled.div`
 display: flex;

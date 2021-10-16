@@ -11,6 +11,11 @@ justify-content: center;
 export const PageWrapper = styled.div`
 width: 100%;
 padding: 50px 0;
+
+display: flex; 
+align-items: center;
+justify-content: center;
+flex-direction: column;
 `
 
 export const PageOneChild = styled.div`

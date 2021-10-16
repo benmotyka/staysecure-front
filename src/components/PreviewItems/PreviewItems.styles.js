@@ -2,8 +2,8 @@ import styled from "styled-components";
 import colors from "constans/colors"
 
 export const Container = styled.div`
-width: 55%;
 margin-bottom: 80px;
+max-width: 1200px;
 `
 export const Header = styled.h2`
 color: ${colors.white};
@@ -19,4 +19,9 @@ export const ItemsWrapper = styled.div`
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 grid-template-rows: 1fr;
+
+@media screen and (max-width: 1000px) {
+    grid-template-columns: 1fr;
+grid-template-rows: repeat(3, 1fr);
+}
 `

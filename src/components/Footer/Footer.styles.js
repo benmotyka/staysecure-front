@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import colors from "constans/colors"
 import {Link as FooterLink} from "react-router-dom"
 
@@ -20,7 +20,7 @@ export const Section = styled.section`
 display: flex;
 `
 
-export const Text = styled.p`
+const Text = css`
 opacity: 0.7;
 margin: 0 15px;
 font-size: 16px;
@@ -31,9 +31,17 @@ color: ${colors.white};
     justify-content: center;
 }
 `
+export const TextItem = styled.p`
+${Text};
+`
 
-export const Link = styled(FooterLink)`
+export const LinkItem = styled(FooterLink)`
 text-decoration: none;
-color: ${colors.orange};
-font-weight: bold;
+${Text};
+opacity: ${props => props.orange ? "1": "0.7"};
+transition: 0.2s all ease-in-out;
+color: ${props => props.orange ? colors.orange: colors.white};
+&:hover {
+    color: ${colors.orange}
+}
 `

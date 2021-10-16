@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Container, Section, Text} from "./Footer.styles"
+import {Container, Section, TextItem, LinkItem} from "./Footer.styles"
 const Footer = () => {
     const getYear = () => {
         return new Date().getFullYear();
@@ -8,13 +8,13 @@ const Footer = () => {
     return (
         <Container>
             <Section>
-                <Text>{getYear()} &copy; staysecure</Text>
-                <Text>Terms of Service</Text>
-                <Text>Privacy Policy</Text>
-                <Text>FAQ</Text>
+                <TextItem>{getYear()} &copy; staysecure</TextItem>
+                <LinkItem to="/">Warunki usługi</LinkItem>
+                <LinkItem to="/">Polityka prywatności</LinkItem>
+                <LinkItem to="/">FAQ</LinkItem>
             </Section>
             <Section>
-            <Text>by Ben Motyka</Text>
+            <TextItem>by Ben Motyka</TextItem>
             </Section>
         </Container>
     )

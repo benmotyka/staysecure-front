@@ -5,8 +5,8 @@ import {IoAddCircleOutline} from "react-icons/io5"
 export const AddNewNoteButtonWrapper = styled.div`
 margin: 0 auto;
 width: 70%;
+border: 1px solid ${colors.darkestPurple};
 height: 50px;
-border: 1px solid ${colors.black};
 display: flex;
 align-items: center;
 justify-content: space-around;
@@ -14,7 +14,7 @@ background-color: ${colors.darkPurple};
 cursor: pointer;
 transition: 200ms;
 &:hover{
-    background-color: ${colors.mediumDarkPurple};
+    background-color: ${colors.darkestPurple};
 }
 `
 

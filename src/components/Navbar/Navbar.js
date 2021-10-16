@@ -13,7 +13,7 @@ const Navbar = () => {
             <Section>
                 <List>
                     <Item>
-                        <Link to="/wiki">Wiki</Link>
+                        <Link to="/articles">Artykuły</Link>
                     </Item>
                     <Item>
                         <Link to="/courses">Kursy</Link>

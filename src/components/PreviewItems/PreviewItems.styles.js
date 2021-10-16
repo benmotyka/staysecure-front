@@ -18,7 +18,6 @@ opacity: 10%;
 export const ItemsWrapper = styled.div`
 display: grid;
 grid-template-columns: repeat(3, 1fr);
-grid-template-rows: 1fr;
 
 @media screen and (max-width: 1000px) {
     grid-template-columns: 1fr;

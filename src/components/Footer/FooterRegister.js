@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Container, Section, Text, Link} from "./Footer.styles"
+import {Container, Section, TextItem, LinkItem} from "./Footer.styles"
 const RegisterFooter = () => {
     const getYear = () => {
         return new Date().getFullYear();
@@ -8,13 +8,13 @@ const RegisterFooter = () => {
     return (
         <Container noBackground>
             <Section>
-                <Text>{getYear()} &copy; staysecure</Text>
+                <TextItem>{getYear()} &copy; staysecure</TextItem>
             </Section>
             <Section>
-                <Text>Masz już konto? <Link to="/login">Zaloguj się</Link></Text>
+                <TextItem>Masz już konto? <LinkItem orange to="/login">Zaloguj się</LinkItem></TextItem>
             </Section>
             <Section>
-            <Text>by Ben Motyka</Text>
+            <TextItem>by Ben Motyka</TextItem>
             </Section>
         </Container>
     )

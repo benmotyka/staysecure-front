@@ -4,7 +4,7 @@ import {FaDownload} from "react-icons/fa"
 
 export const DownloadNotesContainer = styled.div`
 height: 50px;
-border: 1px solid ${colors.black};
+border: 1px solid ${colors.darkestPurple};
 border-left: none;
 display: flex;
 align-items: center;
@@ -13,7 +13,7 @@ background-color: ${colors.darkPurple};
 cursor: pointer;
 transition: 200ms;
 &:hover{
-    background-color: ${colors.mediumDarkPurple};
+    background-color: ${colors.darkestPurple};
 }
 position: fixed;
 width: 250px;

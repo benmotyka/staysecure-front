@@ -18,6 +18,7 @@ cursor: pointer;
 border-radius: 50% 15% 15% 50%;
 display: flex;
 align-items: center;
+z-index: 100;
 justify-content: center;
 `
 
@@ -38,9 +39,9 @@ export const NotebookWrapper = styled.div`
   background-color: ${colors.mediumDarkPurple};
   width: 250px;
   height: 100vh;
-  border-left: 1px solid ${colors.black};
+  border-left: 1px solid ${colors.darkestPurple};
   overflow: none;
-  z-index: 100;
+  z-index: 200;
 `
 export const NotebookHeaderContainer = styled.div`
 padding: 25px;
@@ -57,7 +58,7 @@ margin: 0;
 `
 export const NotebookBody = styled.div`
 width: 100%;
-max-height: 65%;
+max-height: 60%;
 overflow-y: auto;
 ::-webkit-scrollbar {
   width: 5px;
@@ -76,8 +77,6 @@ cursor: pointer;
 height: 70px;
 padding: 10px;
 color: ${colors.white};
-border: 1px solid ${colors.black};
-border-left: none;
 background-color: ${colors.darkPurple};
 transition: 200ms;
 line-height: 15px;
@@ -96,7 +95,7 @@ position: absolute;
 top: 50px;
 height: ${({ active }) => (active ? "auto" : "0")};
 padding: ${({ active }) => (active ? "5px 10px 10px 10px" : "0")};
-transition: 200ms;
+transition: 200ms all ease-in-out;
 right: 110%;
 display: flex;
 align-items: center;
@@ -119,7 +118,8 @@ color: ${colors.orange};
 `;
 export const NotebookShowItemDelete = styled(FaTrash)`
 color: ${colors.orange};
-margin: 15px auto 0 auto;
+margin-left: auto;
+margin-right: 10px;
 cursor: pointer;
 `
 

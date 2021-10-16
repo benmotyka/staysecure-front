@@ -2,11 +2,11 @@ import { Redirect, Route, Switch } from "react-router-dom";
 
 // import HomePage from "pages/HomePage";
 import home from "pages/home"
-import wiki from "pages/wiki/index"
+import articles from "pages/articles/index"
 import courses from "pages/courses"
 import login from "pages/login";
 import register from "pages/register";
-import wikiArticle from "pages/wiki/article";
+import article from "pages/articles/article";
 import accountSettings from "pages/account/settings";
 import accountCourses from "pages/account/courses";
 // import CoursesPage from "pages/CoursesPage";
@@ -27,11 +27,11 @@ const Routes = () => {
   return (
     <Switch>
         <Route path="/" component={home} exact/>
-        <Route path="/wiki" component={wiki} exact/>
+        <Route path="/articles" component={articles} exact/>
         <Route path="/courses" component={courses} exact/>
         <Route path="/login" component={login} exact/>
         <Route path="/register" component={register} exact/>
-        <Route path="/wiki/:articleName" component={wikiArticle} />
+        <Route path="/articles/:articleName" component={article} />
         <Route path="/account/settings" component={accountSettings} />
         <Route path="/account/courses" component={accountCourses} />
       {/* 

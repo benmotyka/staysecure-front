@@ -1,4 +1,5 @@
 import Notebook from "components/Notebook/Notebook";
+import { withRouter } from "react-router";
 import Routes from "routes";
 
 function App() {
@@ -10,4 +11,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);

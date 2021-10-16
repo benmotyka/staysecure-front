@@ -4,7 +4,7 @@ const Article = (props) => {
         <Container>
             <Header>{props.name}</Header>
             <Line/>
-          <Content>{props.name}</Content>
+          <Content>{props.description}</Content>
         </Container >
     )
 }

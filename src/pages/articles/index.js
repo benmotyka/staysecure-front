@@ -1,15 +1,14 @@
 import Navbar from 'components/Navbar/Navbar'
-import LatestArticles from 'components/PreviewItems/LatestArticles'
-import AllArticles from 'components/PreviewItems/AllArticles'
 import Footer from 'components/Footer/Footer'
 import {PageWrapper} from 'components/Pages/Pages.styles'
+import Articles from 'components/PreviewItems/Articles'
 const wiki = () => {
     return (
         <>
             <Navbar/>
             <PageWrapper>
-            <LatestArticles/>
-            <AllArticles/>
+            <Articles header="Ostatnie artykuły" quantity={6}/>
+            <Articles header="Wszystkie artykuły"/>
             </PageWrapper>
             <Footer/>
         </>

@@ -30,6 +30,7 @@ align-items: center;
 export const Item = styled.li`
 margin: 0 25px;
 
+
 @media screen and (max-width: 650px) {
 margin: 0 10px;
 }
@@ -39,7 +40,10 @@ export const Link = styled(NavbarLink)`
 text-decoration: none;
 color: ${colors.white};
 transition: all 0.2s ease-in-out;
-
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
 
 &:hover{
     color: ${colors.orange};
@@ -50,4 +54,8 @@ export const ButtonContainer = styled.div`
 @media screen and (max-width: 600px) {
     display: none;
 }
+`
+
+export const AccountIcon = styled.img`
+
 `

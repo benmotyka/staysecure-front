@@ -40,5 +40,23 @@ margin-left: 15px;
 `
 
 export const Wrapper = styled.div`
-margin-bottom: 20px;
+`
+
+export const ErrorsWrapper = styled.div`
+height: 40px;
+position: relative;
+`
+
+export const Error = styled.p`
+font-size: 15px;
+color: red;
+margin: 0;
+`
+
+export const SuccessText = styled.h4`
+font-size: 20px;
+color: ${colors.white};
+text-align: center;
+opacity: 0.8;
+margin: 0;
 `

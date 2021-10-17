@@ -1,14 +1,15 @@
 import { Redirect, Route, Switch } from "react-router-dom";
 
 // import HomePage from "pages/HomePage";
-import home from "pages/home"
-import articles from "pages/articles/index"
-import courses from "pages/courses"
+import home from "pages/home";
+import articles from "pages/articles/index";
+import courses from "pages/courses";
 import login from "pages/login";
-import register from "pages/register";
+import register from "pages/register/index";
 import article from "pages/articles/article";
 import accountSettings from "pages/account/settings";
 import accountCourses from "pages/account/courses";
+import registerConfirm from "pages/register/confirm";
 // import CoursesPage from "pages/CoursesPage";
 // import LoginPage from "pages/LoginPage";
 // import WikiPage from "pages/WikiPage";
@@ -26,20 +27,23 @@ import accountCourses from "pages/account/courses";
 const Routes = () => {
   return (
     <Switch>
-        <Route path="/" component={home} exact/>
-        <Route path="/articles" component={articles} exact/>
-        <Route path="/courses" component={courses} exact/>
-        <Route path="/login" component={login} exact/>
-        <Route path="/register" component={register} exact/>
-        <Route path="/articles/:articleName" component={article} />
-        <Route path="/account/settings" component={accountSettings} />
-        <Route path="/account/courses" component={accountCourses} />
+      <Route path="/" component={home} exact />
+      <Route path="/articles" component={articles} exact />
+      <Route path="/courses" component={courses} exact />
+      <Route path="/login" component={login} exact />
+      <Route path="/register" component={register} exact />
+      <Route
+        path="/register/confirm/:token"
+        component={registerConfirm}
+        exact
+      />
+      <Route path="/articles/:articleName" component={article} />
+      <Route path="/account/settings" component={accountSettings} />
+      <Route path="/account/courses" component={accountCourses} />
+
       {/* 
       <Route path="/forgot-password" component={ForgotPasswordPage} exact />
-      <Route
-      path="/registration/confirm/:token"
-      component={RegistrationConfirmPage}
-      />
+
       <Route
       path="/forgot-password/:token"
       component={ForgotPasswordChangePage}

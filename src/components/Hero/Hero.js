@@ -1,5 +1,8 @@
 import { useHistory } from "react-router-dom";
 
+import { useSelector } from "react-redux";
+import { selectUser } from "features/userSlice";
+
 import {
   Container,
   Header,
@@ -11,6 +14,7 @@ import Logo from "components/Logo/Logo.js";
 import Button from "components/Button/Button.js";
 const Hero = () => {
   const history = useHistory();
+  const user = useSelector(selectUser);
 
   return (
     <Container>
@@ -19,12 +23,21 @@ const Hero = () => {
         <Subheader>by</Subheader>
         <Logo />
       </SubheaderContainer>
-      <Button
+      {user ? (
+        <Button
+        onClick={() => {
+          history.push("/courses");
+        }}
+        text="Przejdź do kursów"
+      />
+      ) : (
+        <Button
         onClick={() => {
           history.push("/register");
         }}
         text="Rejestracja"
       />
+      )}
     </Container>
   );
 };

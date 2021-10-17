@@ -12,12 +12,23 @@ padding: 0 270px;
 background-color: ${props => props.noBackground ? "none": colors.darkPurple};
 
 @media screen and (max-width: 1000px) {
-    padding: 0 130px;
+    padding: 0 25px;
+}
+
+@media screen and (max-width: 650px) {
+    flex-direction: column;
+height: auto;
 }
 `
 
 export const Section = styled.section`
 display: flex;
+@media screen and (max-width: 650px) {
+    padding: 0 25px;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+}
 `
 
 const Text = css`
@@ -25,10 +36,10 @@ opacity: 0.7;
 margin: 0 15px;
 font-size: 16px;
 color: ${colors.white};
-@media screen and (max-width: 1000px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+text-align: center;
+
+@media screen and (max-width: 650px) {
+    margin: 15px 0;
 }
 `
 export const TextItem = styled.p`

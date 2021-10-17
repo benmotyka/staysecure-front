@@ -17,7 +17,6 @@ padding: ${props => props.smallPadding ? "0 30px": "0 270px"};
 @media screen and (max-width: 650px) {
     padding: 0 10px;
 }
-min-width: 500px;
 `
 
 export const Section = styled.section``
@@ -44,5 +43,11 @@ transition: all 0.2s ease-in-out;
 
 &:hover{
     color: ${colors.orange};
+}
+`
+
+export const ButtonContainer = styled.div`
+@media screen and (max-width: 600px) {
+    display: none;
 }
 `

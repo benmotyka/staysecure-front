@@ -6,6 +6,8 @@ width: 100%;
 max-width: 1200px;
 margin-bottom: 80px;
 min-height: 200px;
+
+    padding: 25px;
 `
 export const Header = styled.h2`
 color: ${colors.white};
@@ -20,4 +22,8 @@ opacity: 10%;
 export const Content = styled.p`
 color: ${colors.white};
 opacity: 0.7;
+`
+
+export const Link = styled.p`
+font-size: 50px;
 `

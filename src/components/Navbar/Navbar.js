@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 
-import { Container, Section, List, Item, Link} from './Navbar.styles'
+import { Container, Section, List, Item, ButtonContainer, Link, } from './Navbar.styles'
 
 import Button from "components/Button/Button.js"
 import Logo from "components/Logo/Logo.js"
@@ -21,9 +21,9 @@ const Navbar = () => {
                     <Item>
                         <Link to="/login">Login</Link>
                     </Item>
-                    <Item><Button onClick={() => {
+                    <Item><ButtonContainer><Button onClick={() => {
                         history.push('/register')
-                    }} text="Rejestracja"/></Item>
+                    }} text="Rejestracja"/></ButtonContainer></Item>
                 </List>
             </Section>
         </Container>

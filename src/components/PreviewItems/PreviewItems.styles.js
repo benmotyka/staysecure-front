@@ -3,6 +3,7 @@ import colors from "constans/colors"
 
 export const Container = styled.div`
 margin-bottom: 80px;
+    padding: 25px;
 max-width: 1200px;
 `
 export const Header = styled.h2`
@@ -19,7 +20,7 @@ export const ItemsWrapper = styled.div`
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
     grid-template-columns: 1fr;
 grid-template-rows: repeat(3, 1fr);
 }

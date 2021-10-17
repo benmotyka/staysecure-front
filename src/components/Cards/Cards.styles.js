@@ -8,6 +8,11 @@ margin-top: 30px;
 padding: 40px;
 display: flex;
 flex-direction: column;
+@media screen and (max-width: 1000px) {
+padding: 20px;
+width: auto;
+align-items: center;
+}
 `
 export const Header = styled.h2`
 color: ${colors.white};
@@ -25,6 +30,9 @@ padding: 15px 25px;
 background: none;
 border: 1px solid ${colors.white};
 outline: none;
+@media screen and (max-width: 1000px) {
+padding: 8px 12px;
+}
 `
 export const Label = styled.label`
 ${Text};

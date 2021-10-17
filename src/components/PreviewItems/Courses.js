@@ -51,8 +51,9 @@ const Courses = (props) => {
           <Header>{props.header}</Header>
           <Line></Line>
           <ItemsWrapper>
-            {courses.map((course) => (
+            {courses.map((course, index) => (
               <Course
+                key={index}
                 to={`/courses/${course.link}`}
                 img="preview.png"
                 header={course.header}

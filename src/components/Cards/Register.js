@@ -34,7 +34,7 @@ const Register = () => {
 
   useEffect(() => {
     if(user) history.push("/");
-  },[])
+  }, [])
 
   const set = (field) => {
     return ({ target: { value } }) => {

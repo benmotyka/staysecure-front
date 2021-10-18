@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Container, Section } from './Navbar.styles'
 
 import Logo from "components/Logo/Logo.js"
-const NavbarAccount = () => {
+const NavbarClean = () => {
 
     return (
         <Container smallPadding>
@@ -12,4 +12,4 @@ const NavbarAccount = () => {
     )
 }
 
-export default NavbarAccount
+export default NavbarClean

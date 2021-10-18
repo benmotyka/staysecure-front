@@ -1,23 +1,40 @@
-import Footer from 'components/Footer/Footer'
-import Sidebar from 'components/Account/Sidebar/Sidebar'
-import StartedCoursesCard from 'components/Account/Cards/StartedCourses'
-import {PageAccount, PageSection} from 'components/Pages/Pages.styles'
-import NavbarAccount from 'components/Navbar/NavbarAccount'
-import FinishedCoursesCard from 'components/Account/Cards/FinishedCourses'
-const courses = () => {
-    return (
-        <>
-            <NavbarAccount/>
-            <PageAccount>
-                <Sidebar/>
-                <PageSection>
-                    <StartedCoursesCard/>
-                    <FinishedCoursesCard/>
-                </PageSection>
-            </PageAccount>
-            <Footer/>
-        </>
-    )
-}
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { selectUser } from "features/userSlice";
+import { useHistory } from "react-router-dom";
 
-export default courses
+import Footer from "components/Footer/Footer";
+import Sidebar from "components/Account/Sidebar/Sidebar";
+import StartedCoursesCard from "components/Account/Cards/StartedCourses";
+import { PageAccount, PageSection } from "components/Pages/Pages.styles";
+import NavbarClean from "components/Navbar/NavbarClean";
+import FinishedCoursesCard from "components/Account/Cards/FinishedCourses";
+const Courses = () => {
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!user) history.push("/login");
+  }, []);
+
+  const user = useSelector(selectUser);
+
+  return (
+    <>
+      {user && (
+        <>
+          <NavbarClean />
+          <PageAccount>
+            <Sidebar />
+            <PageSection>
+              <StartedCoursesCard />
+              <FinishedCoursesCard />
+            </PageSection>
+          </PageAccount>
+          <Footer />
+        </>
+      )}
+    </>
+  );
+};
+
+export default Courses;

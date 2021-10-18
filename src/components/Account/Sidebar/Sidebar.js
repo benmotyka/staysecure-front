@@ -1,18 +1,22 @@
 import { logout } from "features/userSlice";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-
 import { useSelector } from "react-redux";
 import { selectUser } from "features/userSlice";
+import { useHistory } from "react-router-dom";
+import {useDispatch} from "react-redux"
 
 import { Container, Item } from "./Sidebar.styles";
 const Sidebar = () => {
+
   const history = useHistory();
-  const dispatch = useDispatch();
+
   const user = useSelector(selectUser);
+
+  const dispatch = useDispatch();
 
   return (
     <Container>
+      {user && (
+        <>
       <Item header>Witaj, {user.name}</Item>
       <Item
         onClick={() => {
@@ -37,6 +41,8 @@ const Sidebar = () => {
       >
         Wyloguj
       </Item>
+      </>
+      )}
     </Container>
   );
 };

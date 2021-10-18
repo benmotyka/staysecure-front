@@ -54,7 +54,7 @@ const Courses = (props) => {
             {courses.map((course, index) => (
               <Course
                 key={index}
-                to={`/courses/${course.link}`}
+                to={`/course/${course.link}`}
                 img="preview.png"
                 header={course.header}
                 description={course.description}

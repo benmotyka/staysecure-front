@@ -55,7 +55,7 @@ const Articles = (props) => {
             key={index}
             header={article.header}
             description={article.description}
-            to={`/articles/${article.link}`}
+            to={`/article/${article.link}`}
           />
         ))}
       </ItemsWrapper>

@@ -3,7 +3,7 @@ import colors from "constans/colors";
 import {FaDownload} from "react-icons/fa"
 
 export const DownloadNotesContainer = styled.div`
-height: 50px;
+height: 78px;
 border: 1px solid ${colors.darkestPurple};
 border-left: none;
 display: flex;

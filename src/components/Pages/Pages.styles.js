@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import {sidebarWidth} from "../Account/Sidebar/Sidebar.styles"
+import {notebookWidth} from "components/Notebook/Notebook.styles"
+import { courseSidebarWidth } from "components/Course/Sidebar.styles";
 
 export const PageCentered = styled.div`
 background: transparent linear-gradient(180deg, #2B2E4A 0%, #2B2E4A 100%) 0% 0% no-repeat padding-box;
@@ -43,4 +45,17 @@ width: calc(100% - ${sidebarWidth});
 padding: 35px;
 overflow-y: auto;
 
+`
+
+export const PageCourse = styled.div`
+height: calc(100vh - ${footerHeight} - ${navbarHeight});
+width: calc(100vw - ${notebookWidth} - ${courseSidebarWidth});
+margin-right: ${notebookWidth};
+margin-left: ${courseSidebarWidth};
+`
+
+export const TemporaryHeader = styled.h1`
+font-size: 52px;
+color: white;
+margin: 0;
 `

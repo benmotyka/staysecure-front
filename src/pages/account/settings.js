@@ -1,21 +1,38 @@
-import Footer from 'components/Footer/Footer'
-import Sidebar from 'components/Account/Sidebar/Sidebar'
-import SettingsCard from 'components/Account/Cards/Settings'
-import {PageAccount, PageSection} from 'components/Pages/Pages.styles'
-import NavbarAccount from 'components/Navbar/NavbarAccount'
-const settings = () => {
-    return (
-        <>
-            <NavbarAccount/>
-            <PageAccount>
-                <Sidebar/>
-                <PageSection>
-                <SettingsCard/>
-                </PageSection>
-            </PageAccount>
-            <Footer/>
-        </>
-    )
-}
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { selectUser } from "features/userSlice";
+import { useHistory } from "react-router-dom";
 
-export default settings
+import Footer from "components/Footer/Footer";
+import Sidebar from "components/Account/Sidebar/Sidebar";
+import SettingsCard from "components/Account/Cards/Settings";
+import { PageAccount, PageSection } from "components/Pages/Pages.styles";
+import NavbarClean from "components/Navbar/NavbarClean";
+const Settings = () => {
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!user) history.push("/login");
+  }, []);
+
+  const user = useSelector(selectUser);
+
+  return (
+    <>
+      {user && (
+        <>
+          <NavbarClean />
+          <PageAccount>
+            <Sidebar />
+            <PageSection>
+              <SettingsCard />
+            </PageSection>
+          </PageAccount>
+          <Footer />
+        </>
+      )}
+    </>
+  );
+};
+
+export default Settings;

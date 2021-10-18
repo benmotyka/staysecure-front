@@ -4,6 +4,8 @@ import {BsPencil} from "react-icons/bs"
 import {IoClose as CloseIcon} from "react-icons/io5"
 import {FaTrash} from "react-icons/fa"
 
+export const notebookWidth = "250px"
+
 export const NotebookContainer = styled.div`
 `
 export const NotebookIconContainer = styled.div`
@@ -37,7 +39,7 @@ export const NotebookWrapper = styled.div`
   right: ${({ active }) => (active ? "0" : "-251px")};
   transition: 500ms all ease-in-out;
   background-color: ${colors.mediumDarkPurple};
-  width: 250px;
+  width: ${notebookWidth};
   height: 100vh;
   border-left: 1px solid ${colors.darkestPurple};
   overflow: none;

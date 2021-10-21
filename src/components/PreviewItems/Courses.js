@@ -25,6 +25,7 @@ const Courses = (props) => {
             courses(quantity: ${props.quantity | null}){
               header
               description
+              difficulty
               link
             }
           }
@@ -58,6 +59,7 @@ const Courses = (props) => {
                 img="preview.png"
                 header={course.header}
                 description={course.description}
+                difficulty={course.difficulty}
               />
             ))}
           </ItemsWrapper>

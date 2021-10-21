@@ -1,7 +1,7 @@
 import React from 'react'
 import Parser from 'html-react-parser';
 
-import {Container, ImageContainer,Image, Body, HeaderContainer, Header, Arrow, Description } from "./Previews.styles"
+import {Container, ImageContainer,Image, Body, HeaderContainer, Header, Arrow, Description, DifficultyLevel, DifficultyWrapper } from "./Previews.styles"
 const Course = (props) => {
     return (
 <Container to={props.to}>
@@ -14,6 +14,11 @@ const Course = (props) => {
             <Arrow/>
         </HeaderContainer>
         <Description>{Parser(props.description)}</Description>
+        <DifficultyWrapper>
+    {[...Array(props.difficulty)].map(level => (
+        <DifficultyLevel/>
+    ))}
+    </DifficultyWrapper>
     </Body>
 </Container>            
     )

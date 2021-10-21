@@ -2,7 +2,7 @@ import styled, {css} from "styled-components";
 import { Link } from "react-router-dom";
 import colors from "constans/colors.js"
 import {IoIosArrowForward as ArrowIcon} from "react-icons/io"
-
+import {AiOutlineStar as LevelIcon} from "react-icons/ai"
 
 export const Body = styled.div`
 padding: 10px;
@@ -13,6 +13,8 @@ transition: 0.2s all ease-in-out;
 z-index: 100;
 max-height: 130px;
 min-width: 300px;
+position: relative;
+
 `
 
 const Text = css`
@@ -64,4 +66,15 @@ margin: 20px 20px;
 &:hover ${Image} {
     opacity: 0.5;
 }
+`
+
+export const DifficultyLevel = styled(LevelIcon)`
+font-size: 25px;
+color: ${colors.gold};
+`
+
+export const DifficultyWrapper = styled.div`
+position: absolute;
+bottom: 0;
+right: 10px;
 `

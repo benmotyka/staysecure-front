@@ -7,7 +7,7 @@ import NavbarClean from "components/Navbar/NavbarClean";
 import { PageCourse, TemporaryHeader } from "components/Pages/Pages.styles";
 import Navigation from "components/Course/Navigation";
 
-import courseData from "common/courses/sqlInjection/course.data"
+import content from "components/Courses/sqlInjection/course.data"
 import Sidebar from "components/Course/Sidebar";
 const Course = (props) => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -25,11 +25,14 @@ const Course = (props) => {
       {user && (
 <>
           <NavbarClean/>
-          <Sidebar data={courseData.sidebarData} activeSlide={activeSlide}/>
+          <Sidebar data={content} activeSlide={activeSlide}/>
           <PageCourse>
-              <TemporaryHeader>interaktywny slajd {props.match.params.courseName} {activeSlide}</TemporaryHeader>
-          </PageCourse>
-          <Navigation data={courseData.sidebarData} activeSlide={activeSlide} setActiveSlide={setActiveSlide}/>
+            {content.map((step, index) => {
+              if(index === activeSlide) return step.slide
+})}
+</PageCourse>
+
+          <Navigation data={content} activeSlide={activeSlide} setActiveSlide={setActiveSlide}/>
           </>
       )}
         </>

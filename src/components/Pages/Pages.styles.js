@@ -52,6 +52,7 @@ height: calc(100vh - ${footerHeight} - ${navbarHeight});
 width: calc(100vw - ${notebookWidth} - ${courseSidebarWidth});
 margin-right: ${notebookWidth};
 margin-left: ${courseSidebarWidth};
+display: flex;
 `
 
 export const TemporaryHeader = styled.h1`

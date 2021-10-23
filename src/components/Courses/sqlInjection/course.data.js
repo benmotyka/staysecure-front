@@ -1,12 +1,15 @@
-const data = {
-    sidebarData: [
+import WhatIsSql from "./parts/WhatIsSql"
+
+const content = [
         {
             header: "Header 1",
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a nisi sit amet neque placerat lobortis sed eget ligula. Aenean lectus nisi, consequat sit amet aliquet nec, hendrerit ut ante. Vestibulum ac felis consectetur, hendrerit quam eu, convallis sem. Curabitur posuere metus lobortis congue elementum. In hac habitasse platea dictumst. In mattis ultrices efficitur. Donec posuere neque lacus, non cursus urna malesuada ut. Nullam posuere ac dui eget laoreet."
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a nisi sit amet neque placerat lobortis sed eget ligula. Aenean lectus nisi, consequat sit amet aliquet nec, hendrerit ut ante. Vestibulum ac felis consectetur, hendrerit quam eu, convallis sem. Curabitur posuere metus lobortis congue elementum. In hac habitasse platea dictumst. In mattis ultrices efficitur. Donec posuere neque lacus, non cursus urna malesuada ut. Nullam posuere ac dui eget laoreet.",
+            slide: <WhatIsSql/>
         },
         {
             header: "Header 2",
-            text: "Nulla vehicula porttitor interdum. Aliquam erat volutpat. Suspendisse malesuada vitae libero sed semper. Donec ultrices sem sed leo pulvinar, vitae facilisis diam tempus. Quisque turpis lacus, iaculis maximus massa nec, semper tristique lectus. Nam cursus gravida rhoncus. Vivamus nec pretium magna."
+            text: "Nulla vehicula porttitor interdum. Aliquam erat volutpat. Suspendisse malesuada vitae libero sed semper. Donec ultrices sem sed leo pulvinar, vitae facilisis diam tempus. Quisque turpis lacus, iaculis maximus massa nec, semper tristique lectus. Nam cursus gravida rhoncus. Vivamus nec pretium magna.",
+            slide: <WhatIsSql/>
         },
         {
             header: "Header 3",
@@ -29,6 +32,5 @@ const data = {
             text: "Aliquam sodales interdum odio, ut tristique quam viverra sed. Suspendisse ut bibendum enim. Pellentesque lobortis imperdiet tortor ut pellentesque."
         }
     ]
-}
 
-export default data
+export default content

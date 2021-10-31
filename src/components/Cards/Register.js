@@ -13,9 +13,10 @@ import {
   Input,
   ErrorsWrapper,
   Error,
-  SuccessText
+  SuccessText,
 } from "./Cards.styles";
 import Loader from "components/Loader/Loader";
+import AccountLevel from "components/Account/Cards/Parts/AccountLevel";
 
 import Button from "../Button/Button";
 const Register = () => {
@@ -27,6 +28,7 @@ const Register = () => {
     name: "",
     password: "",
     passwordConfirmation: "",
+    accountLevel: "basic"
   });
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -50,6 +52,7 @@ const Register = () => {
   };
 
   const sendData = () => {
+    console.log(registrationData)
     if (!registrationData.password || !registrationData.email || !registrationData.name || registrationData.password.length < 5 || !isEmail(registrationData.email)) {
       setError("Błędny email, nazwa lub hasło");
       return;
@@ -67,8 +70,8 @@ const Register = () => {
           setLoading(true);
           const requestBody = {
             query: `
-          mutation Register($email: String!, $password: String!, $name: String!, $captcha: String!){
-            register(email: $email, password: $password, name: $name, captchaToken: $captcha) {
+          mutation Register($email: String!, $password: String!, $name: String!, $captcha: String!, $accountLevel: String!){
+            register(email: $email, password: $password, name: $name, captchaToken: $captcha, accountLevel: $accountLevel) {
                 email
             }
           }   
@@ -78,6 +81,7 @@ const Register = () => {
             password: registrationData.password,
             name: registrationData.name,
             captcha: token,
+            accountLevel: registrationData.accountLevel
           },
           };
           try {
@@ -129,6 +133,7 @@ const Register = () => {
         value={registrationData.passwordConfirmation}
         onChange={set("passwordConfirmation")}
       ></Input>
+      <AccountLevel data={registrationData.accountLevel} onClick={setRegistrationData}/>
       <ErrorsWrapper>
         <Error>{errorMessage}</Error>
       </ErrorsWrapper>

@@ -1,10 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 
-import { useSelector } from "react-redux";
-import { selectUser } from "features/userSlice";
-
-
 import { Container, Header } from "./PasswordChange.styles";
 import {
   Input,
@@ -16,8 +12,7 @@ import {
 import Button from "components/Button/Button";
 import Loader from "components/Loader/Loader";
 
-const PasswordChange = () => {
-  const user = useSelector(selectUser);
+const PasswordChange = (props) => {
 
   const [passwordChangeData, setPasswordChangeData] = useState({
     oldPassword: "",
@@ -83,7 +78,7 @@ const PasswordChange = () => {
               data: { data: {resetPassword: response} },
             } = await axios.post(`http://localhost:8081/graphql`, requestBody, {
               headers: {
-                Authorization: `Bearer ${user.token}`,
+                Authorization: `Bearer ${props.user.token}`,
               },
             });
             if (response) {

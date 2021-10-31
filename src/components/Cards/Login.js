@@ -59,6 +59,7 @@ const Login = () => {
               name
               token
               tokenExpiration
+              accountLevel
             }
           }  
           `,
@@ -80,7 +81,8 @@ const Login = () => {
                 login({
                   token: response.token,
                   userId: response.userId,
-                  name: response.name
+                  name: response.name,
+                  accountLevel: response.accountLevel
                 })
               );
               history.push("/my-account");

@@ -6,7 +6,7 @@ display: flex;
 flex-direction: column;
 padding: 25px;
 padding-right: calc(100% - 500px);
-padding-bottom: ${props => props.noPaddingBottom ? "0": "70px"};
+padding-bottom: ${props => props.noPaddingBottom ? "0": "20px"};
 background-color: ${colors.darkPurple};
 margin-bottom: 20px;
 `

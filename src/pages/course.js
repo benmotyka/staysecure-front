@@ -4,9 +4,8 @@ import { selectUser } from "features/userSlice";
 import { useHistory } from "react-router-dom";
 
 import NavbarClean from "components/Navbar/NavbarClean";
-import { PageCourse, TemporaryHeader } from "components/Pages/Pages.styles";
+import { PageCourse } from "components/Pages/Pages.styles";
 import Navigation from "components/Course/Navigation";
-import Modal from 'components/Modal/Modal'
 
 import content from "components/Courses/sqlInjection/course.data"
 import Sidebar from "components/Course/Sidebar";
@@ -33,8 +32,7 @@ const Course = (props) => {
 })}
 </PageCourse>
 
-          <Navigation data={content} activeSlide={activeSlide} setActiveSlide={setActiveSlide}/>
-         <Modal header="Czy chcesz zakończyć kurs?" text="Kurs kończy się quizem. Czy chcesz zakończyć kurs i przejść do quizu?" button1Text="Anuluj" button2Text="Przejdź"/>
+          <Navigation data={content} activeSlide={activeSlide} setActiveSlide={setActiveSlide} courseName={props.match.params.courseName}/>
           </>
       )}
         </>

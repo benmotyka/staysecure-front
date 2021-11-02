@@ -14,6 +14,7 @@ import course from "pages/course"
 
 import accountSettings from "pages/account/settings";
 import accountCourses from "pages/account/courses";
+import quiz from "pages/quiz";
 // import ForgotPasswordPage from "pages/ForgotPasswordPage";
 // import ForgotPasswordChangePage from "pages/ForgotPasswordChangePage";
 // // COURSES
@@ -22,7 +23,7 @@ import accountCourses from "pages/account/courses";
 // import KeyloggerPage from "pages/articles/KeyloggerPage";
 // import QuizPage from "pages/QuizPage";
 
-const Routes = () => {
+const Routes = (props) => {
   return (
     <Switch>
       <Route path="/" component={home} exact />
@@ -41,6 +42,7 @@ const Routes = () => {
       <Route path="/account/courses" component={accountCourses} />
 
       <Route path="/course/:courseName" component={course} />
+      <Route path="/quiz/:courseName" component={quiz} /> 
 
       {/* 
       <Route path="/forgot-password" component={ForgotPasswordPage} exact />
@@ -49,8 +51,7 @@ const Routes = () => {
       path="/forgot-password/:token"
       component={ForgotPasswordChangePage}
       />
-      <Route path="/course/sql-injection" component={SqlInjectionCourse} />
-    <Route path="/quiz/:courseName" component={QuizPage} /> */}
+      */}
       <Redirect to="/" />
     </Switch>
   );

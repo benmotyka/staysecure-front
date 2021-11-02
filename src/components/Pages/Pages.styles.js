@@ -3,6 +3,9 @@ import {sidebarWidth} from "../Account/Sidebar/Sidebar.styles"
 import {notebookWidth} from "components/Notebook/Notebook.styles"
 import { courseSidebarWidth } from "components/Course/Sidebar.styles";
 
+const footerHeight = "80px";
+const navbarHeight = "80px";
+
 export const PageCentered = styled.div`
 background: transparent linear-gradient(180deg, #2B2E4A 0%, #2B2E4A 100%) 0% 0% no-repeat padding-box;
 display: flex;
@@ -22,16 +25,14 @@ flex-direction: column;
 
 export const PageOneChild = styled.div`
 width: 100%;
-height: 100vh;
+height: ${props => props.includeNavbar ? `calc(100vh - ${navbarHeight})` : "100vh"};
+
 display: flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
 background: transparent linear-gradient(180deg, #2B2E4A 0%, #2B2E4A 100%) 0% 0% no-repeat padding-box;
 `
-
-const footerHeight = "80px";
-const navbarHeight = "80px";
 
 export const PageAccount = styled.div`
 width: 100%;

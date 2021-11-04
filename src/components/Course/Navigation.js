@@ -8,7 +8,7 @@ import {
 import Modal from 'components/Modal/Modal'
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-
+import axios from "axios"
 
 const Navigation = (props) => {
 
@@ -21,14 +21,35 @@ const Navigation = (props) => {
     props.setActiveSlide(index);
   };
 
-  const markCourseFinished = (courseName) => {
-    console.log(courseName)
-    //send req that user finished course
+  const markCourseFinishedAndProceedToQuiz = async () => {
+    console.log(props.courseName)
+    const requestBody = {
+      query: `
+      mutation AddCourseToFinished($courseName: String!){
+        addCourseToFinished(courseName: $courseName){
+          link
+          }
+        }
+    `,
+      variables: {
+        courseName: props.courseName,
+      },
+    };
+    try {
+     await axios.post(`http://localhost:8081/graphql`, requestBody, {
+        headers: {
+          Authorization: `Bearer ${props.user.token}`,
+        },
+      });
+      history.push(`/quiz/${props.courseName}`);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
     <Container>
-      <ChangeSlideButton
+        <ChangeSlideButton
         previous
         onClick={() => {
           changeSlide(props.activeSlide - 1);
@@ -58,8 +79,7 @@ const Navigation = (props) => {
         setShowEndingModal(false)
       }} 
       button2OnClick={() => {
-        markCourseFinished(props.courseName);
-        history.push(`/quiz/${props.courseName}`);
+        markCourseFinishedAndProceedToQuiz();
       }}
       />}
     </Container>

@@ -41,7 +41,6 @@ const Course = (props) => {
           data: { courses: response },
         },
       } = await axios.post(`http://localhost:8081/graphql`, requestBody);
-      console.log(response)
       if(!response.map(item => item.link).includes(props.match.params.courseName)) history.push("/courses");
     } catch (error) {
       console.log(error);

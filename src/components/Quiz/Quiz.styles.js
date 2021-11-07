@@ -77,17 +77,17 @@ margin-bottom: 100px;
 
 export const Answer = styled.button`
 opacity: none;
-background: ${colors.darkestPurple};
 border: none;
 cursor: pointer;
 font-size: 25px;
 padding: 10px 20px;
 color: ${colors.white};
 text-align: left;
-border: 2px solid ${colors.darkestPurple};
 transition: 0.1s all ease-in-out;
+background: ${props => props.choosen ? colors.orange : colors.darkestPurple};
+border: ${props => props.choosen ? `2px solid ${colors.orange}` : `2px solid ${colors.darkestPurple}`};
 
 &:hover {
-    border: 2px solid ${colors.hoverOrange};
+    border: 2px solid ${colors.orange};
 }
 `

@@ -9,7 +9,8 @@ import { useSelector } from "react-redux";
 import { selectUser } from "features/userSlice";
 
 const Settings  = () => {
-    const dispatch = useDispatch();
+
+  const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
   const [userData, setUserData] = useState({

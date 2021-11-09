@@ -22,7 +22,6 @@ const Navigation = (props) => {
   };
 
   const markCourseFinishedAndProceedToQuiz = async () => {
-    console.log(props.courseName)
     const requestBody = {
       query: `
       mutation AddCourseToFinished($courseName: String!){

@@ -20,33 +20,35 @@ const Course = (props) => {
   useEffect(() => {
     (async () => {
   if (!user) history.push("/login");
-  await checkIfCourseExists()
+  setLoading(true);
+  await addCourseToStarted()
+  setLoading(false);
     })();
   }, []);
   
-  const checkIfCourseExists = async () => {
-    setLoading(true);
+  const addCourseToStarted = async () => {
     const requestBody = {
       query: `
-          query{
-            courses(quantity: ${null}){
-              link
-            }
+      mutation AddCourseToStarted($courseName: String!){
+        addCourseToStarted(courseName: $courseName){
+          link
           }
-          `,
+        }
+    `,
+      variables: {
+        courseName: props.match.params.courseName,
+      },
     };
     try {
-      const {
-        data: {
-          data: { courses: response },
+     const {data: {data: {addCourseToStarted: {link}}}} = await axios.post(`http://localhost:8081/graphql`, requestBody, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
         },
-      } = await axios.post(`http://localhost:8081/graphql`, requestBody);
-      if(!response.map(item => item.link).includes(props.match.params.courseName)) history.push("/courses");
+      });
     } catch (error) {
       console.log(error);
+      history.push("/courses");
     }
-    setLoading(false);
-
   }
 
   return (

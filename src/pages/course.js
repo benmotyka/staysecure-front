@@ -21,7 +21,10 @@ const Course = (props) => {
 
   useEffect(() => {
     (async () => {
-  if (!user) history.push("/login");
+  if (!user) {
+    history.push("/login");
+    return 
+}
   setLoading(true);
   await addCourseToStarted()
   setLoading(false);
@@ -57,8 +60,6 @@ const Course = (props) => {
       }
     } catch (error) {
       console.log(error);
-
-      history.push("/courses");
     }
   }
 

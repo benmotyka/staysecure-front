@@ -18,13 +18,13 @@ const FinishedCourses = (props) => {
     <Container>
       <HeaderContainer>
         <Header>Ukończone kursy</Header>
-        <ExpandArrow rotate={expanded} onClick={() => {
+        <ExpandArrow rotate={expanded ? "true" : undefined} onClick={() => {
           setExpanded(!expanded)
         }}/>
       </HeaderContainer>
       <Wrapper ref={contentRef} >
-        {props.coursesFinished && props.coursesFinished.map(course => (
-      <CourseFinished header={course.header} description={course.description} linkToQuiz={course.link}/>  
+        {props.coursesFinished && props.coursesFinished.map((course, index) => (
+      <CourseFinished key={index} header={course.header} description={course.description} linkToQuiz={course.link}/>  
         ))}
       </Wrapper>
     </Container>

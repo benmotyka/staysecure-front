@@ -10,11 +10,13 @@ import StartedCoursesCard from "components/Account/Cards/StartedCourses";
 import { PageAccount, PageSection } from "components/Pages/Pages.styles";
 import NavbarClean from "components/Navbar/NavbarClean";
 import FinishedCoursesCard from "components/Account/Cards/FinishedCourses";
+import Loader from "components/Loader/Loader";
 const Courses = () => {
   const history = useHistory();
 
   const [coursesFinished, setCoursesFinished] = useState([])
   const [coursesStarted, setCoursesStarted] = useState([])
+  const [loading, setLoading] = useState(0)
   useEffect(() => {
     if (!user) history.push("/login");
       (async function() {
@@ -26,6 +28,7 @@ const Courses = () => {
   const user = useSelector(selectUser);
 
   const getUserInfo = async () => {
+    setLoading(true)
     try {
       const requestBody = {
         query: `
@@ -57,6 +60,7 @@ const Courses = () => {
     } catch (error) {
       console.log(error)
     }
+    setLoading(false)
     }
 
   return (
@@ -67,8 +71,10 @@ const Courses = () => {
           <PageAccount>
             <Sidebar />
             <PageSection>
-              <StartedCoursesCard coursesStarted={coursesStarted}/>
-              <FinishedCoursesCard coursesFinished={coursesFinished}/>
+              {loading? <Loader/> : ( <>
+                <StartedCoursesCard coursesStarted={coursesStarted}/>
+              <FinishedCoursesCard coursesFinished={coursesFinished}/>         
+              </>)}
             </PageSection>
           </PageAccount>
           <Footer />

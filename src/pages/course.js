@@ -11,8 +11,10 @@ import Loader from "components/Loader/Loader";
 
 import content from "components/Courses/sqlInjection/course.data";
 import Sidebar from "components/Course/Sidebar";
+import Modal from "components/Modal/Modal";
 const Course = (props) => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [courseAlreadyFinishedPopup, setCourseAlreadyFinishedPopup] = useState(0)
   const [loading, setLoading] = useState(0)
   const history = useHistory();
   const user = useSelector(selectUser);
@@ -40,15 +42,49 @@ const Course = (props) => {
       },
     };
     try {
-     const {data: {data: {addCourseToStarted: {link}}}} = await axios.post(`http://localhost:8081/graphql`, requestBody, {
+     const {data} = await axios.post(`http://localhost:8081/graphql`, requestBody, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
+      if(data.errors) {
+        if(data.errors[0].message === 'course-already-finished') {
+          setCourseAlreadyFinishedPopup(true)
+        }
+        if(data.errors[0].message === 'course-not-found') {
+          history.push("/courses");
+        }
+      }
+    } catch (error) {
+      console.log(error);
+
+      history.push("/courses");
+    }
+  }
+
+  const restartCourse = async () => {
+    const requestBody = {
+      query: `
+      mutation RestartCourse($courseName: String!){
+        restartCourse(courseName: $courseName){
+          link
+          }
+        }
+    `,
+      variables: {
+        courseName: props.match.params.courseName,
+      },
+    };
+    try {
+     await axios.post(`http://localhost:8081/graphql`, requestBody, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
       });
     } catch (error) {
       console.log(error);
-      history.push("/courses");
     }
+    setCourseAlreadyFinishedPopup(false)
   }
 
   return (
@@ -57,7 +93,15 @@ const Course = (props) => {
         <>
         {loading? <Loader/> : (
           <>
-          <NavbarClean />
+          {courseAlreadyFinishedPopup? <Modal
+          header="Ten kurs został już przez Ciebie zakończony" text="Czy chcesz rozpocząć kurs ponownie?" button1Text="Anuluj" button2Text="Rozpocznij" button1OnClick={() => {
+            history.push("/courses");
+          }} 
+          button2OnClick={() => {
+            restartCourse();
+          }}
+          /> : (<> 
+            <NavbarClean />
           <Sidebar data={content} activeSlide={activeSlide} />
           <PageCourse>
             {content.map((step, index) => {
@@ -70,7 +114,8 @@ const Course = (props) => {
             activeSlide={activeSlide}
             setActiveSlide={setActiveSlide}
             courseName={props.match.params.courseName}
-          />
+          />  
+          </>)}
           </>
         )}
         </>

@@ -15,8 +15,8 @@ const Course = (props) => {
         </HeaderContainer>
         <Description>{Parser(props.description)}</Description>
         <DifficultyWrapper>
-    {[...Array(props.difficulty)].map(level => (
-        <DifficultyLevel/>
+    {[...Array(props.difficulty)].map((level, index) => (
+        <DifficultyLevel key={index}/>
     ))}
     </DifficultyWrapper>
     </Body>

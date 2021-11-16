@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { selectUser } from "features/userSlice";
 import { useHistory } from "react-router-dom";
+import { logout } from "features/userSlice";
+import {useDispatch} from "react-redux"
 import axios from "axios";
 
 import Footer from "components/Footer/Footer";
@@ -12,6 +14,7 @@ import NavbarClean from "components/Navbar/NavbarClean";
 import FinishedCoursesCard from "components/Account/Cards/FinishedCourses";
 const Courses = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const [coursesFinished, setCoursesFinished] = useState([])
   const [coursesStarted, setCoursesStarted] = useState([])
@@ -55,6 +58,8 @@ const Courses = () => {
       setCoursesFinished(getUserInfo.coursesFinished)
       setCoursesStarted(getUserInfo.coursesStarted)
     } catch (error) {
+      if(error.response || error.response.data.errors.length && error.response.data.errors[0].message === 'unauthenticated') dispatch(logout());
+      history.push("/login");
       console.log(error)
     }
     }

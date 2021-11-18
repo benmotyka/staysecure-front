@@ -9,22 +9,33 @@ import { PageCourse } from "components/Pages/Pages.styles";
 import Navigation from "components/Course/Navigation";
 import Loader from "components/Loader/Loader";
 
-import content from "components/Courses/sqlInjection/course.data";
+import coursesData from "components/Courses/sqlInjection/course.data";
 import Sidebar from "components/Course/Sidebar";
 import Modal from "components/Modal/Modal";
 const Course = (props) => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [loadedData, setLoadedData] = useState(0);
+  const [content, setContent] = useState([])
   const [courseAlreadyFinishedPopup, setCourseAlreadyFinishedPopup] = useState(0)
   const [loading, setLoading] = useState(0)
   const history = useHistory();
   const user = useSelector(selectUser);
 
+  const courseName = props.match.params.courseName
+
   useEffect(() => {
     (async () => {
+  const courseData = coursesData.find(item => item.course === courseName)
   if (!user) {
   history.push("/login");
-  return }
-    
+  return 
+  }
+  if(!courseData) {
+    history.push("/courses");
+    return
+  }
+  setContent(courseData.content)
+  setLoadedData(true)
   setLoading(true);
   await addCourseToStarted()
   setLoading(false);
@@ -41,7 +52,7 @@ const Course = (props) => {
         }
     `,
       variables: {
-        courseName: props.match.params.courseName,
+        courseName: courseName,
       },
     };
     try {
@@ -73,7 +84,7 @@ const Course = (props) => {
         }
     `,
       variables: {
-        courseName: props.match.params.courseName,
+        courseName: courseName,
       },
     };
     try {
@@ -90,7 +101,7 @@ const Course = (props) => {
 
   return (
     <>
-      {user && (
+      {(user && loadedData) && (
         <>
         {loading? <Loader/> : (
           <>
@@ -114,7 +125,7 @@ const Course = (props) => {
             data={content}
             activeSlide={activeSlide}
             setActiveSlide={setActiveSlide}
-            courseName={props.match.params.courseName}
+            courseName={courseName}
           />  
           </>)}
           </>

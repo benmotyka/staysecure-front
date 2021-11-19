@@ -12,12 +12,14 @@ import Loader from "components/Loader/Loader";
 import coursesData from "components/Courses/sqlInjection/course.data";
 import Sidebar from "components/Course/Sidebar";
 import Modal from "components/Modal/Modal";
+import React from "react";
 const Course = (props) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [loadedData, setLoadedData] = useState(0);
   const [content, setContent] = useState([])
   const [courseAlreadyFinishedPopup, setCourseAlreadyFinishedPopup] = useState(0)
   const [loading, setLoading] = useState(0)
+  const [waitForCorrectAnswer, setWaitForCorrectAnswer] = useState(false)
   const history = useHistory();
   const user = useSelector(selectUser);
 
@@ -34,7 +36,12 @@ const Course = (props) => {
     history.push("/courses");
     return
   }
-  setContent(courseData.content)
+  if(user.accountLevel === 'basic') {
+    setContent(courseData.content.filter(slide => slide.level === 'basic'))
+  } 
+  if(user.accountLevel === 'advanced') {
+    setContent(courseData.content)
+  }
   setLoadedData(true)
   setLoading(true);
   await addCourseToStarted()
@@ -117,7 +124,7 @@ const Course = (props) => {
           <Sidebar data={content} activeSlide={activeSlide} />
           <PageCourse>
             {content.map((step, index) => {
-              if (index === activeSlide) return step.slide;
+              if (index === activeSlide) return step.slide? React.cloneElement(step.slide, {test: "test", setWaitForCorrectAnswer}) : ""
             })}
           </PageCourse>
           <Navigation
@@ -126,6 +133,7 @@ const Course = (props) => {
             activeSlide={activeSlide}
             setActiveSlide={setActiveSlide}
             courseName={courseName}
+            waitForCorrectAnswer={waitForCorrectAnswer}
           />  
           </>)}
           </>

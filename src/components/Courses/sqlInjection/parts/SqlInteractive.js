@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from "styled-components";
 import Browser from "../../Browser/Browser.js"
 
@@ -27,9 +27,13 @@ align-items: center;
 
 
 
-const SqlInteractive = () => {
+const SqlInteractive = (props) => {
 
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    props.setWaitForCorrectAnswer(true)
+},[])
 
   const code = `const a = 0;
 const b = 1;
@@ -44,7 +48,9 @@ const sql = 'SELECT * FROM products p where p.name = "${search}"'
                     <label for="input">Wpisz nazwę produktu aby wyszukać:</label>
                     <input name="input" onChange={(e) => setSearch(e.target.value)}/>
                     <br/>
-                    <button>Wyszukaj</button>
+                    <button onClick={() => {
+                        props.setWaitForCorrectAnswer(false)
+                    }}>Wyszukaj</button>
                 </PageBody>
                 </Browser>
             </Wrapper>

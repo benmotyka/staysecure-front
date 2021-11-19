@@ -18,13 +18,11 @@ const Navigation = (props) => {
   const changeSlide = (index) => {
     if (index < 0) return;
     if (index >= props.data.length) { setShowEndingModal(true); return}
+    if (props.waitForCorrectAnswer && props.activeSlide < index) return
     props.setActiveSlide(index);
   };
 
   const markCourseFinishedAndProceedToQuiz = async () => {
-    console.log("===========")
-    console.log(props.courseName)
-    console.log("===========")
     const requestBody = {
       query: `
       mutation AddCourseToFinished($courseName: String!){

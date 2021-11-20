@@ -1,5 +1,6 @@
 import styled, {css} from "styled-components";
 import colors from "constans/colors"
+import {IoMdCheckmarkCircleOutline as Success} from "react-icons/io"
 export const courseSidebarWidth = "400px"
 
 export const Container = styled.div`
@@ -30,4 +31,23 @@ ${TextFormat};
 export const Text = styled.p`
 ${TextFormat};
 opacity: 0.8;
+`
+
+export const SuccessIcon = styled(Success)`
+font-size: 120px;
+color: ${colors.hoverLightGreen};
+opacity: ${props => props.show ? "1" : "0"};
+transition: 0.5s all ease-in;
+`
+
+export const TextContainer = styled.div`
+width: 100%;
+height: 75%;
+`
+
+export const InteractiveSuccessContainer = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
 `

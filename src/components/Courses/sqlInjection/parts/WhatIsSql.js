@@ -14,7 +14,6 @@ const WhatIsSql = (props) => {
     const [test, setTest] = useState(false)
     const changestate = () => {
         props.setWaitForCorrectAnswer(false)
-        console.log("lul")
     }
     return (
         <div>

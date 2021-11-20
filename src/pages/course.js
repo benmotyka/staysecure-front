@@ -121,7 +121,7 @@ const Course = (props) => {
           }}
           /> : (<> 
             <NavbarClean />
-          <Sidebar data={content} activeSlide={activeSlide} />
+          <Sidebar waitForCorrectAnswer={waitForCorrectAnswer} data={content} activeSlide={activeSlide} />
           <PageCourse>
             {content.map((step, index) => {
               if (index === activeSlide) return step.slide? React.cloneElement(step.slide, {test: "test", setWaitForCorrectAnswer}) : ""

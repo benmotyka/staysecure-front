@@ -17,12 +17,13 @@ grid-template-rows: 1fr;
 export const ChangeSlideButton = styled.button`
 transform: ${props => props.previous ? "rotate(180deg)": ""};
 height: 100%;
-cursor: pointer;
 background-color: ${colors.darkestPurple};
+opacity: ${props => props.disabled ? "10%": "100%"};
+cursor: ${props => props.disabled ? "normal": "pointer"};
 border: none;
 transition: 0.2s all ease-in-out;
 &:hover {
-background-color: ${colors.mediumDarkPurple};
+background-color: ${props => props.disabled ? colors.darkestPurple: colors.mediumDarkPurple};
 }
 `
 
@@ -37,6 +38,7 @@ margin: 0 10px;
 cursor: pointer;
 color: ${({ active }) =>
     active ? colors.lightGreen : colors.white};
+transform: ${props => props.interactive ? "rotate(45deg)": ""};
 transition: 0.2s all ease-in-out;
 &:hover{
     color: ${colors.lightGreen};

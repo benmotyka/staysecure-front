@@ -16,9 +16,10 @@ const Navigation = (props) => {
   const history = useHistory();
 
   const changeSlide = (index) => {
-    if (index < 0) return;
+    if (index < 0 || props.activeSlide < index - 1) return;
     if (index >= props.data.length) { setShowEndingModal(true); return}
     if (props.waitForCorrectAnswer && props.activeSlide < index) return
+    props.setWaitForCorrectAnswer(false)
     props.setActiveSlide(index);
   };
 
@@ -61,6 +62,7 @@ const Navigation = (props) => {
         {props.data.map((slide, index) => (
           <Step
             key={index}
+            interactive={slide.interactive}
             active={props.activeSlide >= index ? true : false}
             onClick={() => {
               changeSlide(index);
@@ -72,6 +74,7 @@ const Navigation = (props) => {
         onClick={() => {
           changeSlide(props.activeSlide + 1);
         }}
+        disabled={props.waitForCorrectAnswer}
       >
         <Arrow />
       </ChangeSlideButton>

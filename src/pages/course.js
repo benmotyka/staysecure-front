@@ -134,6 +134,7 @@ const Course = (props) => {
             setActiveSlide={setActiveSlide}
             courseName={courseName}
             waitForCorrectAnswer={waitForCorrectAnswer}
+            setWaitForCorrectAnswer={setWaitForCorrectAnswer}
           />  
           </>)}
           </>

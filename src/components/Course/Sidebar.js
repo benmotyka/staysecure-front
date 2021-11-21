@@ -1,4 +1,4 @@
-import React from 'react'
+import Parser from 'html-react-parser';
 
 import {Container, Wrapper, Header, Text, TextContainer, InteractiveSuccessContainer, SuccessIcon} from "./Sidebar.styles"
 const Sidebar = (props) => {
@@ -7,7 +7,7 @@ const Sidebar = (props) => {
             <Wrapper>
                 <TextContainer>
                 <Header>{props.data[props.activeSlide].header}</Header>
-                <Text>{props.data[props.activeSlide].text}</Text>
+                <Text>{Parser(props.data[props.activeSlide].text)}</Text>
                 </TextContainer>
                 <InteractiveSuccessContainer>
                     <SuccessIcon show={!props.waitForCorrectAnswer && props.data[props.activeSlide].interactive}/> 

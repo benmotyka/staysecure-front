@@ -7,7 +7,7 @@ const content = [
         content: [
             {
                 header: "Header 1",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a nisi sit amet neque placerat lobortis sed eget ligula. Aenean lectus nisi, consequat sit amet aliquet nec, hendrerit ut ante. Vestibulum ac felis consectetur, hendrerit quam eu, convallis sem. Curabitur posuere metus lobortis congue elementum. In hac habitasse platea dictumst. In mattis ultrices efficitur. Donec posuere neque lacus, non cursus urna malesuada ut. Nullam posuere ac dui eget laoreet.",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a nisi sit amet neque placerat lobortis sed eget ligula. Aenean lectus nisi, consequat sit amet aliquet nec, hendrerit ut ante. Vestibulum ac felis consectetur, hendrerit quam eu, convallis sem. Curabitur posuere metus lobortis congue elementum.<br><br> In hac habitasse platea dictumst. In mattis ultrices efficitur. Donec posuere neque lacus, non cursus urna malesuada ut. Nullam posuere ac dui eget laoreet.",
 
                 level: "basic",
             },
@@ -72,9 +72,10 @@ const content = [
         course: "spoofing",
         content: [
             {
-                header: "Header 1",
-                text: "spoofing",
-            }
+                header: "Header 2",
+                text: "phishing",
+                level: "basic"
+            },
         ]
     },
     {
@@ -83,6 +84,7 @@ const content = [
             {
                 header: "Header 1",
                 text: "ransom",
+                level: "basic"
             }
         ]
     },
@@ -92,6 +94,7 @@ const content = [
             {
                 header: "Header 1",
                 text: "social enginering",
+                level: "basic"
             }
         ]
     },
@@ -101,6 +104,7 @@ const content = [
             {
                 header: "Header 1",
                 text: "dos",
+                level: "basic"
             }
         ]
     }

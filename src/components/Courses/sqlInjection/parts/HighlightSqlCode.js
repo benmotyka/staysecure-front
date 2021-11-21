@@ -29,15 +29,25 @@ align-items: center;
 
 const SqlInteractive = (props) => {
 
-  const [search, setSearch] = useState("");
 
   useEffect(() => {
     props.setWaitForCorrectAnswer(true)
 },[])
 
+
+const getSelectedText = () => {
+  if (window.getSelection){
+  const highlitedText = window.getSelection().toString()
+  if (highlitedText === 'FROM') {
+    props.setWaitForCorrectAnswer(false)
+  } else {
+    props.setWaitForCorrectAnswer(true)
+  }
+  }
+}
   const code = `const a = 0;
 const b = 1;
-const sql = "SELECT * FROM products p where p.name = '${search}'"
+const sql = "SELECT * FROM products p where p.name = ''"
 `;
     return (
         <Container>
@@ -46,19 +56,15 @@ const sql = "SELECT * FROM products p where p.name = '${search}'"
                 <PageBody>
                     <h1>Sklep internetowy</h1>
                     <label for="input">Wpisz nazwę produktu aby wyszukać:</label>
-                    <input name="input" onChange={(e) => {
-                      setSearch(e.target.value)
-                      }}/>
+                    <input name="input" disabled/>
                     <br/>
-                    <button onClick={() => {
-                      if(search.match(/' or \d+=\d+ --/gi)) props.setWaitForCorrectAnswer(false)
-                      else props.setWaitForCorrectAnswer(true)
-                    }}>Wyszukaj</button>
+                    <button disabled>Wyszukaj</button>
                 </PageBody>
                 </Browser>
             </Wrapper>
 <Wrapper><CodeMirror
   value={code}
+  onMouseUp={getSelectedText}
 /></Wrapper>
         </Container>
     )

@@ -16,7 +16,7 @@ const Navigation = (props) => {
   const history = useHistory();
 
   const changeSlide = (index) => {
-    if (index < 0 || props.activeSlide < index - 1) return;
+    if (index < 0 || props.activeSlide < index - 1 || index === props.activeSlide) return;
     if (index >= props.data.length) { setShowEndingModal(true); return}
     if (props.waitForCorrectAnswer && props.activeSlide < index) return
     props.setWaitForCorrectAnswer(false)

@@ -1,6 +1,6 @@
 import Parser from 'html-react-parser';
 
-import {Container, Wrapper, Header, Text, TextContainer, InteractiveSuccessContainer, SuccessIcon} from "./Sidebar.styles"
+import {Container, Wrapper, Header, Text, TextContainer, InteractiveSuccessContainer, SuccessIcon, ErrorIcon} from "./Sidebar.styles"
 const Sidebar = (props) => {
     return (
         <Container>

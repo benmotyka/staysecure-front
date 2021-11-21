@@ -1,6 +1,6 @@
 import WhatIsSql from "./parts/WhatIsSql"
 import SqlInteractive from "./parts/SqlInteractive"
-
+import HighlightSqlCode from './parts/HighlightSqlCode'
 const content = [
     {
         course: "sql-injection",
@@ -15,7 +15,7 @@ const content = [
                 header: "Header 2",
                 text: "Nulla vehicula porttitor interdum. Aliquam erat volutpat. Suspendisse malesuada vitae libero sed semper. Donec ultrices sem sed leo pulvinar, vitae facilisis diam tempus. Quisque turpis lacus, iaculis maximus massa nec, semper tristique lectus. Nam cursus gravida rhoncus. Vivamus nec pretium magna.",
                 level: "basic",
-                slide: <WhatIsSql/>,
+                slide: <HighlightSqlCode/>,
                 interactive: true,
             },
             {

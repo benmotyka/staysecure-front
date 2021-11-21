@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import styled from "styled-components";
 import colors from "constans/colors"
 
-const header = styled.h1`
+const Header = styled.h1`
 font-size: 52px;
 color: red;
 `
@@ -17,7 +17,8 @@ const WhatIsSql = (props) => {
     }
     return (
         <div>
-<h1>Test</h1>
+            <Header>lmaoo</Header>
+<h1>Test raz dwa trzy sql injection</h1>
 <input></input>
 <p>{props.test}</p>
 <p onClick={changestate}>lol</p>

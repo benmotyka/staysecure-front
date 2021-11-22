@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import Browser from "../../Browser/Browser.js";
 
 import AceEditor from "react-ace";
+
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-dracula";
 
@@ -26,16 +27,24 @@ const PageBody = styled.div`
 `;
 
 const SqlInteractive = (props) => {
-  const [search, setSearch] = useState("");
-
   useEffect(() => {
     props.setWaitForCorrectAnswer(true);
   }, []);
 
+  const aceEditor = useRef(null);
+
+  const getSelectedText = () => {
+    if (aceEditor.current.editor.getSelectedText().includes("FROM")) {
+      props.setWaitForCorrectAnswer(false);
+    } else {
+      props.setWaitForCorrectAnswer(true);
+    }
+  };
   const code = `const a = 0;
 const b = 1;
-const sql = "SELECT * FROM products p where p.name = '${search}'"
+const sql = "SELECT * FROM products p where p.name = ''"
 `;
+
   return (
     <Container>
       <Wrapper>
@@ -43,33 +52,26 @@ const sql = "SELECT * FROM products p where p.name = '${search}'"
           <PageBody>
             <h1>Sklep internetowy</h1>
             <label for="input">Wpisz nazwę produktu aby wyszukać:</label>
-            <input
-              name="input"
-              onChange={(e) => {
-                setSearch(e.target.value);
-              }}
-            />
+            <input name="input" disabled />
             <br />
-            <button
-              onClick={() => {
-                if (search.match(/' or \d+=\d+ --/gi))
-                  props.setWaitForCorrectAnswer(false);
-                else props.setWaitForCorrectAnswer(true);
-              }}
-            >
-              Wyszukaj
-            </button>
+            <button disabled>Wyszukaj</button>
           </PageBody>
         </Browser>
       </Wrapper>
       <Wrapper>
-      <AceEditor
-            mode="java"
-            theme="dracula"
-            value={code}
-            fontSize={16}
-            wrapEnabled={true}
-            readOnly
+        {/* <CodeMirror
+          value={code}
+          extensions={[javascript({ jsx: true })]}
+        /> */}
+        <AceEditor
+          ref={aceEditor}
+          mode="java"
+          theme="dracula"
+          value={code}
+          fontSize={16}
+          wrapEnabled={true}
+          onCursorChange={getSelectedText}
+          readOnly
         />
       </Wrapper>
     </Container>

@@ -38,7 +38,7 @@ const Navigation = (props) => {
       },
     };
     try {
-     await axios.post(`http://localhost:8081/graphql`, requestBody, {
+     await axios.post(`${window.env.API_URL}/graphql`, requestBody, {
         headers: {
           Authorization: `Bearer ${props.user.token}`,
         },

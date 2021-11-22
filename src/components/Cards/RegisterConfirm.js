@@ -40,7 +40,7 @@ const RegisterConfirm = (props) => {
     };
     try {
       const response = await axios.post(
-        `http://localhost:8081/graphql`,
+        `${window.env.API_URL}/graphql`,
         requestBody
       );
       setLoading(false);

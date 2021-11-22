@@ -35,7 +35,7 @@ const Articles = (props) => {
         data: {
           data: { articles: response },
         },
-      } = await axios.post(`http://localhost:8081/graphql`, requestBody);
+      } = await axios.post(`${window.env.API_URL}/graphql`, requestBody);
       setArticles(response);
       setLoading(false);
     } catch (error) {

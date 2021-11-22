@@ -85,7 +85,7 @@ const Register = () => {
           },
           };
           try {
-            const {data: {data: {register: response}}} = await axios.post(`http://localhost:8081/graphql`, requestBody);
+            const {data: {data: {register: response}}} = await axios.post(`${window.env.API_URL}/graphql`, requestBody);
             console.log(response)
             if (response) {
                 setSuccess(true)

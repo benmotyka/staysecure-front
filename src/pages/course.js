@@ -56,7 +56,7 @@ const Course = (props) => {
       },
     };
     try {
-     const {data} = await axios.post(`http://localhost:8081/graphql`, requestBody, {
+     const {data} = await axios.post(`${window.env.API_URL}/graphql`, requestBody, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
@@ -88,7 +88,7 @@ const Course = (props) => {
       },
     };
     try {
-     await axios.post(`http://localhost:8081/graphql`, requestBody, {
+     await axios.post(`${window.env.API_URL}/graphql`, requestBody, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },

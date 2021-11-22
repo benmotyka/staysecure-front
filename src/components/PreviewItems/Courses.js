@@ -36,7 +36,7 @@ const Courses = (props) => {
         data: {
           data: { courses: response },
         },
-      } = await axios.post(`http://localhost:8081/graphql`, requestBody);
+      } = await axios.post(`${window.env.API_URL}/graphql`, requestBody);
       setCourses(response);
       setLoading(false);
     } catch (error) {

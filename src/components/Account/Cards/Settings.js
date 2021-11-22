@@ -34,7 +34,7 @@ const Settings  = () => {
 
           const {
             data : {data : {changeAccountLevel : {accountLevel}}}
-          } = await axios.post(`http://localhost:8081/graphql`, requestBody, {
+          } = await axios.post(`${window.env.API_URL}/graphql`, requestBody, {
             headers: {
               Authorization: `Bearer ${user.token}`,
             },

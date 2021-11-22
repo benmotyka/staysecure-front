@@ -53,7 +53,7 @@ const Courses = () => {
       `
       };
     
-      const {data: {data: {getUserInfo}}} = await axios.post(`http://localhost:8081/graphql`, requestBody, {
+      const {data: {data: {getUserInfo}}} = await axios.post(`${window.env.API_URL}/graphql`, requestBody, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },

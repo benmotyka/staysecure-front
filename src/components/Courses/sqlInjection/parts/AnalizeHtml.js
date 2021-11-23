@@ -69,7 +69,7 @@ const AnalizeHtml = () => {
     const input = document.getElementById("input")
 
     const search = async (event) => {
-        fetch("https://api/login", {
+        fetch("https://api/search", {
             method: 'GET',
             body: JSON.stringify({
                 value: input.value

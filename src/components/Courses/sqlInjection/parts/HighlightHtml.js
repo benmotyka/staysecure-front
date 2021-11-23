@@ -68,7 +68,7 @@ const HighlightHtml = (props) => {
   const aceEditor = useRef(null);
 
   const getSelectedText = () => {
-    if (aceEditor.current.editor.getSelectedText().includes("https://api/login")) {
+    if (aceEditor.current.editor.getSelectedText().includes("https://api/search")) {
       props.setWaitForCorrectAnswer(false);
     } else {
       props.setWaitForCorrectAnswer(true);
@@ -82,7 +82,7 @@ const HighlightHtml = (props) => {
     const input = document.getElementById("input")
 
     const search = async (event) => {
-        fetch("https://api/login", {
+        fetch("https://api/search", {
             method: 'GET',
             body: JSON.stringify({
                 value: input.value
@@ -121,7 +121,7 @@ const HighlightHtml = (props) => {
         </Wrapper>
           <CodeWrapper>
               <CodeHeaderContainer>
-              <CodeIcon/> <CodeHeader>Kod źródłowy</CodeHeader> 
+              <CodeIcon/> <CodeHeader>Kod źródłowy strony internetowej</CodeHeader> 
               </CodeHeaderContainer>
         <AceEditor
           mode="javascript"

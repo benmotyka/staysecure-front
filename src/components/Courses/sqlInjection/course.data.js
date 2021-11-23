@@ -9,34 +9,38 @@ const content = [
         course: "sql-injection",
         content: [
             {
-                header: "Opisanie okoliczności",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a nisi sit amet neque placerat lobortis sed eget ligula. Aenean lectus nisi, consequat sit amet aliquet nec, hendrerit ut ante. Vestibulum ac felis consectetur, hendrerit quam eu, convallis sem. Curabitur posuere metus lobortis congue elementum.<br><br> In hac habitasse platea dictumst. In mattis ultrices efficitur. Donec posuere neque lacus, non cursus urna malesuada ut. Nullam posuere ac dui eget laoreet.",
+                header: "Scenariusz kursu",
+                text: "W przeglądarce uruchomiona jest prosta strona sklepu internetowego. Podstawową jej funkcjonalnością jest wyszukanie produktu którego chce się wyszukać, aby następnie przeglądać produkty związane z wpisaną frazą.<br><br>Dokładnie zbadanie i analiza kodu źrodłowego strony internetowej jest ... Atakujący dzięki temu może przeglądać kod strony w poszukiwaniu potencjalnych podatności. ",
                 level: "basic",
                 slide: <Introduction/>,
             },
             {
                 header: "Analiza kodu źródłowego",
-                text: "Nulla vehicula porttitor interdum. Aliquam erat volutpat. Suspendisse malesuada vitae libero sed semper. Donec ultrices sem sed leo pulvinar, vitae facilisis diam tempus. Quisque turpis lacus, iaculis maximus massa nec, semper tristique lectus. Nam cursus gravida rhoncus. Vivamus nec pretium magna.",
+                text: "Jak widać na załączonym fragmencie kodu źródłowego, aplikacja sklepu zawiera się z <b>ciała</b>, w której znajduje się struktura strony, oraz <b>skryptu</b>, który jest wykonywany po wystąpieniu określonych okoliczności. W tym wypadku po naciśnięciu przycisku, znajdującego się w tagu &lt;button&gt;, zostanie wywołana funkcja <i>search</i>.<br><br>Zadaniem funkcji jest wysłanie żądania HTTP typu GET do adresu url https://api/search z ciałem w postaci obiektu. W obiekcie tym znajduje się para klucz-wartość, określająca ciąg znaków szukany przez użytkownika.<br><br><b>W tym interaktywnym ćwiczeniu postaraj się zaznaczyć kursorem funkcję znajdującą się w kodzie, która odpowiada za przesłanie formularza.</b>",
                 level: "basic",
-                slide: <AnalizeHtml/>,
-            },
-            {
-                header: "Wskazanie miejsca w kodzie odpowiedzialnego za wysyłke",
-                text: "Mauris mattis velit eros, eu vulputate urna volutpat in. Fusce id sodales nisl. Maecenas id posuere nunc, ac ornare nulla. Quisque arcu lorem, consectetur ut scelerisque sed, vulputate blandit turpis. Nunc sodales at turpis nec dictum. Duis eu tincidunt neque. Aliquam dolor dui, venenatis nec lacus in, hendrerit mollis tellus",
                 slide: <HighlightHtml/>,
+                interactive: true,
+            },
+            // {
+            //     header: "Wskazanie miejsca w kodzie odpowiedzialnego za wysyłke",
+            //     text: "Mauris mattis velit eros, eu vulputate urna volutpat in. Fusce id sodales nisl. Maecenas id posuere nunc, ac ornare nulla. Quisque arcu lorem, consectetur ut scelerisque sed, vulputate blandit turpis. Nunc sodales at turpis nec dictum. Duis eu tincidunt neque. Aliquam dolor dui, venenatis nec lacus in, hendrerit mollis tellus",
+            //     slide: <HighlightHtml/>,
+            //     level: "advanced",
+            //     interactive: true,
+            // },
+            {
+                header: "Header 4",
+                text: "Wartość wysłana z aplikacji internetowej zostaje przekazana do aplikacji serwerowej, celem jej przetworzenia i zwrócenia odpowiednich informacji. W poniższym kodzie źródłowym przedstawiony jest fragment aplikacji odpowiadający pobraniu zawartości żądania a następnie bezpośrednie przekazanie go do zapytania bazodanowego. <br><br><b>W tym interaktywnym ćwiczeniu zaznacz fragment kodu, w którym znajduje się zapytanie SQL</b>",
+                slide: <HighlightSqlCode/>,
                 level: "advanced",
                 interactive: true,
             },
             {
-                header: "Header 4",
-                text: "Cras maximus aliquet sapien id condimentum. Ut et eros nisl. Sed elementum efficitur fringilla. Cras scelerisque, purus ac venenatis interdum, ligula enim posuere dolor, commodo varius erat sapien in massa. ",
-                slide: <HighlightSqlCode/>,
-                level: "basic",
-            },
-            {
                 header: "Header 5",
                 text: "Phasellus mi augue, aliquet vitae vestibulum non, pulvinar at quam. Proin ac nisl pretium, malesuada justo eu, imperdiet felis. Aliquam sodales consequat semper. In non vestibulum leo, at laoreet nunc.",
-                level: "basic"
+                level: "advanced",
+                interactive: true,
+                slide: <SqlInteractive/>,
             },
             {
                 header: "Header 6",

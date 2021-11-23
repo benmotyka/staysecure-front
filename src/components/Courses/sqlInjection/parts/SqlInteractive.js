@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Browser from "../../Browser/Browser.js";
-
 import AceEditor from "react-ace";
+import colors from "constans/colors.js";
+import {HiCode as Code} from "react-icons/hi"
+import "ace-builds/src-noconflict/mode-javascript";
+import "ace-builds/src-noconflict/theme-github";
+
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-dracula";
 
@@ -10,12 +14,46 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
 `;
-
 const Wrapper = styled.div`
-  padding: 25px;
-`;
+height: 40%;
+width: 79%;
+
+`
+
+const CodeWrapper = styled.div`
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+`
+
+const CodeHeaderContainer = styled.div`
+height: 35px;
+width: 1000px;
+background-color: ${colors.darkestPurple};
+margin: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+`
+
+const CodeHeader = styled.h2`
+color: ${colors.orange};
+font-size: 20px;
+margin: 0;
+`
+
+const CodeIcon = styled(Code)`
+font-size: 20px;
+color: ${colors.orange};
+`
 
 const PageBody = styled.div`
   width: 100%;
@@ -27,14 +65,27 @@ const PageBody = styled.div`
 
 const SqlInteractive = (props) => {
   const [search, setSearch] = useState("");
+  const aceEditor = useRef(null);
 
   useEffect(() => {
     props.setWaitForCorrectAnswer(true);
   }, []);
 
-  const code = `const a = 0;
-const b = 1;
-const sql = "SELECT * FROM products p where p.name = '${search}'"
+
+const code = `
+searchItem: async (args, req) => {
+  await validateCaptcha(args.captchaToken);
+
+  const search = '${search}'
+  const sql = "SELECT * FROM products p where p.name = ${search}"
+  const result = await sequelize.query(sql, {
+    plain: false,
+    raw: true,
+    type: QueryTypes.SELECT
+  });
+  
+  return result;
+},
 `;
   return (
     <Container>
@@ -62,16 +113,23 @@ const sql = "SELECT * FROM products p where p.name = '${search}'"
           </PageBody>
         </Browser>
       </Wrapper>
-      <Wrapper>
-      <AceEditor
-            mode="java"
-            theme="dracula"
-            value={code}
-            fontSize={16}
-            wrapEnabled={true}
-            readOnly
+      <CodeWrapper>
+              <CodeHeaderContainer>
+              <CodeIcon/> <CodeHeader>Kod źródłowy aplikacji serwerowej</CodeHeader> 
+              </CodeHeaderContainer>
+              <AceEditor
+          mode="javascript"
+          ref={aceEditor}
+          height={400}
+          width={1000}
+          theme="github"
+          value={code}
+          fontSize={18}
+          wrapEnabled={true}
+          readOnly
         />
-      </Wrapper>
+      </CodeWrapper>
+
     </Container>
   );
 };

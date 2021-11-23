@@ -26,7 +26,7 @@ const PageBody = styled.div`
   align-items: center;
 `;
 
-const SqlInteractive = (props) => {
+const HighlightSqlCode = (props) => {
   useEffect(() => {
     props.setWaitForCorrectAnswer(true);
   }, []);
@@ -78,4 +78,4 @@ const sql = "SELECT * FROM products p where p.name = ''"
   );
 };
 
-export default SqlInteractive;
+export default HighlightSqlCode;

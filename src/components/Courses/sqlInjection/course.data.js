@@ -1,34 +1,36 @@
 import WhatIsSql from "./parts/WhatIsSql"
 import SqlInteractive from "./parts/SqlInteractive"
 import HighlightSqlCode from './parts/HighlightSqlCode'
+import AnalizeHtml from "./parts/AnalizeHtml"
+import HighlightHtml from "./parts/HighlightHtml"
+import Introduction from "./parts/Introduction"
 const content = [
     {
         course: "sql-injection",
         content: [
             {
-                header: "Header 1",
+                header: "Opisanie okoliczności",
                 text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a nisi sit amet neque placerat lobortis sed eget ligula. Aenean lectus nisi, consequat sit amet aliquet nec, hendrerit ut ante. Vestibulum ac felis consectetur, hendrerit quam eu, convallis sem. Curabitur posuere metus lobortis congue elementum.<br><br> In hac habitasse platea dictumst. In mattis ultrices efficitur. Donec posuere neque lacus, non cursus urna malesuada ut. Nullam posuere ac dui eget laoreet.",
-
                 level: "basic",
+                slide: <Introduction/>,
             },
             {
-                header: "Header 2",
+                header: "Analiza kodu źródłowego",
                 text: "Nulla vehicula porttitor interdum. Aliquam erat volutpat. Suspendisse malesuada vitae libero sed semper. Donec ultrices sem sed leo pulvinar, vitae facilisis diam tempus. Quisque turpis lacus, iaculis maximus massa nec, semper tristique lectus. Nam cursus gravida rhoncus. Vivamus nec pretium magna.",
                 level: "basic",
-                slide: <HighlightSqlCode/>,
-                interactive: true,
+                slide: <AnalizeHtml/>,
             },
             {
-                header: "Header 3",
+                header: "Wskazanie miejsca w kodzie odpowiedzialnego za wysyłke",
                 text: "Mauris mattis velit eros, eu vulputate urna volutpat in. Fusce id sodales nisl. Maecenas id posuere nunc, ac ornare nulla. Quisque arcu lorem, consectetur ut scelerisque sed, vulputate blandit turpis. Nunc sodales at turpis nec dictum. Duis eu tincidunt neque. Aliquam dolor dui, venenatis nec lacus in, hendrerit mollis tellus",
-                slide: <SqlInteractive/>,
-                level: "basic",
+                slide: <HighlightHtml/>,
+                level: "advanced",
                 interactive: true,
-                answer: 'test'
             },
             {
                 header: "Header 4",
                 text: "Cras maximus aliquet sapien id condimentum. Ut et eros nisl. Sed elementum efficitur fringilla. Cras scelerisque, purus ac venenatis interdum, ligula enim posuere dolor, commodo varius erat sapien in massa. ",
+                slide: <HighlightSqlCode/>,
                 level: "basic",
             },
             {

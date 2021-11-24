@@ -1,64 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import styled from "styled-components";
 import Browser from "../../Browser/Browser.js";
 import AceEditor from "react-ace";
-import colors from "constans/colors.js";
-import {HiCode as Code} from "react-icons/hi"
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-github";
+import {Container, Wrapper, CodeWrapper, CodeHeaderContainer, CodeHeader, CodeIcon, PageBody} from './Styles.js'
 
-const Container = styled.div`
-  width: 100%;
-  height: 100%;
-  display: grid;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 20px;
-`;
-
-const Wrapper = styled.div`
-height: 40%;
-width: 79%;
-
-`
-
-const CodeWrapper = styled.div`
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-`
-
-const CodeHeaderContainer = styled.div`
-height: 35px;
-width: 1000px;
-background-color: ${colors.darkestPurple};
-margin: 0;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 8px;
-`
-
-const CodeHeader = styled.h2`
-color: ${colors.orange};
-font-size: 20px;
-margin: 0;
-`
-
-const CodeIcon = styled(Code)`
-font-size: 20px;
-color: ${colors.orange};
-`
-const PageBody = styled.div`
-  width: 100%;
-  height: 250px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
 
 const HighlightHtml = (props) => {
     useEffect(() => {

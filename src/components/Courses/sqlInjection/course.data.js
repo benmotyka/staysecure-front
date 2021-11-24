@@ -1,7 +1,5 @@
-import WhatIsSql from "./parts/WhatIsSql"
 import SqlInteractive from "./parts/SqlInteractive"
 import HighlightSqlCode from './parts/HighlightSqlCode'
-import AnalizeHtml from "./parts/AnalizeHtml"
 import HighlightHtml from "./parts/HighlightHtml"
 import Introduction from "./parts/Introduction"
 const content = [
@@ -21,13 +19,6 @@ const content = [
                 slide: <HighlightHtml/>,
                 interactive: true,
             },
-            // {
-            //     header: "Wskazanie miejsca w kodzie odpowiedzialnego za wysyłke",
-            //     text: "Mauris mattis velit eros, eu vulputate urna volutpat in. Fusce id sodales nisl. Maecenas id posuere nunc, ac ornare nulla. Quisque arcu lorem, consectetur ut scelerisque sed, vulputate blandit turpis. Nunc sodales at turpis nec dictum. Duis eu tincidunt neque. Aliquam dolor dui, venenatis nec lacus in, hendrerit mollis tellus",
-            //     slide: <HighlightHtml/>,
-            //     level: "advanced",
-            //     interactive: true,
-            // },
             {
                 header: "Header 4",
                 text: "Wartość wysłana z aplikacji internetowej zostaje przekazana do aplikacji serwerowej, celem jej przetworzenia i zwrócenia odpowiednich informacji. W poniższym kodzie źródłowym przedstawiony jest fragment aplikacji odpowiadający pobraniu zawartości żądania a następnie bezpośrednie przekazanie go do zapytania bazodanowego. <br><br><b>W tym interaktywnym ćwiczeniu zaznacz fragment kodu, w którym znajduje się zapytanie SQL</b>",

@@ -15,22 +15,30 @@ import {
 
 import Button from "components/Button/Button.js";
 import Logo from "components/Logo/Logo.js";
+import { useTranslation } from "react-i18next";
 const Navbar = () => {
   const history = useHistory();
   const user = useSelector(selectUser);
+  const {t, i18n} = useTranslation()
 
+  const changeLanguage = (language) => {
+    i18n.changeLanguage(language)
+  }
   return (
     <Container>
       <Section>
         <Logo />
       </Section>
+      <p onClick={() => changeLanguage("en")}>en</p>
+      <p onClick={() => changeLanguage("pl")}>pl</p>
       <Section>
         <List>
+          
           <Item>
-            <Link to="/articles">Artykuły</Link>
+            <Link to="/articles">{t('header.articles')}</Link>
           </Item>
           <Item>
-            <Link to="/courses">Kursy</Link>
+            <Link to="/courses">{t('header.courses')}</Link>
           </Item>
           {user ? (
             <Item>

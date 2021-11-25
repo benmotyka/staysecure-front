@@ -2,7 +2,6 @@ import { useHistory } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 import { selectUser } from "features/userSlice";
-import { FormattedMessage } from "react-intl"
 import {
   Container,
   Header,
@@ -12,14 +11,15 @@ import {
 
 import Logo from "components/Logo/Logo.js";
 import Button from "components/Button/Button.js";
+import { useTranslation } from "react-i18next";
 const Hero = () => {
   const history = useHistory();
   const user = useSelector(selectUser);
+  const {t} = useTranslation()
 
   return (
     <Container>
-      <Header>Cyber Security Training</Header>
-<FormattedMessage id="hello"/>
+      <Header>{t('heroHeader')}</Header>
       <SubheaderContainer>
         <Subheader>by</Subheader>
         <Logo />
@@ -29,14 +29,14 @@ const Hero = () => {
         onClick={() => {
           history.push("/courses");
         }}
-        text="Przejdź do kursów"
+        text={t('proceedToCourses')}
       />
       ) : (
         <Button
         onClick={() => {
           history.push("/register");
         }}
-        text="Rejestracja"
+        text={t('register')}
       />
       )}
     </Container>

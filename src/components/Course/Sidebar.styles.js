@@ -17,10 +17,13 @@ justify-content: center;
 
 export const Wrapper = styled.div`
 margin: 10px 25px;
-padding: 0 20px;
+padding: 0 20px 20px 20px;
 width: 100%;
-height: calc(100% - 100px);
+height: calc(100% - 120px);
 background-color: ${colors.darkestPurple};
+display: flex;
+justify-content: space-between;
+flex-direction: column;
 `
 
 const TextFormat = css`

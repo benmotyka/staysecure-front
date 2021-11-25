@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 import { selectUser } from "features/userSlice";
-
+import { FormattedMessage } from "react-intl"
 import {
   Container,
   Header,
@@ -19,6 +19,7 @@ const Hero = () => {
   return (
     <Container>
       <Header>Cyber Security Training</Header>
+<FormattedMessage id="hello"/>
       <SubheaderContainer>
         <Subheader>by</Subheader>
         <Logo />

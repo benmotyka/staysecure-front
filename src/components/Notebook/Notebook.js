@@ -19,7 +19,9 @@ import { useState, useEffect } from "react";
 
 import AddNewNote from "./AddNewNote/AddNewNote";
 import DownloadNotes from "./DownloadNotes/DownloadNotes";
+import { useTranslation } from "react-i18next";
 const Notebook = () => {
+  const {t, i18n} = useTranslation()
 
   useEffect(() => {
     const notes = JSON.parse(window.localStorage.getItem("notes"));
@@ -32,7 +34,7 @@ const Notebook = () => {
 
   const downloadNotes = () => {
     let combinedNotes = "";
-    notes.map((note) => {
+    notes.forEach((note) => {
       combinedNotes += note + "\n\n";
     });
     let element = document.createElement("a");
@@ -42,7 +44,7 @@ const Notebook = () => {
     );
     element.setAttribute(
       "download",
-      `Staysecure Notatki ${new Date().toLocaleString("pl-PL")}.txt`
+      `Staysecure ${new Date().toLocaleString("pl-PL")}.txt`
     );
     element.style.display = "none";
     document.body.appendChild(element);
@@ -70,7 +72,7 @@ const Notebook = () => {
       </NotebookIconContainer>
       <NotebookWrapper active={notebookActive}>
         <NotebookHeaderContainer>
-          <NotebookHeader>Notatki</NotebookHeader>
+          <NotebookHeader>{t('notes')}</NotebookHeader>
         </NotebookHeaderContainer>
         <NotebookBody>
           {notes.map((note, key) => (

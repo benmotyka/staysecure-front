@@ -1,9 +1,12 @@
+import { useTranslation } from "react-i18next";
 import {DownloadNotesContainer, Text, DownloadIcon} from "./DownloadNotes.styles"
 
 const DownloadNotes = (props) => {
+  const {t, i18n} = useTranslation()
+
     return (
     <DownloadNotesContainer onClick={props.onClick}>
-            <Text>Pobierz notatki</Text>
+            <Text>{t('downloadNotes')}</Text>
             <DownloadIcon/>
     </DownloadNotesContainer>
     )

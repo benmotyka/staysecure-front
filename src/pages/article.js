@@ -8,8 +8,10 @@ import Footer from "components/Footer/Footer";
 import { PageCentered, PageWrapper } from "components/Pages/Pages.styles";
 import ArticleContent from "components/Article/Article";
 import Articles from "components/PreviewItems/Articles";
+import { useTranslation } from "react-i18next";
 
 const Article = (props) => {
+  const {t} = useTranslation()
 
   useEffect(() => {
     (async () => {
@@ -56,7 +58,7 @@ const Article = (props) => {
         <PageCentered>
           <ArticleContent name={article.header} description={article.description} />
         </PageCentered>
-            <Articles header="Podobne artykuły" quantity={6} random/>
+            <Articles header={t('similarArticles')} quantity={6} random/>
       </PageWrapper>
       <Footer />
     </>

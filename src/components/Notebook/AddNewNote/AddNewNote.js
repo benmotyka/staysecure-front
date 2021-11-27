@@ -9,10 +9,12 @@ import {
   NoteButtonsContainer,
 } from "./AddNewNote.styles";
 import Button from "components/Button/Button";
+import { useTranslation } from "react-i18next";
 
 const AddNewNote = (props) => {
   const [newNoteActive, setNewNoteActive] = useState(false);
   const [noteText, setNoteText] = useState("");
+  const {t, i18n} = useTranslation()
 
   const addNote = () => {
     if (!noteText) return;
@@ -36,19 +38,19 @@ const AddNewNote = (props) => {
           setNewNoteActive(!newNoteActive);
         }}
       >
-        <Text>Dodaj notatkę</Text>
+        <Text>{t('addNote')}</Text>
         <AddIcon />
       </AddNewNoteButtonWrapper>
       <NoteContainer active={newNoteActive}>
         {newNoteActive && (
           <>
             <NoteText
-              placeholder="Wpisz notatkę..."
+              placeholder={t('enterNote')}
               onChange={(e) => setNoteText(e.target.value)}
             />
             <NoteButtonsContainer>
-              <Button noArrow onClick={addNote} text="Dodaj" />
-              <Button noArrow onClick={discardNote} text="Anuluj" />
+              <Button noArrow onClick={addNote} text={t('add')} />
+              <Button noArrow onClick={discardNote} text={t('cancel')} />
             </NoteButtonsContainer>
           </>
         )}

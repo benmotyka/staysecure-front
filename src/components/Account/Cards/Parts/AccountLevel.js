@@ -6,11 +6,15 @@ import {
   Container,
   Header,
 } from "components/Account/Cards/Parts/PasswordChange.styles";
+import { useTranslation } from "react-i18next";
 
 const AccountLevel = (props) => {
+
+  const {t} = useTranslation()
+
   return (
     <Container noPaddingBottom>
-      <Header>Typ konta</Header>
+      <Header>{t('accountType')}</Header>
       <AccountLevelChooserContainer>
         <AccountLevelButton
           active={props.data === "basic"}
@@ -23,7 +27,7 @@ const AccountLevel = (props) => {
             if (props.sendRequest) props.sendRequest("basic");
           }}
         >
-          podstawowy
+          {t('basic')}
         </AccountLevelButton>
         <AccountLevelButton
           active={props.data === "advanced"}
@@ -36,7 +40,7 @@ const AccountLevel = (props) => {
             if (props.sendRequest) props.sendRequest("advanced");
           }}
         >
-          zaawansowany
+          {t('advanced')}
         </AccountLevelButton>
       </AccountLevelChooserContainer>
     </Container>

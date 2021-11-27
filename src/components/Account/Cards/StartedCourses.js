@@ -3,15 +3,18 @@ import { Container, Header, HeaderContainer } from "./Cards.styles";
 
 import Button from "components/Button/Button";
 import CoursePending from "./Parts/CoursePending";
+import { useTranslation } from "react-i18next";
 const StartedCourses = (props) => {
+  const {t} = useTranslation()
+
   const history = useHistory();
 
   return (
     <Container>
       <HeaderContainer>
-        <Header>Rozpoczęte kursy</Header>
+        <Header>{t('startedCourses')}</Header>
         <Button
-          text="Rozpocznij nowy kurs"
+          text={t('startNewCourse')}
           green
           plus
           onClick={() => {

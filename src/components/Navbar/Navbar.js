@@ -29,8 +29,6 @@ const Navbar = () => {
       <Section>
         <Logo />
       </Section>
-      <p onClick={() => changeLanguage("en")}>en</p>
-      <p onClick={() => changeLanguage("pl")}>pl</p>
       <Section>
         <List>
           
@@ -50,7 +48,7 @@ const Navbar = () => {
           ) : (
             <>
               <Item>
-                <Link to="/login">Login</Link>
+                <Link to="/login">{t('login')}</Link>
               </Item>
               <Item>
                 <ButtonContainer>
@@ -58,13 +56,17 @@ const Navbar = () => {
                     onClick={() => {
                       history.push("/register");
                     }}
-                    text="Rejestracja"
+                    text={t('register')}
                   />
                 </ButtonContainer>
               </Item>
             </>
           )}
         </List>
+        <div>
+      <p onClick={() => changeLanguage("en")}>en</p>
+      <p onClick={() => changeLanguage("pl")}>pl</p>
+        </div>
       </Section>
     </Container>
   );

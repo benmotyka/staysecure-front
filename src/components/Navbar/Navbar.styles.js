@@ -19,7 +19,10 @@ padding: ${props => props.smallPadding ? "0 30px": "0 270px"};
 }
 `
 
-export const Section = styled.section``
+export const Section = styled.section`
+display: flex;
+align-items: center;
+`
 
 export const List = styled.ul`
 list-style: none;

@@ -1,9 +1,11 @@
 import Button from "components/Button/Button"
+import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
 
 import { Container, Section, Header, Description} from "./Course.styles"
 const CourseFinished = (props) => {
   const history = useHistory();
+  const {t} = useTranslation()
 
     return (
         <Container ref={props.ref}>
@@ -12,7 +14,7 @@ const CourseFinished = (props) => {
                 <Description>{props.description.substr(0,215)}{props.description.length > 215? '...':''}</Description>
             </Section>
             <Section alignRight>
-                <Button green text="Przejdź do quizu" onClick={() => {
+                <Button green text={t('proceedToQuiz')} onClick={() => {
                     history.push(`/quiz/${props.linkToQuiz}`);
                 }}/>
             </Section>

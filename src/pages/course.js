@@ -13,7 +13,10 @@ import coursesData from "components/Courses/sqlInjection/course.data";
 import Sidebar from "components/Course/Sidebar";
 import Modal from "components/Modal/Modal";
 import React from "react";
+import { useTranslation } from "react-i18next";
 const Course = (props) => {
+  const {t} = useTranslation()
+
   const [activeSlide, setActiveSlide] = useState(0);
   const [loadedData, setLoadedData] = useState(0);
   const [content, setContent] = useState([])
@@ -113,7 +116,7 @@ const Course = (props) => {
         {loading? <Loader/> : (
           <>
           {courseAlreadyFinishedPopup? <Modal
-          header="Ten kurs został już przez Ciebie zakończony" text="Czy chcesz rozpocząć kurs ponownie?" button1Text="Anuluj" button2Text="Rozpocznij" button1OnClick={() => {
+          header={t('courseFinishedQuesionHeader')} text={t('courseFinishedQuesionDescription')} button1Text={t('cancel')} button2Text={t('start')} button1OnClick={() => {
             history.push("/courses");
           }} 
           button2OnClick={() => {
@@ -124,7 +127,7 @@ const Course = (props) => {
           <Sidebar waitForCorrectAnswer={waitForCorrectAnswer} data={content} activeSlide={activeSlide} />
           <PageCourse>
             {content.map((step, index) => {
-              if (index === activeSlide) return step.slide? React.cloneElement(step.slide, {test: "test", setWaitForCorrectAnswer}) : ""
+              if (index === activeSlide) return step.slide? React.cloneElement(step.slide, {setWaitForCorrectAnswer}) : ""
             })}
           </PageCourse>
           <Navigation

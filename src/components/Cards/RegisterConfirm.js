@@ -7,9 +7,12 @@ import {
     SuccessText
   } from "./Cards.styles";
   import Loader from "components/Loader/Loader";
+import { useTranslation } from "react-i18next";
 
 const RegisterConfirm = (props) => {
     const history = useHistory();
+  const {t} = useTranslation()
+    
 
     useEffect(async () => {
         try {
@@ -60,7 +63,7 @@ const RegisterConfirm = (props) => {
     return (
     <Container>
         {loading && <Loader/>}
-        {success && <SuccessText>Konto zostało potwierdzone. Przekierowanie na stronę logowania...</SuccessText>}
+        {success && <SuccessText>{t('accountConfirmedSuccess')}</SuccessText>}
     </Container>
     )
 }

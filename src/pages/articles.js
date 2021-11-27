@@ -2,17 +2,19 @@ import Navbar from 'components/Navbar/Navbar'
 import Footer from 'components/Footer/Footer'
 import {PageWrapper} from 'components/Pages/Pages.styles'
 import Articles from 'components/PreviewItems/Articles'
-const wiki = () => {
+import { useTranslation } from 'react-i18next'
+const Wiki = () => {
+  const {t, i18n} = useTranslation()
     return (
         <>
             <Navbar/>
             <PageWrapper>
-            <Articles header="Ostatnie artykuły" quantity={6}/>
-            <Articles header="Wszystkie artykuły"/>
+            <Articles header={t('lastArticles')} quantity={6}/>
+            <Articles header={t('allArticles')}/>
             </PageWrapper>
             <Footer/>
         </>
     )
 }
 
-export default wiki
+export default Wiki

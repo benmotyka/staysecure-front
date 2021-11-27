@@ -9,8 +9,10 @@ import Modal from 'components/Modal/Modal'
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios"
+import { useTranslation } from "react-i18next";
 
 const Navigation = (props) => {
+  const {t} = useTranslation()
 
   const [showEndingModal, setShowEndingModal] = useState(false)
   const history = useHistory();
@@ -78,7 +80,7 @@ const Navigation = (props) => {
       >
         <Arrow />
       </ChangeSlideButton>
-      {showEndingModal && <Modal header="Czy chcesz zakończyć kurs?" text="Kurs kończy się quizem. Czy chcesz zakończyć kurs i przejść do quizu?" button1Text="Anuluj" button2Text="Przejdź" button1OnClick={() => {
+      {showEndingModal && <Modal header={t('courseFinishConfirmationHeader')} text={t('courseFinishConfirmationDescription')} button1Text={t('cancel')} button2Text={t('continue')} button1OnClick={() => {
         setShowEndingModal(false)
       }} 
       button2OnClick={() => {

@@ -19,9 +19,11 @@ import Loader from "components/Loader/Loader";
 import AccountLevel from "components/Account/Cards/Parts/AccountLevel";
 
 import Button from "../Button/Button";
+import { useTranslation } from "react-i18next";
 const Register = () => {
   const history = useHistory();
   const user = useSelector(selectUser);
+  const {t} = useTranslation()
 
   const [registrationData, setRegistrationData] = useState({
     email: "",
@@ -54,11 +56,11 @@ const Register = () => {
   const sendData = () => {
     console.log(registrationData)
     if (!registrationData.password || !registrationData.email || !registrationData.name || registrationData.password.length < 5 || !isEmail(registrationData.email)) {
-      setError("Błędny email, nazwa lub hasło");
+      setError(t('errors.wrong-email-name-password'));
       return;
     }
     if(registrationData.password !== registrationData.passwordConfirmation) {
-        setError("Hasła muszą się zgadzać");
+        setError(t('errors.passwordsMustMatch'));
         return; 
     }
     window.grecaptcha.ready(() => {
@@ -90,7 +92,7 @@ const Register = () => {
             if (response) {
                 setSuccess(true)
             } else {
-                setError("Użytkownik istnieje");
+                setError(t('errors.userExists'));
             }
           } catch (error) {
                 console.log(error);
@@ -103,31 +105,31 @@ const Register = () => {
   return (
     <Container>
       {loading && <Loader />}
-      {success ? (<SuccessText>Email z linkiem weryfikacyjnym został wysłany na adres email: {registrationData.email}</SuccessText>) : (
+      {success ? (<SuccessText>{t('registerSuccessfulEmailSent')} {registrationData.email}</SuccessText>) : (
           <>
-      <Header>Rejestracja</Header>
+      <Header>{t('register')}</Header>
       <Input
-        placeholder="Email"
+        placeholder={t('email')}
         type="email"
         autocomplete="off"
         value={registrationData.email}
         onChange={set("email")}
       ></Input>
       <Input
-        placeholder="Nazwa użytkownika"
+        placeholder={t('userName')}
         autocomplete="off"
         value={registrationData.name}
         onChange={set("name")}
       ></Input>
       <Input
-        placeholder="Hasło"
+        placeholder={t('password')}
         type="password"
         autocomplete="off"
         value={registrationData.password}
         onChange={set("password")}
       ></Input>
       <Input
-        placeholder="Potwierdź hasło"
+        placeholder={t('confirmPassword')}
         type="password"
         autocomplete="off"
         value={registrationData.passwordConfirmation}
@@ -137,7 +139,7 @@ const Register = () => {
       <ErrorsWrapper>
         <Error>{errorMessage}</Error>
       </ErrorsWrapper>
-      <Button  onClick={sendData} text="Zarejestruj" full/>
+      <Button  onClick={sendData} text={t('register')} full/>
       </>
       )}
     </Container>

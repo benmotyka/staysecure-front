@@ -1,7 +1,10 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import {Container, Section, TextItem, LinkItem} from "./Footer.styles"
 const RegisterFooter = () => {
+  const {t} = useTranslation()
+
     const getYear = () => {
         return new Date().getFullYear();
     }
@@ -11,7 +14,7 @@ const RegisterFooter = () => {
                 <TextItem>{getYear()} &copy; staysecure</TextItem>
             </Section>
             <Section>
-                <TextItem>Masz już konto? <LinkItem orange to="/login">Zaloguj się</LinkItem></TextItem>
+                <TextItem>{t('alreadyHaveAccount')} <LinkItem orange to="/login">{t('login')}</LinkItem></TextItem>
             </Section>
             <Section>
             <TextItem>by Ben Motyka</TextItem>

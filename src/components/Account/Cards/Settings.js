@@ -7,8 +7,10 @@ import { useDispatch } from "react-redux";
 import { login } from "features/userSlice";
 import { useSelector } from "react-redux";
 import { selectUser } from "features/userSlice";
+import { useTranslation } from "react-i18next";
 
 const Settings  = () => {
+  const {t} = useTranslation()
 
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
@@ -55,7 +57,7 @@ const Settings  = () => {
   }
     return (
         <Container>
-            <Header>Ustawienia</Header>
+            <Header>{t('settings')}</Header>
             <AccountLevel account data={userData.accountLevel} onClick={setUserData} sendRequest={sendRequest}/>
             <PasswordChange user={user}/>
         </Container>

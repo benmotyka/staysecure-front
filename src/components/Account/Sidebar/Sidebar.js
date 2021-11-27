@@ -5,7 +5,9 @@ import { useHistory } from "react-router-dom";
 import {useDispatch} from "react-redux"
 
 import { Container, Item } from "./Sidebar.styles";
+import { useTranslation } from "react-i18next";
 const Sidebar = () => {
+  const {t} = useTranslation()
 
   const history = useHistory();
 
@@ -17,20 +19,20 @@ const Sidebar = () => {
     <Container>
       {user && (
         <>
-      <Item header>Witaj, {user.name}</Item>
+      <Item header>{t('welcome')}, {user.name}</Item>
       <Item
         onClick={() => {
           history.push("/account/courses");
         }}
       >
-        Moje kursy
+        {t('myCourses')}
       </Item>
       <Item
         onClick={() => {
           history.push("/account/settings");
         }}
       >
-        Ustawienia
+        {t('settings')}
       </Item>
       <Item
         noBorder
@@ -39,7 +41,7 @@ const Sidebar = () => {
           history.push("/");
         }}
       >
-        Wyloguj
+        {t('logout')}
       </Item>
       </>
       )}

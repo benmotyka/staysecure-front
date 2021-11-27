@@ -19,10 +19,12 @@ import {
 
 import Button from "../Button/Button";
 import Loader from "components/Loader/Loader";
+import { useTranslation } from "react-i18next";
 const Login = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector(selectUser);
+    const {t} = useTranslation()
 
     useEffect(() => {
       if(user) history.push("/");
@@ -41,7 +43,7 @@ const Login = () => {
 
   const sendData = () => {
     if (!password || !email || password.length < 5 || !isEmail(email)) {
-      setError("Błędny login lub hasło");
+      setError(t('errors.wrong-login-password'));
       return;
     }
     window.grecaptcha.ready(() => {
@@ -87,7 +89,7 @@ const Login = () => {
               );
               history.push("/my-account");
             } else {
-              setError("Błędny login lub hasło");
+              setError(t('errors.wrong-login-password'));
             }
           } catch (error) {
             console.log(error);
@@ -100,15 +102,15 @@ const Login = () => {
   return (
     <Container>
       {loading && <Loader />}
-      <Header>Logowanie</Header>
+      <Header>{t('login')}</Header>
       <Input
-        placeholder="Email"
+        placeholder={t('email')}
         value={email}
         type="email"
         onChange={(e) => setEmail(e.target.value)}
       />
       <Input
-        placeholder="Hasło"
+        placeholder={t('password')}
         value={password}
         type="password"
         onChange={(e) => setPassword(e.target.value)}
@@ -122,12 +124,12 @@ const Login = () => {
             setRememberMe(!rememberMe);
           }}
         />
-        <Label htmlFor="checkbox">Zapamiętaj mnie</Label>
+        <Label htmlFor="checkbox">{t('rememberMe')}</Label>
       </Wrapper>
       <ErrorsWrapper>
         <Error>{errorMessage}</Error>
       </ErrorsWrapper>
-      <Button onClick={sendData} text="Logowanie" full />
+      <Button onClick={sendData} text={t('login')} full />
     </Container>
   );
 };

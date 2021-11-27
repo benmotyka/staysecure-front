@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from "react"
+import { useTranslation } from "react-i18next";
 import { Container, Header, HeaderContainer, ExpandArrow, Wrapper } from "./Cards.styles";
 import CourseFinished from "./Parts/CourseFinished";
 
 const FinishedCourses = (props) => {
+  const {t} = useTranslation()
 
   const [expanded, setExpanded] = useState(false)
   const contentRef = useRef(null);
@@ -17,7 +19,7 @@ const FinishedCourses = (props) => {
   return (
     <Container>
       <HeaderContainer>
-        <Header>Ukończone kursy</Header>
+        <Header>{t('finishedCourses')}</Header>
         <ExpandArrow rotate={expanded ? "true" : undefined} onClick={() => {
           setExpanded(!expanded)
         }}/>

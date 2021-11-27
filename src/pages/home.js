@@ -6,19 +6,22 @@ import Footer from 'components/Footer/Footer'
 import {PageWrapper} from 'components/Pages/Pages.styles'
 import Articles from 'components/PreviewItems/Articles'
 import Courses from 'components/PreviewItems/Courses'
+import { useTranslation } from "react-i18next";
 
-const home = () => {
+const Home = () => {
+  const {t, i18n} = useTranslation()
+
     return (
         <>
             <Navbar/>
             <Hero/>
             <PageWrapper>
-            <Courses header="Ostatnie kursy" quantity={3}/>
-            <Articles header="Ostatnie artykuły" quantity={6}/>
+            <Courses header={t('lastCourses')} quantity={3}/>
+            <Articles header={t('lastArticles')} quantity={6}/>
             </PageWrapper>
             <Footer/>
         </>
     )
 }
 
-export default home
+export default Home

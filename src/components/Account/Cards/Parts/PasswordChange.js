@@ -11,8 +11,10 @@ import {
 } from "components/Cards/Cards.styles";
 import Button from "components/Button/Button";
 import Loader from "components/Loader/Loader";
+import { useTranslation } from "react-i18next";
 
 const PasswordChange = (props) => {
+  const {t} = useTranslation()
 
   const [passwordChangeData, setPasswordChangeData] = useState({
     oldPassword: "",
@@ -42,14 +44,14 @@ const PasswordChange = (props) => {
       !passwordChangeData.newPasswordConfirmation ||
       passwordChangeData.newPassword.length < 5
     ) {
-      setError("Błędny stare lub nowe hasło");
+      setError(t('errors.wrong-login-password'));
       return;
     }
     if (
       passwordChangeData.newPassword !==
       passwordChangeData.newPasswordConfirmation
     ) {
-      setError("Hasła muszą się zgadzać");
+      setError(t('errors.passwordsMustMatch'));
       return;
     }
     window.grecaptcha.ready(() => {
@@ -84,7 +86,7 @@ const PasswordChange = (props) => {
             if (response) {
               setSuccess(true);
             } else {
-              setError("Błędne stare hasło");
+              setError(t('errors.wrongPassword'));
             }
           } catch (error) {
             console.log(error);
@@ -97,24 +99,24 @@ const PasswordChange = (props) => {
     <Container>
       {loading && <Loader />}
       {success ? (
-        <SuccessText>Hasło zostało zmienione</SuccessText>
+        <SuccessText>{t('passwordChangeSuccess')}</SuccessText>
       ) : (
         <>
-          <Header>Zmiana hasła</Header>
+          <Header>{t('passwordChange')}</Header>
           <Input
-            placeholder="Stare hasło"
+            placeholder={t('oldPassword')}
             type="password"
             value={passwordChangeData.oldPassword}
             onChange={set("oldPassword")}
           />
           <Input
-            placeholder="Nowe hasło"
+            placeholder={t('newPassword')}
             type="password"
             value={passwordChangeData.newPassword}
             onChange={set("newPassword")}
           />
           <Input
-            placeholder="Potwierdź nowe hasło"
+            placeholder={t('confirmNewPassword')}
             type="password"
             value={passwordChangeData.newPasswordConfirmation}
             onChange={set("newPasswordConfirmation")}
@@ -122,7 +124,7 @@ const PasswordChange = (props) => {
           <ErrorsWrapper>
             <Error>{errorMessage}</Error>
           </ErrorsWrapper>
-          <Button onClick={sendData} full text="Zmień" />
+          <Button onClick={sendData} full text={t('change')} />
         </>
       )}
     </Container>

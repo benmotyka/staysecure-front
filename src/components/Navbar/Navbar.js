@@ -16,14 +16,12 @@ import {
 import Button from "components/Button/Button.js";
 import Logo from "components/Logo/Logo.js";
 import { useTranslation } from "react-i18next";
+import LanguageChooser from "components/LanguageChooser/LanguageChooser";
 const Navbar = () => {
   const history = useHistory();
   const user = useSelector(selectUser);
-  const {t, i18n} = useTranslation()
+  const {t} = useTranslation()
 
-  const changeLanguage = (language) => {
-    i18n.changeLanguage(language)
-  }
   return (
     <Container>
       <Section>
@@ -63,10 +61,7 @@ const Navbar = () => {
             </>
           )}
         </List>
-        <div>
-      <p onClick={() => changeLanguage("en")}>en</p>
-      <p onClick={() => changeLanguage("pl")}>pl</p>
-        </div>
+        <LanguageChooser/>
       </Section>
     </Container>
   );

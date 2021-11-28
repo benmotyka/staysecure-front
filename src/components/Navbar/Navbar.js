@@ -60,8 +60,10 @@ const Navbar = () => {
               </Item>
             </>
           )}
-        </List>
+          <Item>
         <LanguageChooser/>
+          </Item>
+        </List>
       </Section>
     </Container>
   );

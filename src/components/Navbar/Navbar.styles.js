@@ -15,19 +15,29 @@ padding: ${props => props.smallPadding ? "0 30px": "0 270px"};
 }
 
 @media screen and (max-width: 650px) {
-    padding: 0 10px;
+    padding: 10px;
+    height: 100px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 `
 
 export const Section = styled.section`
 display: flex;
 align-items: center;
+
+@media screen and (max-width: 650px) {
+    align-items: center;
+    justify-content: center;
+}
 `
 
 export const List = styled.ul`
 list-style: none;
 display: flex;
 align-items: center;
+padding: 0;
 `
 
 export const Item = styled.li`

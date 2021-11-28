@@ -55,6 +55,7 @@ color: red;
 export const TextContainer = styled.div`
 width: 100%;
 height: 75%;
+font-size: 15px;
 `
 
 export const InteractiveSuccessContainer = styled.div`

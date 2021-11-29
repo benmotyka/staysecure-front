@@ -5,7 +5,9 @@ import Loader from "components/Loader/Loader";
 import { Container, Header, Line, ItemsWrapper } from "./PreviewItems.styles";
 import { PageCentered } from "components/Pages/Pages.styles";
 import Article from "./Previews/Article";
+import { useTranslation } from "react-i18next";
 const Articles = (props) => {
+  const {t, i18n} = useTranslation()
 
   useEffect(() => {
     (async () => {
@@ -18,11 +20,14 @@ const Articles = (props) => {
 
 
   const getArticles = async () => {
+    console.log(localStorage.getItem('i18nextLng'))
+    console.log(typeof localStorage.getItem('i18nextLng'))
+    const test = localStorage.getItem('i18nextLng')
     setLoading(true);
     const requestBody = {
       query: `
       query{
-        articles(quantity: ${props.quantity | null}, random: ${Boolean(props.random | false)}){
+        articles(quantity: ${props.quantity | null}, language: "${test}" random: ${Boolean(props.random | false)}){
           header
           description
           link

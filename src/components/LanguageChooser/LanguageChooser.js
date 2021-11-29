@@ -1,14 +1,17 @@
 import React, {useState} from 'react'
 import { useTranslation } from "react-i18next";
+import { useHistory } from 'react-router'
 
 import {Container, CountryIcon, DropdownWrapper, FlagsWrapper, FlagsItem} from "./LanguageChooser.styles.js"
-const LanguageChooser = () => {
 
-    const {t, i18n} = useTranslation()
+const LanguageChooser = () => {
+    const history = useHistory()
+    const {i18n} = useTranslation()
     const [dropdownActive, setDropdownActive] = useState(false);
 
     const changeLanguage = (language) => {
       i18n.changeLanguage(language)
+      history.go(0)
     }
     return (
         <Container>

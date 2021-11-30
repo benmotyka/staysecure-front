@@ -22,7 +22,7 @@ const Courses = (props) => {
     const requestBody = {
       query: `
           query{
-            courses(quantity: ${props.quantity | null}){
+            courses(quantity: ${props.quantity | null}, language: "${localStorage.getItem('i18nextLng')}"){
               header
               description
               difficulty

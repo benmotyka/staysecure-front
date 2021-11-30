@@ -20,14 +20,11 @@ const Articles = (props) => {
 
 
   const getArticles = async () => {
-    console.log(localStorage.getItem('i18nextLng'))
-    console.log(typeof localStorage.getItem('i18nextLng'))
-    const test = localStorage.getItem('i18nextLng')
     setLoading(true);
     const requestBody = {
       query: `
       query{
-        articles(quantity: ${props.quantity | null}, language: "${test}" random: ${Boolean(props.random | false)}){
+        articles(quantity: ${props.quantity | null}, language: "${localStorage.getItem('i18nextLng')}", random: ${Boolean(props.random | false)}){
           header
           description
           link

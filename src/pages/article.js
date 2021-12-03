@@ -30,7 +30,7 @@ const Article = (props) => {
     const requestBody = {
       query: `
           query{
-            article(link: ${JSON.stringify(props.match.params.articleName)}){
+            article(link: ${JSON.stringify(props.match.params.articleName)}, language: "${localStorage.getItem('i18nextLng')}"){
               header
               description
             }

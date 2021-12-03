@@ -50,11 +50,11 @@
     "finishedCourses": "Finished courses",
     "proceedToQuiz": "Proceed to quiz",
     "errors": {
-        "wrong-login-password": "Wrong login or password",
-        "wrong-email-name-password": "Wrong email, name or password",
+        "wrong-login-password": "Invalid login or password",
+        "wrong-email-name-password": "Invalid email, name or password",
         "passwordsMustMatch": "Passwords must be the same",
         "userExists": "User exists",
-        "wrongPassword": "Wrong password"
+        "wrongPassword": "Invalid password"
     },
     "accountConfirmedSuccess": "Account confirmed. Redirecting to login page...",
     "courseFinishedQuesionHeader": "It looks like you finished this course already",

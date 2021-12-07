@@ -16,6 +16,7 @@ import Loader from "components/Loader/Loader";
 const Courses = () => {
   const history = useHistory();
   const dispatch = useDispatch();
+  const [startedLang, setStartedLang] = useState(localStorage.getItem('i18nextLng'))
 
   const [coursesFinished, setCoursesFinished] = useState([])
   const [coursesStarted, setCoursesStarted] = useState([])
@@ -41,23 +42,19 @@ const Courses = () => {
             coursesFinished {
               link
               header {
-                pl
-                en
+                ${startedLang}
               }
               description {
-                pl
-                en
+                ${startedLang}
               }
             }
             coursesStarted {
               link
               header {
-                pl
-                en
+                ${startedLang}
               }
               description {
-                pl
-                en
+                ${startedLang}
               }
             }
           }

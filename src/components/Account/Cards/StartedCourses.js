@@ -4,10 +4,13 @@ import { Container, Header, HeaderContainer } from "./Cards.styles";
 import Button from "components/Button/Button";
 import CoursePending from "./Parts/CoursePending";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
 const StartedCourses = (props) => {
   const {t} = useTranslation()
 
   const history = useHistory();
+
+  const [startedLang, setStartedLang] = useState(localStorage.getItem('i18nextLng'))
 
   return (
     <Container>
@@ -23,7 +26,7 @@ const StartedCourses = (props) => {
         />
       </HeaderContainer>
       {props.coursesStarted && props.coursesStarted.map((course, index) => (
-              <CoursePending header={course.header} key={index} description={course.description} linkToCourse={course.link}/>  
+              <CoursePending header={course.header[startedLang]} key={index} description={course.description[startedLang]} linkToCourse={course.link}/>  
       ))}
     </Container>
   );

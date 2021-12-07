@@ -40,13 +40,25 @@ const Courses = () => {
             email
             coursesFinished {
               link
-              header
-              description
+              header {
+                pl
+                en
+              }
+              description {
+                pl
+                en
+              }
             }
             coursesStarted {
               link
-              header
-              description
+              header {
+                pl
+                en
+              }
+              description {
+                pl
+                en
+              }
             }
           }
           }

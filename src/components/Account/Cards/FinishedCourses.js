@@ -5,6 +5,7 @@ import CourseFinished from "./Parts/CourseFinished";
 
 const FinishedCourses = (props) => {
   const {t} = useTranslation()
+  const [startedLang, setStartedLang] = useState(localStorage.getItem('i18nextLng'))
 
   const [expanded, setExpanded] = useState(false)
   const contentRef = useRef(null);
@@ -26,7 +27,7 @@ const FinishedCourses = (props) => {
       </HeaderContainer>
       <Wrapper ref={contentRef} >
         {props.coursesFinished && props.coursesFinished.map((course, index) => (
-      <CourseFinished header={course.header} key={index} description={course.description} linkToQuiz={course.link}/>  
+      <CourseFinished header={course.header[startedLang]} key={index} description={course.description[startedLang]} linkToQuiz={course.link}/>  
         ))}
       </Wrapper>
     </Container>

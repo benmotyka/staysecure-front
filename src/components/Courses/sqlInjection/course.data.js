@@ -103,22 +103,45 @@ const content = [
     },
     {
         course: "phishing",
+        language: "pl",
         content: [
             {
-                header: "Header 1",
-                text: "phishing",
+                header: "Przygotowanie maili phishingowych",
+                text: "# FORMAT Każdy atak phishingowy poprzedzony jest dokładnym spreparowaniem wiadomości mailowych lub sms, a następnie rozsyłania jej na wiele adresów e-mail bądź telefonów komórkowych. Atakujący znajdują cele najczęściej poprzez uzyskanie dostępu do baz danych, zawierających rzeczywiste adresy e-mail. Adresy te mogą być pozyskiwane poprzez mechanizm Web Scrappingu, które odwiedzają każdą stronę internetową w poszukiwaniu dowolnych ciągów znaków przypominających adres email, a następnie dodaniu go do bazy. OPISAC WIADOMOSC, ZE ONA NAJCZESCIEJ POWODUJE U CZLOWIEKA SZOK, ZE MUSI COS SZYBKO ZROBIC",
                 level: "basic"
             },
             {
-                header: "Header 2",
-                text: "phishing",
-                level: "basic"
-            },
-            {
-                header: "Header 3",
-                text: "phishing",
+                header: "Web scrapping",
+                text: "opisac w jaki sposob pozyskiwane sa maile ofiar, przez mechanizm web scrapingu, zrobic animacje ze ktos tam wchodzi na strone i wyszukuje wszystkie maile itp",
                 level: "advanced"
-            }
+            },
+            {
+                header: "Symulacja użytkownika",
+                text: "interatywny slajd zeby kliknac na maila i sie wyswietli mail z linkiem po najechaniu na link jest success bo o to chodzi zeby zobaczyc ze na linku pisze bank.pl a po najechaniu tak naprawde zostaniemy przekierowaniu na zlybank.pl ",
+                level: "basic",
+                interactive: true,
+            },
+            {
+                header: "Skutki wizyty strony",
+                text: "slajd ukazujacy co sie pojawi po nacisnieciu w link, strona banku ze zmieniona literka np peka0.pl albo cos w ten desen design taki sam ma byc ale link zmieniony i formularz do podania numeru konta, interaktywny bo wymaga wpisania cyfr 0-9 przynajmniej 3 wtedy sie zaswieci przycisk zaloguj i sukcess",
+                level: "basic",
+                interactive: true
+            },
+            {
+                header: "Perspektywa atakującego",
+                text: "slajd ukazujacy ze dane z formularza sa przesylane do atakujacego i on dzieki temu jest w stanie zalogowac sie na ofiary",
+                level: "basic"
+            },
+            {
+                header: "Metody phishingu",
+                text: "slajd ukazujacy alternatywy phishingu czyli sms, rozmowa telefoniczna, interaktynwy slajd z nacisnieciem linku na telefonie taki sam motyw przejdzie na strone banku z jedna literka zla, ",
+                level: "basic"
+            },
+            {
+                header: "Sposoby ochrony",
+                text: "slajd ukazujacy alternatywy jak sie bronicz czyl isprawdzac zawsze dokladnie adresy url, czy nie ma bledow ortograficznych na stronach, kto jest nadawca maila cz to nie jakis losowy mail itp",
+                level: "basic"
+            },
         ]
     },
     {

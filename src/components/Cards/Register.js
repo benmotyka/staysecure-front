@@ -135,7 +135,7 @@ const Register = () => {
         value={registrationData.passwordConfirmation}
         onChange={set("passwordConfirmation")}
       ></Input>
-      <AccountLevel data={registrationData.accountLevel} onClick={setRegistrationData}/>
+      <AccountLevel small data={registrationData.accountLevel} onClick={setRegistrationData}/>
       <ErrorsWrapper>
         <Error>{errorMessage}</Error>
       </ErrorsWrapper>

@@ -54,6 +54,7 @@ width: calc(100vw - ${notebookWidth} - ${courseSidebarWidth});
 margin-right: ${notebookWidth};
 margin-left: ${courseSidebarWidth};
 display: flex;
+overflow-x: hidden;
 `
 
 export const TemporaryHeader = styled.h1`

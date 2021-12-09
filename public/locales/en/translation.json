@@ -61,5 +61,7 @@
     "courseFinishedQuesionDescription": "Would you like to start again?",
     "courseFinishConfirmationHeader": "Do you want to finish this course?",
     "courseFinishConfirmationDescription": "The course ends with the quiz. Do you want to proceed to it now?",
-    "similarArticles": "Similar articles"
+    "similarArticles": "Similar articles",
+    "mobileAlertHeader": "This site is not designed for mobile devices",
+    "mobileAlertDescription": "To take full advantage of the site, visit this page on your computer"
 }

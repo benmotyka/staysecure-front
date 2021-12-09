@@ -39,7 +39,7 @@ color: ${colors.white};
 text-align: center;
 
 @media screen and (max-width: 650px) {
-    margin: 15px 0;
+    margin: 5px 0;
 }
 `
 export const TextItem = styled.p`

@@ -13,6 +13,10 @@ bottom: 0;
 background-color: ${colors.darkPurple};
 display: flex;
 justify-content: center;
+
+@media screen and (max-width: 600px) {
+    display: none;
+}
 `
 
 export const Wrapper = styled.div`

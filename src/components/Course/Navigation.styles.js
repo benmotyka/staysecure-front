@@ -12,6 +12,10 @@ background-color: ${colors.darkPurple};
 display: grid;
 grid-template-columns: 8% 84% 8%;
 grid-template-rows: 1fr;
+
+@media screen and (max-width: 600px) {
+    display: none;
+}
 `
 
 export const ChangeSlideButton = styled.button`

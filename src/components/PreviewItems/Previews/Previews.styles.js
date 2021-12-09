@@ -19,6 +19,8 @@ position: relative;
 
 const Text = css`
 color: ${colors.white};
+opacity: 0.7;
+transition: 0.2s all ease-in-out;
 `
 
 export const ImageContainer = styled.div`
@@ -44,6 +46,14 @@ ${Text};
 font-size: 20px;
 margin: 0;
 `
+
+export const DifficultyLevel = styled(LevelIcon)`
+font-size: 25px;
+color: ${colors.gold};
+opacity: 0.6;
+transition: 0.2s all ease-in-out;
+`
+
 export const Arrow = styled(ArrowIcon)``
 export const Description = styled.p`
 ${Text};
@@ -66,11 +76,18 @@ margin: 20px 20px;
 &:hover ${Image} {
     opacity: 0.5;
 }
-`
 
-export const DifficultyLevel = styled(LevelIcon)`
-font-size: 25px;
-color: ${colors.gold};
+&:hover ${DifficultyLevel} {
+    opacity: 1;
+}
+
+&:hover ${Header}{
+    opacity: 1;
+}
+
+&:hover ${Description}{
+    opacity: 1;
+}
 `
 
 export const DifficultyWrapper = styled.div`

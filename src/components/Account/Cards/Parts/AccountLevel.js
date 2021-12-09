@@ -13,7 +13,7 @@ const AccountLevel = (props) => {
   const {t} = useTranslation()
 
   return (
-    <Container noPaddingBottom>
+    <Container noPaddingBottom small={props.small}>
       <Header>{t('accountType')}</Header>
       <AccountLevelChooserContainer>
         <AccountLevelButton

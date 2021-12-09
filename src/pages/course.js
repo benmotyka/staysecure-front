@@ -14,6 +14,7 @@ import coursesData from "components/Courses/sqlInjection/course.data";
 import Sidebar from "components/Course/Sidebar";
 import Modal from "components/Modal/Modal";
 import React from "react";
+import MobileAlert from "components/MobileAlert/MobileAlert";
 const Course = (props) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [loadedData, setLoadedData] = useState(0);
@@ -164,6 +165,7 @@ const Course = (props) => {
                     waitForCorrectAnswer={waitForCorrectAnswer}
                     setWaitForCorrectAnswer={setWaitForCorrectAnswer}
                   />
+                  <MobileAlert/>
                 </>
               )}
             </>

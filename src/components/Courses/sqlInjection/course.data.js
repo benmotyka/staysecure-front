@@ -2,6 +2,7 @@ import SqlInteractive from "./parts/SqlInteractive"
 import HighlightSqlCode from './parts/HighlightSqlCode'
 import HighlightHtml from "./parts/HighlightHtml"
 import Introduction from "./parts/Introduction"
+import WhatIsProxy from "./parts/WhatIsProxy"
 const content = [
     {
         course: "sql-injection",
@@ -23,7 +24,7 @@ const content = [
             {
                 header: "Przesłanie żądania",
                 text: "#FORMATWyslane zadanie moze byc zmodyfikowane np przez proxy, gdzie trafia? do api, ktoro jest połączone z db, atakuajcy musi poeksperymentowac tzn zapodac ; - i rozne takie symbole i zobaczyc na kody bledu aby ustalic czy api jest podatne na sql injection, jesli front blokuje przed znakami specjalnymi to moze to zrobic uzywajac proxy",
-                // slide: <HighlightSqlCode/>,
+                slide: <WhatIsProxy/>,
                 level: "basic",
             },
             {

@@ -114,7 +114,7 @@ const WhatIsProxy = () => {
       <Wrapper>
         <Client />
         <Header>Klient</Header>
-        <Description>Podczas wyszukiwania produktu zostaje wysłane żądanie w oryginalej postaci w określonym formacie - bez znaków specjalnych</Description>
+        <Description>Podczas wyszukiwania produktu zostaje wysłane żądanie w oryginalej postaci i w określonym formacie, np. bez znaków specjalnych</Description>
       </Wrapper>
       <Wrapper>
         <ArrowRight />

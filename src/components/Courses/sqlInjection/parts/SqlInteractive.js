@@ -63,13 +63,14 @@ searchItem: async (args, req) => {
               <AceEditor
           mode="javascript"
           ref={aceEditor}
-          height={400}
-          width={1000}
-          theme="github"
+          theme="chaos"
           value={code}
           fontSize={18}
           wrapEnabled={true}
           readOnly
+          showPrintMargin={false}
+          setAutoScroll
+          style={{ width: '100%', height: '300px' }}
         />
       </CodeWrapper>
 

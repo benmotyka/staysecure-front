@@ -23,19 +23,18 @@ const HighlightSqlCode = (props) => {
     }
   };
   const code = `
-  searchItem: async (args, req) => {
-    await validateCaptcha(args.captchaToken);
-
-    const search = args.value
-    const sql = "SELECT * FROM products p where p.name = search"
-    const result = await sequelize.query(sql, {
-      plain: false,
-      raw: true,
-      type: QueryTypes.SELECT
-    });
-    
-    return result;
-  },
+searchItem: async (args, req) => {
+  await validateCaptcha(args.captchaToken);
+  const search = args.value
+  const sql = "SELECT * FROM products p where p.name = search"
+  const result = await sequelize.query(sql, {
+    plain: false,
+    raw: true,
+    type: QueryTypes.SELECT
+  });
+  
+  return result;
+}
 `;
 
   return (
@@ -51,10 +50,6 @@ const HighlightSqlCode = (props) => {
           </PageBody>
         </Browser>
       </Wrapper>
-        {/* <CodeMirror
-          value={code}
-          extensions={[javascript({ jsx: true })]}
-        /> */}
                   <CodeWrapper>
               <CodeHeaderContainer>
               <CodeIcon/> <CodeHeader>Kod źródłowy aplikacji serwerowej</CodeHeader> 
@@ -62,14 +57,15 @@ const HighlightSqlCode = (props) => {
         <AceEditor
           mode="javascript"
           ref={aceEditor}
-          height={400}
-          width={1000}
-          theme="github"
+          theme="chaos"
           value={code}
           fontSize={18}
           wrapEnabled={true}
           onCursorChange={getSelectedText}
           readOnly
+          showPrintMargin={false}
+          setAutoScroll
+          style={{ width: '100%', height: '300px' }}
         />
         </CodeWrapper>
     </Container>

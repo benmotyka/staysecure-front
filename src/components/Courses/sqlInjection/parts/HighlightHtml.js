@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import Browser from "../../Browser/Browser.js";
 import AceEditor from "react-ace";
-import "ace-builds/src-noconflict/mode-javascript";
-import "ace-builds/src-noconflict/theme-github";
+import "ace-builds/src-noconflict/mode-html";
+import "ace-builds/src-noconflict/theme-chaos";
 import {Container, Wrapper, CodeWrapper, CodeHeaderContainer, CodeHeader, CodeIcon, PageBody} from './Styles.js'
 
 
@@ -70,16 +70,17 @@ const HighlightHtml = (props) => {
               <CodeIcon/> <CodeHeader>Kod źródłowy strony internetowej</CodeHeader> 
               </CodeHeaderContainer>
         <AceEditor
-          mode="javascript"
+          mode="html"
           ref={aceEditor}
-          height={400}
-          width={1000}
-          theme="github"
+          theme="chaos"
           value={code}
           fontSize={18}
           wrapEnabled={true}
           onCursorChange={getSelectedText}
           readOnly
+          setAutoScroll
+          style={{ width: '100%', height: '300px' }}
+          showPrintMargin={false}
         />
         </CodeWrapper>
     </Container>

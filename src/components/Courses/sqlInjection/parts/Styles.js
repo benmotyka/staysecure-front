@@ -12,7 +12,7 @@ export const ContainerOneItem = styled.div`
 
 export const WrapperOneItem = styled.div`
 height: 90%;
-width: 80%;
+width: 90%;
 `
 
 export const Container = styled.div`
@@ -22,18 +22,19 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
   gap: 20px;
 `;
 
 
 export const Wrapper = styled.div`
 height: 40%;
-width: 79%;
+width: 90%;
 
 `
 
 export const CodeWrapper = styled.div`
-width: 100%;
+width: 90%;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -42,8 +43,8 @@ flex-direction: column;
 
 export const CodeHeaderContainer = styled.div`
 height: 35px;
-width: 1000px;
-background-color: ${colors.darkestPurple};
+width: 100%;
+background-color: ${colors.darkThemeCode};
 margin: 0;
 display: flex;
 align-items: center;

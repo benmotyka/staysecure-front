@@ -24,16 +24,11 @@ const HighlightSqlCode = (props) => {
   };
   const code = `
 searchItem: async (args, req) => {
-  await validateCaptcha(args.captchaToken);
-  const search = args.value
-  const sql = "SELECT * FROM products p where p.name = search"
-  const result = await sequelize.query(sql, {
-    plain: false,
-    raw: true,
+  const sql = \`SELECT * FROM products p where p.name = '\${args.value}'\`
+
+  return await sequelize.query(sql, {
     type: QueryTypes.SELECT
   });
-  
-  return result;
 }
 `;
 

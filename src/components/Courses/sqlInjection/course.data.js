@@ -157,12 +157,19 @@ const content = [
     },
     {
         course: "ransomware",
+        language: "pl",
         content: [
             {
-                header: "Header 1",
-                text: "ransom",
+                header: "Metody infekcji",
+                text: "Ransomware, podobnie jak każdy inny rodzaj złośliwego oprogramowania, może dostać się do urządzenia końcowego różnymi sposobami. Najpopularniejszymi wektorami ataku są <b>maile phishingowe</b> lub <b>zdalny dostęp</b>.",
                 level: "basic"
-            }
+            },
+            {
+                header: "Filtry antyspamowe",
+                text: "#FORMAT opisac maile phishingowe z ransomware ze sa zawyczaj filtorwane przez filtry mailowe na skrzynkach ktore analizuja tresc zalacznikow w poszukiwaniu do znanych patternow tak samo antywirus systemu operacyjnego",
+                level: "advanced"
+            },
+           
         ]
     },
     {

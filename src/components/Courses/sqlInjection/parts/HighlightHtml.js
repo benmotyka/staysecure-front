@@ -27,7 +27,7 @@ const HighlightHtml = (props) => {
     const form = document.getElementById("form")
     const input = document.getElementById("input")
 
-    const search = async (event) => {
+    const search = (event) => {
         fetch("https://api/search", {
             method: 'GET',
             body: JSON.stringify({

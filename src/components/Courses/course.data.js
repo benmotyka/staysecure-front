@@ -1,8 +1,9 @@
-import SqlInteractive from "./parts/SqlInteractive"
-import HighlightSqlCode from './parts/HighlightSqlCode'
-import HighlightHtml from "./parts/HighlightHtml"
-import Introduction from "./parts/Introduction"
-import WhatIsProxy from "./parts/WhatIsProxy"
+import SqlInteractive from "./sqlInjection/parts/SqlInteractive"
+import HighlightSqlCode from './sqlInjection/parts/HighlightSqlCode'
+import HighlightHtml from "./sqlInjection/parts/HighlightHtml"
+import Introduction from "./sqlInjection/parts/Introduction"
+import WhatIsProxy from "./sqlInjection/parts/WhatIsProxy"
+import RansomwareDownload from "./ransomware/parts/RansomwareDownload"
 const content = [
     {
         course: "sql-injection",
@@ -168,6 +169,13 @@ const content = [
                 header: "Filtry antyspamowe",
                 text: "#FORMAT opisac maile phishingowe z ransomware ze sa zawyczaj filtorwane przez filtry mailowe na skrzynkach ktore analizuja tresc zalacznikow w poszukiwaniu do znanych patternow tak samo antywirus systemu operacyjnego",
                 level: "advanced"
+            },
+            {
+                header: "Pobranie i uruchomienie wirusa",
+                text: "#",
+                level: "basic",
+                slide: <RansomwareDownload/>,
+                interactive: true
             },
            
         ]

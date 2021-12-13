@@ -6,7 +6,7 @@ import "ace-builds/src-noconflict/theme-github";
 
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-dracula";
-import {Container, Wrapper, CodeWrapper, CodeHeaderContainer, CodeHeader, CodeIcon, PageBody} from './Styles.js'
+import {Container, Wrapper, CodeWrapper, CodeHeaderContainer, CodeHeader, CodeIcon, PageBody} from '../styles.js'
 
 const HighlightSqlCode = (props) => {
   useEffect(() => {

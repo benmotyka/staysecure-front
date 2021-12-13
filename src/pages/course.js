@@ -10,7 +10,7 @@ import Navigation from "components/Course/Navigation";
 import Loader from "components/Loader/Loader";
 import { useTranslation } from "react-i18next";
 
-import coursesData from "components/Courses/sqlInjection/course.data";
+import coursesData from "components/Courses/course.data";
 import Sidebar from "components/Course/Sidebar";
 import Modal from "components/Modal/Modal";
 import React from "react";

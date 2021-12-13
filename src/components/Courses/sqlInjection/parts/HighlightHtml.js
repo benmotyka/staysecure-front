@@ -3,7 +3,7 @@ import Browser from "../../Browser/Browser.js";
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-html";
 import "ace-builds/src-noconflict/theme-chaos";
-import {Container, Wrapper, CodeWrapper, CodeHeaderContainer, CodeHeader, CodeIcon, PageBody} from './Styles.js'
+import {Container, Wrapper, CodeWrapper, CodeHeaderContainer, CodeHeader, CodeIcon, PageBody} from '../styles.js'
 
 
 const HighlightHtml = (props) => {

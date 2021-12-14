@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import colors from "constans/colors.js"
-import {AiOutlineFile as FileIcon} from "react-icons/ai"
+import {AiOutlineFile as FileIcon, AiOutlineMail as MailIcon} from "react-icons/ai"
 
 export const ContainerOneItem = styled.div`
   width: 100%;
@@ -36,7 +36,7 @@ box-sizing: border-box;
 display: flex;
 align-items: center;
 transition: 0.3s all ease-in-out;
-opacity: ${props => props.showDownloadBar ? '100%' : '0'};
+opacity: ${props => props.active ? '100%' : '0'};
 `
 
 export const DownloadItem = styled.li`
@@ -45,11 +45,11 @@ padding: 10px 25px;
 height: 60%;
 display: flex;
 gap: 20px;
-cursor: pointer;
+cursor: ${props => props.active ? 'pointer' : 'auto'};
 `
 
 export const File = styled(FileIcon)`
-font-size: 20px;
+font-size: 25px;
 `
 
 export const DownloadItemWrapper = styled.div`
@@ -66,4 +66,70 @@ margin: 0;
 export const Description = styled.p`
 font-size: 11px;
 margin: 0;
+`
+
+export const MailPageSidebar = styled.div`
+position: absolute;
+top: 0;
+right: 0;
+left: 0;
+height: 50px;
+background-color: ${colors.grey};
+z-index: 1;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+`
+
+export const Mail = styled(MailIcon)`
+font-size: 35px;
+color: ${colors.white};
+`
+
+export const MailPageHeader = styled.h3`
+font-size: 25px;
+color: ${colors.white};
+`
+
+export const MailContainer = styled.div`
+width: 100%;
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+`
+
+export const MailHeaderContainer = styled.div`
+height: 100px;
+width: 100%;
+box-sizing: border-box; 
+background-color: #eee;
+padding: 10px;
+`
+
+export const MailDetail = styled.p`
+margin: 0;
+`
+
+export const MailWrapper = styled.div`
+width: 80%;
+height: 70%;
+background-color: #ccc;
+box-sizing: border-box; 
+`
+
+export const MailBody = styled.div`
+padding: 25px;
+`
+
+export const MailText = styled.p`
+font-size: 14px;
+color: ${colors.black};
+`
+
+export const DownloadContainerHeader = styled.h4`
+font-size: 20px;
+font-weight: bold;
+margin-right: 25px;
 `

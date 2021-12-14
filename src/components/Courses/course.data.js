@@ -4,6 +4,7 @@ import HighlightHtml from "./sqlInjection/parts/HighlightHtml"
 import Introduction from "./sqlInjection/parts/Introduction"
 import WhatIsProxy from "./sqlInjection/parts/WhatIsProxy"
 import RansomwareDownload from "./ransomware/parts/RansomwareDownload"
+import RansomwareFilterEmail from "./ransomware/parts/RansomwareFilterEmail"
 const content = [
     {
         course: "sql-injection",
@@ -167,7 +168,8 @@ const content = [
             },
             {
                 header: "Filtry antyspamowe",
-                text: "#FORMAT opisac maile phishingowe z ransomware ze sa zawyczaj filtorwane przez filtry mailowe na skrzynkach ktore analizuja tresc zalacznikow w poszukiwaniu do znanych patternow tak samo antywirus systemu operacyjnego",
+                text: "Powszechną praktyką stosowaną u większości dostawców skrzynek pocztowych jest funkcjonalność <strong>filtrów załączników</strong>.<br><br>Mogą one analizować treść załączonych plików, bez względu na ich typ. Następnie, treść plików porównywana jest z bazą zawierającą każde znane złośliwe oprogramowanie - w tym przypadku ransomware - co pozwala na oszacowanie prawdopodobieństwa, że analizowany załącznik jest wirusem typu ransomware.<br><br>Wiadomość mailowa, która okaże bardzo podobna do wirusa, nie zostanie dostarczona do odbiorcy, tym samym chroniąc potecjalne ofiary przed infekcją.",
+                slide: <RansomwareFilterEmail/>,
                 level: "advanced"
             },
             {

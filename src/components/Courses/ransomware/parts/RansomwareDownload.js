@@ -16,7 +16,11 @@ import {
   MailWrapper,
   MailBody,
   MailText,
-  DownloadContainerHeader
+  DownloadContainerHeader,
+  RunFileContainer,
+  RunFileWrapper,
+  RunFileButton,
+  ButtonsContainer
 } from "../styles.js";
 import Browser from "components/Courses/Browser/Browser.js";
 import { useState } from "react";
@@ -26,7 +30,7 @@ const RansomwareDownload = (props) => {
     props.setWaitForCorrectAnswer(true);
   }, []);
   const [showDownloadBar, setShowDownloadBar] = useState(false);
-
+  const [showRunFile, setShowRunFile] = useState(false)
   return (
     <ContainerOneItem>
       <WrapperOneItem>
@@ -59,7 +63,7 @@ const RansomwareDownload = (props) => {
           <DownloadContainer active={showDownloadBar}>
              <DownloadContainerHeader> Pobrane pliki: </DownloadContainerHeader> 
             <DownloadItem  active={showDownloadBar} onClick={() => {
-              if(showDownloadBar) props.setWaitForCorrectAnswer(false)}
+              if(showDownloadBar) setShowRunFile(true)}
               }>
               <DownloadItemWrapper>
                 <File />
@@ -70,6 +74,22 @@ const RansomwareDownload = (props) => {
               </DownloadItemWrapper>
             </DownloadItem>
           </DownloadContainer>
+          <RunFileContainer active={showRunFile}>
+              <RunFileWrapper>
+                <Header>Czy chcesz uruchomić program rachunek.exe jako administrator?</Header>
+                <ButtonsContainer>
+                <RunFileButton active={showRunFile} onClick={() => {
+              if(showRunFile) {
+                props.setWaitForCorrectAnswer(false)
+                setShowRunFile(false)   
+              } }
+              }>Tak</RunFileButton>
+                <RunFileButton active={showRunFile} onClick={() => {
+              if(showRunFile) setShowRunFile(false)}
+              }>Nie</RunFileButton>
+                </ButtonsContainer>
+              </RunFileWrapper>
+          </RunFileContainer>
         </Browser>
       </WrapperOneItem>
     </ContainerOneItem>

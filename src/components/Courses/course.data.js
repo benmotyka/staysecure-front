@@ -5,6 +5,7 @@ import Introduction from "./sqlInjection/parts/Introduction"
 import WhatIsProxy from "./sqlInjection/parts/WhatIsProxy"
 import RansomwareDownload from "./ransomware/parts/RansomwareDownload"
 import RansomwareFilterEmail from "./ransomware/parts/RansomwareFilterEmail"
+import RansomwareEncrypted from "./ransomware/parts/RansomwareEncrypted"
 const content = [
     {
         course: "sql-injection",
@@ -177,6 +178,13 @@ const content = [
                 text: "Załóżmy, że wirus ransomware został rozesłany do ofiar w postaci <strong>maili phishingowych</strong>. <br><br>Dobrze spreparowana wiadomość będzie zachęcała odbiorcę do niezwłocznego pobrania i uruchomienia pliku, bez wcześniejszejszego zweryfikowania nadawcy ani typu załącznika. Na pierwszy rzut oka nadawca i plik wyglądają prawidłowo, jednak po dalszej analizie, zauważyć można wzbudzający wątpliwości adres mailowy, oraz typ (rozszerzenie) pobranego pliku.<br><br>Jeśli ofiara da się przekonać wiadomości, najprawdopodobniej natychmiast pobierze i uruchomi załącznik. <br><br><strong>W tym interaktywnym ćwiczeniu wykonaj symulację pobrania, a następnie uruchomienia złośliwego załącznika.</strong>",
                 level: "basic",
                 slide: <RansomwareDownload/>,
+                interactive: true
+            },
+            {
+                header: "Sytuacja po uruchomieniu wirusa",
+                text: "Przez krótki okres czasu, tuż po uruchomieniu wirusa ransomware, może wydawać się że wszystko jest w porządku. Jednak w rzeczywistości, wirus rozpoczął pracę nad szyfrowaniem danych użytkownika na dobre.<br><br>Po pewnym czasie użytkownik straci bezpośredni dostęp do nich, chyba że uda mu się złamać hasło.",
+                level: "basic",
+                slide: <RansomwareEncrypted/>,
                 interactive: true
             },
            

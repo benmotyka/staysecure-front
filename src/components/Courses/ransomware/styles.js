@@ -133,3 +133,41 @@ font-size: 20px;
 font-weight: bold;
 margin-right: 25px;
 `
+
+export const RunFileContainer = styled.div`
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+background-color: rgba(0,0,0,0.5);
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+opacity: ${props => props.active ? '100%' : '0'};
+z-index: ${props => props.active ? '100' : '-100'};
+transition: 0.3s all ease-in-out;
+
+`
+
+export const RunFileWrapper = styled.div`
+width: 400px;
+background-color: ${colors.white};
+height: 130px;
+padding: 15px;
+box-sizing: border-box;
+display: flex;
+justify-content: space-between;
+flex-direction: column;
+`
+
+export const RunFileButton = styled.button`
+padding: 5px 15px;
+`
+
+export const ButtonsContainer = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-around;
+`

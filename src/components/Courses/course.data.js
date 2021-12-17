@@ -6,6 +6,7 @@ import WhatIsProxy from "./sqlInjection/parts/WhatIsProxy"
 import RansomwareDownload from "./ransomware/parts/RansomwareDownload"
 import RansomwareFilterEmail from "./ransomware/parts/RansomwareFilterEmail"
 import RansomwareEncrypted from "./ransomware/parts/RansomwareEncrypted"
+import U2FKeys from "./phishing/parts/U2FKeys"
 const content = [
     {
         course: "sql-injection",
@@ -143,8 +144,14 @@ const content = [
             },
             {
                 header: "Sposoby ochrony",
-                text: "slajd ukazujacy alternatywy jak sie bronicz czyl isprawdzac zawsze dokladnie adresy url, czy nie ma bledow ortograficznych na stronach, kto jest nadawca maila cz to nie jakis losowy mail itp",
+                text: "slajd ukazujacy alternatywy jak sie bronicz czyl isprawdzac zawsze dokladnie adresy url, czy nie ma bledow ortograficznych na stronach, kto jest nadawca maila cz to nie jakis losowy mail itp, stosowanie 2FA",
                 level: "basic"
+            },
+            {
+                header: "Zaawansowane metody ochrony",
+                text: "Do bardziej zaawansowanych metod ochrony przed atakami phishingowymi zaliczyć można <b>klucze U2F</b>. Są to urządzenia nośniki danych, które łączą się z urządzeniem użytkownika poprzez port USB.<br><br>Działają na bazie kryptografii asymetrycznej i pozwalają na stosowanie ich jako uwierzytelnienia dwuskładnikowego. Dzięki temu nawet jeśli atakującemu przy próbie logowania uda się ukraść kod SMS, stanowiący uwierzytelnienie dwuskładnikowe, próba finalnie się nie powiedzie, gdyż nie będzie posiadał on fizycznego dostępu do klucza U2F.<br><br>Klucze U2F to powszechne i bezpieczne rozwiązanie, wspierane przez systemy operacyjnych Windows, macOS i Linux. Mogą być również stosowane przy urządzeniach mobilnych, łączać się z urządzeniem poprzez protokoły NFC.",
+                level: "advanced",
+                slide: <U2FKeys/>
             },
         ]
     },

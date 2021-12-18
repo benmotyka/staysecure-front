@@ -44,12 +44,12 @@ const RansomwareDownload = (props) => {
           <MailContainer>
             <MailWrapper>
               <MailHeaderContainer>
-                <MailDetail><strong>Od:</strong> bank@peka0.pl</MailDetail>
+                <MailDetail><strong>Od:</strong> bank@zauf4ny.pl</MailDetail>
                 <MailDetail><strong>Tytuł:</strong> PILNE: Nieuregulowany rachunek</MailDetail>
                 <MailDetail><strong>Data:</strong> 14.12.2021 22:54</MailDetail>
               </MailHeaderContainer>
               <MailBody>
-                <MailText>Szanowny kliencie,<br/><br/>Zwracamy się z uprzejmą prośbą o uregulowanie rachunku z dnia 14.12.2021. Ostateczny termin do zapłaty to <strong>31.12.2021</strong>.<br/><br/> Jeśli płatność nie zostanie uregulowana konto zostanie obciążone kwotą 2000 PLN.<br/><br/>Bank Pekao SA<br/><br/><strong>Załączniki:</strong>
+                <MailText>Szanowny kliencie,<br/><br/>Zwracamy się z uprzejmą prośbą o uregulowanie rachunku z dnia 14.12.2021. Ostateczny termin do zapłaty to <strong>31.12.2021</strong>.<br/><br/> Jeśli płatność nie zostanie uregulowana konto zostanie obciążone kwotą 2000 PLN.<br/><br/>Zaufany Bank<br/><br/><strong>Załączniki:</strong>
                 </MailText>
                 <DownloadItem active={true} onClick={() => 
                 {
@@ -68,7 +68,6 @@ const RansomwareDownload = (props) => {
             </MailWrapper>
           </MailContainer>
           <DownloadContainer active={showDownloadBar}>
-             <DownloadContainerHeader> Pobrane pliki: </DownloadContainerHeader> 
             <DownloadItem  active={showDownloadBar} 
             // onClick={() => {if(showDownloadBar) setShowRunFile(true)}}
             >

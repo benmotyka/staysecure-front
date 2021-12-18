@@ -5,6 +5,7 @@ import Introduction from "./sqlInjection/parts/Introduction"
 import WhatIsProxy from "./sqlInjection/parts/WhatIsProxy"
 import RansomwareDownload from "./ransomware/parts/RansomwareDownload"
 import RansomwareFilterEmail from "./ransomware/parts/RansomwareFilterEmail"
+import RansomwareRun from "./ransomware/parts/RansomwareRun"
 import RansomwareEncrypted from "./ransomware/parts/RansomwareEncrypted"
 import U2FKeys from "./phishing/parts/U2FKeys"
 const content = [
@@ -189,17 +190,16 @@ const content = [
             },
             {
                 header: "Uruchomienie ransomware",
-                text: "Uruchomienie wirusa nie będzie skutkowało natychmiastowym zablokowaniem dostępu do danych na urządzeniu, gdyż musi minąć pewien czas, w ciągu którego ransomware zaszyfruje wszystkie pliki.<br><br>Aby wzbudzić zaufanie ofiary i tym samym dać wirusowi więcej czasu na wykonanie swojego zadania, często po uruchomieniu pliku może wyświetlić się oczekiwana treść - w tym przypadku będzie to rachunek bankowy.<br><br>Po głębszej analizie, zauważyć można jednak, iż nie jest on zgodny z rzeczywistością. Na tym etapie zazwyczaj jest już za późno na podjęcie akcji.<br><br><strong>W tym interaktywnym ćwiczeniu, postaraj się uruchomić plik <i>rachunek.exe</i></strong>",
+                text: "Uruchomienie wirusa nie będzie skutkowało natychmiastowym zablokowaniem dostępu do danych na urządzeniu, gdyż musi minąć pewien czas, w ciągu którego ransomware zaszyfruje wszystkie pliki.<br><br>Aby wzbudzić zaufanie ofiary i tym samym dać wirusowi więcej czasu na wykonanie swojego zadania, często po uruchomieniu pliku może wyświetlić się oczekiwana treść - w tym przypadku będzie to rachunek bankowy.<br><br>Po głębszej analizie, zauważyć można jednak, iż nie jest on zgodny z rzeczywistością. Na tym etapie zazwyczaj jest już za późno na podjęcie akcji.<br><br><strong>W tym interaktywnym ćwiczeniu, postaraj się uruchomić wcześniej pobrany plik",
                 level: "basic",
-                slide: <RansomwareEncrypted/>,
+                slide: <RansomwareRun/>,
                 interactive: true
             },
             {
                 header: "Sytuacja po uruchomieniu wirusa",
                 text: "Przez krótki okres czasu, tuż po uruchomieniu wirusa ransomware, może wydawać się że wszystko jest w porządku. Jednak w rzeczywistości, wirus rozpoczął pracę nad szyfrowaniem danych użytkownika na dobre.<br><br>Po pewnym czasie użytkownik straci bezpośredni dostęp do nich, chyba że uda mu się złamać hasło.",
                 level: "basic",
-                // slide: <RansomwareEncrypted/>,
-                // interactive: true
+                slide: <RansomwareEncrypted/>
             },
            
         ]

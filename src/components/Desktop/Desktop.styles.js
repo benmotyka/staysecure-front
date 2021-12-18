@@ -2,8 +2,8 @@ import React from 'react'
 import styled from "styled-components";
 import colors from "constans/colors.js"
 
-import {FaWindows as WindowsIcon} from "react-icons/fa"
-
+import {FaWindows as WindowsIcon, FaLock as LockIcon} from "react-icons/fa"
+import {AiOutlineClose as CloseIcon, AiOutlineBank as BankIcon} from "react-icons/ai"
 export const DesktopContainer = styled.div`
 width: 100%;
 height: 100%;
@@ -111,4 +111,97 @@ export const ChildContainer = styled.div`
 position: absolute;
 top: 15px;
 left: 10%;
+`
+
+export const RansomwareContainer = styled.div`
+display: grid;
+grid-template-columns: 30% 70%;
+grid-template-rows: 1fr;
+width: 700px;
+height: 500px;
+padding: 25px;
+background-color: red;
+box-sizing: border-box;
+gap: 20px;
+`
+
+export const WindowContainer = styled.div`
+border: 7px solid rgba(0,0,0,0.2);
+background-clip: padding-box;
+position: absolute;
+border-radius: 10px;
+top: 70px;
+left: 170px;
+`
+
+export const WindowHeader = styled.div`
+background-color: rgba(0,0,0,0.2);
+padding: 5px;
+padding-bottom: 10px;
+display: flex;
+justify-content: space-between;
+`
+
+export const RansomwareWrapper = styled.div`
+display: flex;
+flex-direction: column;
+height: 100%;
+align-items: center;
+justify-content: center;
+`
+export const Lock = styled(LockIcon)`
+font-size: 100px;
+color: ${colors.white};
+`
+
+export const RansomwareWarning = styled.h4`
+color: ${colors.white};
+text-align: center;
+`
+export const RansomwareDescription = styled.p`
+margin: 0;
+font-size: 14px;
+line-height: 16px;
+`
+export const RansomwareBody = styled.div`
+border-radius: 12px;
+background-color: ${colors.white};
+box-sizing: border-box;
+max-width: 400px;
+padding: 10px;
+`
+export const RansomwareHeader = styled.h2`
+color: ${colors.white};
+text-align: center;
+`
+
+export const Close = styled(CloseIcon)`
+font-size: 20px;
+color: ${colors.white};
+cursor: pointer;
+`
+
+export const DocumentContainer = styled.div`
+width: 700px;
+height: 500px;
+padding: 25px;
+background-color: ${colors.white};
+box-sizing: border-box;
+`
+
+export const DocumentItemWrapper = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+`
+
+export const Bank = styled(BankIcon)`
+font-size: 30px;
+margin-bottom: 5px;
+margin-right: 15px;
+`
+
+export const DocumentHeader = styled.h5`
+margin: 0;
+font-size: 20px;
 `

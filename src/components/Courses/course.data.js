@@ -182,17 +182,24 @@ const content = [
             },
             {
                 header: "Pobranie i uruchomienie wirusa",
-                text: "Załóżmy, że wirus ransomware został rozesłany do ofiar w postaci <strong>maili phishingowych</strong>. <br><br>Dobrze spreparowana wiadomość będzie zachęcała odbiorcę do niezwłocznego pobrania i uruchomienia pliku, bez wcześniejszejszego zweryfikowania nadawcy ani typu załącznika. Na pierwszy rzut oka nadawca i plik wyglądają prawidłowo, jednak po dalszej analizie, zauważyć można wzbudzający wątpliwości adres mailowy, oraz typ (rozszerzenie) pobranego pliku.<br><br>Jeśli ofiara da się przekonać wiadomości, najprawdopodobniej natychmiast pobierze i uruchomi załącznik. <br><br><strong>W tym interaktywnym ćwiczeniu wykonaj symulację pobrania, a następnie uruchomienia złośliwego załącznika.</strong>",
+                text: "Załóżmy, że wirus ransomware został rozesłany do ofiar w postaci <strong>maili phishingowych</strong>. <br><br>Dobrze spreparowana wiadomość będzie zachęcała odbiorcę do niezwłocznego pobrania i uruchomienia pliku, bez wcześniejszejszego zweryfikowania nadawcy ani typu załącznika. Na pierwszy rzut oka nadawca i plik wyglądają prawidłowo, jednak po dalszej analizie, zauważyć można wzbudzający wątpliwości adres mailowy, oraz typ (rozszerzenie) pobranego pliku.<br><br>Jeśli ofiara da się przekonać wiadomości, najprawdopodobniej natychmiast pobierze i uruchomi załącznik. <br><br><strong>W tym interaktywnym ćwiczeniu wykonaj symulację pobrania złośliwego załącznika.</strong>",
                 level: "basic",
                 slide: <RansomwareDownload/>,
+                interactive: true
+            },
+            {
+                header: "Uruchomienie ransomware",
+                text: "Uruchomienie wirusa nie będzie skutkowało natychmiastowym zablokowaniem dostępu do danych na urządzeniu, gdyż musi minąć pewien czas, w ciągu którego ransomware zaszyfruje wszystkie pliki.<br><br>Aby wzbudzić zaufanie ofiary i tym samym dać wirusowi więcej czasu na wykonanie swojego zadania, często po uruchomieniu pliku może wyświetlić się oczekiwana treść - w tym przypadku będzie to rachunek bankowy.<br><br>Po głębszej analizie, zauważyć można jednak, iż nie jest on zgodny z rzeczywistością. Na tym etapie zazwyczaj jest już za późno na podjęcie akcji.<br><br><strong>W tym interaktywnym ćwiczeniu, postaraj się uruchomić plik <i>rachunek.exe</i></strong>",
+                level: "basic",
+                slide: <RansomwareEncrypted/>,
                 interactive: true
             },
             {
                 header: "Sytuacja po uruchomieniu wirusa",
                 text: "Przez krótki okres czasu, tuż po uruchomieniu wirusa ransomware, może wydawać się że wszystko jest w porządku. Jednak w rzeczywistości, wirus rozpoczął pracę nad szyfrowaniem danych użytkownika na dobre.<br><br>Po pewnym czasie użytkownik straci bezpośredni dostęp do nich, chyba że uda mu się złamać hasło.",
                 level: "basic",
-                slide: <RansomwareEncrypted/>,
-                interactive: true
+                // slide: <RansomwareEncrypted/>,
+                // interactive: true
             },
            
         ]

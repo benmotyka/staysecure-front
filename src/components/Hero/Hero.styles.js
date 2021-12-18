@@ -1,8 +1,7 @@
 import styled, {css} from "styled-components";
 import colors from "constans/colors.js"
-import backgroundImage from './Background.png'
 export const Container = styled.div`
-background-image: url(${backgroundImage});
+background-image: ${props => props.backgroundUrl ? `url(${props.backgroundUrl})` : ''};
 width: 100%;
 height: 500px;
 background-repeat: no-repeat;

@@ -8,6 +8,7 @@ const Container = styled.div`
   border-radius: 3px 3px 0 0;
   width: 100%;
   height: 90%;
+  overflow-y: auto;
 
   &:before {
   display: block;

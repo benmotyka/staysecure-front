@@ -22,9 +22,10 @@ import {
   RunFileButton,
   ButtonsContainer
 } from "../styles.js";
-import Browser from "components/Courses/Browser/Browser.js";
+import Browser from "components/Browser/Browser.js";
 import { useState } from "react";
 import { useEffect } from "react";
+import Desktop from "components/Desktop/Desktop.js";
 const RansomwareDownload = (props) => {
   useEffect(() => {
     props.setWaitForCorrectAnswer(true);
@@ -34,6 +35,7 @@ const RansomwareDownload = (props) => {
   return (
     <ContainerOneItem>
       <WrapperOneItem>
+        {/* <Desktop> */}
         <Browser>
           <MailPageSidebar>
             <Mail />
@@ -49,12 +51,17 @@ const RansomwareDownload = (props) => {
               <MailBody>
                 <MailText>Szanowny kliencie,<br/><br/>Zwracamy się z uprzejmą prośbą o uregulowanie rachunku z dnia 14.12.2021. Ostateczny termin do zapłaty to <strong>31.12.2021</strong>.<br/><br/> Jeśli płatność nie zostanie uregulowana konto zostanie obciążone kwotą 2000 PLN.<br/><br/>Bank Pekao SA<br/><br/><strong>Załączniki:</strong>
                 </MailText>
-                <DownloadItem active={true} onClick={() => setShowDownloadBar(true)}>
+                <DownloadItem active={true} onClick={() => 
+                {
+                  setShowDownloadBar(true)
+                  props.setWaitForCorrectAnswer(false)
+                }
+                }>
               <DownloadItemWrapper>
                 <File />
               </DownloadItemWrapper>{" "}
               <DownloadItemWrapper>
-                <Header>rachunek</Header>
+                <Header>rachunek.exe</Header>
               </DownloadItemWrapper>
             </DownloadItem>
               </MailBody>
@@ -62,9 +69,9 @@ const RansomwareDownload = (props) => {
           </MailContainer>
           <DownloadContainer active={showDownloadBar}>
              <DownloadContainerHeader> Pobrane pliki: </DownloadContainerHeader> 
-            <DownloadItem  active={showDownloadBar} onClick={() => {
-              if(showDownloadBar) setShowRunFile(true)}
-              }>
+            <DownloadItem  active={showDownloadBar} 
+            // onClick={() => {if(showDownloadBar) setShowRunFile(true)}}
+            >
               <DownloadItemWrapper>
                 <File />
               </DownloadItemWrapper>{" "}
@@ -74,7 +81,7 @@ const RansomwareDownload = (props) => {
               </DownloadItemWrapper>
             </DownloadItem>
           </DownloadContainer>
-          <RunFileContainer active={showRunFile}>
+          {/* <RunFileContainer active={showRunFile}>
               <RunFileWrapper>
                 <Header>Czy chcesz uruchomić program rachunek.exe jako administrator?</Header>
                 <ButtonsContainer>
@@ -89,8 +96,9 @@ const RansomwareDownload = (props) => {
               }>Nie</RunFileButton>
                 </ButtonsContainer>
               </RunFileWrapper>
-          </RunFileContainer>
+          </RunFileContainer> */}
         </Browser>
+        {/* </Desktop> */}
       </WrapperOneItem>
     </ContainerOneItem>
   );

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Browser from "../../Browser/Browser.js";
+import Browser from "components/Browser/Browser.js";
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-github";

@@ -1,5 +1,5 @@
 import React from "react";
-import Browser from "../../Browser/Browser.js";
+import Browser from "components/Browser/Browser.js";
 import {ContainerOneItem, WrapperOneItem, PageBody} from '../styles.js'
 
 const Introduction = () => {

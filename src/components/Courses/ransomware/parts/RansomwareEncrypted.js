@@ -1,11 +1,15 @@
 import EncryptedRansomwareDesktop from 'components/Desktop/EncryptedRansomwareDesktop'
-import React from 'react'
+import { useEffect } from "react";
+import {DesktopContainer} from '../styles.js'
 
-const RansomwareEncrypted = () => {
+const RansomwareEncrypted = (props) => {
+  useEffect(() => {
+    props.setWaitForCorrectAnswer(true);
+  }, []);
     return (
-        <>
-          <EncryptedRansomwareDesktop/>
-        </>
+        <DesktopContainer>
+          <EncryptedRansomwareDesktop setWaitForCorrectAnswer={props.setWaitForCorrectAnswer}/>
+        </DesktopContainer>
     )
 }
 

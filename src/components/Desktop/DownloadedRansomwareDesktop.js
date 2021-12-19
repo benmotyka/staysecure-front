@@ -51,7 +51,7 @@ const DownloadedRansomwareDesktop = (props) => {
         </Icon>
         <Icon>
           <IconImage src="desktop/wordpad.ico" />
-          <IconText>Sprawozdanie.docx</IconText>
+          <IconText>Finsanse.docx</IconText>
         </Icon>
         <Icon onClick={() => {
           setShowRansomDocument(true)

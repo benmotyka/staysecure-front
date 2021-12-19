@@ -7,6 +7,7 @@ import RansomwareDownload from "./ransomware/parts/RansomwareDownload"
 import RansomwareFilterEmail from "./ransomware/parts/RansomwareFilterEmail"
 import RansomwareRun from "./ransomware/parts/RansomwareRun"
 import RansomwareEncrypted from "./ransomware/parts/RansomwareEncrypted"
+import RansomwareInfection from './ransomware/parts/RansomwareInfection'
 import U2FKeys from "./phishing/parts/U2FKeys"
 const content = [
     {
@@ -172,7 +173,13 @@ const content = [
         content: [
             {
                 header: "Metody infekcji",
-                text: "Ransomware, podobnie jak każdy inny rodzaj złośliwego oprogramowania, może dostać się do urządzenia końcowego różnymi sposobami. Najpopularniejszymi wektorami ataku są <b>maile phishingowe</b> lub <b>zdalny dostęp</b>.",
+                text: "Ransomware, podobnie jak każdy inny rodzaj złośliwego oprogramowania, może dostać się do urządzenia końcowego różnymi sposobami. Najpopularniejszymi wektorami ataku są <b>zdalny dostęp</b>, <b>maile phishingowe</b> lub <b>zdalne wykonanie kodu</b><br><br>Każdy z wyżej wymienionych sposobów sprowadza się do jednego - zainstalowania na urządzeniu ofiary złośliwego oprogramowania (wirusa).",
+                level: "basic",
+                slide: <RansomwareInfection/>,
+            },
+            {
+                header: "Wygenerowanie kluczy dostępu",
+                text: "# FORMAT Atakujący generuje klucz publiczny i prywatny, wysyla do kazdej ofiary unikalny, po to zeby potem jej dac zeby sobie oszyfrwoala jak wysle okup, lub nie, zalezy od atakujacego, powiedziec troche jak dziala kryptogrania asymetryczna, ze tylko klucz prywatny jest w stanie odszyfrowac cos zaszyfrowane kluczen publicznym. .",
                 level: "basic"
             },
             {
@@ -190,16 +197,17 @@ const content = [
             },
             {
                 header: "Uruchomienie ransomware",
-                text: "Uruchomienie wirusa nie będzie skutkowało natychmiastowym zablokowaniem dostępu do danych na urządzeniu, gdyż musi minąć pewien czas, w ciągu którego ransomware zaszyfruje wszystkie pliki.<br><br>Aby wzbudzić zaufanie ofiary i tym samym dać wirusowi więcej czasu na wykonanie swojego zadania, często po uruchomieniu pliku może wyświetlić się oczekiwana treść - w tym przypadku będzie to rachunek bankowy.<br><br>Po głębszej analizie, zauważyć można jednak, iż nie jest on zgodny z rzeczywistością. Na tym etapie zazwyczaj jest już za późno na podjęcie akcji.<br><br><strong>W tym interaktywnym ćwiczeniu, postaraj się uruchomić wcześniej pobrany plik",
+                text: "Uruchomienie wirusa nie będzie skutkowało natychmiastowym zablokowaniem dostępu do danych na urządzeniu, gdyż musi minąć pewien czas, w ciągu którego ransomware zaszyfruje wszystkie pliki.<br><br>Aby wzbudzić zaufanie ofiary i tym samym dać wirusowi więcej czasu na wykonanie swojego zadania, często po uruchomieniu pliku może wyświetlić się oczekiwana treść - w tym przypadku będzie to rachunek bankowy.<br><br>Po dokładniejszej analizie, zauważyć można jednak, iż nie jest on zgodny z rzeczywistością. Na tym etapie zazwyczaj jest już za późno na podjęcie akcji.<br><br><strong>W tym interaktywnym ćwiczeniu, postaraj się uruchomić wcześniej pobrany plik",
                 level: "basic",
                 slide: <RansomwareRun/>,
                 interactive: true
             },
             {
                 header: "Sytuacja po uruchomieniu wirusa",
-                text: "Przez krótki okres czasu, tuż po uruchomieniu wirusa ransomware, może wydawać się że wszystko jest w porządku. Jednak w rzeczywistości, wirus rozpoczął pracę nad szyfrowaniem danych użytkownika na dobre.<br><br>Po pewnym czasie użytkownik straci bezpośredni dostęp do nich, chyba że uda mu się złamać hasło.",
+                text: "Kiedy ransomware zakończy swoją pracę, użytkownik końcowy <strong>traci dostęp do wszystkich danych na urządzeniu</strong>. W zalezności od typu ransomware, zazwyczaj jedynym sposobem na odszyfrowanie danych jest użycie szyfrującego klucza prywatnego, w którego posiadaniu jest atakujący.<br><br>Uzyskanie tego klucza nie jest jednak trywialnym zadaniem - towarzyszy temu opłata pieniężna, wykonana jak najbardziej anonimowym sposobem. Dodatkowo, celem przyśpieszenia procesu uzyskania zapłaty, atakujący często zagraża ofiarze zniszczeniem klucza, który jest jedynym sposobem na uzyskanie dostępu do zaszyfrowanych danych.<br><br> <strong>W tym interaktywnym ćwiczeniu, postaraj się uruchomić nowo powstały plik, a następnie przeanalizuj jego zawartość.</strong>",
                 level: "basic",
-                slide: <RansomwareEncrypted/>
+                slide: <RansomwareEncrypted/>,
+                interactive: true
             },
            
         ]

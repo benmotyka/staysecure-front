@@ -23,8 +23,7 @@ import {
   ButtonsContainer
 } from "../styles.js";
 import Browser from "components/Browser/Browser.js";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import Desktop from "components/Desktop/Desktop.js";
 const RansomwareDownload = (props) => {
   useEffect(() => {
@@ -35,7 +34,6 @@ const RansomwareDownload = (props) => {
   return (
     <ContainerOneItem>
       <WrapperOneItem>
-        {/* <Desktop> */}
         <Browser>
           <MailPageSidebar>
             <Mail />
@@ -97,7 +95,6 @@ const RansomwareDownload = (props) => {
               </RunFileWrapper>
           </RunFileContainer> */}
         </Browser>
-        {/* </Desktop> */}
       </WrapperOneItem>
     </ContainerOneItem>
   );

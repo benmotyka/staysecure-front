@@ -22,11 +22,16 @@ import {
     RansomwareHeader,
     WindowContainer,
     WindowHeader,
+    DocumentContainer,
+  Bank,
+  DocumentItemWrapper,
+  DocumentHeader,
     Close
   } from "./Desktop.styles.js";
   
   const EncryptedRansomwareDesktop = (props) => {
     const [showRansomPopup, setShowRansomPopup] = useState(false)
+  const [showRansomDocument, setShowRansomDocument] = useState(false);
     const newDate = new Date();
     const ransomwareDate =  new Date(new Date().getTime()+(5*24*60*60*1000));
 
@@ -55,11 +60,18 @@ import {
             <IconImage src="desktop/file.ico" />
             <IconText>v9anvr.31vbbs</IconText>
           </Icon>
-          <Icon>
+          <Icon
+          onClick={() => {
+            setShowRansomDocument(true)
+          }}
+          >
             <IconImage src="desktop/exe.ico" />
             <IconText>Rachunek.exe</IconText>
           </Icon>
-          <Icon onClick={() => setShowRansomPopup(true)}>
+          <Icon onClick={() => {
+            props.setWaitForCorrectAnswer(false)
+            setShowRansomPopup(true)
+          }}>
             <IconImage src="desktop/exe.ico" />
             <IconText>CLICK ME.exe</IconText>
           </Icon>
@@ -89,7 +101,7 @@ import {
         </TaskBar>
         {showRansomPopup && 
         <WindowContainer>
-            <WindowHeader><RansomwareDescription>Ransomware</RansomwareDescription><Close onClick={() => setShowRansomPopup(false)}/></WindowHeader>
+            <WindowHeader><RansomwareDescription>RANSOMWARE</RansomwareDescription><Close onClick={() => setShowRansomPopup(false)}/></WindowHeader>
         <RansomwareContainer>
             <RansomwareWrapper>
                 <Lock/>
@@ -105,6 +117,28 @@ import {
             </RansomwareContainer>
             </WindowContainer>
         }
+      {showRansomDocument && (
+        <WindowContainer>
+          <WindowHeader>
+            <RansomwareDescription>Rachunek</RansomwareDescription>
+            <Close onClick={() => setShowRansomDocument(false)} />
+          </WindowHeader>
+          <DocumentContainer>
+            <DocumentItemWrapper>
+              <Bank /> <DocumentHeader>Zaufany Bank</DocumentHeader>
+            </DocumentItemWrapper>
+            <h4>RACHUNEK WINIEN (NADAWCA): JAN KOWALSKI</h4>
+            <p>Numer rachunku: 123456789011121314</p>
+            <p>Nazwa banku: Zaufany Bank</p>
+            <p>Właściciel: JAN KOWALSKI</p>
+            <h4>SZCZEGÓŁY OPERACJI</h4>
+            <p>Kwota operacji: -10.53 PLN</p>
+            <p>Kwota obciążenia: -10.53 PLN</p>
+            <p>Data księgowania:              {newDate.getDate()}/{newDate.getMonth() + 1}/
+              {newDate.getFullYear()}</p>
+          </DocumentContainer>
+        </WindowContainer>
+      )}
       </DesktopContainer>
     );
   };

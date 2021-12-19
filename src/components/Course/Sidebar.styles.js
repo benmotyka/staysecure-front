@@ -10,6 +10,7 @@ position: absolute;
 left: 0;
 top: 80px;
 bottom: 0;
+overflow-y: auto;
 background-color: ${colors.darkPurple};
 display: flex;
 justify-content: center;
@@ -42,7 +43,7 @@ opacity: 0.8;
 `
 
 const Icon = css`
-font-size: 120px;
+font-size: 100px;
 opacity: ${props => props.show ? "1" : "0"};
 transition: 0.5s all ease-in;
 `

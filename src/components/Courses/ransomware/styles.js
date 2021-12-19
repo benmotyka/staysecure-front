@@ -171,3 +171,10 @@ display: flex;
 align-items: center;
 justify-content: space-around;
 `
+
+export const DesktopContainer = styled.div`
+width: 100%;
+height: 100%;
+padding: 25px;
+box-sizing: border-box;
+`

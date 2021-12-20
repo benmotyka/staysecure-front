@@ -8,6 +8,7 @@ import RansomwareFilterEmail from "./ransomware/parts/RansomwareFilterEmail"
 import RansomwareRun from "./ransomware/parts/RansomwareRun"
 import RansomwareEncrypted from "./ransomware/parts/RansomwareEncrypted"
 import RansomwareInfection from './ransomware/parts/RansomwareInfection'
+import RansomwareAsymetricKey from './ransomware/parts/RansomwareAsymetricKey'
 import U2FKeys from "./phishing/parts/U2FKeys"
 const content = [
     {
@@ -180,7 +181,8 @@ const content = [
             {
                 header: "Wygenerowanie kluczy dostępu",
                 text: "# FORMAT Atakujący generuje klucz publiczny i prywatny, wysyla do kazdej ofiary unikalny, po to zeby potem jej dac zeby sobie oszyfrwoala jak wysle okup, lub nie, zalezy od atakujacego, powiedziec troche jak dziala kryptogrania asymetryczna, ze tylko klucz prywatny jest w stanie odszyfrowac cos zaszyfrowane kluczen publicznym. .",
-                level: "basic"
+                level: "basic",
+                slide: <RansomwareAsymetricKey/>,
             },
             {
                 header: "Filtry antyspamowe",

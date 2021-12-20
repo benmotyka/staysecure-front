@@ -180,7 +180,7 @@ const content = [
             },
             {
                 header: "Wygenerowanie kluczy dostępu",
-                text: "# FORMAT Atakujący generuje klucz publiczny i prywatny, wysyla do kazdej ofiary unikalny, po to zeby potem jej dac zeby sobie oszyfrwoala jak wysle okup, lub nie, zalezy od atakujacego, powiedziec troche jak dziala kryptogrania asymetryczna, ze tylko klucz prywatny jest w stanie odszyfrowac cos zaszyfrowane kluczen publicznym. .",
+                text: "Atakujący generuje parę kluczy: publiczny i prywatny. Poprzez kryptografię asymetryczną, cokolwiek zaszyfrowane kluczem publicznym, można odszyfrować <strong>tylko</strong> kluczem prywatnym.<br><br>Wirus, który zostanie rozsyłany przez atakującego zaszyfruje pliki <strong>kluczem publicznym</strong>. Jeśli ofiara wywiąże się z narzuconego okupu, może jej zostać dostarczony klucz prywatny, który jest jedynym sposobem na odszyfrowanie danych. Nie rzadko dla każdej ofiary wygenerowana jest unikalna para kluczy.<br><br> ",
                 level: "basic",
                 slide: <RansomwareAsymetricKey/>,
             },

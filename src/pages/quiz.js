@@ -34,7 +34,7 @@ const Quiz = (props) => {
                 }
             `,
           variables: {
-            courseName: props.courseName,
+            courseName: props.match.params.courseName,
           },
         };
         try {
@@ -50,14 +50,14 @@ const Quiz = (props) => {
     
           if (
             response.errors &&
-            response.errors[0].message === "course-not-finished"
+            (response.errors[0].message === "unauthenticated" ||
+            response.errors[0].message === "course-not-finished" )
           ) {
-            history.push(`/course/${props.courseName}`);
+            history.push(`/course/${props.match.params.courseName}`);
           } else {
             setLoading(false);
           }
         } catch (error) {
-          console.log(error);
           setLoading(false);
         }
       };

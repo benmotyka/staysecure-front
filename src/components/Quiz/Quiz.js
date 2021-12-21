@@ -45,7 +45,7 @@ const Quiz = (props) => {
     };
     try {
       const response = await axios.post(
-        "${window.env.API_URL}/graphql",
+        `${window.env.API_URL}/graphql`,
         requestBody,
         {
           headers: {

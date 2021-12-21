@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectUser } from "features/userSlice";
 import { useHistory } from "react-router-dom";
+import {useDispatch} from "react-redux"
 import axios from "axios";
+import { logout } from "features/userSlice";
 
 import NavbarClean from "components/Navbar/NavbarClean";
 import { PageCourse } from "components/Pages/Pages.styles";
@@ -26,6 +28,7 @@ const Course = (props) => {
   const history = useHistory();
   const user = useSelector(selectUser);
   const {t} = useTranslation()
+  const dispatch = useDispatch();
 
   const courseName = props.match.params.courseName;
 
@@ -85,6 +88,10 @@ const Course = (props) => {
         }
         if (data.errors[0].message === "course-not-found") {
           history.push("/courses");
+        }
+        if (data.errors[0].message === "unauthenticated") {
+          dispatch(logout())
+          history.push("/login");
         }
       }
     } catch (error) {

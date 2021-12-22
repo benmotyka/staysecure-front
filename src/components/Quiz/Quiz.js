@@ -32,14 +32,14 @@ const Quiz = (props) => {
     const requestBody = {
       query: `
             mutation FinishQuiz($course: String!, $answers: String!){
-              finishQuiz(courseName: $course, userAnswers: $answers){
+              finishQuiz(courseLink: $course, userAnswers: $answers){
                 correctAnswers
                 numberOfQuestions
               }
             }
             `,
       variables: {
-        course: props.courseName,
+        course: props.courseLink,
         answers: JSON.stringify(userAnswers),
       },
     };
@@ -60,9 +60,9 @@ const Quiz = (props) => {
     setLoading(false)
   }
 
-  const updateUserAnswer = ((itemId) => {
+  const updateUserAnswer = ((question) => {
     if(choosenAnswer === null) return
-    setUserAnswers(userAnswers => [...userAnswers, {itemId: itemId, answer: choosenAnswer}]);
+    setUserAnswers(userAnswers => [...userAnswers, {question, answer: choosenAnswer}]);
     if (currentQuestion >= props.quizData.length - 1) {
       return;
     }
@@ -92,7 +92,7 @@ const Quiz = (props) => {
                         onClick={() => {
                           setChoosenAnswer(answer)
                         }}
-                        >{answer}</Answer>
+                        >{answer.text}</Answer>
                       ))}
                     </AnswersContainer>
                   </Body>
@@ -106,7 +106,7 @@ const Quiz = (props) => {
 
                       {currentQuestion >= (props.quizData.length -1) ?  (
                     <FooterText onClick={() => {
-                      updateUserAnswer(item._id)
+                      updateUserAnswer(item.question)
                       setQuizFinished(true)
                       finishQuiz()
                     }}>
@@ -115,7 +115,7 @@ const Quiz = (props) => {
                     )
                     : (
                       <FooterText onClick={() => {
-                        updateUserAnswer(item._id)
+                        updateUserAnswer(item.question)
                       }}>
                         Następne pytanie <NavigateArrow />
                       </FooterText>

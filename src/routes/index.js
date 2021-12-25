@@ -15,6 +15,7 @@ import course from "pages/course"
 import accountSettings from "pages/account/settings";
 import accountCourses from "pages/account/courses";
 import quiz from "pages/quiz";
+import quizSummary from "pages/quizSummary"
 // import ForgotPasswordPage from "pages/ForgotPasswordPage";
 // import ForgotPasswordChangePage from "pages/ForgotPasswordChangePage";
 // // COURSES
@@ -43,6 +44,7 @@ const Routes = (props) => {
 
       <Route path="/course/:courseName" component={course} />
       <Route path="/quiz/:courseName" component={quiz} /> 
+      <Route path="/quiz-summary/:courseName" component={quizSummary} /> 
 
       {/* 
       <Route path="/forgot-password" component={ForgotPasswordPage} exact />

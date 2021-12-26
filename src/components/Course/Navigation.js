@@ -80,7 +80,7 @@ const Navigation = (props) => {
       >
         <Arrow />
       </ChangeSlideButton>
-      {showEndingModal && <Modal header={t('courseFinishConfirmationHeader')} text={t('courseFinishConfirmationDescription')} button1Text={t('cancel')} button2Text={t('continue')} button1OnClick={() => {
+      {showEndingModal && <Modal header={t('courseFinishConfirmationHeader')} text={t('courseFinishConfirmationDescription')} button1Text={t('cancel')} button2Text={t('proceed')} button1OnClick={() => {
         setShowEndingModal(false)
       }} 
       button2OnClick={() => {

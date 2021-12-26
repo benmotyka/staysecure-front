@@ -53,10 +53,10 @@ const Quiz = (props) => {
           },
         }
         );
-        console.log(response)
     } catch (error) {
       console.log(error)
     }
+    history.push(`/quiz-summary/${props.courseLink}`)
     setLoading(false)
   }
 
@@ -71,11 +71,11 @@ const Quiz = (props) => {
   })
 
   return (
-    <Container>
+    <>
       {loading ? (
         <Loader />
       ) : (
-        <>
+        <Container>
           {props.quizData.map((item, index) => {
             if (index === currentQuestion)
               return (
@@ -125,9 +125,9 @@ const Quiz = (props) => {
                 </>
               );
           })}
-        </>
+        </Container>
       )}
-    </Container>
+    </>
   );
 };
 

@@ -100,11 +100,11 @@ const Quiz = (props) => {
 
   return (
     <>
+      <NavbarClean />
       {loading ? (
         <Loader />
       ) : (
         <>
-          <NavbarClean />
           <PageOneChild includeNavbar>
             <QuizWidget
               courseLink={props.match.params.courseName}

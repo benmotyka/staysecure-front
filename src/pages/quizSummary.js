@@ -4,7 +4,7 @@ import axios from "axios";
 import Loader from "components/Loader/Loader";
 import { useSelector } from "react-redux";
 import { selectUser } from "features/userSlice";
-import NavbarClean from "components/Navbar/NavbarClean";
+import Navbar from "components/Navbar/Navbar";
 import { PageCentered } from "components/Pages/Pages.styles";
 import QuizSummaryWidget from "components/QuizSummaryWidget/QuizSummaryWidget";
 const QuizSummary = (props) => {
@@ -66,11 +66,11 @@ const QuizSummary = (props) => {
 
   return (
     <>
+          <Navbar/>
       {loading ? (
         <Loader />
       ) : (
         <>
-          <NavbarClean />
           <PageCentered>
             <QuizSummaryWidget
               quizName={props.match.params.courseName}

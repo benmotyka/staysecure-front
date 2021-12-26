@@ -64,5 +64,14 @@
     "courseFinishConfirmationDescription": "Kurs kończy się quizem. Czy chcesz zakończyć kurs i przejść do quizu?",
     "similarArticles": "Podobne artykuły",
     "mobileAlertHeader": "Ta strona nie jest dostosowana pod urządzenia mobilne",
-    "mobileAlertDescription": "Aby w pełni móc korzystać z serwisu, odwiedź tą stronę na komputerze"
+    "mobileAlertDescription": "Aby w pełni móc korzystać z serwisu, odwiedź tą stronę na komputerze",
+    "quiz": {
+        "summary": "Podsumowanie quizu",
+        "yourScoreIs": "Twój wynik to",
+        "green": "zielony",
+        "red": "czerwony",
+        "color": "Kolor",
+        "meansCorrectAnswerAnd": "oznacza poprawną odpowiedź, a kolor",
+        "possibleBadAnswer": "ewentualną wybraną błędną odpowiedź"
+    }
 }

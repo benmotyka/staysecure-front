@@ -1,10 +1,7 @@
-import { useEffect, useState } from "react";
-
-import {SummaryList, SummaryItem, Question, AnswersContainer, Answer} from "./QuizSummaryWidget.styles"
+import {SummaryList, SummaryItem, Question, AnswersContainer, Answer} from "./QuizSummary.styles"
 
 const QuizSummaryWidget = (props) => {
     return (
-        <div>
             <SummaryList>
             {props.summaryData.map((item, index) => (
                 <SummaryItem key={index}>
@@ -17,7 +14,6 @@ const QuizSummaryWidget = (props) => {
                 </SummaryItem>
             ))}
             </SummaryList>
-        </div>
     )
 }
 

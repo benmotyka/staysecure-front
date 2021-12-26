@@ -10,7 +10,8 @@ const colors = {
     hoverOrange: '#c43737',
     gold: '#D98C00',
     darkThemeCode: '#101010',
-    grey: '#9D9D9D'
+    grey: '#9D9D9D',
+    red: '#F90716'
 }
 
 export default colors

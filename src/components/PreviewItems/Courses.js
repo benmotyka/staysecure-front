@@ -50,7 +50,7 @@ const Courses = (props) => {
       ) : (
         <Container>
           <Header>{props.header}</Header>
-          <Line></Line>
+          <Line/>
           <ItemsWrapper>
             {courses.map((course, index) => (
               <Course

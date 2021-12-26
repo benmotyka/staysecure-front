@@ -64,5 +64,14 @@
     "courseFinishConfirmationDescription": "The course ends with the quiz. Do you want to proceed to it now?",
     "similarArticles": "Similar articles",
     "mobileAlertHeader": "This site is not designed for mobile devices",
-    "mobileAlertDescription": "To take full advantage of the site, visit this page on your computer"
+    "mobileAlertDescription": "To take full advantage of the site, visit this page on your computer",
+    "quiz": {
+        "summary": "Quiz summary for",
+        "yourScoreIs": "Your score is",
+        "green": "green",
+        "red": "red",
+        "color": "Color",
+        "meansCorrectAnswerAnd": " stands for correct answer, and",
+        "possibleBadAnswer": "for possible bad answer."
+    }
 }

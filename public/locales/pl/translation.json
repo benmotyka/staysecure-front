@@ -49,7 +49,7 @@
     "continue": "Wznów",
     "proceed": "Przejdź",
     "finishedCourses": "Ukończone kursy",
-    "proceedToQuiz": "Przejdź do quizu",
+    "proceedToQuiz": "Podsumowanie quizu",
     "errors": {
         "wrong-login-password": "Błędny login lub hasło",
         "wrong-email-name-password": "Błędny email, nazwa lub hasło",
@@ -72,6 +72,6 @@
         "red": "czerwony",
         "color": "Kolor",
         "meansCorrectAnswerAnd": "oznacza poprawną odpowiedź, a kolor",
-        "possibleBadAnswer": "ewentualną wybraną błędną odpowiedź"
+        "possibleBadAnswer": "ewentualną błędnie wybraną odpowiedź"
     }
 }

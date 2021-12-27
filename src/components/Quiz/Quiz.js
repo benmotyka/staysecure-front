@@ -14,6 +14,7 @@ import {
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Loader from "components/Loader/Loader";
+import Button from "components/Button/Button";
 
 const Quiz = (props) => {
   const history = useHistory();
@@ -114,11 +115,9 @@ const Quiz = (props) => {
                     </FooterText>
                     )
                     : (
-                      <FooterText onClick={() => {
-                        updateUserAnswer(item.question)
-                      }}>
-                        Następne pytanie <NavigateArrow />
-                      </FooterText>
+                <Button text="Następne pytanie"  onClick={() => {
+                  updateUserAnswer(item.question)
+              }}/>
                     )
                        } 
                   </Footer>

@@ -72,7 +72,7 @@ grid-template-columns: 1fr 1fr;
 grid-template-rows: 1fr 1fr;
 padding: 0 25px;
 gap: 30px;
-margin-bottom: 100px;
+margin-bottom: 50px;
 `
 
 export const Answer = styled.button`

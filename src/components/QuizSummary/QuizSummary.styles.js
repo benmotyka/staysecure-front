@@ -34,6 +34,7 @@ ${FlexCenterColumn};
 width: 100%;
 margin-bottom: 50px;
 background-color: ${colors.darkPurple};
+padding: 20px;
 `
 
 export const AnswersContainer = styled.div`
@@ -71,7 +72,9 @@ font-size: 25px;
 }
 `
 
-export const SummaryInstructions = styled.div``
+export const SummaryInstructions = styled.div`
+width: 60%;
+`
 export const InstructionsSubheader = styled.h3`
 ${InstructionsText};
 opacity: 0.9;

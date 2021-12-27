@@ -174,7 +174,7 @@ const content = [
         content: [
             {
                 header: "Metody infekcji",
-                text: "Ransomware, podobnie jak każdy inny rodzaj złośliwego oprogramowania, może dostać się do urządzenia końcowego różnymi sposobami. Najpopularniejszymi wektorami ataku są <b>zdalny dostęp</b>, <b>maile phishingowe</b> lub <b>zdalne wykonanie kodu</b><br><br>Każdy z wyżej wymienionych sposobów sprowadza się do jednego - zainstalowania na urządzeniu ofiary złośliwego oprogramowania (wirusa).",
+                text: "Ransomware, podobnie jak każdy inny rodzaj złośliwego oprogramowania, może dostać się do urządzenia końcowego różnymi sposobami. Najpopularniejszymi wektorami ataku są <b>zdalny dostęp</b>, <b>maile phishingowe</b> lub <b>zdalne wykonanie kodu</b><br><br>Każdy z wyżej wymienionych sposobów sprowadza się do jednego - zainstalowania na urządzeniu ofiary złośliwego oprogramowania (wirusa).<br><br>Głównym celem ransomware jest <strong>zaszyfrowanie danych</strong> znajdujących się na urządzeniu końcowym, celem zażądania okupu za ich odszyfrowanie.",
                 level: "basic",
                 slide: <RansomwareInfection/>,
             },
@@ -211,7 +211,12 @@ const content = [
                 slide: <RansomwareEncrypted/>,
                 interactive: true
             },
-           
+            {
+                header: "Metody ochrony przed ransomware",
+                text: "#FORMAT opisac robienie kopi zapasowych, uzywanie antywriusa, ze to nei zawsze pomage ale niweluje, zasada ograniczonego zaufania do kazdego kto do nas pisze itp, nie jest dobrym pomyslem zaplata okupu dlatego tez ze to czesto jest scam ",
+                level: "basic",
+                // slide: <RansomwareEncrypted/>,
+            },
         ]
     },
     {

@@ -49,7 +49,7 @@
     "continue": "Continue",
     "proceed": "Proceed",
     "finishedCourses": "Finished courses",
-    "proceedToQuiz": "Proceed to quiz",
+    "proceedToQuiz": "Quiz summary",
     "errors": {
         "wrong-login-password": "Invalid login or password",
         "wrong-email-name-password": "Invalid email, name or password",

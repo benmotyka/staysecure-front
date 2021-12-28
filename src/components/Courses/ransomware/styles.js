@@ -3,6 +3,7 @@ import colors from "constans/colors.js";
 import {
   AiOutlineFile as FileIcon,
   AiOutlineMail as MailIcon,
+  AiFillSecurityScan as AntivirusIcon
 } from "react-icons/ai";
 import {
   FaUser as UserIcon,
@@ -13,6 +14,8 @@ import {
 } from "react-icons/fa";
 import { BsLaptop as LaptopIcon } from "react-icons/bs";
 import { IoIosApps as AppIcon } from "react-icons/io";
+import {VscWorkspaceUntrusted as TrustIcon} from "react-icons/vsc"
+import {MdBackup as BackupIcon} from "react-icons/md" 
 
 const flexCenter = css`
   display: flex;
@@ -219,6 +222,7 @@ export const ContentHeader = styled.h3`
   font-size: 18px;
   text-align: center;
   color: ${colors.white};
+  font-weight: normal;
   padding: 15px;
   margin: 0;
 `;
@@ -328,5 +332,20 @@ width: 250px;
 
 export const ItemDescription = styled.p`
 font-size: 14px;
+color: ${colors.white};
+`
+
+export const Trust = styled(TrustIcon)`
+color: ${colors.red};
+font-size: 60px;
+`
+
+export const Backup = styled(BackupIcon)`
+font-size: 60px;
+color: ${colors.white};
+`
+
+export const Antivirus = styled(AntivirusIcon)`
+font-size: 60px;
 color: ${colors.white};
 `

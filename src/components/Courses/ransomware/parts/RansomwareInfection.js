@@ -53,7 +53,7 @@ const RansomwareInfection = () => {
           </ContentWrapper>}{" "}
       {activeSlide === 2 && <ContentWrapper>
         <ContentHeader>
-            Atakujący znajduje lukę w programie, który uruchomiła ofiara lub serwer. Luka ta pozwala na zdalne wykonanie kodu na urzadzeniu końcowym - co wiązać się może z pobraniem a następnie uruchomieniem ransomware przez atakującego. 
+            Atakujący znajduje lukę w programie, który uruchomiła ofiara lub serwer. Luka ta pozwala na zdalne wykonanie kodu na urzadzeniu końcowym - co wiązać się może z pobraniem, a następnie uruchomieniem ransomware przez atakującego. 
           </ContentHeader>
           <ContentBody>
             <BadUser/>

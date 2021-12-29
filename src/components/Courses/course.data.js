@@ -117,13 +117,13 @@ const content = [
         language: "pl",
         content: [
             {
-                header: "Przygotowanie maili phishingowych",
-                text: "# FORMAT Każdy atak phishingowy poprzedzony jest dokładnym spreparowaniem wiadomości mailowych lub sms, a następnie rozsyłania jej na wiele adresów e-mail bądź telefonów komórkowych. Atakujący znajdują cele najczęściej poprzez uzyskanie dostępu do baz danych, zawierających rzeczywiste adresy e-mail. Adresy te mogą być pozyskiwane poprzez mechanizm Web Scrappingu, które odwiedzają każdą stronę internetową w poszukiwaniu dowolnych ciągów znaków przypominających adres email, a następnie dodaniu go do bazy. OPISAC WIADOMOSC, ZE ONA NAJCZESCIEJ POWODUJE U CZLOWIEKA SZOK, ZE MUSI COS SZYBKO ZROBIC",
+                header: "Rodzaje ataków phishingowych",
+                text: "Zagadnienie phishingu jest bardzo obszerne - zawiera w sobie wiele rodzajów i sposobów phishingu, jednak w większości przypadków sprowadza się do oszukania, złudzenia ofiary.<br><br>Atakujący może używać phishingu samego w sobie do zdobycia poufnych danych, jednak jest on często wykorzystywany jako element pośredniczący dla innego ataku.<br><br>Przykładowo, aby rozesłać wirusa ransomware, atakujący może spreparować i wykorzystać <strong>maile phishingowe</strong>. Kolejnym przykładem może być instalacja Keyloggera na urządzeniu mobilnym, poprzez <strong>phishing telefoniczny</strong>.<br><br>Ofiarami ataków phishingowych mogą być zarówno pracownicy firm, jak i zwykli użytkownicy internetu, których adresy email lub numery telefonów zostały ujawnione, przykładowo w wyniku wycieku bazy danych.",
                 level: "basic"
             },
             {
-                header: "Web scrapping",
-                text: "opisac w jaki sposob pozyskiwane sa maile ofiar, przez mechanizm web scrapingu, zrobic animacje ze ktos tam wchodzi na strone i wyszukuje wszystkie maile itp",
+                header: "Web Scrapping",
+                text: "Atakujący obierając sobie za cel phishingu firmę, może chcieć zebrać jak najwięcej adresów email bądź numerów telefonu członków danej firmy. Wydawać się może to pracochłonnym zadaniem,  dlatego częstym sposobem pozyskiwania danych potencjalnych ofiar, są narzędzia zwane <strong>Web Scrapperami</strong>.<br><br>Są to w pełni zautomatyzowane narzędzia, które pozwalają na pobranie całej zawartości strony internetowej, odnalezieniu w niej pewnych wzorców, na przykład adresów email, a następnie zapisaniu ich.<br><br>Web scrappery mogą być również wyposażone w mechanizm odwiedzania witryn powiązanych z pierwotną stroną, celem pobierania jeszcze większej ilości danych. Zebrane i przygotowane dane mogą być bezpośrednio użyte do ataków phishingowych na dużą skalę.",
                 level: "advanced"
             },
             {
@@ -155,7 +155,7 @@ const content = [
             },
             {
                 header: "Zaawansowane metody ochrony",
-                text: "Do bardziej zaawansowanych metod ochrony przed atakami phishingowymi zaliczyć można <b>klucze U2F</b>. Są to urządzenia nośniki danych, które łączą się z urządzeniem użytkownika poprzez port USB.<br><br>Działają na bazie kryptografii asymetrycznej i pozwalają na stosowanie ich jako uwierzytelnienia dwuskładnikowego. Dzięki temu nawet jeśli atakującemu przy próbie logowania uda się ukraść kod SMS, stanowiący uwierzytelnienie dwuskładnikowe, próba finalnie się nie powiedzie, gdyż nie będzie posiadał on fizycznego dostępu do klucza U2F.<br><br>Klucze U2F to powszechne i bezpieczne rozwiązanie, wspierane przez systemy operacyjnych Windows, macOS i Linux. Mogą być również stosowane przy urządzeniach mobilnych, łączać się z urządzeniem poprzez protokoły NFC.",
+                text: "Do bardziej zaawansowanych metod ochrony przed atakami phishingowymi zaliczyć można <b>klucze U2F</b>. Są to urządzenia nośniki danych, które łączą się z urządzeniem użytkownika poprzez port USB.<br><br>Działają na bazie kryptografii asymetrycznej i pozwalają na stosowanie ich jako uwierzytelnienia dwuskładnikowego. Dzięki temu nawet jeśli atakującemu przy próbie logowania uda się ukraść kod SMS, stanowiący uwierzytelnienie dwuskładnikowe, próba finalnie się nie powiedzie, gdyż nie będzie posiadał on fizycznego dostępu do klucza U2F.<br><br>Klucze U2F to powszechne i bezpieczne rozwiązanie, wspierane nie tylko przez systemy operacyjnych Windows, macOS i Linux, ale również przez największe portale społecznościowe. Mogą być również stosowane przy urządzeniach mobilnych, łączać się z urządzeniem poprzez protokoły NFC.",
                 level: "advanced",
                 slide: <U2FKeys/>
             },
@@ -183,7 +183,7 @@ const content = [
             },
             {
                 header: "Wygenerowanie kluczy dostępu",
-                text: "Atakujący generuje parę kluczy: publiczny i prywatny. Poprzez kryptografię asymetryczną, cokolwiek zaszyfrowane kluczem publicznym, można odszyfrować <strong>tylko</strong> kluczem prywatnym.<br><br>Wirus, który zostanie rozsyłany przez atakującego, zaszyfruje pliki <strong>kluczem publicznym</strong>. Jeśli ofiara wywiąże się z narzuconego okupu, może jej zostać dostarczony klucz prywatny, który jest jedynym sposobem na odszyfrowanie danych. Nie rzadko dla każdej ofiary wygenerowana jest unikalna para kluczy.<br><br> ",
+                text: "Atakujący generuje parę kluczy: publiczny i prywatny. Kryptografia asymetryczna działa w ten sposób, że cokolwiek zaszyfrowane kluczem publicznym, można odszyfrować <strong>tylko</strong> kluczem prywatnym.<br><br>Wirus, który zostanie rozsyłany przez atakującego, zaszyfruje pliki <strong>kluczem publicznym</strong>. Jeśli ofiara wywiąże się z narzuconego okupu, może jej zostać dostarczony klucz prywatny, który jest jedynym sposobem na odszyfrowanie danych. W zdecydowanej większości przypadków tak się nie stanie - jeśli padniemy ofiarą ransomware, złym pomysłem jest spłacenie okupu. Najczęściej atakującemu nie będzie już zależało na dostarczeniu ofierze klucza, celem odszyfrowaniu danych.<br><br> ",
                 level: "basic",
                 slide: <RansomwareAsymetricKey/>,
             },
@@ -216,7 +216,7 @@ const content = [
             },
             {
                 header: "Metody ochrony przed ransomware",
-                text: "Przed atakiem typu ransomware ciężko się w pełni ochronić. Można jednak podjąć akcje, które pomogą zniwelować jego skutki.<br><br>Najważniejszym elementem jest <strong>zasada ograniczonego zaufania</strong> i dokładnego analizowania otrzymanych maili, pobranych plików.<br><br>Kolejnym ze sposobów na ochronę jest częste wykonywanie kopii zapasowych, jednak istnieje możliwość, że ransomware zaszyfruje także wszystkie kopie zapasowe, przez co staną się one bezużyteczne.<br><br>W zdecydowanej większości, jeśli padniemy ofiarą ransomware, złym pomysłem jest spłacenie okupu. Najczęściej atakującemu nie będzie już zależało na dostarczeniu ofierze klucza, celem odszyfrowaniu danych.",
+                text: "Przed atakiem typu ransomware ciężko się w pełni ochronić. Można jednak podjąć akcje, które pomogą zniwelować jego skutki.<br><br>Najważniejszym elementem jest <strong>zasada ograniczonego zaufania</strong> i dokładnego analizowania otrzymanych maili, pobranych plików.<br><br>Kolejnym ze sposobów na ochronę jest częste wykonywanie kopii zapasowych, jednak istnieje możliwość, że ransomware zaszyfruje także wszystkie kopie zapasowe, przez co staną się one bezużyteczne.",
                 level: "basic",
                 slide: <RansomwareProtectMethods/>,
             },

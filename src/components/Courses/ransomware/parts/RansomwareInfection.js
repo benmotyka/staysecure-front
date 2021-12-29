@@ -1,3 +1,4 @@
+import { Line } from "components/PreviewItems/PreviewItems.styles.js";
 import { useState } from "react";
 
 import {Container, HeaderWrapper, Button, ContentWrapper, ContentHeader, ContentBody, BadUser, Victim, Arrow, RelativeContainer, Laptop, BadMail, App} from "../styles.js"
@@ -22,6 +23,7 @@ const RansomwareInfection = () => {
           <ContentHeader>
             Atakujący poprzez techniki inżynieri społecznej uzyskuje zdalny
             dostęp do urządzenia ofiary, używając takich programów jak TeamViewer. Tym samym jest w stanie wykonać na jej urządzeniu dowolną akcję, w tym przypadku będzie to zainstalowanie ransomware, zaszyfrowane wcześniej przygotowanym kluczem.
+          <Line />
           </ContentHeader>
           <ContentBody>
             <BadUser/>
@@ -34,6 +36,7 @@ const RansomwareInfection = () => {
       {activeSlide === 1 && <ContentWrapper>
           <ContentHeader>
             Atakujący przygotowuje wspólny szablon maila phishingowego, który następnie zostanie rozesłany do wielu ofiar. Każdy załącznik w mailu będzie zawierał ransomware. Wirus zaszyfruje pliki używając unikalnego dla każdego adresu email, wcześniej przygotowanego klucza.
+          <Line />
           </ContentHeader>
           <ContentBody>
             <BadUser/>
@@ -54,6 +57,7 @@ const RansomwareInfection = () => {
       {activeSlide === 2 && <ContentWrapper>
         <ContentHeader>
             Atakujący znajduje lukę w programie, który uruchomiła ofiara lub serwer. Luka ta pozwala na zdalne wykonanie kodu na urzadzeniu końcowym - co wiązać się może z pobraniem, a następnie uruchomieniem ransomware przez atakującego. 
+          <Line />
           </ContentHeader>
           <ContentBody>
             <BadUser/>

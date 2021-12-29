@@ -1,4 +1,3 @@
-import React from "react";
 import styled, { css } from "styled-components";
 import colors from "constans/colors.js";
 import { FaUser as UserIcon } from "react-icons/fa";

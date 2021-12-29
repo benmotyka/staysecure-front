@@ -10,7 +10,7 @@ import RansomwareEncrypted from "./ransomware/parts/RansomwareEncrypted"
 import RansomwareInfection from './ransomware/parts/RansomwareInfection'
 import RansomwareAsymetricKey from './ransomware/parts/RansomwareAsymetricKey'
 import RansomwareProtectMethods from './ransomware/parts/RansomwareProtectMethods'
-
+import PhishingTypes from './phishing/parts/PhishingTypes'
 
 import U2FKeys from "./phishing/parts/U2FKeys"
 const content = [
@@ -119,6 +119,7 @@ const content = [
             {
                 header: "Rodzaje ataków phishingowych",
                 text: "Zagadnienie phishingu jest bardzo obszerne - zawiera w sobie wiele rodzajów i sposobów phishingu, jednak w większości przypadków sprowadza się do oszukania, złudzenia ofiary.<br><br>Atakujący może używać phishingu samego w sobie do zdobycia poufnych danych, jednak jest on często wykorzystywany jako element pośredniczący dla innego ataku.<br><br>Przykładowo, aby rozesłać wirusa ransomware, atakujący może spreparować i wykorzystać <strong>maile phishingowe</strong>. Kolejnym przykładem może być instalacja Keyloggera na urządzeniu mobilnym, poprzez <strong>phishing telefoniczny</strong>.<br><br>Ofiarami ataków phishingowych mogą być zarówno pracownicy firm, jak i zwykli użytkownicy internetu, których adresy email lub numery telefonów zostały ujawnione, przykładowo w wyniku wycieku bazy danych.",
+                slide: <PhishingTypes/>,
                 level: "basic"
             },
             {

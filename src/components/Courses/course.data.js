@@ -11,6 +11,7 @@ import RansomwareInfection from './ransomware/parts/RansomwareInfection'
 import RansomwareAsymetricKey from './ransomware/parts/RansomwareAsymetricKey'
 import RansomwareProtectMethods from './ransomware/parts/RansomwareProtectMethods'
 import PhishingTypes from './phishing/parts/PhishingTypes'
+import WebScrapping from './phishing/parts/WebScrapping'
 
 import U2FKeys from "./phishing/parts/U2FKeys"
 const content = [
@@ -125,7 +126,8 @@ const content = [
             {
                 header: "Web Scrapping",
                 text: "Atakujący obierając sobie za cel phishingu firmę, może chcieć zebrać jak najwięcej adresów email bądź numerów telefonu członków danej firmy. Wydawać się może to pracochłonnym zadaniem,  dlatego częstym sposobem pozyskiwania danych potencjalnych ofiar, są narzędzia zwane <strong>Web Scrapperami</strong>.<br><br>Są to w pełni zautomatyzowane narzędzia, które pozwalają na pobranie całej zawartości strony internetowej, odnalezieniu w niej pewnych wzorców, na przykład adresów email, a następnie zapisaniu ich.<br><br>Web scrappery mogą być również wyposażone w mechanizm odwiedzania witryn powiązanych z pierwotną stroną, celem pobierania jeszcze większej ilości danych. Zebrane i przygotowane dane mogą być bezpośrednio użyte do ataków phishingowych na dużą skalę.",
-                level: "advanced"
+                level: "advanced",
+                slide: <WebScrapping/>
             },
             {
                 header: "Symulacja użytkownika",

@@ -58,13 +58,13 @@ margin: 10px 0 0 0;
 `
 
 const Header = styled.h1`
-font-size: 4rem;
+font-size: 3vw;
 color: ${colors.orange};
 `
 
 const Arrow = styled(ArrowIcon)`
 font-size: 50px;
-color: ${colors.hoverOrange};
+color: ${colors.white};
 position: absolute;
 `
 

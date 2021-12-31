@@ -9,7 +9,7 @@ import { Line } from "components/PreviewItems/PreviewItems.styles";
 import { ContentHeader } from "components/Courses/ransomware/styles";
 
 const Icon = css`
-  font-size: 80px;
+  font-size: 100px;
   color: ${colors.white};
 `;
 
@@ -60,7 +60,7 @@ const WebScrapping = () => {
   return (
     <Container>
       <HeaderWrapper>
-        <ContentHeader>Web Scrapper pobiera zawartość strony internetowej firmy. Następnie, w zawartości wyszukuje wzorców przypominających adresy e-mail i zapisuje je. Kolejno, w zawartości wyszukuje hiperłącz (adresów do innych stron) i na nich wykonuje tą samą procedurę. Zebrane adresy e-mail mogą zostać wykorzystane do ataku phishingowego.</ContentHeader>
+        <ContentHeader>Web Scrapper pobiera zawartość strony internetowej firmy. Następnie, w zawartości wyszukuje wzorców przypominających adresy e-mail lub numery telefonu i zapisuje je. Kolejno, w zawartości wyszukuje hiperłącza (adresów do innych stron), odwiedza je i wykonuje tę samą procedurę. Zebrane dane mogą zostać wykorzystane do ataku phishingowego.</ContentHeader>
         <Line />
       </HeaderWrapper>
       <Wrapper>

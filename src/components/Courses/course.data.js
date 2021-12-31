@@ -12,7 +12,7 @@ import RansomwareAsymetricKey from './ransomware/parts/RansomwareAsymetricKey'
 import RansomwareProtectMethods from './ransomware/parts/RansomwareProtectMethods'
 import PhishingTypes from './phishing/parts/PhishingTypes'
 import WebScrapping from './phishing/parts/WebScrapping'
-
+import PhishingSimulation from './phishing/parts/PhishingSimulation'
 import U2FKeys from "./phishing/parts/U2FKeys"
 const content = [
     {
@@ -130,9 +130,10 @@ const content = [
                 slide: <WebScrapping/>
             },
             {
-                header: "Symulacja użytkownika",
-                text: "interatywny slajd zeby kliknac na maila i sie wyswietli mail z linkiem po najechaniu na link jest success bo o to chodzi zeby zobaczyc ze na linku pisze bank.pl a po najechaniu tak naprawde zostaniemy przekierowaniu na zlybank.pl ",
+                header: "Otrzymanie SMS phishingowego",
+                text: "Załóżmy, że Twój numer telefonu znalazł się na liście ofiar ataku phishingu telefonicznego. Atak ma na celu złudzić ofiary do wejścia na stronę internetową w wiadomości, aby opłacić dodatkowe koszty przesyłki.<br><br>Z pozoru  wygląda dobrze: nadawcą SMS jest 'Poczta Polska', a sama treść wiadomości nie wydaje się podejrzana. Jednak po wejściu w hiperłącze, zauważyć można, że adres, na który zostanie przeniesiony użytkownik, będzie się różnił od tego, który był w wiadomości SMS. Atakujący, używając specjalnych serwisów, mogą podszywać się pod dowolnego nadawcę, a samo hiperłącze, nie musi przenosić użytkownika na stronę, z którą rzekomo jest powiązane<br><br><strong>W tym interaktywnym ćwiczeniu, przejdź do otrzymanej wiadomości SMS i przeanalizuj jej zawartość.</strong>",
                 level: "basic",
+                slide: <PhishingSimulation/>,
                 interactive: true,
             },
             {

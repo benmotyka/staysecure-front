@@ -102,8 +102,8 @@ const Course = (props) => {
   const restartCourse = async () => {
     const requestBody = {
       query: `
-      mutation RestartCourse($courseName: String!){
-        restartCourse(courseName: $courseName){
+      mutation restartCourseAndQuiz($courseName: String!){
+        restartCourseAndQuiz(courseName: $courseName){
           link
           }
         }

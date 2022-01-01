@@ -1,17 +1,18 @@
 import styled, { css } from "styled-components";
 import colors from "constans/colors.js";
+import Iphone from "components/Iphone/Iphone";
 
 const Container = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  height: 70%;
-  padding: 15px;
-  box-sizing: border-box;
+  height: 100%;
 `;
+
 const PhishingSimulation = () => {
     return (
         <Container>
+          <Iphone>
+            
+          </Iphone>
         </Container>
     )
 }

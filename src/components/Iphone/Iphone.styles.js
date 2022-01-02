@@ -94,7 +94,7 @@ left: 0;
 right: 0;
 top: 0;
 text-align: center;
-z-index: 1000;
+z-index: 100;
 `
 
 export const ScreenTopBarText = styled.p`
@@ -224,7 +224,7 @@ export const HomeButton = styled.span`
 
 export const MessagesApp = styled.div`
 background-color: #000;
-z-index: 100;
+z-index: 20;
 position: absolute;
 inset: 0;
 `
@@ -272,6 +272,7 @@ display: grid;
 position: relative;
 list-style: none;
 width: 100%;
+height: 100px;
 cursor: pointer;
 `
 
@@ -305,6 +306,7 @@ export const MessageContent = styled.p`
 font-size: 16px;
 margin: 0;
 color: #666668;
+padding-right: 10px;
 line-height: 20px;
 `
 
@@ -323,4 +325,94 @@ position: absolute;
 top: 30px;
 left: 5px;
 background-color: #1280FF;
+`
+
+export const SmsApp = styled.div`
+background-color: #000;
+z-index: 30;
+position: absolute;
+inset: 0;
+`
+
+export const SmsHeader = styled.div`
+position: absolute;
+left: 0;
+right: 0;
+top: 0;
+background-color: #1E1E1E;
+height: 105px;
+`
+
+export const SmsBack = styled.span`
+color: #2576ff;
+font-size: 45px;
+position: absolute;
+left: 15px;
+top: 10px;
+cursor: pointer;
+` 
+
+export const SmsAvatar = styled.img`
+position: absolute;
+left: 42%;
+top: 20px;
+width: 60px;
+`
+
+export const SmsHeaderText = styled.p`
+margin: 0;
+font-size: 14px;
+color: #fff;
+text-align: center;
+position: absolute;
+bottom: 2px;
+left: 0;
+right: 0;
+`
+
+export const SmsMessage = styled.div`
+position: absolute;
+border-radius: 15px;
+max-width: 80%;
+padding: 10px;
+background-color: #26252a;
+top: 150px;
+left: 15px;
+
+&:before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  bottom: 2px;
+  width: 15px;
+  height: 15px;
+  background-color: #26252a;
+  border-radius: 50%;
+  z-index: -10;
+}
+
+&:after {
+  content: '';
+  position: absolute;
+  left: -14px;
+  bottom: 8px;
+  width: 15px;
+  height: 15px;
+  background-color: #000;
+  border-radius: 50%;
+  z-index: -1; 
+}
+`
+
+export const SmsMessageContent = styled.p`
+color: #e3e3e5;
+margin: 0;
+line-height: 19px;
+font-size: 16px;
+`
+
+export const SmsLink = styled.span`
+color: #1C83E2;
+text-decoration: underline;
+cursor: pointer;
 `

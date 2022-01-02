@@ -18,7 +18,7 @@ import {
   ScreenBottomBar,
   ScreenBottomBarItem,
   ScreenBottomBarImage,
-  Notification
+  Notification,
 } from "./Iphone.styles";
 
 const Iphone = (props) => {
@@ -48,9 +48,12 @@ const Iphone = (props) => {
             <ScreenBottomBarImage src="iphone/safari.png" />
           </ScreenBottomBarItem>{" "}
           <ScreenBottomBarItem>
-            <ScreenBottomBarImage onClick={() => {
-              props.onClick(true)
-            }} src="iphone/messages.png" />
+            <ScreenBottomBarImage
+              onClick={() => {
+                props.onClick(true);
+              }}
+              src="iphone/messages.png"
+            />
             <Notification>1</Notification>
           </ScreenBottomBarItem>{" "}
           <ScreenBottomBarItem>
@@ -64,7 +67,12 @@ const Iphone = (props) => {
       <VolumeDownButton />
       <BottomSeparator />
       <Bottom>
-        <HomeButton onClick={() => props.onClick(false)}/>
+        <HomeButton
+          onClick={() => {
+            props.onClick(false);
+            if (props.onClick2) props.onClick2(false);
+          }}
+        />
       </Bottom>
     </Body>
   );

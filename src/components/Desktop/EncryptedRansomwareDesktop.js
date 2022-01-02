@@ -37,7 +37,7 @@ import {
 
     return (
       <DesktopContainer
-        backgroundUrl={process.env.PUBLIC_URL + "/windws_10_wallpaper.jpg"}
+        backgroundUrl={process.env.PUBLIC_URL + "/desktop/wallpaper.jpg"}
       >
         <BasicIcons>
           <Icon>

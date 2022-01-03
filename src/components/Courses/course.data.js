@@ -12,7 +12,8 @@ import RansomwareAsymetricKey from './ransomware/parts/RansomwareAsymetricKey'
 import RansomwareProtectMethods from './ransomware/parts/RansomwareProtectMethods'
 import PhishingTypes from './phishing/parts/PhishingTypes'
 import WebScrapping from './phishing/parts/WebScrapping'
-import PhishingSimulation from './phishing/parts/PhishingSimulation'
+import PhishingReceivedSimulation from './phishing/parts/PhishingReceivedSimulation'
+import PhishingEnterSimulation from './phishing/parts/PhishingEnterSimulation'
 import U2FKeys from "./phishing/parts/U2FKeys"
 const content = [
     {
@@ -131,25 +132,22 @@ const content = [
             },
             {
                 header: "Otrzymanie SMS phishingowego",
-                text: "Załóżmy, że Twój numer telefonu znalazł się na liście ofiar ataku phishingu telefonicznego. Atak ma na celu złudzić ofiary do wejścia na stronę internetową w wiadomości, aby opłacić dodatkowe koszty przesyłki.<br><br>Z pozoru SMS wygląda rzetelnie: nadawcą jest 'Poczta Polska', a sama treść wiadomości nie wydaje się podejrzana. Jednak po wejściu w hiperłącze, zauważyć można, że adres, na który zostanie przeniesiony użytkownik, będzie się różnił od tego, który był w wiadomości SMS. Atakujący, używając specjalnych serwisów, mogą podszywać się pod dowolnego nadawcę, a samo hiperłącze, nie musi przenosić użytkownika na stronę, z którą rzekomo jest powiązane<br><br><strong>W tym interaktywnym ćwiczeniu, przejdź do otrzymanej wiadomości SMS i przeanalizuj jej zawartość.</strong>",
+                text: "Załóżmy, że Twój numer telefonu znalazł się na liście ofiar ataku phishingu telefonicznego. Atak ma na celu złudzić ofiary do wejścia na stronę internetową w wiadomości, aby opłacić dodatkowe koszty przesyłki.<br><br>Z pozoru SMS wygląda rzetelnie: nadawcą jest 'Poczta Polska', a sama treść wiadomości nie wydaje się podejrzana.<br><br>Atakujący, używając specjalnych serwisów, mogą podszywać się pod dowolnego nadawcę, a samo hiperłącze, nie musi przenosić użytkownika na stronę, z którą rzekomo jest powiązane.<br><br><strong>W tym interaktywnym ćwiczeniu, przejdź do otrzymanej wiadomości SMS i przeanalizuj jej zawartość.</strong>",
                 level: "basic",
-                slide: <PhishingSimulation/>,
+                slide: <PhishingReceivedSimulation/>,
                 interactive: true,
             },
             {
                 header: "Skutki wizyty strony",
-                text: "slajd ukazujacy co sie pojawi po nacisnieciu w link, strona banku ze zmieniona literka np peka0.pl albo cos w ten desen design taki sam ma byc ale link zmieniony i formularz do podania numeru konta, interaktywny bo wymaga wpisania cyfr 0-9 przynajmniej 3 wtedy sie zaswieci przycisk zaloguj i sukcess",
+                text: "",
+                // text: "slajd ukazujacy co sie pojawi po nacisnieciu w link, strona banku ze zmieniona literka np peka0.pl albo cos w ten desen design taki sam ma byc ale link zmieniony i formularz do podania numeru konta, interaktywny bo wymaga wpisania cyfr 0-9 przynajmniej 3 wtedy sie zaswieci przycisk zaloguj i sukcess",
                 level: "basic",
+                slide: <PhishingEnterSimulation/>,
                 interactive: true
             },
             {
                 header: "Perspektywa atakującego",
                 text: "slajd ukazujacy ze dane z formularza sa przesylane do atakujacego i on dzieki temu jest w stanie zalogowac sie na ofiary",
-                level: "basic"
-            },
-            {
-                header: "Metody phishingu",
-                text: "slajd ukazujacy alternatywy phishingu czyli sms, rozmowa telefoniczna, interaktynwy slajd z nacisnieciem linku na telefonie taki sam motyw przejdzie na strone banku z jedna literka zla, ",
                 level: "basic"
             },
             {

@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 import { useState, useEffect } from "react";
-import colors from "constans/colors.js";
 import Iphone from "components/Iphone/Iphone";
 import {
   MessagesApp,
@@ -22,23 +21,34 @@ import {
   SmsHeaderText,
   SmsMessage,
   SmsMessageContent,
-  SmsLink
+  SmsLink,
+  WebpageApp,
+  WebPageText,
+  WebPageItem,
+  WebPageSeparator,
+  WebPagePaymentMethod,
+  WebPagePaymentMethodsList,
+  WebPageLogo,
+  WebPageNavigatorContainer,
+  WebPageInput,
+  RedLock
 } from "components/Iphone/Iphone.styles";
 const Container = styled.div`
   width: 100%;
   height: 100%;
 `;
 
-const PhishingSimulation = (props) => {
+const PhishingEnterSimulation = (props) => {
   useEffect(() => {
     props.setWaitForCorrectAnswer(true);
   }, []);
   const [clickMessages, setClickMessages] = useState(false);
-  const [clickSms, setClickSms] = useState(false);
+  const [clickSms, setClickSms] = useState(true);
+  const [clickPage, setClickPage] = useState(false)
 
   return (
     <Container>
-      <Iphone onClick={setClickMessages} onClick2={setClickSms}>
+      <Iphone onClick={setClickMessages} onClick2={setClickSms} onClick3={setClickPage}>
         {clickMessages && (
           <MessagesApp>
             <MessagesHeaderContainer>
@@ -49,7 +59,6 @@ const PhishingSimulation = (props) => {
             <MessagesList>
               <MessageItem  onClick={() => {
                     setClickSms(true)
-                    props.setWaitForCorrectAnswer(false)
                     }}>
                 <MessageAvatar src="iphone/messages-avatar.png" />
                 <MessageNotification />
@@ -77,16 +86,48 @@ const PhishingSimulation = (props) => {
             <SmsMessage>
               <SmsMessageContent>
             Drogi kliencie,<br/><br/> informujemy, że Twoja przesyłka oczekuje na doręczenie.<br/>Potwierdź płatność w wysokości 0.72 PLN, klikając poniższy link:<br/><br/>
-            <SmsLink>https://poczta-polska.pl/p/7YF1U51B</SmsLink><br/><br/>
+            <SmsLink onClick={() => {
+                    setClickPage(true);
+                    props.setWaitForCorrectAnswer(false);
+            }} >https://poczta-p0lska.pl/p/7YF1U51B</SmsLink><br/><br/>
             Z poważaniem,<br/>
             Poczta Polska
             </SmsMessageContent>
             </SmsMessage>
           </SmsApp>
         )}
+        {clickPage && (
+            <WebpageApp>
+                <WebPageLogo src="payment_methods/dotpay.jpg"/>
+                <WebPageSeparator>
+                <WebPageText>Informacje o płatności</WebPageText>
+                </WebPageSeparator>
+                <WebPageItem >
+                    <WebPageText>
+                        Odbiorca: Mjpqoz Inc.<br/>
+                        Opis: Order 1348013
+                    </WebPageText>
+                    <WebPageText>
+                        Kwota: 72 PLN
+                    </WebPageText>
+                </WebPageItem>
+                <WebPageSeparator>
+                <WebPageText>Wybrana metoda płatności:</WebPageText>
+                </WebPageSeparator>
+                <WebPagePaymentMethodsList>
+                <WebPagePaymentMethod src="payment_methods/blik.png"/>
+                <WebPagePaymentMethod src="payment_methods/mbank.png"/>
+                <WebPagePaymentMethod src="payment_methods/pekao.png"/>
+                </WebPagePaymentMethodsList>
+                <WebPageNavigatorContainer>
+          <WebPageInput disabled placeholder="https://poczta-p0lska.pl/p/7YF1U51B"/>
+          <RedLock/>
+                </WebPageNavigatorContainer>
+            </WebpageApp>
+        )}
       </Iphone>
     </Container>
   );
 };
 
-export default PhishingSimulation;
+export default PhishingEnterSimulation;

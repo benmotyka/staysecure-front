@@ -71,6 +71,7 @@ const Iphone = (props) => {
           onClick={() => {
             props.onClick(false);
             if (props.onClick2) props.onClick2(false);
+            if (props.onClick3) props.onClick3(false);
           }}
         />
       </Bottom>

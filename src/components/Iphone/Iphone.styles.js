@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components";
 import colors from "constans/colors.js";
+import {BsFillUnlockFill as LockIcon} from "react-icons/bs"
+
 
 export const Body = styled.div`
   box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px #999,
@@ -412,7 +414,90 @@ font-size: 16px;
 `
 
 export const SmsLink = styled.span`
-color: #1C83E2;
+color: #1d8cf2;
 text-decoration: underline;
 cursor: pointer;
+`
+
+export const WebpageApp = styled.div`
+background-color: #fff;
+z-index: 30;
+position: absolute;
+inset: 0;
+display: flex;
+flex-direction: column;
+`
+
+export const WebPageItem = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-between;
+width: 100%;
+padding: 25px;
+box-sizing: border-box;
+`
+
+export const WebPageText = styled.p`
+margin: 0;
+`
+
+export const WebPageSeparator = styled.div`
+width: 100%;
+height: 30px;
+background-color: #EAEAEA;
+padding: 0 10px;
+font-weight: bold;
+`
+
+export const WebPagePaymentMethodsList = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+flex-wrap: wrap;
+gap: 10px;
+padding: 30px 15px;
+`
+
+export const WebPagePaymentMethod = styled.img`
+width: 100px;
+cursor: pointer;
+`
+
+export const WebPageLogo = styled.img`
+width: 150px;
+cursor: pointer;
+margin: 25px 0;
+`
+
+export const WebPageNavigatorContainer = styled.div`
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+height: 80px;
+background-color: rgba(0,0,0,0.1);
+display: flex;
+align-items: center;
+justify-content: center;
+`
+
+export const WebPageInput = styled.input`
+padding: 10px 15px;
+padding-left: 40px;
+width: 90%;
+outline: none;
+background-color: rgba(255,255,255,0.9);
+border-radius: 10px;
+border: none;
+font-size: 17px;
+color: #919193;
+box-sizing: border-box;
+`
+
+export const RedLock = styled(LockIcon)`
+font-size: 16px;
+position: absolute;
+top: 39%;
+left: 35px;
+color: ${colors.red};
 `

@@ -12,7 +12,6 @@ import RansomwareAsymetricKey from './ransomware/parts/RansomwareAsymetricKey'
 import RansomwareProtectMethods from './ransomware/parts/RansomwareProtectMethods'
 import PhishingTypes from './phishing/parts/PhishingTypes'
 import WebScrapping from './phishing/parts/WebScrapping'
-import PhishingReceivedSimulation from './phishing/parts/PhishingReceivedSimulation'
 import PhishingEnterSimulation from './phishing/parts/PhishingEnterSimulation'
 import U2FKeys from "./phishing/parts/U2FKeys"
 const content = [
@@ -132,22 +131,21 @@ const content = [
             },
             {
                 header: "Otrzymanie SMS phishingowego",
-                text: "Załóżmy, że Twój numer telefonu znalazł się na liście ofiar ataku phishingu telefonicznego. Atak ma na celu złudzić ofiary do wejścia na stronę internetową w wiadomości, aby opłacić dodatkowe koszty przesyłki.<br><br>Z pozoru SMS wygląda rzetelnie: nadawcą jest 'Poczta Polska', a sama treść wiadomości nie wydaje się podejrzana.<br><br>Atakujący, używając specjalnych serwisów, mogą podszywać się pod dowolnego nadawcę, a samo hiperłącze, nie musi przenosić użytkownika na stronę, z którą rzekomo jest powiązane.<br><br><strong>W tym interaktywnym ćwiczeniu, przejdź do otrzymanej wiadomości SMS i przeanalizuj jej zawartość.</strong>",
+                text: "Załóżmy, że Twój numer telefonu znalazł się na liście ofiar ataku phishingu telefonicznego. Atak ma na celu złudzić ofiary do wejścia na stronę internetową w wiadomości, aby opłacić dodatkowe koszty przesyłki.<br><br>Z pozoru SMS wygląda rzetelnie: nadawcą jest 'Poczta Polska', a sama treść wiadomości nie wydaje się podejrzana.<br><br>Atakujący, używając specjalnych serwisów, mogą podszywać się pod dowolnego nadawcę, a samo hiperłącze, nie musi przenosić użytkownika na stronę, z którą rzekomo jest powiązane.<br><br><strong>W tym interaktywnym ćwiczeniu, przejdź do otrzymanej wiadomości SMS, przeanalizuj jej zawartość, a następnie kliknij podejrzany link.</strong>",
                 level: "basic",
-                slide: <PhishingReceivedSimulation/>,
+                slide: <PhishingEnterSimulation/>,
                 interactive: true,
             },
             {
                 header: "Skutki wizyty strony",
-                text: "",
-                // text: "slajd ukazujacy co sie pojawi po nacisnieciu w link, strona banku ze zmieniona literka np peka0.pl albo cos w ten desen design taki sam ma byc ale link zmieniony i formularz do podania numeru konta, interaktywny bo wymaga wpisania cyfr 0-9 przynajmniej 3 wtedy sie zaswieci przycisk zaloguj i sukcess",
+                text: "Po wejściu na stronę zauważyć można cztery podstawowe elementy, świadczące o tym, że witryna może próbować wyłudzić dane:<br>- kwota do zapłaty znacząco różni się od tej zadeklarowanej w SMS<br>- adres URL strony ma w sobie błąd<br>- odbiorcą przelewu nie jest Poczta Polska, a podejrzany ciąg znaków<br>- strona nie używa certyfikatu SSL<br><br>Osoba, która będzie polegała jedynie na informacjach w SMS i nie przeanalizuje miejsca, na którym dokona zapłaty, może paść ofiarą wykradnięcia danych. Dzieje się tak, ponieważ jest to fałszywa strona, której zadaniem jest przekazanie danych do logowania atakującemu, zapewniając mu tym samym dostęp do konta bankowego ofiary.<br><br>W dzisiejszych czasach utworzenie strony bliźniaczo podobnej do często odwiedzanych przez nas witryn jest niezmiernie proste. Dlatego tak ważnym jest dokładne sprawdzenie adresu URL, certyfikatu i wszelkich innych istotnych informacji, przed podjęciem jakichkolwiek działań, na odwiedzanej przez nas stronie.",
                 level: "basic",
-                slide: <PhishingEnterSimulation/>,
-                interactive: true
+                slide: <PhishingEnterSimulation noAction/>,
             },
             {
                 header: "Perspektywa atakującego",
-                text: "slajd ukazujacy ze dane z formularza sa przesylane do atakujacego i on dzieki temu jest w stanie zalogowac sie na ofiary",
+                text: "Atakujący może próbować odebrać dostęp do konta ofiary natychmiast po otrzymaniu danych, albo odczekać jakiś czas...",
+                // text: "slajd ukazujacy ze dane z formularza sa przesylane do atakujacego i on dzieki temu jest w stanie zalogowac sie na ofiary",
                 level: "basic"
             },
             {

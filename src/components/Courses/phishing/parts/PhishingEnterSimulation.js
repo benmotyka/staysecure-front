@@ -40,11 +40,11 @@ const Container = styled.div`
 
 const PhishingEnterSimulation = (props) => {
   useEffect(() => {
-    props.setWaitForCorrectAnswer(true);
+    if(!props.noAction) props.setWaitForCorrectAnswer(true);
   }, []);
   const [clickMessages, setClickMessages] = useState(false);
-  const [clickSms, setClickSms] = useState(true);
-  const [clickPage, setClickPage] = useState(false)
+  const [clickSms, setClickSms] = useState(false);
+  const [clickPage, setClickPage] = useState(props.noAction)
 
   return (
     <Container>

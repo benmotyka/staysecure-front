@@ -32,19 +32,26 @@ import {
   WebPageNavigatorContainer,
   WebPageInput,
   RedLock,
+  BankpageApp,
 } from "components/Iphone/Iphone.styles";
 const Container = styled.div`
   width: 100%;
   height: 100%;
 `;
 
-const PhishingEnterSimulation = (props) => {
+const PhishingSendDataSimulation = (props) => {
   useEffect(() => {
     props.setWaitForCorrectAnswer(true);
   }, []);
   const [clickMessages, setClickMessages] = useState(false);
   const [clickSms, setClickSms] = useState(false);
-  const [clickPage, setClickPage] = useState(false);
+  const [clickPage, setClickPage] = useState(true);
+  const [clickBankPage, setClickBankPage] = useState(false);
+
+  const [bankPageDetails, setBankPageDetails] = useState({
+    imagePath: null,
+    url: null,
+  });
 
   const paymentMethods = [
     { logo: "payment_methods/millenium.png", url: "millenium" },
@@ -56,7 +63,12 @@ const PhishingEnterSimulation = (props) => {
   return (
     <Container>
       <Iphone
-        onClickFunctions={[setClickMessages, setClickSms, setClickPage]}
+        onClickFunctions={[
+          setClickMessages,
+          setClickSms,
+          setClickPage,
+          setClickBankPage,
+        ]}
         onClickMessages={setClickMessages}
       >
         {clickMessages && (
@@ -139,9 +151,16 @@ const PhishingEnterSimulation = (props) => {
               <WebPageText>Wybrana metoda płatności:</WebPageText>
             </WebPageSeparator>
             <WebPagePaymentMethodsList>
-            {paymentMethods.map((item, index) => (
+              {paymentMethods.map((item, index) => (
                 <WebPagePaymentMethod
                   key={index}
+                  onClick={() => {
+                    setClickBankPage(true);
+                    setBankPageDetails({
+                      imagePath: item.logo,
+                      url: item.url,
+                    });
+                  }}
                   src={item.logo}
                 />
               ))}
@@ -155,9 +174,25 @@ const PhishingEnterSimulation = (props) => {
             </WebPageNavigatorContainer>
           </WebpageApp>
         )}
+        {clickBankPage && (
+          <BankpageApp>
+            <WebPageLogo src={bankPageDetails.imagePath} />
+            <WebPageSeparator>
+              <WebPageText>Logowanie do serwisu</WebPageText>
+            </WebPageSeparator>
+            
+            <WebPageNavigatorContainer>
+              <WebPageInput
+                disabled
+                placeholder={`https://${bankPageDetails.url}.xyqizqw.ru/platnosc/F3J289`}
+              />
+              <RedLock />
+            </WebPageNavigatorContainer>
+          </BankpageApp>
+        )}
       </Iphone>
     </Container>
   );
 };
 
-export default PhishingEnterSimulation;
+export default PhishingSendDataSimulation;

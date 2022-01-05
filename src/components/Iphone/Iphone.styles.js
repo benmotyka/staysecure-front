@@ -465,7 +465,7 @@ cursor: pointer;
 export const WebPageLogo = styled.img`
 width: 150px;
 cursor: pointer;
-margin: 25px 0;
+margin: 10px auto;
 `
 
 export const WebPageNavigatorContainer = styled.div`
@@ -499,4 +499,13 @@ position: absolute;
 top: 39%;
 left: 35px;
 color: ${colors.red};
+`
+
+export const BankpageApp = styled.div`
+background-color: #fff;
+z-index: 51110;
+position: absolute;
+inset: 0;
+display: flex;
+flex-direction: column;
 `

@@ -32,7 +32,7 @@ import {
         {activeSlide === 0 && (
           <ContentWrapper>
             <ContentHeader>
-              Uwierzytelnianie dwuskładnikowe (2FA) jest powszechnie używane w sieci. Pozwala na zabezpieczenie konta dodatkowym etapem logowania się, którym może być np. kod w wiadomości SMS, lub z oficjalnej aplikacji (Google Authenticator). Dzięki temu, aby zalogować się na wybrane konto, nie wystarczy tylko login i hasło a dodatkowo kod SMS.
+              Uwierzytelnianie dwuskładnikowe, znane także jako 2FA jest powszechnie używane w sieci. Pozwala na zabezpieczenie konta dodatkowym etapem logowania się, którym może być np. kod w wiadomości SMS, lub z oficjalnej aplikacji (Google Authenticator). Dzięki temu, aby zalogować się na wybrane konto, nie wystarczy tylko login i hasło a dodatkowo kod 2FA.
               <Line />
             </ContentHeader>
             <FlexCenterWrapper>

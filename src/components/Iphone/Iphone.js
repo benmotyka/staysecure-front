@@ -50,7 +50,7 @@ const Iphone = (props) => {
           <ScreenBottomBarItem>
             <ScreenBottomBarImage
               onClick={() => {
-                props.onClick(true);
+                props.onClickMessages(true);
               }}
               src="iphone/messages.png"
             />
@@ -69,9 +69,7 @@ const Iphone = (props) => {
       <Bottom>
         <HomeButton
           onClick={() => {
-            props.onClick(false);
-            if (props.onClick2) props.onClick2(false);
-            if (props.onClick3) props.onClick3(false);
+            props.onClickFunctions.forEach(onClickFunction => onClickFunction(false))
           }}
         />
       </Bottom>

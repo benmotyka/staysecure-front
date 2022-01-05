@@ -15,6 +15,7 @@ import WebScrapping from './phishing/parts/WebScrapping'
 import PhishingEnterSimulation from './phishing/parts/PhishingEnterSimulation'
 import PhishingProtection from './phishing/parts/PhishingProtection'
 import U2FKeys from "./phishing/parts/U2FKeys"
+import PhishingSendDataSimulation from "./phishing/parts/PhishingSendDataSimulation"
 const content = [
     {
         course: "sql-injection",
@@ -139,13 +140,14 @@ const content = [
             },
             {
                 header: "Skutki wizyty strony",
-                text: "Po wejściu na stronę zauważyć można cztery podstawowe elementy, świadczące o tym, że witryna może próbować wyłudzić dane:<br>- kwota do zapłaty znacząco różni się od tej zadeklarowanej w SMS<br>- adres URL strony ma w sobie błąd<br>- odbiorcą przelewu nie jest Poczta Polska, a podejrzany ciąg znaków<br>- strona nie używa certyfikatu SSL<br><br>Osoba, która będzie polegała jedynie na informacjach w SMS i nie przeanalizuje miejsca, na którym dokona zapłaty, może paść ofiarą wykradnięcia danych. Dzieje się tak, ponieważ jest to fałszywa strona, której zadaniem jest przekazanie danych do logowania atakującemu, zapewniając mu tym samym dostęp do konta bankowego ofiary.<br><br>W dzisiejszych czasach utworzenie strony bliźniaczo podobnej do często odwiedzanych przez nas witryn jest niezmiernie proste. Dlatego tak ważnym jest dokładne sprawdzenie adresu URL, certyfikatu i wszelkich innych istotnych informacji, przed podjęciem jakichkolwiek działań, na odwiedzanej przez nas stronie.",
+                text: "Po wejściu na stronę zauważyć można cztery podstawowe elementy, świadczące o tym, że witryna może próbować wyłudzić dane:<br>- kwota do zapłaty znacząco różni się od tej zadeklarowanej w SMS<br>- adres URL strony ma w sobie błąd<br>- odbiorcą przelewu nie jest Poczta Polska, a podejrzany ciąg znaków<br>- strona nie używa certyfikatu SSL (HTTPS)<br><br>Osoba, która będzie polegała jedynie na informacjach w SMS i nie przeanalizuje miejsca, na którym dokona zapłaty, może paść ofiarą wykradnięcia danych. Dzieje się tak, ponieważ jest to fałszywa strona, której zadaniem jest przekazanie danych do logowania atakującemu, zapewniając mu tym samym dostęp do konta bankowego ofiary.<br><br><strong>W tym interaktywnym ćwiczeniu, wejdź do wybranej metody płatności, i podaj dowolne dane logowania.</strong>",
                 level: "basic",
-                slide: <PhishingEnterSimulation noAction/>,
+                interactive: true,
+                slide: <PhishingSendDataSimulation/>
             },
             {
                 header: "Perspektywa atakującego",
-                text: "Atakujący może próbować odebrać dostęp do konta ofiary natychmiast po otrzymaniu danych, albo odczekać jakiś czas...",
+                text: "Atakujący może próbować odebrać dostęp do konta ofiary natychmiast po otrzymaniu danych, albo odczekać jakiś czas... ||| W dzisiejszych czasach utworzenie strony bliźniaczo podobnej do często odwiedzanych przez nas witryn jest niezmiernie proste. Dlatego tak ważnym jest dokładne sprawdzenie adresu URL, certyfikatu i wszelkich innych istotnych informacji, przed podjęciem jakichkolwiek działań, na odwiedzanej przez nas stronie.",
                 // text: "slajd ukazujacy ze dane z formularza sa przesylane do atakujacego i on dzieki temu jest w stanie zalogowac sie na ofiary",
                 level: "basic"
             },

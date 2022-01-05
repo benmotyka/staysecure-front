@@ -445,17 +445,16 @@ export const WebPageSeparator = styled.div`
 width: 100%;
 height: 30px;
 background-color: #EAEAEA;
-padding: 0 10px;
+padding: 5px 10px;
 font-weight: bold;
 `
 
 export const WebPagePaymentMethodsList = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-flex-wrap: wrap;
-gap: 10px;
-padding: 30px 15px;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-rows: 1fr 1fr 1fr;
+gap: 20px;
+padding: 30px 20px;
 `
 
 export const WebPagePaymentMethod = styled.img`

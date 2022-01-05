@@ -115,9 +115,11 @@ const PhishingEnterSimulation = (props) => {
                 <WebPageText>Wybrana metoda płatności:</WebPageText>
                 </WebPageSeparator>
                 <WebPagePaymentMethodsList>
-                <WebPagePaymentMethod src="payment_methods/blik.png"/>
+                <WebPagePaymentMethod src="payment_methods/paypal.png"/>
                 <WebPagePaymentMethod src="payment_methods/mbank.png"/>
                 <WebPagePaymentMethod src="payment_methods/pekao.png"/>
+                <WebPagePaymentMethod src="payment_methods/ipko.png"/>
+                <WebPagePaymentMethod src="payment_methods/bank-pocztowy.jpg"/>
                 </WebPagePaymentMethodsList>
                 <WebPageNavigatorContainer>
           <WebPageInput disabled placeholder="https://poczta-p0lska.pl/p/7YF1U51B"/>

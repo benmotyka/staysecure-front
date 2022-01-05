@@ -13,6 +13,7 @@ import RansomwareProtectMethods from './ransomware/parts/RansomwareProtectMethod
 import PhishingTypes from './phishing/parts/PhishingTypes'
 import WebScrapping from './phishing/parts/WebScrapping'
 import PhishingEnterSimulation from './phishing/parts/PhishingEnterSimulation'
+import PhishingProtection from './phishing/parts/PhishingProtection'
 import U2FKeys from "./phishing/parts/U2FKeys"
 const content = [
     {
@@ -150,8 +151,9 @@ const content = [
             },
             {
                 header: "Sposoby ochrony",
-                text: "slajd ukazujacy alternatywy jak sie bronicz czyl isprawdzac zawsze dokladnie adresy url, czy nie ma bledow ortograficznych na stronach, kto jest nadawca maila cz to nie jakis losowy mail itp, stosowanie 2FA",
-                level: "basic"
+                text: "Ataki phishingowe w głównej mierze polegają na zmanipulowaniu ofiary, używając odpowiednich narzędzi inżynierii społecznej, do wejścia w podejrzany adres URL, opłacenia zamówienia itp.<br/><br/>Najbardziej podatnym elementem jest tutaj człowiek - jeśli atakującemu uda się stworzyć odpowiednie złudzenie, na przykład poprzez staranne odwzorowane wiadomości email czy strony internetowej, istnieje szansa, że ofiara będzie myślała, że odwiedza prawdziwy serwis internetowy.<br/><br/>Pełna ochrona przed atakami phishingowymi jest praktycznie nie możliwa - dlatego należy stosować dodatkowe zasady, które uchronią ofiarę przed eskalacją skutków ataku, takie jak <strong>stosowanie odpowiedniej polityki haseł</strong>.<br/><br/>Najważniejszym elementem ochrony jest jednak zachowanie uwagi przy dokonywaniu wrażliwych czynności (wykonywania przelewu, logowania się do ulubionego serwisu).",
+                level: "basic",
+                slide: <PhishingProtection/>
             },
             {
                 header: "Zaawansowane metody ochrony",

@@ -33,6 +33,9 @@ import {
   WebPageInput,
   RedLock,
   BankpageApp,
+  BankpageInput,
+  BankpageLabel,
+  BankpageInputContainer,
 } from "components/Iphone/Iphone.styles";
 const Container = styled.div`
   width: 100%;
@@ -119,7 +122,6 @@ const PhishingSendDataSimulation = (props) => {
                 <SmsLink
                   onClick={() => {
                     setClickPage(true);
-                    props.setWaitForCorrectAnswer(false);
                   }}
                 >
                   https://poczta-p0lska.pl/p/7YF1U51B
@@ -180,7 +182,23 @@ const PhishingSendDataSimulation = (props) => {
             <WebPageSeparator>
               <WebPageText>Logowanie do serwisu</WebPageText>
             </WebPageSeparator>
-            
+            <BankpageInputContainer>
+              <BankpageLabel for="clientNumber">Numer klienta: </BankpageLabel>
+              <BankpageInput
+                min="0"
+                type="number"
+                id="clientNumber"
+                name="clientNumber"
+              />
+              <BankpageLabel for="password">Hasło: </BankpageLabel>
+              <BankpageInput
+                min="0"
+                type="password"
+                id="password"
+                name="password"
+              />
+              <BankpageInput type="button" value="Zaloguj" onClick={() => props.setWaitForCorrectAnswer(false)}/>
+            </BankpageInputContainer>
             <WebPageNavigatorContainer>
               <WebPageInput
                 disabled

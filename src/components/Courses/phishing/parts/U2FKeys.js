@@ -20,7 +20,6 @@ const Icon = css`
 
 const User = styled(UserIcon)`
   ${Icon};
-  color: green;
 `;
 
 const Wrapper = styled.div`
@@ -28,10 +27,10 @@ const Wrapper = styled.div`
 `;
 
 const UserWrapper = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const Hacker = styled(UserIcon)`
   ${Icon};
@@ -47,24 +46,26 @@ const U2F = styled(PendriveIcon)`
   ${Icon};
   font-size: 60px;
   transform: rotate(270deg);
+  color: ${colors.orange};
 `;
 
 const LaptopText = styled.p`
-font-size: 20px;
-color: ${colors.white};
-position: absolute;
-top: 15%;
-left: 15%;
-`
+  font-size: 20px;
+  color: ${colors.white};
+  position: absolute;
+  top: 15%;
+  left: 15%;
+`;
 
 const U2FInLaptop = styled(PendriveIcon)`
-${Icon};
+  ${Icon};
   transform: rotate(270deg);
-position: absolute;
-top: 35%;
-left: 35%;
-font-size: 70px;
-`
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  color: ${colors.orange};
+  font-size: 70px;
+`;
 const U2FKeys = () => {
   return (
     <Container>

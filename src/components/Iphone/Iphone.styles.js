@@ -509,3 +509,24 @@ inset: 0;
 display: flex;
 flex-direction: column;
 `
+
+export const BankpageInput = styled.input`
+font-size: 16px;
+padding: 10px 25px;
+border: 2px solid #EAEAEA;
+outline: none;
+margin-bottom: 15px;
+cursor: pointer;
+`
+
+export const BankpageLabel = styled.label`
+font-size: 18px;
+`
+
+export const BankpageInputContainer = styled.div`
+padding: 25px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+`

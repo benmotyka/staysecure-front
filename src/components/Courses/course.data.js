@@ -3,6 +3,8 @@ import HighlightSqlCode from './sqlInjection/parts/HighlightSqlCode'
 import HighlightHtml from "./sqlInjection/parts/HighlightHtml"
 import Introduction from "./sqlInjection/parts/Introduction"
 import WhatIsProxy from "./sqlInjection/parts/WhatIsProxy"
+import SqlApiAbstractionLayers from './sqlInjection/parts/SqlApiAbstractionLayers'
+
 import RansomwareDownload from "./ransomware/parts/RansomwareDownload"
 import RansomwareFilterEmail from "./ransomware/parts/RansomwareFilterEmail"
 import RansomwareRun from "./ransomware/parts/RansomwareRun"
@@ -10,6 +12,7 @@ import RansomwareEncrypted from "./ransomware/parts/RansomwareEncrypted"
 import RansomwareInfection from './ransomware/parts/RansomwareInfection'
 import RansomwareAsymetricKey from './ransomware/parts/RansomwareAsymetricKey'
 import RansomwareProtectMethods from './ransomware/parts/RansomwareProtectMethods'
+
 import PhishingTypes from './phishing/parts/PhishingTypes'
 import WebScrapping from './phishing/parts/WebScrapping'
 import PhishingEnterSimulation from './phishing/parts/PhishingEnterSimulation'
@@ -38,25 +41,26 @@ const content = [
                 header: "Przechwycenie i modyfikacja żądania",
                 text: "Pola formularzy zazwyczaj walidowane są pod kątem występowania znaków specjalnych, które, zgodnie z założeniami twórców aplikacji, nie powinny zostać wysyłane do aplikacji działającej po stronie serwera.<br><br>Aby ominąć walidację wartości formularza po stronie klienta, atakujący może użyć <b>serwera proxy</b>, najczęściej uruchomionego na tej samej maszynie, z której dokonywany jest atak. Pozwala on na przechwycenie całego żądania i zmodyfikowanie go w dowolny sposób. W tym przykładzie została zmodyfikowana wartość pola 'value'. Takie żądanie nie powinno być możliwe do wysłania, ze względu na działającą walidację pola formularza. Na podstawie zwracanych kodów błędu, atakujący jest w stanie stwierdzić, czy to miejsce jest podatne na atak Wstrzyknięcia SQL.",
                 slide: <WhatIsProxy/>,
-                level: "basic",
+                level: "advanced",
             },
             {
                 header: "Analiza kodu API",
-                text: "Wartość wysłana z aplikacji internetowej zostaje przekazana do aplikacji serwerowej, celem jej przetworzenia i zwrócenia odpowiednich informacji. W poniższym kodzie źródłowym przedstawiony jest fragment aplikacji działającej po stronie serwera, odpowiadający pobraniu zawartości żądania a następnie bezpośrednie przekazanie go do zapytania bazodanowego. <br>W zwyczajnych okolicznościach, atakujący nie ma możliwości wglądu w kod aplikacji serwerowej, jednak poprzez eksperymentowanie z wartościami wysłanych danych jest on w stanie określić jej podatność na atak typu SQL Injection.<br><br> <b>W tym interaktywnym ćwiczeniu zaznacz fragment kodu, w którym znajduje się zapytanie SQL</b>",
+                text: "Wartość wysłana z aplikacji internetowej zostaje przekazana do aplikacji serwerowej, celem jej przetworzenia i zwrócenia odpowiednich informacji. W poniższym kodzie źródłowym przedstawiony jest fragment aplikacji działającej po stronie serwera wykonanej w środowisku Node.js, odpowiadający pobraniu zawartości żądania, a następnie bezpośrednie przekazanie go do zapytania bazodanowego. <br>W zwyczajnych okolicznościach atakujący nie ma możliwości wglądu w kod aplikacji serwerowej, jednak poprzez eksperymentowanie z wartościami wysłanych danych jest on w stanie określić jej podatność na atak typu SQL Injection.<br><br> <b>W tym interaktywnym ćwiczeniu zaznacz fragment kodu, w którym znajduje się parametr przesyłany do aplikacji z formularza.</b>",
                 slide: <HighlightSqlCode/>,
                 level: "basic",
                 interactive: true,
             },
             {
                 header: "Symulacja kodu API po otrzymaniu żądania",
-                text: "#FORMAT Mając na uwadze, że api odsyla nietypowe kody bledow dla wartosci typu -, ;, atakujący może być pewny że że wartość nie jest w żaden sposób czyszczona, i jest prosto podawana do zapytania SQL, przesyłanego do bazy. Zmiana wartości parametru powoduje zmianę zapytania, a dodanie symboli komentarzy -- lub ' może znacznie zmodyfikować działanie zapytania.",
-                level: "advanced",
+                text: "Atakujący, przesyłająć różne wartości w formularzu, i analizując kody błędów, jest w stanie określić, czy dana aplikacja działająca po stronie serwera jest podatna na atak SQL Injection.<br><br>Odbywa się to poprzez dodawanie do szukanej wartości nietypowych znaków, np: <strong>'</strong>, <strong>\"</strong>, <strong>-</strong>... Jeśli wartość przekazywana do zapytania SQL nie jest w żaden sposób czyszczona, dodatkowe znaki mogą przedostać się do zapytania i całkowicie je zmodyfikować. Zauważyć można, że poprzez dodanie <strong>'</strong> na początku wyrazu, można zamknąć apostrof znajdujący się w zapytaniu w aplikacji serwerowej, i dodać własną część zapytania, która poprzednio się tam nie znajdowała.<br><br><strong>W tym interaktywnym ćwiczeniu, postaraj się samodzielnie wykonać atak SQL Injection. Wykorzystaj znak apostrofu, dowolnej prawdziwej wartości (np. 1=1) i komentarza.</strong>",
+                level: "basic",
                 interactive: true,
                 slide: <SqlInteractive/>,
             },
             {
-                header: "Header 6",
-                text: "Sed id semper dui, non mollis magna. Nunc arcu metus, scelerisque eu orci quis, rhoncus viverra felis. Donec vel ornare lectus, sit amet suscipit risus. In placerat congue libero sit amet efficitur. ",
+                header: "Poziomy abstrakcji w API",
+                text: "Projektując aplikację działającą po stronie serwera, programiści muszą się zdecydować, na jakiej warstwie abstrakcji aplikacja będzie komunikowała się z bazą danych.<br><br>Co do zasady im wyższy poziom abstrakcji, tym niższa podatność na atak SQL Injection, błędy programistów i zazwyczaj bardziej przyjazna składnia. Każdy wyższy poziom abstrakcji komunikacji z bazą w aplikacji, zazwyczaj wspiera elementy w niższym poziomie, przykładowo używając konstruktorów kwerend czy ORM, można posiłkować się czystym SQL.<br><br>Jednakże im wyższa warstwa abstrakcji, tym większa szansa, że zapytania do bazy nie będą dostatecznie dobrze zoptymalizowane, przez co czas na otrzymanie odpowiedzi może być dłuższy. ",
+                slide: <SqlApiAbstractionLayers/>,
                 level: "advanced"
             },
             {
@@ -144,12 +148,6 @@ const content = [
                 level: "basic",
                 interactive: true,
                 slide: <PhishingSendDataSimulation/>
-            },
-            {
-                header: "Perspektywa atakującego",
-                text: "Atakujący może próbować odebrać dostęp do konta ofiary natychmiast po otrzymaniu danych, albo odczekać jakiś czas... ||| W dzisiejszych czasach utworzenie strony bliźniaczo podobnej do często odwiedzanych przez nas witryn jest niezmiernie proste. Dlatego tak ważnym jest dokładne sprawdzenie adresu URL, certyfikatu i wszelkich innych istotnych informacji, przed podjęciem jakichkolwiek działań, na odwiedzanej przez nas stronie.",
-                // text: "slajd ukazujacy ze dane z formularza sa przesylane do atakujacego i on dzieki temu jest w stanie zalogowac sie na ofiary",
-                level: "basic"
             },
             {
                 header: "Metody ochrony",

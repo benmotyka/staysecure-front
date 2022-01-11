@@ -4,6 +4,7 @@ import HighlightHtml from "./sqlInjection/parts/HighlightHtml"
 import Introduction from "./sqlInjection/parts/Introduction"
 import WhatIsProxy from "./sqlInjection/parts/WhatIsProxy"
 import SqlApiAbstractionLayers from './sqlInjection/parts/SqlApiAbstractionLayers'
+import SqlPrevention from './sqlInjection/parts/SqlPrevention'
 
 import RansomwareDownload from "./ransomware/parts/RansomwareDownload"
 import RansomwareFilterEmail from "./ransomware/parts/RansomwareFilterEmail"
@@ -64,9 +65,10 @@ const content = [
                 level: "advanced"
             },
             {
-                header: "Header 7",
-                text: "Aliquam sodales interdum odio, ut tristique quam viverra sed. Suspendisse ut bibendum enim. Pellentesque lobortis imperdiet tortor ut pellentesque.",
-                level: "advanced"
+                header: "Przeciwdziałanie SQL Injection",
+                text: "Ze względu na łatwość wykonania i potecjalne korzyści dla atakującego (możliwość zdobycia wrażliwych danych, modyfikacja bazy), ataki SQL Injection są ciągle powszechnie wykonywane, a same podatności nadal spotykane w kodach źródłowych aplikacji.<br><br> Kwestia odporności aplikacji na podatność SQL Injection zazwyczaj leży po stronie zespołu programistów, bowiem to oni mają bezpośredni wpływ na jakość wykonanego oprogramowania.<br><br>Tworząc aplkację należy pamiętać o tym, aby miejsca najbardziej wrażliwe na atak, przykładowo takie, które bezpośrednio komunikują się z relacyjną bazą danych, odpowiednio <strong>walidować i oczyszczać</strong>. Cała logika uodporniająca aplikację powinna dziać się jedynie po stronie serwera, a nie po stronie przeglądarki, ze względu na możliwość wykorzystania serwerów proxy.",
+                slide: <SqlPrevention/>,
+                level: "basic"
             }
         ]
     },

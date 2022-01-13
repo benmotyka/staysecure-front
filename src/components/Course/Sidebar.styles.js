@@ -69,3 +69,27 @@ align-items: center;
 justify-content: center;
 width: 100%;
 `
+
+export const LevelWrapper = styled.div`
+position: absolute;
+left: 0;
+bottom: 0;
+width: 100%;
+height: 80px;
+padding: 10px 25px;
+box-sizing: border-box;
+display: flex;
+align-items: center;
+justify-content: center;
+`
+
+export const LevelFrame = styled.div`
+border-radius: 5px;
+color: ${colors.gold};
+opacity: 0.4;
+width: 100%;
+border: 1px solid ${colors.gold};
+padding: 15px 25px;
+text-align: center;
+font-size: 18px;
+`

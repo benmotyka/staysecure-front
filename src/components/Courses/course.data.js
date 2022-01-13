@@ -174,6 +174,42 @@ const content = [
         language: "pl",
         content: [
             {
+                header: "Czym jest i jak działa keylogger?",
+                text: "Keylogger to całkowicie legalne narzędzie rejestrujące zdarzenia związane z obsługą klawiatury systemu operacyjnego na którym się znajduje, zazwyczaj bez wiedzy użytkownika. Pierwsze keyloggery powstały w latach 70 XX wieku i miały służyć służbom specjalnym do przechwytywania informacji na maszynach do pisania w publicznych miejscach.<br/><br/>To narzędzie może być wykorzystywane w miejscach pracy do badania aktywności pracowników, jako rodzaj kontroli rodzicielskiej lub przez oszustów próbujących wykraść wrażliwe dane ofiary.<br/><br/>Ich celem jest zazwyczaj zarejestrowanie aktywności klawiatury użytkownika i przechwycenie tych informacji, celem wydobycia takich danych jak dane uwierzytelniające czy numery kart kredytowych.",
+                level: "basic",
+                slide: <KeyloggerProtectionMethods/>
+            },
+            {
+                header: "Rodzaje keyloggerów",
+                text: "Ogólnie rzecz biorąc keyloggery dzielą się na sprzętowe (hardware), i programowe (software).<br/><br/><strong>Keyloggery sprzętowe</strong> zazwyczaj wyglądem przypominają pamięci przenośne USB (pendrive). Podłączane są do jednostki poprzez interfejs USB, jednak mogą występować jako urządzenie pośredniczące pomiędzy klawiaturą a złączem USB komputera. Ich zaletą jest obszar działania - potrafią rejestrować aktywność nawet jeśli użytkownik nie uruchomił systemu operacyjnego, i co do zasady potrafią być cięższe w detekcji.<br/><br/><strong>Keyloggery programowe</strong> są formą oprogramowania działającego w tle. Dostają się na urządzenie końcowe poprzez zainstalowanie programu. W zależności od celu keyloggera (miejsce pracy, kontrola rodzicielska, wirus), może on maskować swoją obecność, utrudniając tym samym swoją detekcję.",
+                level: "basic",
+                slide: <KeyloggerProtectionMethods/>
+            },
+            {
+                header: "Używanie keyloggera w złośliwych celach",
+                text: "Z biegiem czasu, zaczęto nadużywać to narzędzie, stosując je do złośliwych celów. Obecnie, częstym zastosowaniem keyloggerów jest infekcja niczego nie spodziewających się ofiar, a następnie <strong>wykradanie wrażliwych danych</strong>, takich jak dane bankowe, kart kredytowych czy loginy i hasła. <br/><br/>Do bardziej zaawansowanych funkcji keyloggera może należeć przechwytywanie ekranu zainfekowanej ofiary, poprzez tworzenie zrzutów ekranu, lub przechwytywanie skopiowanych informacji.<br/><br/>Keyloggery stanowią wyjątkowe zagrożenie dla przedsiębiorstw, gdyż mogą",
+                level: "basic",
+                slide: <KeyloggerProtectionMethods/>
+            },
+            {
+                header: "Sposoby infekcji keyloggerem",
+                text: "",
+                level: "basic",
+                slide: <KeyloggerProtectionMethods/>
+            },
+            {
+                header: "Zagrożenia płynące z infekcji keyloggerem",
+                text: "",
+                level: "basic",
+                slide: <KeyloggerProtectionMethods/>
+            },
+            {
+                header: "Detekcja keyloggera",
+                text: "",
+                level: "advanced",
+                slide: <KeyloggerProtectionMethods/>
+            },
+            {
                 header: "Metody ochrony przed keyloggerami",
                 text: "",
                 level: "basic",

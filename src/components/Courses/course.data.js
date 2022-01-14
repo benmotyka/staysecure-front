@@ -175,43 +175,45 @@ const content = [
         content: [
             {
                 header: "Czym jest i jak działa keylogger?",
-                text: "Keylogger to całkowicie legalne narzędzie rejestrujące zdarzenia związane z obsługą klawiatury systemu operacyjnego na którym się znajduje, zazwyczaj bez wiedzy użytkownika. Pierwsze keyloggery powstały w latach 70 XX wieku i miały służyć służbom specjalnym do przechwytywania informacji na maszynach do pisania w publicznych miejscach.<br/><br/>To narzędzie może być wykorzystywane w miejscach pracy do badania aktywności pracowników, jako rodzaj kontroli rodzicielskiej lub przez oszustów próbujących wykraść wrażliwe dane ofiary.<br/><br/>Ich celem jest zazwyczaj zarejestrowanie aktywności klawiatury użytkownika i przechwycenie tych informacji, celem wydobycia takich danych jak dane uwierzytelniające czy numery kart kredytowych.",
+                text: "Keylogger to całkowicie legalne narzędzie rejestrujące zdarzenia związane z obsługą klawiatury systemu operacyjnego, na którym się znajduje, zazwyczaj bez wiedzy użytkownika. Pierwsze keyloggery powstały w latach 70 XX wieku i miały służyć służbom specjalnym do przechwytywania informacji na maszynach do pisania w publicznych miejscach.<br/><br/>To narzędzie może być wykorzystywane w miejscach pracy do badania aktywności pracowników, jako rodzaj kontroli rodzicielskiej lub przez oszustów próbujących wykraść wrażliwe dane ofiary.<br/><br/>Ich celem jest zazwyczaj zarejestrowanie aktywności klawiatury użytkownika i przechwycenie tych informacji, celem wydobycia takich danych jak dane uwierzytelniające czy numery kart kredytowych.",
                 level: "basic",
                 slide: <KeyloggerProtectionMethods/>
             },
             {
                 header: "Rodzaje keyloggerów",
-                text: "Ogólnie rzecz biorąc keyloggery dzielą się na sprzętowe (hardware), i programowe (software).<br/><br/><strong>Keyloggery sprzętowe</strong> zazwyczaj wyglądem przypominają pamięci przenośne USB (pendrive). Podłączane są do jednostki poprzez interfejs USB, jednak mogą występować jako urządzenie pośredniczące pomiędzy klawiaturą a złączem USB komputera. Ich zaletą jest obszar działania - potrafią rejestrować aktywność nawet jeśli użytkownik nie uruchomił systemu operacyjnego, i co do zasady potrafią być cięższe w detekcji.<br/><br/><strong>Keyloggery programowe</strong> są formą oprogramowania działającego w tle. Dostają się na urządzenie końcowe poprzez zainstalowanie programu. W zależności od celu keyloggera (miejsce pracy, kontrola rodzicielska, wirus), może on maskować swoją obecność, utrudniając tym samym swoją detekcję.",
+                text: "Ogólnie rzecz biorąc keyloggery dzielą się na sprzętowe (hardware) i programowe (software).<br/><br/><strong>Keyloggery sprzętowe</strong> zazwyczaj wyglądem przypominają pamięci przenośne USB (pendrive). Podłączane są do jednostki poprzez interfejs USB, jednak mogą występować jako urządzenie pośredniczące pomiędzy klawiaturą a złączem USB komputera. Ich zaletą jest obszar działania - potrafią rejestrować aktywność, nawet jeśli użytkownik nie uruchomił systemu operacyjnego i co do zasady potrafią być cięższe w detekcji dla antywirusa. W rzadkich przypadkach mogą być również fizycznie zamontowane w urządzeniu.<br/><br/><strong>Keyloggery programowe</strong> są formą oprogramowania działającego w tle. Dostają się na urządzenie końcowe poprzez zainstalowanie programu. W zależności od celu keyloggera (miejsce pracy, kontrola rodzicielska, wirus), może on maskować swoją obecność, utrudniając tym samym swoją detekcję.",
                 level: "basic",
                 slide: <KeyloggerProtectionMethods/>
             },
             {
                 header: "Używanie keyloggera w złośliwych celach",
-                text: "Z biegiem czasu, zaczęto nadużywać to narzędzie, stosując je do złośliwych celów. Obecnie, częstym zastosowaniem keyloggerów jest infekcja niczego nie spodziewających się ofiar, a następnie <strong>wykradanie wrażliwych danych</strong>, takich jak dane bankowe, kart kredytowych czy loginy i hasła. <br/><br/>Do bardziej zaawansowanych funkcji keyloggera może należeć przechwytywanie ekranu zainfekowanej ofiary, poprzez tworzenie zrzutów ekranu, lub przechwytywanie skopiowanych informacji.<br/><br/>Keyloggery stanowią wyjątkowe zagrożenie dla przedsiębiorstw, gdyż mogą",
+                text: "Z biegiem czasu, zaczęto nadużywać to narzędzie, stosując je do złośliwych celów. Obecnie, częstym zastosowaniem keyloggerów jest infekcja niczego niespodziewających się ofiar, a następnie <strong>wykradanie wrażliwych danych</strong>, takich jak dane bankowe, kart kredytowych czy loginy i hasła. <br/><br/>Do bardziej zaawansowanych funkcji keyloggera może należeć przechwytywanie ekranu zainfekowanej ofiary, poprzez tworzenie zrzutów ekranu, lub przechwytywanie skopiowanych informacji.<br/><br/>Keyloggery stanowią wyjątkowe zagrożenie dla przedsiębiorstw - wykradnięte dane mogą zapewnić dostęp atakującemu do najbardziej wrażliwych elementów przedsiębiorstwa lub wyjawić konfidencjonalne plany firmy.",
                 level: "basic",
                 slide: <KeyloggerProtectionMethods/>
             },
             {
                 header: "Sposoby infekcji keyloggerem",
-                text: "",
-                level: "basic",
-                slide: <KeyloggerProtectionMethods/>
-            },
-            {
-                header: "Zagrożenia płynące z infekcji keyloggerem",
-                text: "",
+                text: "Urządzenie może zostać zainfekowane keyloggerem na wiele sposobów, które różnią się w zależności od rodzaju tego narzędzia.<br/><br/>Keyloggery sprzętowe, jak sama nazwa wskazuje, zazwyczaj wymagają fizycznej obecności atakującego przy sprzęcie ofiary, celem podłączenia keyloggera do urządzenia ofiary. W związku z tym stanowią one mniejsze zagrożenie dla zwykłych użytkowników niż keyloggery programowe.<br/><br/>Infekcja keyloggerem programowym jest znacznie prostsza, przez co ogólnie rzecz biorąc stanowi on większe zagrożenie, szczególnie jeśli urządzenie nie jest chronione antywirusem. Najczęstszą formą instalacji tego rodzaju złośliwego oprogramowania jest pobranie i uruchomienie podejrzanego załącznika z sieci lub wiadomościach phishingowych.",
                 level: "basic",
                 slide: <KeyloggerProtectionMethods/>
             },
             {
                 header: "Detekcja keyloggera",
-                text: "",
-                level: "advanced",
+                text: "Keyloggery typu hardware są zazwyczaj prostsze do rozpoznania. Wymaga to jedynie dokładnego przeanalizowania sprzętu, którego używamy, pod kątem występowania podejrzanych urządzeń. <br/><br/>Keyloggery typu software, działając w tle, będą próbowały maskować swoją obecność, podszywając się pod inny program. W systemie operacyjnym Windows, dobrym pomysłem jest okresowe sprawdzanie procesów w Menedżerze Zadań. Jeśli napotkany zostanie proces o podejrzanej nazwie, dobrym pomysłem będzie wyszukanie informacji na temat tego procesu w przeglądarce internetowej.<br/><br/><strong>W tym interaktywnym ćwiczeniu uruchom menedżera zadań i postaraj się zlokalizować, a następnie kliknąć na podejrzany proces.</strong>",
+                level: "basic",
+                //slide z windowsem i task explorererm, uzytkownik scorluje po procesach zaznacza podejrzany proces i go klika
+                slide: <KeyloggerProtectionMethods/>
+            },
+            {
+                header: "Pozbycie się keyloggera",
+                text: "Dla keyloggerów sprzętowych, proces usunięcia polega zazwyczaj na odpięciu urządzenia, po wcześniejszym jego zlokalizowaniu. Jednak w przypadku keyloggerów wbudowanych w urządzenie, nie będą one możliwe do usunięcia w tak łatwy sposób dla osoby nie zaznajomionej z architekturą i budową komputera.<br/><br/>Całkowite usunięcie keyloggerów programowych z kolei jest trudnym wyzwaniem, nawet dla bardziej zaawansowanych użytkowników. Zazwyczaj wydawać by się mogło, że usunięcie procesu lub ewentualne odinstalowanie podejrzanego programu może rozwiązać problem na dobre. W rzeczywistości jednak zazwyczaj nie przyniesie to oczkeiwanych efektów, gdyż prawdopodobnie keylogger zdołał się zreplikować jako inny program, serwis lub proces, dlatego najbezpieczeniejszą formą pozbycia się keyloggera programowego będzie sformatowanie urządzenia do ustawień początkowych. ",
+                level: "basic",
+                //slide ikonka laptop i ikonka MdSettingsBackupRestore sugerujaca ze pc musi byc sformatowany najbezpieczniej
                 slide: <KeyloggerProtectionMethods/>
             },
             {
                 header: "Metody ochrony przed keyloggerami",
-                text: "",
+                text: "Sposoby ochrony przed keyloggerami programowymi nie różnią się zasadniczo od sposobów ochrony przed podobnymi typami złośliwego oprogramowania. Przede wszystkim należy zwracać szczególną uwagę na załączniki lub programy które się uruchamia. Ten prosty i skuteczny krok pozwoli na ominięcie nieprzyjemności związanych z utratą danych bankowych czy danych uwierzytelniania do serwisów webowych. Warto także pamiętać o używaniu antywirusa i stosowaniu odpowiedniej polityki haseł - menedżera haseł i kodów 2FA, do uwierzytelniania się wrażliwymi danymi.<br/><br/>Należy również mieć na uwadze podłączone urządzenia do komputera - jeśli do komputera pracowniczego podpięte jest nie znane wcześniej urządzenie, może to wzbudzić wątpliwośći i podejrzenia pod kątem infekcji keyloggerem sprzętowym. ",
                 level: "basic",
                 slide: <KeyloggerProtectionMethods/>
             }

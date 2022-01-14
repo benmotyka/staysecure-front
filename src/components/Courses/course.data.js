@@ -22,6 +22,8 @@ import U2FKeys from "./phishing/parts/U2FKeys"
 import PhishingSendDataSimulation from "./phishing/parts/PhishingSendDataSimulation"
 
 import KeyloggerProtectionMethods from './keylogger/parts/KeyloggerProtectionMethods'
+import WhatIsKeylogger from './keylogger/parts/WhatIsKeylogger'
+
 const content = [
     {
         course: "sql-injection",
@@ -177,7 +179,7 @@ const content = [
                 header: "Czym jest i jak działa keylogger?",
                 text: "Keylogger to całkowicie legalne narzędzie rejestrujące zdarzenia związane z obsługą klawiatury systemu operacyjnego, na którym się znajduje, zazwyczaj bez wiedzy użytkownika. Pierwsze keyloggery powstały w latach 70 XX wieku i miały służyć służbom specjalnym do przechwytywania informacji na maszynach do pisania w publicznych miejscach.<br/><br/>To narzędzie może być wykorzystywane w miejscach pracy do badania aktywności pracowników, jako rodzaj kontroli rodzicielskiej lub przez oszustów próbujących wykraść wrażliwe dane ofiary.<br/><br/>Ich celem jest zazwyczaj zarejestrowanie aktywności klawiatury użytkownika i przechwycenie tych informacji, celem wydobycia takich danych jak dane uwierzytelniające czy numery kart kredytowych.",
                 level: "basic",
-                slide: <KeyloggerProtectionMethods/>
+                slide: <WhatIsKeylogger/>
             },
             {
                 header: "Rodzaje keyloggerów",

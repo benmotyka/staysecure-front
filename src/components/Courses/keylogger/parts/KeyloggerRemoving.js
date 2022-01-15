@@ -34,20 +34,21 @@ export const Laptop = styled(LaptopIcon)`
 font-size: 200px;
 color: ${colors.white};
 position: absolute;
+top: 175px;
 `
 
 export const Format = styled(FormatIcon)`
 font-size: 70px;
 color: ${colors.orange};
 position: absolute;
-top: 170px;
+top: 215px;
 `
 
 export const LaptopText = styled.p`
 font-size: 12px;
 margin: 0;
 color: ${colors.white};
-top: 240px;
+top: 285px;
 position: absolute;
 `
 

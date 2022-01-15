@@ -117,6 +117,7 @@ const KeyloggerDetectDesktop = (props) => {
                 </TaskManagerTableHeader>
               </TaskManagerTableRow>
               <TaskManagerTableRow>
+                {/* @TODO: change it to list of objects and map through it */}
                 <TaskManagerTableData>System</TaskManagerTableData>
                 <TaskManagerTableData></TaskManagerTableData>
                 <TaskManagerTableData yellow right>10.6%</TaskManagerTableData>

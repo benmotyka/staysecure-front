@@ -29,6 +29,8 @@ import KeyloggerInfectionMethods from './keylogger/parts/KeyloggerInfectionMetho
 import KeyloggerRemoving from './keylogger/parts/KeyloggerRemoving'
 import KeyloggerDetection from './keylogger/parts/KeyloggerDetection'
 
+import WhatIsDdos from './ddos/parts/WhatIsDdos'
+
 const content = [
     {
         course: "sql-injection",
@@ -194,7 +196,7 @@ const content = [
             },
             {
                 header: "Używanie keyloggera w złośliwych celach",
-                text: "Z biegiem czasu, zaczęto nadużywać to narzędzie, stosując je do złośliwych celów. Obecnie, częstym zastosowaniem keyloggerów jest infekcja niczego niespodziewających się ofiar, a następnie <strong>wykradanie wrażliwych danych</strong>, takich jak dane bankowe, kart kredytowych czy loginy i hasła. <br/><br/>Do bardziej zaawansowanych funkcji keyloggera może należeć przechwytywanie ekranu zainfekowanej ofiary, poprzez tworzenie zrzutów ekranu, lub przechwytywanie skopiowanych informacji.<br/><br/>Keyloggery stanowią wyjątkowe zagrożenie dla przedsiębiorstw - wykradnięte dane mogą zapewnić dostęp atakującemu do najbardziej wrażliwych elementów przedsiębiorstwa lub wyjawić konfidencjonalne plany firmy.",
+                text: "Z biegiem czasu, zaczęto nadużywać to narzędzie, stosując je do złośliwych celów. Obecnie, częstym zastosowaniem keyloggerów jest infekcja niczego niespodziewających się ofiar, a następnie <strong>wykradanie wrażliwych danych</strong>, takich jak dane bankowe, kart kredytowych czy loginy i hasła. <br/><br/>Do bardziej zaawansowanych funkcji keyloggera może należeć przechwytywanie ekranu zainfekowanej ofiary, poprzez tworzenie zrzutów ekranu, lub przechwytywanie skopiowanych informacji.<br/><br/>Keyloggery stanowią wyjątkowe zagrożenie dla przedsiębiorstw - wykradzione dane mogą zapewnić dostęp atakującemu do najbardziej wrażliwych elementów przedsiębiorstwa lub wyjawić konfidencjonalne plany firmy.",
                 level: "basic",
                 slide: <KeylogggerMaliciousFlow/>
             },
@@ -206,20 +208,20 @@ const content = [
             },
             {
                 header: "Detekcja keyloggera",
-                text: "Keyloggery typu hardware są zazwyczaj prostsze do rozpoznania. Wymaga to jedynie dokładnego przeanalizowania sprzętu, którego używamy, pod kątem występowania podejrzanych urządzeń. <br/><br/>Keyloggery typu software, działając w tle, będą próbowały maskować swoją obecność, podszywając się pod inny program. W systemie operacyjnym Windows, dobrym pomysłem jest okresowe sprawdzanie procesów w Menedżerze Zadań. Jeśli napotkany zostanie proces o podejrzanej nazwie, dobrym pomysłem będzie wyszukanie informacji na temat tego procesu w przeglądarce internetowej.<br/><br/><strong>W tym interaktywnym ćwiczeniu uruchom menedżera zadań i postaraj się zlokalizować, a następnie kliknąć na podejrzany proces.</strong>",
+                text: "Keyloggery typu hardware są zazwyczaj prostsze do rozpoznania. Wymaga to jedynie dokładnego przeanalizowania sprzętu, którego używamy, pod kątem występowania podejrzanych urządzeń. <br/><br/>Keyloggery typu software, działając w tle, będą próbowały maskować swoją obecność, podszywając się pod inny program. W systemie operacyjnym Windows, dobrym pomysłem jest okresowe sprawdzanie procesów w Menedżerze Zadań. Jeśli napotkany zostanie proces o podejrzanej nazwie, dobrym pomysłem będzie wyszukanie informacji na temat tego procesu w przeglądarce internetowej.<br/><br/><strong>W tym interaktywnym ćwiczeniu uruchom menedżera zadań i postaraj się zlokalizować, a następnie kliknąć podejrzany proces.</strong>",
                 level: "basic",
                 interactive: true,
                 slide: <KeyloggerDetection/>
             },
             {
                 header: "Pozbycie się keyloggera",
-                text: "Dla keyloggerów sprzętowych, proces usunięcia polega zazwyczaj na odpięciu urządzenia, po wcześniejszym jego zlokalizowaniu. Jednak w przypadku keyloggerów wbudowanych w urządzenie, nie będą one możliwe do usunięcia w tak łatwy sposób dla osoby nie zaznajomionej z architekturą i budową komputera.<br/><br/>Całkowite usunięcie keyloggerów programowych z kolei jest trudnym wyzwaniem, nawet dla bardziej zaawansowanych użytkowników. Zazwyczaj wydawać by się mogło, że usunięcie procesu lub ewentualne odinstalowanie podejrzanego programu może rozwiązać problem na dobre. W rzeczywistości jednak zazwyczaj nie przyniesie to oczkeiwanych efektów, gdyż prawdopodobnie keylogger zdołał się zreplikować jako inny program, serwis lub proces, dlatego najbezpieczeniejszą formą pozbycia się keyloggera programowego będzie sformatowanie urządzenia do ustawień początkowych. ",
+                text: "Dla keyloggerów sprzętowych, proces usunięcia polega zazwyczaj na odpięciu urządzenia, po wcześniejszym jego zlokalizowaniu. Jednak w przypadku keyloggerów wbudowanych w urządzenie, nie będą one możliwe do usunięcia w tak łatwy sposób dla osoby niezaznajomionej z architekturą i budową komputera.<br/><br/>Całkowite usunięcie keyloggerów programowych z kolei jest trudnym wyzwaniem, nawet dla bardziej zaawansowanych użytkowników. Zazwyczaj wydawać by się mogło, że usunięcie procesu lub ewentualne odinstalowanie podejrzanego programu może rozwiązać problem na dobre. W rzeczywistości jednak zazwyczaj nie przyniesie to oczekiwanych efektów, gdyż prawdopodobnie keylogger zdołał się zreplikować jako inny program, serwis lub proces, dlatego najbezpieczniejszą formą pozbycia się keyloggera programowego będzie sformatowanie urządzenia do ustawień początkowych. ",
                 level: "basic",
                 slide: <KeyloggerRemoving/>
             },
             {
                 header: "Metody ochrony przed keyloggerami",
-                text: "Sposoby ochrony przed keyloggerami programowymi nie różnią się zasadniczo od sposobów ochrony przed podobnymi typami złośliwego oprogramowania. Przede wszystkim należy zwracać szczególną uwagę na załączniki lub programy które się uruchamia. Ten prosty i skuteczny krok pozwoli na ominięcie nieprzyjemności związanych z utratą danych bankowych czy danych uwierzytelniania do serwisów webowych. Warto także pamiętać o używaniu antywirusa i stosowaniu odpowiedniej polityki haseł - menedżera haseł i kodów 2FA, do uwierzytelniania się wrażliwymi danymi.<br/><br/>Należy również mieć na uwadze podłączone urządzenia do komputera - jeśli do komputera pracowniczego podpięte jest nie znane wcześniej urządzenie, może to wzbudzić wątpliwośći i podejrzenia pod kątem infekcji keyloggerem sprzętowym. ",
+                text: "Sposoby ochrony przed keyloggerami programowymi nie różnią się zasadniczo od sposobów ochrony przed podobnymi typami złośliwego oprogramowania. Przede wszystkim należy zwracać szczególną uwagę na załączniki lub programy, które się uruchamia. Ten prosty i skuteczny krok pozwoli na ominięcie nieprzyjemności związanych z utratą danych bankowych czy danych uwierzytelniania do serwisów webowych. Warto także pamiętać o używaniu antywirusa i stosowaniu odpowiedniej polityki haseł - menedżera haseł i kodów 2FA, do uwierzytelniania się wrażliwymi danymi.<br/><br/>Należy również mieć na uwadze podłączone urządzenia do komputera - jeśli do komputera pracowniczego podpięte jest nieznane wcześniej urządzenie, może to wzbudzić wątpliwości i podejrzenia pod kątem infekcji keyloggerem sprzętowym. ",
                 level: "basic",
                 slide: <KeyloggerProtectionMethods/>
             }
@@ -230,7 +232,56 @@ const content = [
         language: "pl",
         content: [
             {
-                header: "Header 1",
+                header: "Jak działają serwery webowe?",
+                text: "dos",
+                level: "basic"
+            },
+            // {   //OPTIONAL
+            //     header: "Reverse proxy na serwerze",
+            //     text: "dos",
+            //     level: "advanced"
+            // },
+            {
+                header: "Jak działa atak i czym jest atak DOS?",
+                text: "Atak DOS (Denial Of Service) w dużym skrócie polega na przekierowaniu na dany serwer webowy w danej jednostce czasu tak dużego ruchu, że ten, próbując odpowiedzieć na każde połączenie, wykorzysta wszystkie swoje możliwe zasoby (procesor, pamięć) co spowoduje wąskie gardło dla innych akcji serwera, nierzadko powodując jego całkowite, awaryjne wyłączenie.<br/><br/>Celami ataków zazwyczaj są szeroko pojęte serwisy internetowe przedsiębiorstw: sklepy internetowe, instytucje finansowe czy popularne aplikacje.<br/><br/>Bardzo często, atakom towarzyszy propozycja dla ofiary, w której to atakujący zaprzestanie nadsyłać fałszywy ruch, w zamian za zapłatę pieniężną.",
+                slide: <WhatIsDdos/>,
+                level: "basic",
+            },
+            {
+                header: "Różnice pomiędzy atakiem DOS a DDOS",
+                text: "...W dalszych slajdach, będą skrótowo opisywane DDOS",
+                level: "basic",
+                //slide to vertical separator, ikonki ze dos zz jednego adresu ip ddos z wielu,
+
+            },
+            {
+                header: "Typy DDOS",
+                text: "dos",
+                level: "basic"
+                //https://www.digitalattackmap.com/understanding-ddos/
+            },
+            {
+                header: "Identyfikacja ataku DDOS",
+                text: "dos",
+                level: "basic"
+            },
+            {
+                header: "Ataki DDOS na warstwie aplikacyjnej",
+                text: "dos",
+                level: "advanced"
+            },
+            // {   //OPTIONAL
+            //     header: "Wykorzystywanie AI w walce z ddosami",
+            //     text: "filtrowanie ruchu itp",
+            //     level: "advanced"
+            // },
+            {
+                header: "Ataki DDOS na warstwie sieciowej",
+                text: "dos",
+                level: "advanced"
+            },
+            {
+                header: "Ochrona przed atakami DDOS",
                 text: "dos",
                 level: "basic"
             }

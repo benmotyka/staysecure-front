@@ -132,7 +132,7 @@ const KeyloggerProtectionMethods = () => {
       {activeSlide === 2 && (
         <ContentWrapper>
           <ContentHeader>
-          Zdecydowana większość antywirusów w wersji podstawowej posiada wbudowane mechnizmy przeciwdziałające atakom typu keylogger. Dodatkowo wyposażone są one w mechanizmy analizujące ruch wchodzący i wychodzący do sieci, co znacznie utrudni atakującemu zdobycie wrażliwych danych. 
+          Zdecydowana większość antywirusów w wersji podstawowej posiada wbudowane mechanizmy przeciwdziałające atakom typu keylogger. Dodatkowo wyposażone są one w mechanizmy analizujące ruch wchodzący i wychodzący do sieci, co znacznie utrudni atakującemu zdobycie wrażliwych danych. 
             <Line />
           </ContentHeader>
           <FlexCenterWrapper>

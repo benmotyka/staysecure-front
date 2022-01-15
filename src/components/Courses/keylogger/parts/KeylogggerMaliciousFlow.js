@@ -131,7 +131,7 @@ const KeylogggerMaliciousFlow = () => {
             <User bad style={{ right: "10%" }} />
           </ContentBody>
           <Description>
-            Niczego nie świadoma ofiara używa komputera i jednocześnie przesyła
+            Niczego nieświadoma ofiara używa komputera i jednocześnie przesyła
             wszystkie informacje wpisane na klawiaturze do atakującego. Bardziej
             zaawansowany keylogger może również przesyłać zrzuty ekranu.
           </Description>

@@ -25,6 +25,7 @@ import KeyloggerProtectionMethods from './keylogger/parts/KeyloggerProtectionMet
 import WhatIsKeylogger from './keylogger/parts/WhatIsKeylogger'
 import KeyloggerTypes from './keylogger/parts/KeyloggerTypes'
 import KeylogggerMaliciousFlow from './keylogger/parts/KeylogggerMaliciousFlow'
+import KeyloggerInfectionMethods from './keylogger/parts/KeyloggerInfectionMethods'
 
 const content = [
     {
@@ -140,7 +141,7 @@ const content = [
             },
             {
                 header: "Filtry antyspamowe",
-                text: "Powszechną praktyką stosowaną u większości dostawców skrzynek pocztowych jest funkcjonalność <strong>filtrów załączników</strong>.<br><br>Mogą one analizować treść załączonych plików, bez względu na ich typ. Następnie, treść plików porównywana jest z bazą zawierającą każde znane złośliwe oprogramowanie - w tym przypadku ransomware - co pozwala na oszacowanie prawdopodobieństwa, że analizowany załącznik jest wirusem typu ransomware.<br><br>Wiadomość mailowa, która okaże bardzo podobna do wirusa, nie zostanie dostarczona do odbiorcy, tym samym chroniąc potencjalne ofiary przed infekcją.",
+                text: "Powszechną praktyką stosowaną u większości dostawców skrzynek pocztowych jest funkcjonalność <strong>filtrów załączników</strong>.<br><br>Mogą one analizować treść załączonych plików, bez względu na ich typ. Następnie, treść plików porównywana jest z bazą zawierającą każde znane złośliwe oprogramowanie - w tym przypadku ransomware - co pozwala na oszacowanie prawdopodobieństwa, że analizowany załącznik jest wirusem typu ransomware.<br><br>Wiadomość mailowa, która okaże bardzo podobna do wirusa, nie zostanie dostarczona do odbiorcy, tym samym chroniąc potencjalne ofiary przed infekcją.<br/><br/>Warto jednak pamiętać, że nawet filtry popełniają czasem błędy. Nie rzadko zdarzy im się przepuścić złośliwy załącznik lub odrzucić standardową wiadomość, ze względu na błędne przekonanie o jej podejrzanej treści.",
                 slide: <RansomwareFilterEmail/>,
                 level: "advanced"
             },
@@ -199,7 +200,7 @@ const content = [
                 header: "Sposoby infekcji keyloggerem",
                 text: "Urządzenie może zostać zainfekowane keyloggerem na wiele sposobów, które różnią się w zależności od rodzaju tego narzędzia.<br/><br/>Keyloggery sprzętowe, jak sama nazwa wskazuje, zazwyczaj wymagają fizycznej obecności atakującego przy sprzęcie ofiary, celem podłączenia keyloggera do urządzenia ofiary. W związku z tym stanowią one mniejsze zagrożenie dla zwykłych użytkowników niż keyloggery programowe.<br/><br/>Infekcja keyloggerem programowym jest znacznie prostsza, przez co ogólnie rzecz biorąc stanowi on większe zagrożenie, szczególnie jeśli urządzenie nie jest chronione antywirusem. Najczęstszą formą instalacji tego rodzaju złośliwego oprogramowania jest pobranie i uruchomienie podejrzanego załącznika z sieci lub wiadomościach phishingowych.",
                 level: "basic",
-                slide: <KeyloggerProtectionMethods/>
+                slide: <KeyloggerInfectionMethods/>
             },
             {
                 header: "Detekcja keyloggera",

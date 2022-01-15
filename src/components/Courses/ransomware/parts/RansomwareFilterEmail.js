@@ -25,7 +25,7 @@ const RansomwareFilterEmail = () => {
             <Wrapper>
                 <GoodFile x={45} y={85} z={-30}/>
                 <GoodFile x={40} y={60} z={-10}/>
-                <GoodFile x={50} y={60} z={25}/>
+                <BadFile x={50} y={60} z={25}/>
                 <GoodFile x={35} y={30} z={15}/>
                 <GoodFile x={45} y={30} z={0}/>
                 <GoodFile x={55} y={30} z={-22}/>

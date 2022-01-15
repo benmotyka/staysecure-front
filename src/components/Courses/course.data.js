@@ -24,6 +24,7 @@ import PhishingSendDataSimulation from "./phishing/parts/PhishingSendDataSimulat
 import KeyloggerProtectionMethods from './keylogger/parts/KeyloggerProtectionMethods'
 import WhatIsKeylogger from './keylogger/parts/WhatIsKeylogger'
 import KeyloggerTypes from './keylogger/parts/KeyloggerTypes'
+import KeylogggerMaliciousFlow from './keylogger/parts/KeylogggerMaliciousFlow'
 
 const content = [
     {
@@ -192,7 +193,7 @@ const content = [
                 header: "Używanie keyloggera w złośliwych celach",
                 text: "Z biegiem czasu, zaczęto nadużywać to narzędzie, stosując je do złośliwych celów. Obecnie, częstym zastosowaniem keyloggerów jest infekcja niczego niespodziewających się ofiar, a następnie <strong>wykradanie wrażliwych danych</strong>, takich jak dane bankowe, kart kredytowych czy loginy i hasła. <br/><br/>Do bardziej zaawansowanych funkcji keyloggera może należeć przechwytywanie ekranu zainfekowanej ofiary, poprzez tworzenie zrzutów ekranu, lub przechwytywanie skopiowanych informacji.<br/><br/>Keyloggery stanowią wyjątkowe zagrożenie dla przedsiębiorstw - wykradnięte dane mogą zapewnić dostęp atakującemu do najbardziej wrażliwych elementów przedsiębiorstwa lub wyjawić konfidencjonalne plany firmy.",
                 level: "basic",
-                slide: <KeyloggerProtectionMethods/>
+                slide: <KeylogggerMaliciousFlow/>
             },
             {
                 header: "Sposoby infekcji keyloggerem",

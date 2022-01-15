@@ -36,7 +36,7 @@ export const ContentWrapper = styled.div`
   padding: 30px 0;
 `;
 
-export const Subheader = styled.h4`
+export const Header = styled.h4`
   color: ${colors.orange};
   font-size: 25px;
   margin-bottom: 0;
@@ -66,10 +66,10 @@ const KeyloggerTypes = () => {
     <Container>
       <BodyWrapper>
         <ContentWrapper>
-          <Subheader>Sprzętowy</Subheader>
+          <Header>Sprzętowy</Header>
           <Usb />
           <Description>- Dostaje się na urządzenie poprzez fizyczne podłączenie</Description>
-          <Description>- Działa na urządzeniu</Description>
+          <Description>- Działa na warstwie urządzenia</Description>
           <Description>
             - Łatwy w identyfikacji dla użytkownika, trudny dla antywirusa
           </Description>
@@ -79,10 +79,10 @@ const KeyloggerTypes = () => {
         </ContentWrapper>
         <HorizontalLine />
         <ContentWrapper>
-          <Subheader>Programowy</Subheader>
+          <Header>Programowy</Header>
           <App />
-          <Description>- Dostaje się na urządznenie poprzez uruchomienie złośliwego skryptu, aplikacji</Description>
-          <Description>- Działa na systemie operacyjnym</Description>
+          <Description>- Dostaje się na urządzenie poprzez uruchomienie złośliwego skryptu, aplikacji</Description>
+          <Description>- Działa na warstwie systemu operacyjnego</Description>
           <Description>
             - Trudny w identyfikacji dla użytkownika, łatwy dla antywirusa
           </Description>

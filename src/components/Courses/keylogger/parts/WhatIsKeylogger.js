@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import colors from "constans/colors";
 
 import { RiParentFill as ParentIcon } from "react-icons/ri";

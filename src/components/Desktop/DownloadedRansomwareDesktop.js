@@ -16,7 +16,7 @@ import {
   DocumentContainer,
   Bank,
   DocumentItemWrapper,
-  RansomwareDescription,
+  WindowDescription,
   DocumentHeader,
   WindowContainer,
   WindowHeader,
@@ -88,7 +88,7 @@ const DownloadedRansomwareDesktop = (props) => {
       {showRansomDocument && (
         <WindowContainer>
           <WindowHeader>
-            <RansomwareDescription>Rachunek</RansomwareDescription>
+            <WindowDescription>Rachunek</WindowDescription>
             <Close onClick={() => setShowRansomDocument(false)} />
           </WindowHeader>
           <DocumentContainer>

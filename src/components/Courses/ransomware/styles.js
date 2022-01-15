@@ -225,6 +225,7 @@ export const ContentHeader = styled.h3`
   font-weight: normal;
   padding: 15px;
   margin: 0;
+  opacity: 0.8;
 `;
 
 export const ContentBody = styled.div`

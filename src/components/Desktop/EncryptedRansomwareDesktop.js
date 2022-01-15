@@ -17,7 +17,7 @@ import {
     Lock,
     RansomwareWarning,
     RansomwareWrapper,
-    RansomwareDescription,
+    WindowDescription,
     RansomwareBody,
     RansomwareHeader,
     WindowContainer,
@@ -101,7 +101,7 @@ import {
         </TaskBar>
         {showRansomPopup && 
         <WindowContainer>
-            <WindowHeader><RansomwareDescription>RANSOMWARE</RansomwareDescription><Close onClick={() => setShowRansomPopup(false)}/></WindowHeader>
+            <WindowHeader><WindowDescription>RANSOMWARE</WindowDescription><Close onClick={() => setShowRansomPopup(false)}/></WindowHeader>
         <RansomwareContainer>
             <RansomwareWrapper>
                 <Lock/>
@@ -111,8 +111,8 @@ import {
             </RansomwareWrapper>
             <RansomwareWrapper>
                 <RansomwareHeader>Twoje dane zostały zaszyfrowane!</RansomwareHeader>
-                <RansomwareBody><RansomwareDescription>Wszystkie pliki na tym urządzeniu zostały zaszyfrowane z użyciem unikalnego klucza publicznego RSA-2048, wygenerowanego unikalnie dla tego urządzenia. Aby odszyfrować wszystkie swoje pliki, potrzebujesz <strong>klucza prywatnego</strong>.<br/><br/>Aby uzyskać dostęp do klucza, musisz zapłacić okup 1000 EUR na podany adres Bitcoin:<br/><br/>bc1qj7a5w8myrljmqjg2kxha8xu8kfwtka9evvlall<br/><br/>Jeśli to zrobisz w wyznaczonym czasie, otrzymasz klucz. W przeciwnym razie klucz zostanie usunięty, a twoje dane <strong>nie będą możliwe do odzyskania.</strong>
-                    </RansomwareDescription></RansomwareBody>
+                <RansomwareBody><WindowDescription>Wszystkie pliki na tym urządzeniu zostały zaszyfrowane z użyciem unikalnego klucza publicznego RSA-2048, wygenerowanego unikalnie dla tego urządzenia. Aby odszyfrować wszystkie swoje pliki, potrzebujesz <strong>klucza prywatnego</strong>.<br/><br/>Aby uzyskać dostęp do klucza, musisz zapłacić okup 1000 EUR na podany adres Bitcoin:<br/><br/>bc1qj7a5w8myrljmqjg2kxha8xu8kfwtka9evvlall<br/><br/>Jeśli to zrobisz w wyznaczonym czasie, otrzymasz klucz. W przeciwnym razie klucz zostanie usunięty, a twoje dane <strong>nie będą możliwe do odzyskania.</strong>
+                    </WindowDescription></RansomwareBody>
             </RansomwareWrapper>
             </RansomwareContainer>
             </WindowContainer>
@@ -120,7 +120,7 @@ import {
       {showRansomDocument && (
         <WindowContainer>
           <WindowHeader>
-            <RansomwareDescription>Rachunek</RansomwareDescription>
+            <WindowDescription>Rachunek</WindowDescription>
             <Close onClick={() => setShowRansomDocument(false)} />
           </WindowHeader>
           <DocumentContainer>

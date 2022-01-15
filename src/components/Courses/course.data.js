@@ -26,6 +26,8 @@ import WhatIsKeylogger from './keylogger/parts/WhatIsKeylogger'
 import KeyloggerTypes from './keylogger/parts/KeyloggerTypes'
 import KeylogggerMaliciousFlow from './keylogger/parts/KeylogggerMaliciousFlow'
 import KeyloggerInfectionMethods from './keylogger/parts/KeyloggerInfectionMethods'
+import KeyloggerRemoving from './keylogger/parts/KeyloggerRemoving'
+import KeyloggerDetection from './keylogger/parts/KeyloggerDetection'
 
 const content = [
     {
@@ -206,15 +208,14 @@ const content = [
                 header: "Detekcja keyloggera",
                 text: "Keyloggery typu hardware są zazwyczaj prostsze do rozpoznania. Wymaga to jedynie dokładnego przeanalizowania sprzętu, którego używamy, pod kątem występowania podejrzanych urządzeń. <br/><br/>Keyloggery typu software, działając w tle, będą próbowały maskować swoją obecność, podszywając się pod inny program. W systemie operacyjnym Windows, dobrym pomysłem jest okresowe sprawdzanie procesów w Menedżerze Zadań. Jeśli napotkany zostanie proces o podejrzanej nazwie, dobrym pomysłem będzie wyszukanie informacji na temat tego procesu w przeglądarce internetowej.<br/><br/><strong>W tym interaktywnym ćwiczeniu uruchom menedżera zadań i postaraj się zlokalizować, a następnie kliknąć na podejrzany proces.</strong>",
                 level: "basic",
-                //slide z windowsem i task explorererm, uzytkownik scorluje po procesach zaznacza podejrzany proces i go klika
-                slide: <KeyloggerProtectionMethods/>
+                interactive: true,
+                slide: <KeyloggerDetection/>
             },
             {
                 header: "Pozbycie się keyloggera",
                 text: "Dla keyloggerów sprzętowych, proces usunięcia polega zazwyczaj na odpięciu urządzenia, po wcześniejszym jego zlokalizowaniu. Jednak w przypadku keyloggerów wbudowanych w urządzenie, nie będą one możliwe do usunięcia w tak łatwy sposób dla osoby nie zaznajomionej z architekturą i budową komputera.<br/><br/>Całkowite usunięcie keyloggerów programowych z kolei jest trudnym wyzwaniem, nawet dla bardziej zaawansowanych użytkowników. Zazwyczaj wydawać by się mogło, że usunięcie procesu lub ewentualne odinstalowanie podejrzanego programu może rozwiązać problem na dobre. W rzeczywistości jednak zazwyczaj nie przyniesie to oczkeiwanych efektów, gdyż prawdopodobnie keylogger zdołał się zreplikować jako inny program, serwis lub proces, dlatego najbezpieczeniejszą formą pozbycia się keyloggera programowego będzie sformatowanie urządzenia do ustawień początkowych. ",
                 level: "basic",
-                //slide ikonka laptop i ikonka MdSettingsBackupRestore sugerujaca ze pc musi byc sformatowany najbezpieczniej
-                slide: <KeyloggerProtectionMethods/>
+                slide: <KeyloggerRemoving/>
             },
             {
                 header: "Metody ochrony przed keyloggerami",

@@ -93,12 +93,7 @@ const WhatIsDdos = () => {
                 <Arrow style={{left: "38%", top: "61%", transform: "rotate(225deg)"}}/>
                 <User style={{left: "34%", top: "65%"}}/>
                 <Warning style={{left: "44%", top: "55%"}}/>
-                <User bad style={{right: "34%", top: "33%"}}/>
-                <User bad style={{right: "39%", top: "25%"}}/>
-                <User bad style={{right: "30%", top: "24%"}}/>
-                <User bad style={{right: "34%", top: "21%"}}/>
                 <User bad style={{right: "35%", top: "27%"}}/>
-                <User bad style={{right: "29%", top: "33%"}}/>
                 <Arrow bad style={{right: "39%", top: "41%", transform: "rotate(45deg)"}}/>
                 <Arrow bad style={{right: "38%", top: "39%", transform: "rotate(45deg)"}}/>
                 <Arrow bad style={{right: "37%", top: "40%", transform: "rotate(45deg)"}}/>

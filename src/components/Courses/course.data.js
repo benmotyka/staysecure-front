@@ -28,10 +28,11 @@ import KeylogggerMaliciousFlow from './keylogger/parts/KeylogggerMaliciousFlow'
 import KeyloggerInfectionMethods from './keylogger/parts/KeyloggerInfectionMethods'
 import KeyloggerRemoving from './keylogger/parts/KeyloggerRemoving'
 import KeyloggerDetection from './keylogger/parts/KeyloggerDetection'
+
 import WhatIsDdos from './ddos/parts/WhatIsDdos'
 import DosVsDdos from './ddos/parts/DosVsDdos'
 import DdosAi from './ddos/parts/DdosAi'
-
+import HowWebServersWork from './ddos/parts/HowWebServersWork'
 const content = [
     {
         course: "sql-injection",
@@ -234,8 +235,9 @@ const content = [
         content: [
             {
                 header: "Jak działają serwery webowe?",
-                text: "dos",
-                level: "basic"
+                text: "Serwery webowe to programy zainstalowane na komputerach, które przechowują i dostarczają zawartość witryny internetowej. Przykładem zawartości dostarczanej do klienta (przeglądarki) może być kontent strony internetowej, gdy użytkownik ją odwiedzi.  Używane są przez właścicieli stron internetowych, celem zapewnienia możliwości dostępu zwykłym użytkownikom do serwisu.<br/><br/>Klient (przeglądarka) komunikuje się z serwerem webowym poprzez protokół HTTP i otrzymuje od serwera odpowiedź, najczęściej w postaci strony zakodowanej języku HTML.<br/><br/>Serwery uruchomione są na komputerach (maszynach, instancjach serwerowych) które posiadają swój procesor czy pamięć RAM. Na maszynach, oprócz serwera, często uruchomione są inne aplikacje potrzebne do prawidłowej pracy instancji, np. automatyczne tworzenie backupów czy klient pocztowy.",
+                level: "basic",
+                slide: <HowWebServersWork/>
             },
             // {   //OPTIONAL
             //     header: "Reverse proxy na serwerze",
@@ -264,7 +266,7 @@ const content = [
             },
             {
                 header: "Identyfikacja ataku DDOS",
-                text: "Już po chwili, w której zostanie rozpoczęty atak DDOS można zauważyć jego efekty. Jeśli atak skierowany jest na serwer webowy, będzie probował on odpowiadać na każde nadchodzące żądanie, tym samym znacząco zwiększy się czas potrzebny na odpowiedź. W zależności od nasilenia ataku i zasobów serwera ten może przestać odpowiadać na kolejne nadchodzące żądania, gdyż będzie zbyt zajęty odpowiadaniem na żądania, które nadeszły wcześniej. W najgorszym wypadku serwer może się wyłączyć, ze względu na zbyt duże obciążenie przez określony czas.<br/><br/>Metryki serwera, takie jak wykorzystanie procesora lub pamięci RAM będą na szczytowych poziomach do momentu zakończenia ataku, lub zablokowania podejrzanych adresów IP w zaporze ogniowej.<br/><br/>W przypadku ataku na warstwie aplikacyjnej dodatkową wskazówką sugerującą atak mogą być powiązania pomiędzy przychodzącymi żądaniami, takimi jak wspólny nagłówek User-Agent czy geolokalizacja.",
+                text: "Już po chwili, w której zostanie rozpoczęty atak DDOS można zauważyć jego efekty. Jeśli atak skierowany jest na serwer webowy, będzie probował on odpowiadać na każde nadchodzące żądanie, tym samym znacząco zwiększy się czas potrzebny na odpowiedź. W zależności od nasilenia ataku i zasobów serwera ten może przestać odpowiadać na kolejne nadchodzące żądania, gdyż będzie zbyt zajęty odpowiadaniem na żądania, które nadeszły wcześniej. W najgorszym wypadku maszyna może się wyłączyć, ze względu na zbyt duże obciążenie przez określony czas.<br/><br/>Metryki instancji serwerowej, takie jak wykorzystanie procesora lub pamięci RAM będą na szczytowych poziomach do momentu zakończenia ataku, lub zablokowania podejrzanych adresów IP w zaporze ogniowej.<br/><br/>W przypadku ataku na warstwie aplikacyjnej dodatkową wskazówką sugerującą atak mogą być powiązania pomiędzy przychodzącymi żądaniami, takimi jak wspólny nagłówek User-Agent czy geolokalizacja.",
                 level: "basic"
             },
             {  

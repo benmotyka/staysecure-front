@@ -12,7 +12,10 @@ background-color: ${colors.darkPurple};
 display: grid;
 grid-template-columns: 8% 84% 8%;
 grid-template-rows: 1fr;
-
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
 @media screen and (max-width: 600px) {
     display: none;
 }

@@ -2,8 +2,8 @@ import styled from "styled-components";
 import colors from "constans/colors";
 import {MdMobileOff as Icon} from "react-icons/md"
 export const Container = styled.div`
-position: absolute;
-top: 80px;
+position: fixed;
+top: 0;
 bottom: 0;
 right: 0;
 left: 0;

@@ -68,7 +68,7 @@ const WhatIsDdos = () => {
       {activeSlide === 0 && (
         <ContentWrapper>
           <ContentHeader>
-            W zwyczajnych okolicznościach, serwer webowy przetwarza żądania dla naturalnego ruchu. Te czynności nie powinny przekraczać dostępnych zasobów serwera.<br/><br/>Poza swoim głównym zadaniem, może również automatycznie wykonywać czynności administracyjne, takie jak na przykład wykonywanie kopii zapasowych danych.
+            W zwyczajnych okolicznościach serwer webowy przetwarza żądania dla naturalnego ruchu. Te czynności nie powinny przekraczać dostępnych zasobów serwera.<br/><br/>Poza swoim głównym zadaniem może również automatycznie wykonywać czynności administracyjne, takie jak na przykład wykonywanie kopii zapasowych danych.
             <Line />
           </ContentHeader>
           <ContentRelativeWrapper>

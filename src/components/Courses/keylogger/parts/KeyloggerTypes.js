@@ -21,7 +21,7 @@ export const BodyWrapper = styled.div`
   padding: 25px 0;
 `;
 
-export const HorizontalLine = styled.hr`
+export const VerticalLine = styled.hr`
   width: 0;
   height: 100%;
   opacity: 10%;
@@ -77,7 +77,7 @@ const KeyloggerTypes = () => {
               - Łatwiejszy do usunięcia
           </Description>
         </ContentWrapper>
-        <HorizontalLine />
+        <VerticalLine />
         <ContentWrapper>
           <Header>Programowy</Header>
           <App />

@@ -30,7 +30,7 @@ import KeyloggerRemoving from './keylogger/parts/KeyloggerRemoving'
 import KeyloggerDetection from './keylogger/parts/KeyloggerDetection'
 
 import WhatIsDdos from './ddos/parts/WhatIsDdos'
-
+import DosVsDdos from './ddos/parts/DosVsDdos'
 const content = [
     {
         course: "sql-injection",
@@ -249,8 +249,9 @@ const content = [
             },
             {
                 header: "Różnice pomiędzy atakiem DOS a DDOS",
-                text: "...W dalszych slajdach, będą skrótowo opisywane DDOS",
+                text: "Atak DOS (Denial Of Service) i DDOS (Distributed Denial Of Service) różnią się, jak sama nazwa wskazuje, rozdystrybuowaniem źródeł ataku. <br/><br/>Atakiem DOS można nazwać sytuację, w której z jednego urządzenia wysyłane jest nienaturalnie wiele żądań w określonej jednostce czasu. <br/><br/>Natomiast atak DDOS miałby miejsce, kiedy to wiele różnych maszyn symulowałoby fałszywy ruch, każda z innej lokalizacji. W takiej sytuacji zdecydowanie trudniej jest ustalić źródło ataku, mając na uwadze, że każda maszyna posiada unikalny adres IP. Maszyny te są zazwyczaj pozyskiwane poprzez zainfekowanie złośliwym oprogramowaniem urządzenia ofiary. Sieć zainfekowanych maszyn, która wykorzystywana jest w atach DDOS na wezwanie atakującego nosi nazwę <strong>botnet</strong>. <br/><br/>W dalszych slajdach, ataki DOS/DDOS będą skrótowo opisywane DDOS.",
                 level: "basic",
+                slide: <DosVsDdos/>
                 //slide to vertical separator, ikonki ze dos zz jednego adresu ip ddos z wielu,
 
             },

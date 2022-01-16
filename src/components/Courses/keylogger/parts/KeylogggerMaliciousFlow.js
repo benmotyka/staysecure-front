@@ -43,7 +43,7 @@ export const ContentBody = styled.div`
   justify-content: center;
 `;
 
-export const HorizontalLine = styled.hr`
+export const VerticalLine = styled.hr`
   width: 0;
   height: 100%;
   opacity: 10%;
@@ -118,7 +118,7 @@ const KeylogggerMaliciousFlow = () => {
             programowym.
           </Description>
         </ContentWrapper>
-        <HorizontalLine />
+        <VerticalLine />
         <ContentWrapper>
           <Header>2. Ofiara przesyła wrażliwe dane do atakującego</Header>
           <ContentBody>
@@ -136,7 +136,7 @@ const KeylogggerMaliciousFlow = () => {
             zaawansowany keylogger może również przesyłać zrzuty ekranu.
           </Description>
         </ContentWrapper>
-        <HorizontalLine />
+        <VerticalLine />
         <ContentWrapper>
           <Header>3. Atakujący otrzymuje wrażliwe dane ofiary</Header>
           <ContentBody>

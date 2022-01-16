@@ -28,9 +28,10 @@ import KeylogggerMaliciousFlow from './keylogger/parts/KeylogggerMaliciousFlow'
 import KeyloggerInfectionMethods from './keylogger/parts/KeyloggerInfectionMethods'
 import KeyloggerRemoving from './keylogger/parts/KeyloggerRemoving'
 import KeyloggerDetection from './keylogger/parts/KeyloggerDetection'
-
 import WhatIsDdos from './ddos/parts/WhatIsDdos'
 import DosVsDdos from './ddos/parts/DosVsDdos'
+import DdosAi from './ddos/parts/DdosAi'
+
 const content = [
     {
         course: "sql-injection",
@@ -243,7 +244,7 @@ const content = [
             // },
             {
                 header: "Jak działa atak i czym jest atak DOS?",
-                text: "Atak DOS (Denial Of Service) w dużym skrócie polega na przekierowaniu na dany serwer webowy w danej jednostce czasu tak dużego ruchu, że ten, próbując odpowiedzieć na każde połączenie, wykorzysta wszystkie swoje możliwe zasoby (procesor, pamięć) co spowoduje wąskie gardło dla innych akcji serwera, nierzadko powodując jego całkowite, awaryjne wyłączenie.<br/><br/>Celami ataków zazwyczaj są szeroko pojęte serwisy internetowe przedsiębiorstw: sklepy internetowe, instytucje finansowe czy popularne aplikacje.<br/><br/>Bardzo często, atakom towarzyszy propozycja dla ofiary, w której to atakujący zaprzestanie nadsyłać fałszywy ruch, w zamian za zapłatę pieniężną.",
+                text: "Atak blokady usług - DOS (Denial Of Service) w dużym skrócie polega na przekierowaniu na dany serwer webowy w danej jednostce czasu tak dużego ruchu, że ten, próbując odpowiedzieć na każde połączenie, wykorzysta wszystkie swoje możliwe zasoby (procesor, pamięć) co spowoduje wąskie gardło dla innych akcji serwera, nierzadko powodując jego całkowite, awaryjne wyłączenie.<br/><br/>Celami ataków zazwyczaj są szeroko pojęte serwisy internetowe przedsiębiorstw: sklepy internetowe, instytucje finansowe czy popularne aplikacje.<br/><br/>Bardzo często, atakom towarzyszy propozycja dla ofiary, w której to atakujący zaprzestanie nadsyłać fałszywy ruch, w zamian za zapłatę pieniężną.",
                 slide: <WhatIsDdos/>,
                 level: "basic",
             },
@@ -263,24 +264,16 @@ const content = [
             },
             {
                 header: "Identyfikacja ataku DDOS",
-                text: "dos",
+                text: "Już po chwili, w której zostanie rozpoczęty atak DDOS można zauważyć jego efekty. Jeśli atak skierowany jest na serwer webowy, będzie probował on odpowiadać na każde nadchodzące żądanie, tym samym znacząco zwiększy się czas potrzebny na odpowiedź. W zależności od nasilenia ataku i zasobów serwera ten może przestać odpowiadać na kolejne nadchodzące żądania, gdyż będzie zbyt zajęty odpowiadaniem na żądania, które nadeszły wcześniej. W najgorszym wypadku serwer może się wyłączyć, ze względu na zbyt duże obciążenie przez określony czas.<br/><br/>Metryki serwera, takie jak wykorzystanie procesora lub pamięci RAM będą na szczytowych poziomach do momentu zakończenia ataku, lub zablokowania podejrzanych adresów IP w zaporze ogniowej.<br/><br/>W przypadku ataku na warstwie aplikacyjnej dodatkową wskazówką sugerującą atak mogą być powiązania pomiędzy przychodzącymi żądaniami, takimi jak wspólny nagłówek User-Agent czy geolokalizacja.",
                 level: "basic"
             },
-            {
-                header: "Ataki DDOS na warstwie aplikacyjnej",
-                text: "dos",
+            {  
+                header: "Wykorzystywanie AI w przeciwdziałaniu atakom DDOS",
+                text: "W dzisiejszych czasach sztuczna inteligencja znajduje coraz nowsze dziedziny, w których może być wykorzystywana. Nowoczesne rozwiązania w zaporach ogniowych, specjalnie utworzone do przeciwdziałania atakom DDOS wykorzystują mechanizmy sztucznej inteligencji i uczenia maszynowego.<br/><br/>Analizując ruch wchodzący na stronę, tworzony jest pewien model, do którego porównywane są ewentualne późniejsze statystki ruchu. Jeśli w danej jednostce czasu połączenia sieciowe przekraczają przyjęte normy, ruch może zostać zaklasyfikowany jako atak DDOS, co spowoduje wzmocnienie mechanizmów zapory ogniowej lub zwiększy wrażliwość mechanizmu CAPTCHA na pewien okres czasu, do momentu przywrócenia ruchu do zwyczajnych warunków.",
+                slide: <DdosAi/>,
                 level: "advanced"
             },
-            // {   //OPTIONAL
-            //     header: "Wykorzystywanie AI w walce z ddosami",
-            //     text: "filtrowanie ruchu itp",
-            //     level: "advanced"
-            // },
-            {
-                header: "Ataki DDOS na warstwie sieciowej",
-                text: "dos",
-                level: "advanced"
-            },
+            // optional: autoscaling groups, use of cloud infrastructure against ddos
             {
                 header: "Ochrona przed atakami DDOS",
                 text: "dos",

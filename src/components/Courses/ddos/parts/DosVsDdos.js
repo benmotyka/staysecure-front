@@ -57,9 +57,6 @@ const Arrow = styled(ArrowIcon)`
   margin: 0 30px;
   position: absolute;
   color: ${(props) => (props.bad ? colors.red : colors.white)};
-  &:after {
-    content: "error";
-  }
 `;
 
 const Server = styled(ServerIcon)`
@@ -83,6 +80,7 @@ export const Ip = styled.p`
 `;
 
 // @TODO change relative containers to contain user arrow and ip altogether
+// @TODO needs hard refactor
 
 const DosVsDdos = () => {
   return (

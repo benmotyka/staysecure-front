@@ -43,15 +43,14 @@ font-size: 30px;
 margin: 0 30px;
 position: absolute;
 color: ${props => props.bad ? colors.red : colors.white};
-&:after {
-    content: "error";
-}
 `
 
 const Server = styled(ServerIcon)`
 font-size: 60px;
 color: ${colors.white};
 `
+
+// @TODO needs hard refactor 
 
 const WhatIsDdos = () => {
   const [activeSlide, setActiveSlide] = useState(0);

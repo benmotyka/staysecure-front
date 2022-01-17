@@ -237,7 +237,7 @@ const content = [
         content: [
             {
                 header: "Jak działają serwery webowe?",
-                text: "Serwery webowe to programy zainstalowane na komputerach, które przechowują i dostarczają zawartość witryny internetowej. Przykładem zawartości dostarczanej do klienta (przeglądarki) może być kontent strony internetowej, gdy użytkownik ją odwiedzi.  Używane są przez właścicieli stron internetowych, celem zapewnienia możliwości dostępu zwykłym użytkownikom do serwisu.<br/><br/>Klient (przeglądarka) komunikuje się z serwerem webowym poprzez protokół HTTP i otrzymuje od serwera odpowiedź, najczęściej w postaci strony zakodowanej języku HTML.<br/><br/>Serwery uruchomione są na komputerach (maszynach, instancjach serwerowych) które posiadają swój procesor czy pamięć RAM. Na maszynach, oprócz serwera, często uruchomione są inne aplikacje potrzebne do prawidłowej pracy instancji, np. automatyczne tworzenie backupów czy klient pocztowy.",
+                text: "Serwery webowe to programy zainstalowane na komputerach, które przechowują i dostarczają zawartość witryny internetowej. Przykładem zawartości dostarczanej do klienta (przeglądarki) może być kontent strony internetowej, gdy użytkownik ją odwiedzi.  Używane są przez właścicieli serwisów webowych, celem zapewnienia możliwości dostępu zwykłym użytkownikom do serwisu.<br/><br/>Klient (przeglądarka) komunikuje się z serwerem webowym poprzez protokół HTTP i otrzymuje od serwera odpowiedź, najczęściej w postaci strony zakodowanej języku HTML.<br/><br/>Serwery uruchomione są na komputerach (maszynach, instancjach serwerowych) które posiadają swój procesor czy pamięć RAM. Na maszynach, oprócz serwera, często uruchomione są inne aplikacje potrzebne do prawidłowej pracy instancji, np. automatyczne tworzenie backupów czy klient pocztowy.",
                 level: "basic",
                 slide: <HowWebServersWork/>
             },
@@ -262,10 +262,9 @@ const content = [
             },
             {
                 header: "Typy DDOS",
-                text: "Typy ataków DDOS różnią się od miejsca w które są wymierzone, przykładowo atak warstwy aplikacyjnej działa na innej warstwie modelu OSI niż atak TCP.<br/><br/>Pomimo faktu, iż ataki te na celu mają obciążenie maszyny fałszywym ruchem, można je podzielić na cztery kategorie, jednak każda z tych kategorii może spowodować jedną z dwóch rzeczy: przeciążenie i restart serwera lub zapełenie sieci fałszywym ruchem.<br/><br/> Atakujący może próbować stosować jedną lub więcej kategorii, celem uzyskania docelowego efektu. Dodatkowe zagrożenie stanowi łączenie kategorii ataków. Jeśli maszyna zastosuje odpowiednie polityki bezpieczeństwa, niwelując tym samym próbę DDOS na warstwie aplikacyjnej, atakujący może to zauważyć i zmienić kategorię ataku, tym razem kierując ruch na przepustowość sieci.",
+                text: "Typy ataków DDOS różnią się od miejsca, w które są wymierzone, przykładowo atak warstwy aplikacyjnej działa na innej warstwie modelu OSI niż atak TCP.<br/><br/>Pomimo faktu, iż ataki te na celu mają obciążenie maszyny fałszywym ruchem, można je podzielić na cztery kategorie, jednak każda z tych kategorii może spowodować jedną z dwóch rzeczy: przeciążenie i restart serwera lub zapełnienie sieci fałszywym ruchem.<br/><br/> Atakujący może próbować stosować jedną lub więcej kategorii, celem uzyskania docelowego efektu. Dodatkowe zagrożenie stanowi łączenie kategorii ataków. Jeśli maszyna zastosuje odpowiednie polityki bezpieczeństwa, niwelując tym samym próbę DDOS na warstwie aplikacyjnej, atakujący może to zauważyć i zmienić kategorię ataku, tym razem kierując ruch na przepustowość sieci.",
                 slide: <DdosTypes/>,
                 level: "basic"
-                //https://www.digitalattackmap.com/understanding-ddos/
             },
             {
                 header: "Identyfikacja ataku DDOS",
@@ -281,7 +280,7 @@ const content = [
             // optional: autoscaling groups, use of cloud infrastructure against ddos
             {
                 header: "Ochrona przed atakami DDOS",
-                text: "dos",
+                text: "Przeciwdziałanie atakom DDOS powinno mieć miejsce głównie w ustawieniach zapory infrastruktury sieciowej. Zazwyczaj to właśnie w tym wrażliwym miejscu następuje pierwszy etap procesowania żądań przychodzących do danego systemu.<br/><br/>Wykorzystywanie odpowiednich narzędzi pozwalających na analizę i filtrowanie ruchu przychodzącego to podstawa, która powinna mieć miejsce w każdym serwisie zmagającym się z atakami typu DDOS.<br/><br/>Posiadanie infrastruktury teleinformatycznej w chmurze daje zupełnie nowe możliwości walki z tego typu atakami. Pierwszym sposobem może być wykorzystanie <strong>systemu równoważenia obciążenia</strong>, który może przekierowywać żądania na instancje serwerowe (których może być kilka) według zużycia ich zasobów. Dodając do tego grupę automatycznie skalującą liczbę maszyn w zależności od ruchu, można być pewnym, że system wytrzyma praktycznie większość prób ataku.",
                 level: "basic"
             }
         ]

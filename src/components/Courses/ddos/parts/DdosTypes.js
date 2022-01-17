@@ -90,7 +90,7 @@ const DdosTypes = () => {
         <Item style={{ right: "25%", top: "0" }}>
           <Tcp />
           <Description>Ataki TCP</Description>
-          <Text>Wykorzystują mechanizm uzgadniania trój-etapowego, konsumując zasoby instancji serwerowej szybciej niż ta jest w stanie przetworzyć żądania.</Text>
+          <Text>Wykorzystują mechanizm uzgadniania trój-etapowego, konsumując zasoby instancji serwerowej szybciej, niż ta jest w stanie przetworzyć żądania.</Text>
         </Item>
         <Item style={{ left: "15%", top: "0" }}>
           <App />
@@ -101,7 +101,7 @@ const DdosTypes = () => {
         </Item>
         <Item style={{ right: "25%", bottom: "10%" }}>
           <Chain />
-          <Description>Ataki fargmentacyjne</Description>
+          <Description>Ataki fragmentacyjne</Description>
           <Text>
             Znane także jako ataki Teardrop, przesyłają one wiele małych,
             pofragmentowanych pakietów do maszyny, przez co ponowne złożenie

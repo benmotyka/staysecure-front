@@ -32,6 +32,7 @@ export const Item = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${colors.darkPurple};
+  padding: 10px;
 `;
 
 export const Description = styled.p`

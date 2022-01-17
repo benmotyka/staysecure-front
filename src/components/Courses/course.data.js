@@ -33,6 +33,8 @@ import WhatIsDdos from './ddos/parts/WhatIsDdos'
 import DosVsDdos from './ddos/parts/DosVsDdos'
 import DdosAi from './ddos/parts/DdosAi'
 import HowWebServersWork from './ddos/parts/HowWebServersWork'
+import DdosTypes from './ddos/parts/DdosTypes'
+
 const content = [
     {
         course: "sql-injection",
@@ -245,8 +247,8 @@ const content = [
             //     level: "advanced"
             // },
             {
-                header: "Jak działa atak i czym jest atak DOS?",
-                text: "Atak blokady usług - DOS (Denial Of Service) w dużym skrócie polega na przekierowaniu na dany serwer webowy w danej jednostce czasu tak dużego ruchu, że ten, próbując odpowiedzieć na każde połączenie, wykorzysta wszystkie swoje możliwe zasoby (procesor, pamięć) co spowoduje wąskie gardło dla innych akcji serwera, nierzadko powodując jego całkowite, awaryjne wyłączenie.<br/><br/>Celami ataków zazwyczaj są szeroko pojęte serwisy internetowe przedsiębiorstw: sklepy internetowe, instytucje finansowe czy popularne aplikacje.<br/><br/>Bardzo często, atakom towarzyszy propozycja dla ofiary, w której to atakujący zaprzestanie nadsyłać fałszywy ruch, w zamian za zapłatę pieniężną.",
+                header: "Czym jest atak DOS?",
+                text: "Atak blokady usług - DOS (Denial Of Service) w dużym skrócie polega na przekierowaniu na dany serwer webowy w danej jednostce czasu tak dużego ruchu, że ten, próbując odpowiedzieć na każde połączenie, wykorzysta wszystkie swoje możliwe zasoby (procesor, pamięć) co spowoduje wąskie gardło dla innych akcji serwera, nierzadko powodując jego całkowite, awaryjne wyłączenie.<br/><br/>Celami ataków zazwyczaj są szeroko pojęte serwisy internetowe przedsiębiorstw: sklepy internetowe, instytucje finansowe czy popularne aplikacje.<br/><br/>Bardzo często, atakom towarzyszy propozycja dla ofiary, w której to atakujący zaprzestanie nadsyłać fałszywy ruch, w zamian za zapłatę pieniężną. Motywem ataków może być także działalność konkurencyjna.",
                 slide: <WhatIsDdos/>,
                 level: "basic",
             },
@@ -260,7 +262,8 @@ const content = [
             },
             {
                 header: "Typy DDOS",
-                text: "dos",
+                text: "Typy ataków DDOS różnią się od miejsca w które są wymierzone, przykładowo atak warstwy aplikacyjnej działa na innej warstwie modelu OSI niż atak TCP.<br/><br/>Pomimo faktu, iż ataki te na celu mają obciążenie maszyny fałszywym ruchem, można je podzielić na cztery kategorie, jednak każda z tych kategorii może spowodować jedną z dwóch rzeczy: przeciążenie i restart serwera lub zapełenie sieci fałszywym ruchem.<br/><br/> Atakujący może próbować stosować jedną lub więcej kategorii, celem uzyskania docelowego efektu. Dodatkowe zagrożenie stanowi łączenie kategorii ataków. Jeśli maszyna zastosuje odpowiednie polityki bezpieczeństwa, niwelując tym samym próbę DDOS na warstwie aplikacyjnej, atakujący może to zauważyć i zmienić kategorię ataku, tym razem kierując ruch na przepustowość sieci.",
+                slide: <DdosTypes/>,
                 level: "basic"
                 //https://www.digitalattackmap.com/understanding-ddos/
             },

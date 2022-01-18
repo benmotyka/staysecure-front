@@ -8,8 +8,8 @@ const Sidebar = (props) => {
     return (
         <Container>
             <Wrapper>
-                <TextContainer>
                 <Header>{props.data[props.activeSlide].header}</Header>
+                <TextContainer>
                 <Text>{Parser(props.data[props.activeSlide].text)}</Text>
                 </TextContainer>
                 <InteractiveSuccessContainer>

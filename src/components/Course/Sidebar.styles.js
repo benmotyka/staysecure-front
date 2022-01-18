@@ -18,7 +18,6 @@ flex-direction: column;
 @media screen and (max-width: 600px) {
     display: none;
 }
-min-height: 840px;
 `
 
 export const Wrapper = styled.div`
@@ -27,8 +26,7 @@ position: absolute;
 top: 0;
 bottom: 80px;
 width: 310px;
-padding: 0 20px 20px 20px;
-min-height: 730px;
+padding: 0 20px 10px 20px;
 background-color: ${colors.darkestPurple};
 display: flex;
 justify-content: space-between;
@@ -40,14 +38,16 @@ color: ${colors.white};
 `
 export const Header = styled.h2`
 ${TextFormat};
+margin: 10px 0;
 `
 export const Text = styled.p`
 ${TextFormat};
 opacity: 0.8;
+margin: 0;
 `
 
 const Icon = css`
-font-size: 100px;
+font-size: 90px;
 opacity: ${props => props.show ? "1" : "0"};
 transition: 0.5s all ease-in;
 `
@@ -65,6 +65,16 @@ export const TextContainer = styled.div`
 width: 100%;
 height: 75%;
 font-size: 15px;
+overflow-y: auto;
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: ${colors.orange};
+}
 `
 
 export const InteractiveSuccessContainer = styled.div`
@@ -72,6 +82,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 width: 100%;
+padding: 5px;
 `
 
 export const LevelWrapper = styled.div`

@@ -232,6 +232,23 @@ const content = [
         ]
     },
     {
+        course: "xss",
+        language: "pl",
+        content: [
+            {
+                header: "Scenariusz kursu",
+                text: "opisac ze jest sobie uzytkownik, na forum spolecznosciowym, ktore jest podatne na atak xss, wyszukuje znajomych w wyszukiwarce to sie zmienia query w linku, jak to query sie zmodyfikuje to sie html modyfikuje",
+                level: "basic",
+            },
+            {
+                header: "Zagrożenia XSS",
+                text: "Atak XSS niesie ze sobą wiele poważnych zagrożeń i może byc wykorzystywany przez atakującego na różne sposoby. W kursie, realizowany przykład polegał na przekierowaniu użytkownika na złośliwą, bliźniaczo podobną stronę internetową, spreparowaną przez atakującego. Atak XSS został połączony z atakiem phishingowym, a konkretnie ze stroną phishingową. Użytkownik, który nie dostrzegłby błędu w adesie URL przy próbie autoryzacji na stronie, przekazałby dane logowania atakującemu.<br/><br/>Kolejnym typem zagrożenia, z którym atak XSS może być powiązany jest Keylogger. Używając odpowiedniego skryptu, atakujący może użyć metody <strong>addEventListener</strong> w celu nasłuchiwania zdarzeń na stronie internetowej, takich jak naciśnięćia klawiatury, myszki i przesyłanie tych danych do atakującego.",
+                level: "basic",
+            },
+
+        ]
+    },
+    {
         course: "dos",
         language: "pl",
         content: [

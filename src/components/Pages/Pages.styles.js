@@ -51,7 +51,6 @@ overflow-y: auto;
 export const PageCourse = styled.div`
 height: calc(100vh - ${footerHeight} - ${navbarHeight});
 width: calc(100vw - ${notebookWidth} - ${courseSidebarWidth});
-min-height: 780px;
 margin-right: ${notebookWidth};
 margin-left: ${courseSidebarWidth};
 display: flex;

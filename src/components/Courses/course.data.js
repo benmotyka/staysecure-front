@@ -35,6 +35,8 @@ import DdosAi from './ddos/parts/DdosAi'
 import HowWebServersWork from './ddos/parts/HowWebServersWork'
 import DdosTypes from './ddos/parts/DdosTypes'
 
+import XssTypes from './xss/parts/XssTypes'
+
 const content = [
     {
         course: "sql-injection",
@@ -236,9 +238,21 @@ const content = [
         language: "pl",
         content: [
             {
+                header: "Czym jest atak XSS?",
+                text: "Cross-site scripting (XSS) opiera się głównie na wstrzyknięciu do strony internetowej złośliwego skryptu. Najczęściej można go spotkać w miejscach, w których użytkownicy mają możliwość dodania treści do DOM.<br/><br/>Prosty skrypt może całkowicie zmienić wygląd i funkcjonalność strony internetowej. Przykładem ataku XSS może być umieszczenie złośliwego skryptu w adresie URL strony internetowej, która renderuje parametry zapytania. Przeglądarka internetowa, której używa ofiara, nie jest w stanie rozpoznać intencji, które stoją za umieszczonym skryptem, dlatego będzie starała się go wykonać bez względu na wszystko.<br/><br/>Ataki te często występują samodzielnie, wykradając ciasteczka użytkownika celem zdobycia nieautoryzowanego dostępu, lub mogą być powiązane między innymi z keyloggerem, wiadomościami phishingowymi i nie tylko.",
+                level: "basic",
+            },
+            {
                 header: "Scenariusz kursu",
                 text: "opisac ze jest sobie uzytkownik, na forum spolecznosciowym, ktore jest podatne na atak xss, wyszukuje znajomych w wyszukiwarce to sie zmienia query w linku, jak to query sie zmodyfikuje to sie html modyfikuje",
                 level: "basic",
+                //slide: uzytkownik wpisuje w wyszukiwarke cos klika szukaj i sie link podmienia na ?q-...
+            },
+            {
+                header: "Typy ataków XSS",
+                text: "Ataki mogą się dzielić na trzy główne kategorie: <strong>Reflected XSS</strong>, <strong>Stored XSS</strong>, <strong>DOM-based XSS</strong>. Mimo podziału, niektóre, bardziej zaawansowane ataki XSS mogą podlegać pod wszystkie kategorie jednocześnie.<br/><br/>Typy ataku określają, czy dany dzieje się po stronie klienta - przeglądarki internetowej - czy serwera, na którym uruchomiony jest dany serwis. Atak XSS po stronie klienta zazwyczaj jest prostszy w egzekucji, gdyż odnalezienie luki w oprogarmowaniu związanej z tym typem ataku jest co do zasady łatwiejsze.  ",
+                level: "basic",
+                slide: <XssTypes/>
             },
             {
                 header: "Zagrożenia XSS",

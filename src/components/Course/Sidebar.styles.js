@@ -44,6 +44,7 @@ export const Text = styled.p`
 ${TextFormat};
 opacity: 0.8;
 margin: 0;
+padding: 8px 8px 8px 0;
 `
 
 const Icon = css`

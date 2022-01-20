@@ -86,11 +86,11 @@ export const Description = styled.p`
 
 export const MailPageSidebar = styled.div`
   position: absolute;
-  top: 0;
+  top: 45px;
   right: 0;
   left: 0;
   height: 50px;
-  background-color: ${colors.grey};
+  background-color: ${colors.mediumDarkPurple};
   z-index: 1;
   ${flexCenter};
   gap: 10px;
@@ -98,12 +98,12 @@ export const MailPageSidebar = styled.div`
 
 export const Mail = styled(MailIcon)`
   font-size: 35px;
-  color: ${colors.white};
+  color: ${colors.orange};
 `;
 
 export const MailPageHeader = styled.h3`
   font-size: 25px;
-  color: ${colors.white};
+  color: ${colors.orange};
 `;
 
 export const MailContainer = styled(Container)`
@@ -116,6 +116,7 @@ export const MailHeaderContainer = styled.div`
   box-sizing: border-box;
   background-color: #eee;
   padding: 10px;
+  border-radius: 5px 5px 0 0;
 `;
 
 export const MailDetail = styled.p`
@@ -127,6 +128,7 @@ export const MailWrapper = styled.div`
   height: 70%;
   background-color: #ccc;
   box-sizing: border-box;
+  border-radius: 5px;
 `;
 
 export const MailBody = styled.div`

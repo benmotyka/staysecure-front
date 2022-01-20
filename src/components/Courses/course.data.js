@@ -36,6 +36,7 @@ import HowWebServersWork from './ddos/parts/HowWebServersWork'
 import DdosTypes from './ddos/parts/DdosTypes'
 
 import XssTypes from './xss/parts/XssTypes'
+import XssReflectedExample from './xss/parts/XssReflectedExample'
 
 const content = [
     {
@@ -253,6 +254,12 @@ const content = [
                 text: "Ataki mogą się dzielić na trzy główne kategorie: <strong>Reflected XSS</strong>, <strong>Stored XSS</strong>, <strong>DOM-based XSS</strong>. Mimo podziału, niektóre, bardziej zaawansowane ataki XSS mogą podlegać pod wszystkie kategorie jednocześnie.<br/><br/>Typy ataku określają, czy dany dzieje się po stronie klienta - przeglądarki internetowej - czy serwera, na którym uruchomiony jest dany serwis. Atak XSS po stronie klienta zazwyczaj jest prostszy w egzekucji, gdyż odnalezienie luki w oprogarmowaniu związanej z tym typem ataku jest co do zasady łatwiejsze.  ",
                 level: "basic",
                 slide: <XssTypes/>
+            },
+            {
+                header: "Przykład strony podatnej na reflected XSS",
+                text: "",
+                level: "basic",
+                slide: <XssReflectedExample/>
             },
             {
                 header: "Zagrożenia XSS",

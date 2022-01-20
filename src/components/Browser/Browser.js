@@ -7,7 +7,8 @@ const Container = styled.div`
   position: relative;
   border-radius: 3px 3px 0 0;
   width: 100%;
-  height: 90%;
+  height: 100%;
+  box-sizing: border-box;
 
   &:before {
     display: block;
@@ -40,6 +41,7 @@ const Body = styled.div`
   background-color: white;
   height: 100%;
   width: 100%;
+  position: relative;
 `;
 
 const UrlContainer = styled.div`

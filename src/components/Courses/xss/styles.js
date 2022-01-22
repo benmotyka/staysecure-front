@@ -4,7 +4,7 @@ import { RiUserFill as UserIcon } from "react-icons/ri";
 
 export const BrowserContainer = styled.div`
 width: 100%;
-height: 90%;
+height: 100%;
 position: relative;
 `;
 

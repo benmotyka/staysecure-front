@@ -1,5 +1,5 @@
 import {
-  ContainerOneItem,
+  Container,
   WrapperOneItem,
   DownloadContainer,
   DownloadItem,
@@ -25,7 +25,7 @@ const RansomwareDownload = (props) => {
   }, []);
   const [showDownloadBar, setShowDownloadBar] = useState(false);
   return (
-    <ContainerOneItem>
+    <Container>
       <WrapperOneItem>
         <Browser urlValue="https://skrzynka-pocztowa.pl/mail=539108">
           <MailPageSidebar>
@@ -94,8 +94,8 @@ const RansomwareDownload = (props) => {
             </DownloadItem>
           </DownloadContainer>
         </Browser>
-      </WrapperOneItem>
-    </ContainerOneItem>
+        </WrapperOneItem>
+    </Container>
   );
 };
 

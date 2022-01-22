@@ -39,6 +39,7 @@ import XssTypes from './xss/parts/XssTypes'
 import XssInteractiveIntroduction from './xss/parts/XssInteractiveIntroduction'
 import XssInteractiveEnterHtml from './xss/parts/XssInteractiveEnterHtml'
 import XssInteractiveEnterScript from './xss/parts/XssInteractiveEnterScript'
+import XssConsequences from './xss/parts/XssConsequences'
 
 const content = [
     {
@@ -242,40 +243,45 @@ const content = [
         content: [
             {
                 header: "Czym jest atak XSS?",
-                text: "Cross-site scripting (XSS) opiera się głównie na wstrzyknięciu do strony internetowej złośliwego skryptu. Najczęściej można go spotkać w miejscach, w których użytkownicy mają możliwość dodania treści do DOM.<br/><br/>Prosty skrypt może całkowicie zmienić wygląd i funkcjonalność strony internetowej. Przykładem ataku XSS może być umieszczenie złośliwego skryptu w adresie URL strony internetowej, która renderuje parametry zapytania. Przeglądarka internetowa, której używa ofiara, nie jest w stanie rozpoznać intencji, które stoją za umieszczonym skryptem, dlatego będzie starała się go wykonać bez względu na wszystko.<br/><br/>Ataki te często występują samodzielnie, wykradając ciasteczka użytkownika celem zdobycia nieautoryzowanego dostępu, lub mogą być powiązane między innymi z keyloggerem, wiadomościami phishingowymi i nie tylko.",
+                text: "Cross-site scripting (XSS) opiera się na wstrzyknięciu do strony internetowej złośliwego skryptu. Najczęściej można go spotkać w miejscach, w których użytkownicy mają możliwość dodania treści do strony, na przykład podczas dodawania komentarza.<br/><br/>Prosty skrypt może całkowicie zmienić wygląd i funkcjonalność strony internetowej. Przykładem jednego z typów ataku - Reflected XSS - może być umieszczenie złośliwego skryptu w adresie URL strony internetowej, która renderuje parametry zapytania. Przeglądarka internetowa, której używa ofiara, nie jest w stanie rozpoznać intencji, które stoją za umieszczonym skryptem, dlatego zawsze będzie starała się go wykonać.<br/><br/>Ataki te często występują samodzielnie, wykradając ciasteczka użytkownika celem zdobycia nieautoryzowanego dostępu. Mogą być też powiązane między innymi z keyloggerem, mailami lub stronami phishingowymi i nie tylko.",
                 level: "basic",
             },
             {
                 header: "Typy ataków XSS",
-                text: "Ataki mogą się dzielić na trzy główne kategorie: <strong>Reflected XSS</strong>, <strong>Stored XSS</strong>, <strong>DOM-based XSS</strong>. Mimo podziału, niektóre, bardziej zaawansowane ataki XSS mogą podlegać pod wszystkie kategorie jednocześnie.<br/><br/>Typy ataku określają, czy dany dzieje się po stronie klienta - przeglądarki internetowej - czy serwera, na którym uruchomiony jest dany serwis. Atak XSS po stronie klienta zazwyczaj jest prostszy w egzekucji, gdyż odnalezienie luki w oprogarmowaniu związanej z tym typem ataku jest co do zasady łatwiejsze.  ",
+                text: "Pomimo faktu, iż głównym celem XSS jest wstrzyknięcie złośliwego skryptu do przeglądarki, atak ten może zostać wykonany wieloma sposobami.<br/><br/>Zdecydowana większość ataków może być podzielona na trzy główne kategorie: <strong>Reflected XSS</strong>, <strong>Stored XSS</strong>, <strong>DOM-based XSS</strong>. Mimo podziału, niektóre, bardziej zaawansowane ataki XSS mogą podlegać pod wszystkie kategorie jednocześnie.<br/><br/>Oprócz metody wykonania, typy ataku określają, czy dany atak dzieje się po stronie klienta - przeglądarki internetowej - czy serwera, na którym uruchomiony jest dany serwis. <br/><br/>Atak XSS po stronie klienta zazwyczaj jest prostszy w egzekucji, gdyż odnalezienie luki w oprogarmowaniu związanej z tym typem ataku jest co do zasady łatwiejsze po stronie klienta.  ",
                 level: "basic",
                 slide: <XssTypes/>
             },
             {
-                header: "Przykład podatności XSS",
-                text: "Na slajdzie przedstawiony jest popularny serwis służący do wyszukiwania i interakcji ze znajomymi. Strona składa się z trzech sekcji: znajomych, wyszukiwarki znajomych oraz profilu użytkownika.<br/><br/>Dane znajomego, wyszukiwane przez osobę korzystającą z serwisu, są dodawane do parametru zapytania w adresie URL. Kolejno oprócz zwrócenia wyszukiwanych znajomych, w DOM strony internetowej renderowana jest treść zawarta w parametrach zapytania, tuż pod 'Wynikami wyszukiwania'.<br/><br/><strong>W tym interaktywnym ćwiczeniu postaraj się wyszukać dowolnego znajomego, celem sprawdzenia funkcjonalności strony. Zwróć także uwagę, na adres URL po wyszukaniu.</strong> ",
+                header: "Scenariusz kursu",
+                text: "Na slajdzie przedstawiony jest popularny serwis służący do wyszukiwania i interakcji ze znajomymi. Strona składa się z trzech sekcji: znajomych, wyszukiwarki znajomych oraz profilu użytkownika.<br/><br/>Dane znajomego, wyszukiwane przez osobę korzystającą z serwisu, są dodawane do parametru zapytania w adresie URL. Kolejno oprócz zwrócenia wyszukiwanych znajomych, w DOM strony internetowej renderowana jest treść zawarta w parametrach zapytania, tuż pod 'Wynikami wyszukiwania'.<br/><br/><strong>W tym interaktywnym ćwiczeniu postaraj się wyszukać dowolnego znajomego, celem sprawdzenia funkcjonalności strony. Zwróć także uwagę na adres URL po wyszukaniu znajomego.</strong>",
                 level: "basic",
                 interactive: true,
                 slide: <XssInteractiveIntroduction/>
             },
             {
                 header: "Przykład podatności XSS",
-                text: "Dane przesłane do wyszukiwarki pojawiają się zarówno w zawartości strony (wynikach wyszukiwania) jak i adresie URL. To pierwsza oznaka, że strona może być podatna na atak XSS. Dodatkowo, możliwość 'umieszczenia' danego elementu na stronie modyfikując adres URL jest cechą ataku Reflected XSS. <br/><br/>Kolejnym krokiem który można podjąć, celem weryfikacji strony pod kątem podatności XSS, jest próba umieszczenia w DOM dowolnego tagu HTML. Zgodnie z poznanymi funkcjonalnościami, wyszukiwany tekst umieszczany jest w 'Wynikach wyszukiwania'. Jeśli okaże się, że wyszukanie tagu HTML zmodyfikuje zawartość strony, dodając tym samym szukany tag do drzewa DOM, można być niemal pewnym, że strona jest podatna na atak XSS.<br/><br/><strong>W tym interaktywnym ćwiczeniu przetestuj zachowanie strony, wpisując a następnie wyszukując dowolny tag HTML.</strong>",
+                text: "Dane przesłane do wyszukiwarki pojawiają się zarówno w zawartości strony (wynikach wyszukiwania) jak i adresie URL. To pierwsza oznaka, że strona może być podatna na atak XSS. Dodatkowo, możliwość 'umieszczenia' danego elementu na stronie modyfikując adres URL jest cechą ataku Reflected XSS. <br/><br/>Kolejnym krokiem który można podjąć, celem weryfikacji strony pod kątem podatności XSS, jest próba umieszczenia w DOM dowolnego tagu HTML. Zgodnie z poznanymi funkcjonalnościami, wyszukiwany tekst umieszczany jest w 'Wynikach wyszukiwania'. Jeśli okaże się, że wyszukanie tagu HTML zmodyfikuje zawartość strony, dodając tym samym szukany tag do drzewa DOM, można być niemal pewnym, że strona jest podatna na atak XSS.<br/><br/><strong>W tym interaktywnym ćwiczeniu przetestuj zachowanie strony, wpisując a następnie wyszukując dowolny tag HTML w pole wyszukiwarki.</strong>",
                 level: "basic",
                 interactive: true,
                 slide: <XssInteractiveEnterHtml/>
             },
             {
-                header: "Przykład podatności XSS",
-                text: "Możliwość wstrzyknięcia do zawartości strony internetowej dowolnego tagu HTML oznacza, że nic nie stoi na przeszkodzie, aby na stronie umieścić także złośliwy kod JavaScript. Dodatkowo, mając na uwadze fakt, że złośliwy skrypt może zostać uruchomiony przez dowolnego użytkownika pod warunkiem wejścia na adres URL zawierający skrypt jest jasną oznaką, że strona jest podatna na atak Reflected XSS.<br/><br/>Niesie to ze sobą bardzo poważne konsekwencje. Złośliwy skrypt może wykonać wszystko na co pozwala język JavaScript. Przykładowo, atakujący może stworzyć skrypt, który przesyła tokeny sesyjne ofiary do atakującego, umożliwiając mu tym samym na bezpośredni dostęp do konta ofiary. Skrypt może również chwilowo 'umieścić' w oknie ofiary keyloggera, który będzie nasłuchiwał aktywność klawiatury użytkownika.<br/><br/>Jak do tej pory, przyjęło się, że dowodem podatności strony na atak XSS jest umieszczenie na stronie skryptu który wywołuje <strong>alert</strong>, wbudowaną w przeglądarkę metodę wyświetlającą okno komunikatu z podaną treścią.<br/><br/><strong>W tym interaktywnym ćwiczeniu postaraj się umieścić w stronie skrypt, który wykona alert z dowolną wiadomością.</strong>",
-                // text: "opisac jak to sie dzieje ze przgladrka bierze dane z patametru query, renderuje je w dom, niech user sprobuje wyszukac jakis tag html np <h1>",
+                header: "Konsekwencje ataku XSS",
+                text: "Możliwość wstrzyknięcia do zawartości strony internetowej dowolnego tagu HTML oznacza, że nic nie stoi na przeszkodzie, aby na stronie umieścić także złośliwy kod JavaScript. Dodatkowo, mając na uwadze fakt, że złośliwy skrypt może zostać uruchomiony przez dowolnego użytkownika, pod warunkiem wejścia na adres URL zawierający skrypt, jest jasną oznaką, że strona jest podatna na atak Reflected XSS.<br/><br/>Niesie to ze sobą bardzo poważne konsekwencje. Złośliwy skrypt może wykonać wszystko na co pozwala język JavaScript. Przykładowo, atakujący może stworzyć skrypt, który przesyła tokeny sesyjne ofiary do atakującego, umożliwiając mu na bezpośredni dostęp do konta ofiary. Skrypt może również chwilowo 'umieścić' w oknie ofiary keyloggera, wykorzystując do tego metodę <strong>addEventListener</strong>, który będzie nasłuchiwał aktywność klawiatury użytkownika.<br/><br/>Ofiara ataku XSS może również nieświadomie pobrać na swoje urządzenie wirusa, lub zainfekować swoją przeglądarkę reklamami.",
                 level: "basic",
+                slide: <XssConsequences/>
+            },
+            {
+                header: "Wstrzyknięcie złośliwego skryptu",
+                text: "Mając na uwadze fakt, że prezentowana aplikacja jest również podatna na Reflected XSS, nic nie stoi na przeszkodzie, aby przekazać adres URL zawierający złośliwy skrypt innemu użytkownikowi tej aplikacji. Spowoduje to wykonanie złośliwego skryptu po jego stronie.<br/><br/>Jak do tej pory, przyjęło się, że dowodem podatności strony na atak XSS jest umieszczenie na stronie skryptu który wywołuje <strong>alert</strong>, wbudowaną w przeglądarkę metodę wyświetlającą okno komunikatu z podaną treścią.<br/><br/><strong>W tym interaktywnym ćwiczeniu postaraj się umieścić w stronie skrypt, który wykona alert z dowolną wiadomością.</strong>",
+                level: "advanced",
                 interactive: true,
                 slide: <XssInteractiveEnterScript/>
             },
             {
-                header: "Zagrożenia XSS",
-                text: "Atak XSS niesie ze sobą wiele poważnych zagrożeń i może byc wykorzystywany przez atakującego na różne sposoby. W kursie, realizowany przykład polegał na przekierowaniu użytkownika na złośliwą, bliźniaczo podobną stronę internetową, spreparowaną przez atakującego. Atak XSS został połączony z atakiem phishingowym, a konkretnie ze stroną phishingową. Użytkownik, który nie dostrzegłby błędu w adesie URL przy próbie autoryzacji na stronie, przekazałby dane logowania atakującemu.<br/><br/>Kolejnym typem zagrożenia, z którym atak XSS może być powiązany jest Keylogger. Używając odpowiedniego skryptu, atakujący może użyć metody <strong>addEventListener</strong> w celu nasłuchiwania zdarzeń na stronie internetowej, takich jak naciśnięćia klawiatury, myszki i przesyłanie tych danych do atakującego.",
+                header: "Ochrona przed XSS",
+                text: "",
                 level: "basic",
             },
 

@@ -37,8 +37,8 @@ export const ContainerOneItem = styled(Container)`
 `;
 
 export const WrapperOneItem = styled.div`
-  height: 90%;
-  width: 90%;
+  height: 100%;
+  width: 100%;
 `;
 
 export const DownloadContainer = styled.ul`
@@ -86,7 +86,7 @@ export const Description = styled.p`
 
 export const MailPageSidebar = styled.div`
   position: absolute;
-  top: 45px;
+  top: 0;
   right: 0;
   left: 0;
   height: 50px;
@@ -182,7 +182,6 @@ export const ButtonsContainer = styled.div`
 `;
 
 export const DesktopContainer = styled(Container)`
-  padding: 25px;
   box-sizing: border-box;
 `;
 

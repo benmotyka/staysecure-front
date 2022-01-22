@@ -6,35 +6,33 @@ export const ContainerOneItem = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
 `;
 
 export const WrapperOneItem = styled.div`
-height: 90%;
-width: 90%;
+height: 100%;
+width: 100%;
 `
 
 export const Container = styled.div`
   width: 100%;
   height: 100%;
-  display: grid;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
 `;
 
 
 export const Wrapper = styled.div`
-height: 40%;
-width: 90%;
+height: 50%;
+width: 100%;
 
 `
 
 export const CodeWrapper = styled.div`
-width: 90%;
+width: 100%;
+height: 50%;
 display: flex;
 align-items: center;
 justify-content: center;

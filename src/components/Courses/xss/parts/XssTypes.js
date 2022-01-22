@@ -5,16 +5,17 @@ import styled, {css} from 'styled-components'
 const Container = styled.div`
 width: 100%;
 height: 100%;
-display: grid;
-grid-template-rows: 32% 2px 32% 2px 32%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+box-sizing: border-box;
+padding: 10px 25px;
 `
 
 const Wrapper = styled.div`
 display: flex;
 width: 100%;
 height: 100%;
-padding: 10px 25px;
-box-sizing: border-box;
 flex-direction: column;
 `
 
@@ -26,7 +27,7 @@ margin: 0 0 10px 0;
 `
 
 const Separator = styled(Line)`
-margin: 0;
+margin: 0 0 15px 0;
 `
 
 const Description = styled.p`

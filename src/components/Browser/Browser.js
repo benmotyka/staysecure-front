@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import colors from "constans/colors";
 
 const Container = styled.div`
   border-top: 2em solid #fff;
@@ -39,7 +38,7 @@ const Container = styled.div`
 
 const Body = styled.div`
   background-color: white;
-  height: 100%;
+  height: calc(100% - 46px);
   width: 100%;
   position: relative;
 `;
@@ -49,6 +48,7 @@ const UrlContainer = styled.div`
   background-color: #AEAFB7;
   padding: 10px 100px;
   box-sizing: border-box;
+  height: 46px;
 `;
 
 const UrlInput = styled.input`

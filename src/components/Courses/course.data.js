@@ -36,7 +36,8 @@ import HowWebServersWork from './ddos/parts/HowWebServersWork'
 import DdosTypes from './ddos/parts/DdosTypes'
 
 import XssTypes from './xss/parts/XssTypes'
-import XssReflectedExample from './xss/parts/XssReflectedExample'
+import XssInteractiveIntroduction from './xss/parts/XssInteractiveIntroduction'
+import XssInteractiveEnterScript from './xss/parts/XssInteractiveEnterScript'
 
 const content = [
     {
@@ -244,22 +245,24 @@ const content = [
                 level: "basic",
             },
             {
-                header: "Scenariusz kursu",
-                text: "opisac ze jest sobie uzytkownik, na forum spolecznosciowym, ktore jest podatne na atak xss, wyszukuje znajomych w wyszukiwarce to sie zmienia query w linku, jak to query sie zmodyfikuje to sie html modyfikuje",
-                level: "basic",
-                //slide: uzytkownik wpisuje w wyszukiwarke cos klika szukaj i sie link podmienia na ?q-...
-            },
-            {
                 header: "Typy ataków XSS",
                 text: "Ataki mogą się dzielić na trzy główne kategorie: <strong>Reflected XSS</strong>, <strong>Stored XSS</strong>, <strong>DOM-based XSS</strong>. Mimo podziału, niektóre, bardziej zaawansowane ataki XSS mogą podlegać pod wszystkie kategorie jednocześnie.<br/><br/>Typy ataku określają, czy dany dzieje się po stronie klienta - przeglądarki internetowej - czy serwera, na którym uruchomiony jest dany serwis. Atak XSS po stronie klienta zazwyczaj jest prostszy w egzekucji, gdyż odnalezienie luki w oprogarmowaniu związanej z tym typem ataku jest co do zasady łatwiejsze.  ",
                 level: "basic",
                 slide: <XssTypes/>
             },
             {
-                header: "Przykład strony podatnej na reflected XSS",
-                text: "",
+                header: "Przykład podatności XSS",
+                text: "Na slajdzie przedstawiony jest popularny serwis służący do wyszukiwania i interakcji ze znajomymi. Strona składa się z trzech sekcji: znajomych, wyszukiwarki znajomych oraz profilu użytkownika.<br/><br/>Dane znajomego, wyszukiwane przez osobę korzystającą z serwisu, są dodawane do parametru zapytania w adresie URL. Kolejno oprócz zwrócenia wyszukiwanych znajomych, w DOM strony internetowej renderowana jest treść zawarta w parametrach zapytania, tuż pod 'Wynikami wyszukiwania'.<br/><br/><strong>W tym interaktywnym ćwiczeniu postaraj się wyszukać dowolnego znajomego, celem sprawdzenia funkcjonalności strony. Zwróć także uwagę, na zawartość adresu URL po wyszukaniu.</strong> ",
                 level: "basic",
-                slide: <XssReflectedExample/>
+                interactive: true,
+                slide: <XssInteractiveIntroduction/>
+            },
+            {
+                header: "Przykład podatności XSS",
+                text: "opisac jak to sie dzieje ze przgladrka bierze dane z patametru query, renderuje je w dom, niech user sprobuje wyszukac jakis tag html np <h1>",
+                level: "basic",
+                interactive: true,
+                slide: <XssInteractiveEnterScript/>
             },
             {
                 header: "Zagrożenia XSS",

@@ -38,7 +38,7 @@ const XssInteractiveIntroduction = (props) => {
     setUrlQuery(`?q=${searchValue.replaceAll(" ", "+")}`);
     setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 200);
   };
 
   return (

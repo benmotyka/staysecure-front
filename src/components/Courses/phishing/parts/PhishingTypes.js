@@ -39,7 +39,7 @@ const Phone = styled(PhoneIcon)`
 ${Icon};
 `
 
-const Separ = styled(SpearIcon)`
+const Spear = styled(SpearIcon)`
 ${Icon};
 `
 
@@ -89,7 +89,7 @@ const PhishingTypes = () => {
                 <ItemDescription>Fałszywa strona</ItemDescription>
             </AbsoluteContainer>
             <AbsoluteContainer style={{left: "55%", top: "60%"}}>
-                <Separ/>
+                <Spear/>
                 <ItemDescription>Spear phishing</ItemDescription>
             </AbsoluteContainer>
             <AbsoluteContainer style={{left: "70%", top: "40%"}}>

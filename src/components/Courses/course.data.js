@@ -40,6 +40,8 @@ import XssInteractiveIntroduction from './xss/parts/XssInteractiveIntroduction'
 import XssInteractiveEnterHtml from './xss/parts/XssInteractiveEnterHtml'
 import XssInteractiveEnterScript from './xss/parts/XssInteractiveEnterScript'
 import XssConsequences from './xss/parts/XssConsequences'
+import XssWhatIs from "./xss/parts/XssWhatIs"
+import XssProtection from "./xss/parts/XssProtection"
 
 const content = [
     {
@@ -245,6 +247,7 @@ const content = [
                 header: "Czym jest atak XSS?",
                 text: "Cross-site scripting (XSS) opiera się na wstrzyknięciu do strony internetowej złośliwego skryptu. Najczęściej można go spotkać w miejscach, w których użytkownicy mają możliwość dodania treści do strony, na przykład podczas dodawania komentarza.<br/><br/>Prosty skrypt może całkowicie zmienić wygląd i funkcjonalność strony internetowej. Przykładem jednego z typów ataku - Reflected XSS - może być umieszczenie złośliwego skryptu w adresie URL strony internetowej, która renderuje parametry zapytania. Przeglądarka internetowa, której używa ofiara, nie jest w stanie rozpoznać intencji, które stoją za umieszczonym skryptem, dlatego zawsze będzie starała się go wykonać.<br/><br/>Ataki te często występują samodzielnie, wykradając ciasteczka użytkownika celem zdobycia nieautoryzowanego dostępu. Mogą być też powiązane między innymi z keyloggerem, mailami lub stronami phishingowymi i nie tylko.",
                 level: "basic",
+                slide: <XssWhatIs/>
             },
             {
                 header: "Typy ataków XSS",
@@ -283,6 +286,7 @@ const content = [
                 header: "Ochrona przed XSS",
                 text: "",
                 level: "basic",
+                slide: <XssProtection/>
             },
 
         ]

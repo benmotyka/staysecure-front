@@ -34,7 +34,7 @@ const Description = styled.p`
 font-size: 16px;
 margin: 0;
 color: ${colors.white};
-
+opacity: 0.8;
 `
 
 

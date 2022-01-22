@@ -2,7 +2,7 @@ import styled from "styled-components";
 import colors from "constans/colors";
 
 const Container = styled.div`
-  border-top: 2em solid rgba(230, 230, 230, 0.7);
+  border-top: 2em solid #fff;
   box-shadow: 0 0.1em 1em 0 rgba(0, 0, 0, 0.4);
   position: relative;
   border-radius: 3px 3px 0 0;
@@ -31,7 +31,7 @@ const Container = styled.div`
     left: 5.5em;
     width: 20%;
     height: 0em;
-    border-bottom: 2em solid white;
+    border-bottom: 2em solid #AEAFB7;
     border-left: 0.8em solid transparent;
     border-right: 0.8em solid transparent;
   }
@@ -46,7 +46,7 @@ const Body = styled.div`
 
 const UrlContainer = styled.div`
   width: 100%;
-  background-color: ${colors.grey};
+  background-color: #AEAFB7;
   padding: 10px 100px;
   box-sizing: border-box;
 `;

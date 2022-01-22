@@ -24,7 +24,7 @@ const XssInteractiveEnterHtml = (props) => {
       }, []);
 
       
-  const [searchValue, setSearchValue] = useState("<marquee>Podatność XSS</marquee>");
+  const [searchValue, setSearchValue] = useState("Jan Kowalski");
   const [urlQuery, setUrlQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [searchedValue, setSearchedValue] = useState("");
@@ -33,17 +33,8 @@ const XssInteractiveEnterHtml = (props) => {
   const searchFriend = () => {
     if (!searchValue) return;
     if(searchValue.match(/<.*>.*<\/.*>/gm)) {
+      props.setWaitForCorrectAnswer(false);
       setRandomInt(0)
-      if (searchValue.match(/<script>alert\(.*\)<\/script>/gmi)) {
-          try {
-            props.setWaitForCorrectAnswer(false);
-            const scriptContent = searchValue.match(/\(.*\)/i)[0]
-            const alertContent = scriptContent.replace(/[()]|'/g,'');
-            alert(alertContent)  
-          } catch (error) {
-              console.log(error)
-          }
-        }
     } else {
       setRandomInt(Math.floor(Math.random() * 6))
     }

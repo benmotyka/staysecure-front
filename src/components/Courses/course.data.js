@@ -37,6 +37,7 @@ import DdosTypes from './ddos/parts/DdosTypes'
 
 import XssTypes from './xss/parts/XssTypes'
 import XssInteractiveIntroduction from './xss/parts/XssInteractiveIntroduction'
+import XssInteractiveEnterHtml from './xss/parts/XssInteractiveEnterHtml'
 import XssInteractiveEnterScript from './xss/parts/XssInteractiveEnterScript'
 
 const content = [
@@ -252,14 +253,22 @@ const content = [
             },
             {
                 header: "Przykład podatności XSS",
-                text: "Na slajdzie przedstawiony jest popularny serwis służący do wyszukiwania i interakcji ze znajomymi. Strona składa się z trzech sekcji: znajomych, wyszukiwarki znajomych oraz profilu użytkownika.<br/><br/>Dane znajomego, wyszukiwane przez osobę korzystającą z serwisu, są dodawane do parametru zapytania w adresie URL. Kolejno oprócz zwrócenia wyszukiwanych znajomych, w DOM strony internetowej renderowana jest treść zawarta w parametrach zapytania, tuż pod 'Wynikami wyszukiwania'.<br/><br/><strong>W tym interaktywnym ćwiczeniu postaraj się wyszukać dowolnego znajomego, celem sprawdzenia funkcjonalności strony. Zwróć także uwagę, na zawartość adresu URL po wyszukaniu.</strong> ",
+                text: "Na slajdzie przedstawiony jest popularny serwis służący do wyszukiwania i interakcji ze znajomymi. Strona składa się z trzech sekcji: znajomych, wyszukiwarki znajomych oraz profilu użytkownika.<br/><br/>Dane znajomego, wyszukiwane przez osobę korzystającą z serwisu, są dodawane do parametru zapytania w adresie URL. Kolejno oprócz zwrócenia wyszukiwanych znajomych, w DOM strony internetowej renderowana jest treść zawarta w parametrach zapytania, tuż pod 'Wynikami wyszukiwania'.<br/><br/><strong>W tym interaktywnym ćwiczeniu postaraj się wyszukać dowolnego znajomego, celem sprawdzenia funkcjonalności strony. Zwróć także uwagę, na adres URL po wyszukaniu.</strong> ",
                 level: "basic",
                 interactive: true,
                 slide: <XssInteractiveIntroduction/>
             },
             {
                 header: "Przykład podatności XSS",
-                text: "opisac jak to sie dzieje ze przgladrka bierze dane z patametru query, renderuje je w dom, niech user sprobuje wyszukac jakis tag html np <h1>",
+                text: "Dane przesłane do wyszukiwarki pojawiają się zarówno w zawartości strony (wynikach wyszukiwania) jak i adresie URL. To pierwsza oznaka, że strona może być podatna na atak XSS. Dodatkowo, możliwość 'umieszczenia' danego elementu na stronie modyfikując adres URL jest cechą ataku Reflected XSS. <br/><br/>Kolejnym krokiem który można podjąć, celem weryfikacji strony pod kątem podatności XSS, jest próba umieszczenia w DOM dowolnego tagu HTML. Zgodnie z poznanymi funkcjonalnościami, wyszukiwany tekst umieszczany jest w 'Wynikach wyszukiwania'. Jeśli okaże się, że wyszukanie tagu HTML zmodyfikuje zawartość strony, dodając tym samym szukany tag do drzewa DOM, można być niemal pewnym, że strona jest podatna na atak XSS.<br/><br/><strong>W tym interaktywnym ćwiczeniu przetestuj zachowanie strony, wpisując a następnie wyszukując dowolny tag HTML.</strong>",
+                level: "basic",
+                interactive: true,
+                slide: <XssInteractiveEnterHtml/>
+            },
+            {
+                header: "Przykład podatności XSS",
+                text: "Możliwość wstrzyknięcia do zawartości strony internetowej dowolnego tagu HTML oznacza, że nic nie stoi na przeszkodzie, aby na stronie umieścić także złośliwy kod JavaScript. Dodatkowo, mając na uwadze fakt, że złośliwy skrypt może zostać uruchomiony przez dowolnego użytkownika pod warunkiem wejścia na adres URL zawierający skrypt jest jasną oznaką, że strona jest podatna na atak Reflected XSS.<br/><br/>Niesie to ze sobą bardzo poważne konsekwencje. Złośliwy skrypt może wykonać wszystko na co pozwala język JavaScript. Przykładowo, atakujący może stworzyć skrypt, który przesyła tokeny sesyjne ofiary do atakującego, umożliwiając mu tym samym na bezpośredni dostęp do konta ofiary. Skrypt może również chwilowo 'umieścić' w oknie ofiary keyloggera, który będzie nasłuchiwał aktywność klawiatury użytkownika.<br/><br/>Jak do tej pory, przyjęło się, że dowodem podatności strony na atak XSS jest umieszczenie na stronie skryptu który wywołuje <strong>alert</strong>, wbudowaną w przeglądarkę metodę wyświetlającą okno komunikatu z podaną treścią.<br/><br/><strong>W tym interaktywnym ćwiczeniu postaraj się umieścić w stronie skrypt, który wykona alert z dowolną wiadomością.</strong>",
+                // text: "opisac jak to sie dzieje ze przgladrka bierze dane z patametru query, renderuje je w dom, niech user sprobuje wyszukac jakis tag html np <h1>",
                 level: "basic",
                 interactive: true,
                 slide: <XssInteractiveEnterScript/>
@@ -270,6 +279,17 @@ const content = [
                 level: "basic",
             },
 
+        ]
+    },
+    {
+        course: "csrf",
+        language: "pl",
+        content: [
+            {
+                header: "Jak działają ciasteczka?",
+                text: "wytlumaczyc jak dzialaj ciasteczka i jak to sie ma w kontekscie csrf",
+                level: "basic",
+            }
         ]
     },
     {

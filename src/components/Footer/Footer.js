@@ -12,9 +12,8 @@ const Footer = () => {
         <Container>
             <Section>
                 <TextItem>{getYear()} &copy; staysecure</TextItem>
-                <LinkItem to="/">{t('termsOfService')}</LinkItem>
-                <LinkItem to="/">{t('privacyPolicy')}</LinkItem>
-                <LinkItem to="/">{t('FAQ')}</LinkItem>
+                <LinkItem to="/articles">{t('header.articles')}</LinkItem>
+                <LinkItem to="/courses">{t('header.courses')}</LinkItem>
             </Section>
             <Section>
             <TextItem>by Ben Motyka</TextItem>

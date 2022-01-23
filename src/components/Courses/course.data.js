@@ -283,8 +283,8 @@ const content = [
                 slide: <XssInteractiveEnterScript/>
             },
             {
-                header: "Ochrona przed XSS",
-                text: "",
+                header: "Ochrona przed podatnością XSS",
+                text: "Odpowiedzialność związana z ochroną strony przed podatnością XSS zazwyczaj powinna leżeć po stronie zespołu programistów, tworzących dany serwis webowy. <br/><br/>Najważniejszymi zasadami, które powinny być przestrzegane to <strong>walidacja i czyszczenie danych wprowadzonych przez użytkownika</strong>. Stosując tą prostą regułę, można praktycznie całkowicie wyeliminować liczne zagrożenia związane z tym atakiem.<br/><br/>Dobrym rozwiązaniem było by także dodanie nagłówków do dokumentu HTML, które nie pozwalają na wykonywanie kodu JavaScript z zewnątrz. ",
                 level: "basic",
                 slide: <XssProtection/>
             },

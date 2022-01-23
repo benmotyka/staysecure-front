@@ -79,20 +79,23 @@ top: 30px;
 
 
 
-const SqlPrevention = () => {
+const DdosProtection = () => {
   const [activeSlide, setActiveSlide] = useState(0);
 
     return (
         <Container>
-        <HeaderWrapper>
+        <HeaderWrapper columns={4}>
           <Button active={activeSlide === 0} onClick={() => setActiveSlide(0)}>
-            Walidacja danych wejściowych
+            Skalowanie infrastruktury
           </Button>
           <Button active={activeSlide === 1} onClick={() => setActiveSlide(1)}>
-            Parametryzowanie zapytań
+            Wykorzystywanie firewalli
           </Button>
           <Button active={activeSlide === 2} onClick={() => setActiveSlide(2)}>
-            Ograniczenie dostępu
+            Migracja do chmury
+          </Button>
+          <Button active={activeSlide === 3} onClick={() => setActiveSlide(3)}>
+            Monitoring infrastruktury
           </Button>
         </HeaderWrapper>
         {activeSlide === 0 && (
@@ -150,4 +153,4 @@ const SqlPrevention = () => {
     )
 }
 
-export default SqlPrevention
+export default DdosProtection

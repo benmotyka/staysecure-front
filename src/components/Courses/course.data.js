@@ -34,6 +34,7 @@ import DosVsDdos from './ddos/parts/DosVsDdos'
 import DdosAi from './ddos/parts/DdosAi'
 import HowWebServersWork from './ddos/parts/HowWebServersWork'
 import DdosTypes from './ddos/parts/DdosTypes'
+import DdosProtection from './ddos/parts/DdosProtection'
 
 import XssTypes from './xss/parts/XssTypes'
 import XssInteractiveIntroduction from './xss/parts/XssInteractiveIntroduction'
@@ -134,7 +135,7 @@ const content = [
             {
                 header: "Zaawansowane metody ochrony",
                 text: "Do bardziej zaawansowanych metod ochrony przed atakami phishingowymi zaliczyć można <b>klucze U2F</b>. Są to urządzenia nośniki danych, które łączą się z urządzeniem użytkownika poprzez port USB.<br><br>Działają na bazie kryptografii asymetrycznej i pozwalają na stosowanie ich jako uwierzytelnienia dwuskładnikowego. Dzięki temu nawet jeśli atakującemu przy próbie logowania uda się ukraść kod SMS, stanowiący uwierzytelnienie dwuskładnikowe, próba finalnie się nie powiedzie, gdyż nie będzie posiadał on fizycznego dostępu do klucza U2F.<br><br>Klucze U2F to powszechne i bezpieczne rozwiązanie, wspierane nie tylko przez systemy operacyjnych Windows, macOS i Linux, ale również przez największe portale społecznościowe. Mogą być również stosowane przy urządzeniach mobilnych, łączać się z urządzeniem poprzez protokoły NFC.",
-                level: "advanced",
+                level: "basic",
                 slide: <U2FKeys/>
             },
         ]
@@ -352,7 +353,8 @@ const content = [
             {
                 header: "Ochrona przed atakami DDOS",
                 text: "Przeciwdziałanie atakom DDOS powinno mieć miejsce głównie w ustawieniach zapory infrastruktury sieciowej. Zazwyczaj to właśnie w tym wrażliwym miejscu następuje pierwszy etap procesowania żądań przychodzących do danego systemu.<br/><br/>Wykorzystywanie odpowiednich narzędzi pozwalających na analizę i filtrowanie ruchu przychodzącego to podstawa, która powinna mieć miejsce w każdym serwisie zmagającym się z atakami typu DDOS.<br/><br/>Posiadanie infrastruktury teleinformatycznej w chmurze daje zupełnie nowe możliwości walki z tego typu atakami. Pierwszym sposobem może być wykorzystanie <strong>systemu równoważenia obciążenia</strong>, który może przekierowywać żądania na instancje serwerowe (których może być kilka) według zużycia ich zasobów. Dodając do tego grupę automatycznie skalującą liczbę maszyn w zależności od ruchu, można być pewnym, że system wytrzyma praktycznie większość prób ataku.",
-                level: "basic"
+                level: "basic",
+                slide: <DdosProtection/>
             }
         ]
     }

@@ -4,7 +4,9 @@ import colors from "constans/colors.js";
 import { Line } from "components/PreviewItems/PreviewItems.styles.js";
 import { useState } from "react";
 import { BsLaptop as LaptopIcon } from "react-icons/bs";
-import { AiFillWarning as WarningIcon } from "react-icons/ai";
+import { AiFillWarning as WarningIcon,
+  AiOutlineMonitor as MonitoringIcon
+} from "react-icons/ai";
 
 import {
     Container,
@@ -17,10 +19,18 @@ import {
   } from "../../ransomware/styles.js";
   import { IoIosArrowForward as ArrowIcon } from "react-icons/io";
   import { BsShieldFillCheck as CheckIcon } from "react-icons/bs";
-import { FaServer as ServerIcon } from "react-icons/fa";
+import { FaServer as ServerIcon, 
+  FaUser as UserIcon, 
+} from "react-icons/fa";
 import {
   FaRegFileCode as EncodeIcon,
 } from "react-icons/fa";
+
+import {IoMdCloudy as CloudIcon} from "react-icons/io"
+
+import {GiChart as ChartIcon,
+  GiStoneWall as FirewallIcon
+} from "react-icons/gi"
   const RelativeContainer = styled.div`
   position: relative;
   width: 100px;
@@ -49,7 +59,7 @@ const Check = styled(CheckIcon)`
 `;
 
 const Server = styled(ServerIcon)`
-  font-size: 120px;
+  font-size: 80px;
   color: ${colors.white};
 `;
 
@@ -77,74 +87,92 @@ position: absolute;
 top: 30px;
 `;
 
+const Cloud = styled(CloudIcon)`
+font-size: 120px;
+color: ${colors.orange};
+`
 
+const Monitoring = styled(MonitoringIcon)`
+font-size: 120px;
+position: absolute;
+right: 75%;
+color: ${colors.white};
+`
+
+const Chart = styled(ChartIcon)`
+font-size: 120px;
+color: ${colors.orange};
+`
+
+const Firewall = styled(FirewallIcon)`
+font-size: 100px;
+color: ${colors.orange};
+transform: translate3d(0,0,50px);
+`
+
+const User = styled(UserIcon)`
+font-size: 80px;
+color: ${colors.red};
+`
 
 const DdosProtection = () => {
   const [activeSlide, setActiveSlide] = useState(0);
 
     return (
         <Container>
-        <HeaderWrapper columns={4}>
+        <HeaderWrapper>
           <Button active={activeSlide === 0} onClick={() => setActiveSlide(0)}>
-            Skalowanie infrastruktury
-          </Button>
-          <Button active={activeSlide === 1} onClick={() => setActiveSlide(1)}>
             Wykorzystywanie firewalli
           </Button>
-          <Button active={activeSlide === 2} onClick={() => setActiveSlide(2)}>
+          <Button active={activeSlide === 1} onClick={() => setActiveSlide(1)}>
             Migracja do chmury
           </Button>
-          <Button active={activeSlide === 3} onClick={() => setActiveSlide(3)}>
-            Monitoring infrastruktury
+          <Button active={activeSlide === 2} onClick={() => setActiveSlide(2)}>
+            Monitorowanie zasobów
           </Button>
         </HeaderWrapper>
         {activeSlide === 0 && (
           <ContentWrapper>
             <ContentHeader>
-          Każde dane, które pochodzą od użytkownika, powinny być najpierw sprawdzone pod kątem występowania dozwolonych znaków (np. A-Z, a-z), albo nie występowania znaków nie dozwolonych (np. ', ", -). Dzięki temu atakujący nie będzie w stanie złośliwie zmodyfikować zapytania SQL. 
+              Stosowanie firewalli to podstawa przeciw każdego rodzaju atakom, nie tylko typu DDOS. W przypadku stron internetowych należy pamiętać o tym, żeby maszyna, na której skonfigurowany jest serwer webowy, miała otwarte na świat tylko te porty, które są konieczne do funkcjonowania witryny (HTTP/HTTPS). Wykorzystywanie różnorakich zasad - w zależności od firewalla - jest także dobrym rozwiązaniem. Warto jednak mieć na uwadze, że stosowanie restrykcyjnych reguł w firewallach może odrzucać także część zwykłych użytkowników. Kluczem jest odpowiednie wyważenie reguł odrzucających. 
               <Line />
             </ContentHeader>
             <FlexCenterWrapper>
               <ContentBody>
-              <RelativeContainer>
-                <Encode />
-                <Check />
-              </RelativeContainer>
+                <User/>
               <Arrow />
-              <Server />
-              </ContentBody>
-            </FlexCenterWrapper>
-          </ContentWrapper>
-        )}
-        {activeSlide === 1 && (
-          <ContentWrapper>
-            <ContentHeader>
-              Parametryzowanie zapytań polega na przygotowaniu zapytania bazodanowego i parametrów znajdujących się w nim, a następnie przesłanie tych informacji do silnika bazy danych. Silnik, na bazie dostarczonych mu informacji sam skonstruuje zapytanie. W przypadku błędów składniowych spowodowanych np. znakami specjalnymi silnik zwróci błąd.  
-              <Line />
-            </ContentHeader>
-            <FlexCenterWrapper>
-              <ContentBody>
-                <CodeText>
-                  const clientName = req.body.name<br/><br/>
-                  const sql = "SELECT * FROM clients WHERE name = $1"<br/><br/>
-                  const values = [clientName]<br/><br/>
-                  const result = await db.query(sql, values)<br/><br/>
-                  </CodeText>
+                <Firewall/>
+                <Server/>
+
               </ContentBody>
             </FlexCenterWrapper>
           </ContentWrapper>
         )}{" "}
-        {activeSlide === 2 && (
+        {activeSlide === 1 && (
           <ContentWrapper>
             <ContentHeader>
-              Kolejnym rozwiązaniem może być stworzenie roli dostępu tylko do odczytu dla bazy danych, a następnie nadanie tej roli w połączeniu dla najbardziej wrażliwych funkcji, które mają za zadanie jedynie zwrócić dane. Pomoże to w sytuacji, kiedy atakujący będzie próbował zmodyfikować strukturę bazy lub jej dane, jednak nadal pozwoli na wykradnięcie nadmiernych wrażliwych danych.
+              Jeśli przedsiębiorstwo z tradycyjnym typem infrastruktury (własnymi fizycznymi urządzeniami) boryka się z problemami ataków DDOS lub nieregularnego ruchu, warto rozważyć opcję migracji obecnego stanu infrastruktury do chmur publicznych. Zapewniają one dynamiczną możliwość skalowania instancji serwerowych w zależności od ruchu na stronie, więc w przypadku zwiększonego ruchu lub ataku DDOS, problem niedostępności może być częściowo zniwelowany dzięki utworzeniu kolejnych maszyn.
               <Line />
             </ContentHeader>
             <FlexCenterWrapper>
               <ContentBody>
-              <Warning/>
-              <Laptop/>
-              <LaptopCodeText>ACCESS DENIED</LaptopCodeText>
+                <Server/>
+              <Arrow />
+              <Cloud/>
+              </ContentBody>
+            </FlexCenterWrapper>
+          </ContentWrapper>
+        )}
+        {activeSlide === 2 && (
+          <ContentWrapper>
+            <ContentHeader>
+              Jest to jeden z kluczowych elementów pozwalających na ochronę przeciw atakom DDOS. Dzięki aktywnemu monitorowaniu zasobów maszyn można stworzyć modele zużycia zasobów (procesora, pamięci RAM) w ciągu dnia. Pozwala to przede wszystkim na zauważenie anomalii w postaci ataków DDOS. W przypadku gdy pojawiają się one w pewnych schematach, można przykładowo zastosować odpowiednie reguły w firewallach, celem odrzucania nawet mniej podejrzanych żądań przez dany okres czasu.
+              <Line />
+            </ContentHeader>
+            <FlexCenterWrapper>
+              <ContentBody>
+               <Monitoring/>
+               <Chart/>
               </ContentBody>
             </FlexCenterWrapper>
           </ContentWrapper>

@@ -123,7 +123,7 @@ const XssProtection = () => {
       {activeSlide === 1 && (
         <ContentWrapper>
           <ContentHeader>
-            Jednym ze scenariuszy ataku XSS jest przechwycenie ciasteczek zalogowanego użytkownika, aby uzyskać nieautoryzowany dostęp do jego konta. Dobrym sposobem na ochronę przeciw temu działaniu jest ustawienie flagi <strong>HttpOnly</strong> na każdym wrażliwym ciasteczku. Sprawi to że nie będzie ono dostępne z poziomu skryptu wykonanego w przeglądarce.
+            Jednym ze scenariuszy ataku XSS jest przechwycenie ciasteczek zalogowanego użytkownika, aby uzyskać nieautoryzowany dostęp do jego konta. Dobrym sposobem na ochronę przeciw temu działaniu jest ustawienie flagi <strong>HttpOnly</strong> na każdym wrażliwym ciasteczku. Sprawi to, że nie będzie ono dostępne z poziomu skryptu wykonanego w przeglądarce.
             <Line />
           </ContentHeader>
           <ContentBody>

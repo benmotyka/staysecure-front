@@ -5,6 +5,7 @@ import { ImDownload3 as DownloadIcon } from "react-icons/im";
 import { IoArrowRedoOutline as ArrowIcon } from "react-icons/io5";
 import { BiWorld as WebpageIcon } from "react-icons/bi";
 import { Line } from "components/PreviewItems/PreviewItems.styles";
+import { useTranslation } from "react-i18next";
 
 import { ContentHeader } from "components/Courses/ransomware/styles";
 
@@ -57,10 +58,12 @@ export const Item = styled.div`
 `;
 
 const WebScrapping = () => {
+  const {t} = useTranslation()
+
   return (
     <Container>
       <HeaderWrapper>
-        <ContentHeader>Web Scrapper pobiera zawartość strony internetowej firmy. Następnie, w zawartości wyszukuje wzorców przypominających adresy e-mail lub numery telefonu i zapisuje je. Kolejno, w zawartości wyszukuje hiperłącza (adresów do innych stron), odwiedza je i wykonuje tę samą procedurę. Zebrane dane mogą zostać wykorzystane do ataku phishingowego.</ContentHeader>
+        <ContentHeader>{t('courses.phishing.webScrappingDescription')}</ContentHeader>
         <Line />
       </HeaderWrapper>
       <Wrapper>

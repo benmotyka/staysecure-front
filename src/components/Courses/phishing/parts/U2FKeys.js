@@ -3,6 +3,7 @@ import colors from "constans/colors.js";
 import { FaUser as UserIcon } from "react-icons/fa";
 import { BsLaptop as LaptopIcon } from "react-icons/bs";
 import { CgUsb as PendriveIcon } from "react-icons/cg";
+import { useTranslation } from "react-i18next";
 
 const Container = styled.div`
   width: 100%;
@@ -67,6 +68,8 @@ const U2FInLaptop = styled(PendriveIcon)`
   font-size: 70px;
 `;
 const U2FKeys = () => {
+  const {t} = useTranslation()
+
   return (
     <Container>
       <UserWrapper>
@@ -75,7 +78,7 @@ const U2FKeys = () => {
       </UserWrapper>
       <Wrapper>
         <Laptop />
-        <LaptopText>Wymagany klucz!</LaptopText>
+        <LaptopText>{t('courses.phishing.neededKey')}</LaptopText>
         <U2FInLaptop />
       </Wrapper>
       <UserWrapper>

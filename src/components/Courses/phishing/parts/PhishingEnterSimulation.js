@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 import { useState, useEffect } from "react";
 import Iphone from "components/Iphone/Iphone";
+import { useTranslation } from "react-i18next";
+
 import {
   MessagesApp,
   MessagesHeaderContainer,
@@ -45,6 +47,7 @@ const PhishingEnterSimulation = (props) => {
   const [clickMessages, setClickMessages] = useState(false);
   const [clickSms, setClickSms] = useState(false);
   const [clickPage, setClickPage] = useState(false);
+  const {t} = useTranslation()
 
   const paymentMethods = [
     { logo: "payment_methods/millenium.png", url: "millenium" },
@@ -62,7 +65,7 @@ const PhishingEnterSimulation = (props) => {
         {clickMessages && (
           <MessagesApp>
             <MessagesHeaderContainer>
-              <MessagesHeader>Wiadomości</MessagesHeader>
+              <MessagesHeader>{t('courses.phishing.messages')}</MessagesHeader>
               <MessagesSearch placeholder="Szukaj" />
             </MessagesHeaderContainer>
 
@@ -80,8 +83,7 @@ const PhishingEnterSimulation = (props) => {
                     <MessageHeaderDate>20.12.2021 &gt;</MessageHeaderDate>
                   </MessageHeader>
                   <MessageContent>
-                    Drogi kliencie, informujemy, że Twoja przesyłka oczekuje na
-                    do...
+                    {t('courses.phishing.smsContentShort')}
                   </MessageContent>
                 </MessageDetails>
               </MessageItem>
@@ -97,11 +99,13 @@ const PhishingEnterSimulation = (props) => {
             </SmsHeader>
             <SmsMessage>
               <SmsMessageContent>
-                Drogi kliencie,
+              {t('courses.phishing.smsPart1')}
                 <br />
-                <br /> informujemy, że Twoja przesyłka oczekuje na doręczenie.
                 <br />
-                Potwierdź płatność w wysokości 0.72 PLN, klikając poniższy link:
+                {t('courses.phishing.smsPart2')}
+                <br />
+                <br />
+                {t('courses.phishing.smsPart3')}
                 <br />
                 <br />
                 <SmsLink
@@ -114,9 +118,9 @@ const PhishingEnterSimulation = (props) => {
                 </SmsLink>
                 <br />
                 <br />
-                Z poważaniem,
+                {t('courses.phishing.smsPart4')}
                 <br />
-                Poczta Polska
+                {t('courses.phishing.smsPart5')}
               </SmsMessageContent>
             </SmsMessage>
           </SmsApp>
@@ -125,18 +129,18 @@ const PhishingEnterSimulation = (props) => {
           <WebpageApp>
             <WebPageLogo src="payment_methods/dotpay.jpg" />
             <WebPageSeparator>
-              <WebPageText>Informacje o płatności</WebPageText>
+              <WebPageText>{t('courses.phishing.paymentInfo')}</WebPageText>
             </WebPageSeparator>
             <WebPageItem>
               <WebPageText>
-                Odbiorca: Mjpqoz Inc.
+              {t('courses.phishing.receiver')} Mjpqoz Inc.
                 <br />
-                Opis: Order 1348013
+                {t('courses.phishing.description')} Order 1348013
               </WebPageText>
-              <WebPageText>Kwota: 72 PLN</WebPageText>
+              <WebPageText>{t('courses.phishing.amount')} 72 PLN</WebPageText>
             </WebPageItem>
             <WebPageSeparator>
-              <WebPageText>Wybrana metoda płatności:</WebPageText>
+              <WebPageText>{t('courses.phishing.choosenPayment')}</WebPageText>
             </WebPageSeparator>
             <WebPagePaymentMethodsList>
             {paymentMethods.map((item, index) => (

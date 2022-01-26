@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 import { useState, useEffect } from "react";
 import Iphone from "components/Iphone/Iphone";
+import { useTranslation } from "react-i18next";
+
 import {
   MessagesApp,
   MessagesHeaderContainer,
@@ -56,6 +58,8 @@ const PhishingSendDataSimulation = (props) => {
     url: null,
   });
 
+  const {t} = useTranslation()
+
   const paymentMethods = [
     { logo: "payment_methods/millenium.png", url: "millenium" },
     { logo: "payment_methods/mbank.png", url: "mbank" },
@@ -77,7 +81,7 @@ const PhishingSendDataSimulation = (props) => {
         {clickMessages && (
           <MessagesApp>
             <MessagesHeaderContainer>
-              <MessagesHeader>Wiadomości</MessagesHeader>
+              <MessagesHeader>{t('courses.phishing.messages')}</MessagesHeader>
               <MessagesSearch placeholder="Szukaj" />
             </MessagesHeaderContainer>
 
@@ -95,8 +99,7 @@ const PhishingSendDataSimulation = (props) => {
                     <MessageHeaderDate>20.12.2021 &gt;</MessageHeaderDate>
                   </MessageHeader>
                   <MessageContent>
-                    Drogi kliencie, informujemy, że Twoja przesyłka oczekuje na
-                    do...
+                  {t('courses.phishing.smsContentShort')}
                   </MessageContent>
                 </MessageDetails>
               </MessageItem>
@@ -112,11 +115,12 @@ const PhishingSendDataSimulation = (props) => {
             </SmsHeader>
             <SmsMessage>
               <SmsMessageContent>
-                Drogi kliencie,
+              {t('courses.phishing.smsPart1')}
                 <br />
-                <br /> informujemy, że Twoja przesyłka oczekuje na doręczenie.
                 <br />
-                Potwierdź płatność w wysokości 0.72 PLN, klikając poniższy link:
+                {t('courses.phishing.smsPart2')}
+                <br />
+                {t('courses.phishing.smsPart3')}
                 <br />
                 <br />
                 <SmsLink
@@ -128,9 +132,9 @@ const PhishingSendDataSimulation = (props) => {
                 </SmsLink>
                 <br />
                 <br />
-                Z poważaniem,
+                {t('courses.phishing.smsPart4')}
                 <br />
-                Poczta Polska
+                {t('courses.phishing.smsPart5')}
               </SmsMessageContent>
             </SmsMessage>
           </SmsApp>
@@ -139,18 +143,18 @@ const PhishingSendDataSimulation = (props) => {
           <WebpageApp>
             <WebPageLogo src="payment_methods/dotpay.jpg" />
             <WebPageSeparator>
-              <WebPageText>Informacje o płatności</WebPageText>
+              <WebPageText>{t('courses.phishing.paymentInfo')}</WebPageText>
             </WebPageSeparator>
             <WebPageItem>
               <WebPageText>
-                Odbiorca: Mjpqoz Inc.
+              {t('courses.phishing.receiver')} Mjpqoz Inc.
                 <br />
-                Opis: Order 1348013
+                {t('courses.phishing.description')} Order 1348013
               </WebPageText>
-              <WebPageText>Kwota: 72 PLN</WebPageText>
+              <WebPageText>{t('courses.phishing.amount')} 72 PLN</WebPageText>
             </WebPageItem>
             <WebPageSeparator>
-              <WebPageText>Wybrana metoda płatności:</WebPageText>
+              <WebPageText>{t('courses.phishing.choosenPayment')}</WebPageText>
             </WebPageSeparator>
             <WebPagePaymentMethodsList>
               {paymentMethods.map((item, index) => (
@@ -180,24 +184,24 @@ const PhishingSendDataSimulation = (props) => {
           <BankpageApp>
             <WebPageLogo src={bankPageDetails.imagePath} />
             <WebPageSeparator>
-              <WebPageText>Logowanie do serwisu</WebPageText>
+              <WebPageText>{t('courses.phishing.loginToService')}</WebPageText>
             </WebPageSeparator>
             <BankpageInputContainer>
-              <BankpageLabel for="clientNumber">Numer klienta: </BankpageLabel>
+              <BankpageLabel for="clientNumber">{t('courses.phishing.clientNumber')} </BankpageLabel>
               <BankpageInput
                 min="0"
                 type="number"
                 id="clientNumber"
                 name="clientNumber"
               />
-              <BankpageLabel for="password">Hasło: </BankpageLabel>
+              <BankpageLabel for="password">{t('courses.phishing.password')}</BankpageLabel>
               <BankpageInput
                 min="0"
                 type="password"
                 id="password"
                 name="password"
               />
-              <BankpageInput type="button" value="Zaloguj" onClick={() => props.setWaitForCorrectAnswer(false)}/>
+              <BankpageInput type="button" value={t('courses.phishing.login')} onClick={() => props.setWaitForCorrectAnswer(false)}/>
             </BankpageInputContainer>
             <WebPageNavigatorContainer>
               <WebPageInput

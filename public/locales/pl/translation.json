@@ -73,5 +73,31 @@
         "color": "Kolor",
         "meansCorrectAnswerAnd": "oznacza poprawną odpowiedź, a kolor",
         "possibleBadAnswer": "ewentualną błędnie wybraną odpowiedź"
+    },
+    "courses": {
+        "sql": {
+            "onlineShop": "Sklep internetowy",
+            "enterProduct": "Wpisz nazwę produktu aby wyszukać:",
+            "search": "Wyszukaj",
+            "sourceCode": "Kod źródłowy aplikacji serwerowej",
+            "proxyHeader1": "Klient",
+            "proxyAnswer1": "Podczas wyszukiwania produktu zostaje wysłane żądanie w oryginalej postaci i w określonym formacie, np. bez znaków specjalnych",
+            "proxyHeader2": "Proxy",
+            "proxyAnswer2": "Żądanie zostaje przechwycone i dowolnie zmodyfikowane",
+            "proxyHeader3": "Serwer",
+            "proxyAnswer3": "Serwer otrzymuje zmodyfikowane żądanie ze znakami specjalnymi",
+            "sqlApiAbstractionHeader1": "Najwyższy poziom abstrakcji",
+            "sqlApiAbstractionAnswer1": "Mapowanie relacyjno obiektowe (ang. Object-relational mapping), polega na skonwertowaniu danych z tabel w relacyjnej bazie danych na obiekty, znane z programowania obiektowego. Przy tworzeniu zapytań, pozwalają na praktycznie całkowitą redukcję składni SQL na rzecz języka, w którym są stworzone. Przykładowe pobranie danych w ORM Sequelize wygląda następująco:",
+            "sqlApiAbstractionHeader2": "Średni poziom abstrakcji",
+            "sqlApiAbstractionAnswer2": "Konstruktory kwerend (ang. query builders), zaprojektowane w celu uproszczenia komunikacji z bazą - zapytania nie są tworzone w języku SQL, a w języku, w którym zaimplementowany jest dany konstruktor. Łatwiejsze do zmodyfikowania i raz stworzone zapytanie może być używane na wielu typach baz danych. Przykładowe zapytanie wykonane w konstruktorze kwerend Knex.js wygląda następująco:",
+            "sqlApiAbstractionHeader3": "Najniższy poziom abstrakcji",
+            "sqlApiAbstractionAnswer3": "Zapytania tworzone w czystym SQL i przekazywane do bazy danych. Są dosyć proste w tworzeniu, jednak kosztem prostoty często podatne na atak SQL Injection, błędy programisty. Zazwyczaj nie są kompatybilne z innymi typami baz. Przykładowe zapytanie SQL wygląda następująco:",
+            "sqlPreventionHeader1": "Walidacja danych wejściowych",
+            "sqlPreventionAnswer1": "Każde dane, które pochodzą od użytkownika, powinny być najpierw sprawdzone pod kątem występowania dozwolonych znaków (np. A-Z, a-z), albo nie występowania znaków nie dozwolonych (np. ', \", -). Dzięki temu atakujący nie będzie w stanie złośliwie zmodyfikować zapytania SQL.",
+            "sqlPreventionHeader2": "Parametryzowanie zapytań",
+            "sqlPreventionAnswer2": "Parametryzowanie zapytań polega na przygotowaniu zapytania bazodanowego i parametrów znajdujących się w nim, a następnie przesłanie tych informacji do silnika bazy danych. Silnik, na bazie dostarczonych mu informacji sam skonstruuje zapytanie. W przypadku błędów składniowych spowodowanych np. znakami specjalnymi silnik zwróci błąd.",
+            "sqlPreventionHeader3": "Ograniczenie dostępu",
+            "sqlPreventionAnswer3": "Kolejnym rozwiązaniem może być stworzenie roli dostępu tylko do odczytu dla bazy danych, a następnie nadanie tej roli w połączeniu dla najbardziej wrażliwych funkcji, które mają za zadanie jedynie zwrócić dane. Pomoże to w sytuacji, kiedy atakujący będzie próbował zmodyfikować strukturę bazy lub jej dane, jednak nadal pozwoli na wykradnięcie nadmiernych wrażliwych danych."
+        }
     }
 }

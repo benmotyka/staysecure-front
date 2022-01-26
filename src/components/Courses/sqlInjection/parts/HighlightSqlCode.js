@@ -15,11 +15,13 @@ import {
   CodeIcon,
   PageBody,
 } from "../styles.js";
+import { useTranslation } from "react-i18next";
 
 const HighlightSqlCode = (props) => {
   useEffect(() => {
     props.setWaitForCorrectAnswer(true);
   }, []);
+  const {t} = useTranslation()
 
   const aceEditor = useRef(null);
 
@@ -54,18 +56,18 @@ searchItem: async (args, req) => {
       <Wrapper>
         <Browser>
           <PageBody>
-            <h1>Sklep internetowy</h1>
-            <label for="input">Wpisz nazwę produktu aby wyszukać:</label>
+            <h1>{t('courses.sql.onlineShop')}</h1>
+            <label for="input">{t('courses.sql.enterProduct')}</label>
             <input name="input" disabled />
             <br />
-            <button disabled>Wyszukaj</button>
+            <button disabled>{t('courses.sql.search')}</button>
           </PageBody>
         </Browser>
       </Wrapper>
       <CodeWrapper>
         <CodeHeaderContainer>
           <CodeIcon />{" "}
-          <CodeHeader>Kod źródłowy aplikacji serwerowej</CodeHeader>
+          <CodeHeader>{t('courses.sql.sourceCode')}</CodeHeader>
         </CodeHeaderContainer>
         <AceEditor
           mode="javascript"

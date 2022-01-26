@@ -73,5 +73,31 @@
         "color": "Color",
         "meansCorrectAnswerAnd": " stands for correct answer, and",
         "possibleBadAnswer": "for possible bad answer."
+    },
+    "courses": {
+        "sql": {
+            "onlineShop": "Online shop",
+            "enterProduct": "Enter a product name to search:",
+            "search": "Search",
+            "sourceCode": "Source code of server-side app",
+            "proxyHeader1": "Client",
+            "proxyAnswer1": "When searching for a product, a request is sent in its original form and in the specified format, e.g. without special characters",
+            "proxyHeader2": "Proxy",
+            "proxyAnswer2": "The request is intercepted and modified",
+            "proxyHeader3": "Server",
+            "proxyAnswer3": "The server receives a modified request with special characters",
+            "sqlApiAbstractionHeader1": "The highest level of abstraction",
+            "sqlApiAbstractionAnswer1": "Object-relational mapping is the conversion of data from tables in a relational database into objects, known from object-oriented programming. When creating queries, it allows virtually complete reduction of SQL syntax in favour of the language in which they are created. An example data retrieval in ORM Sequelize looks like this:",
+            "sqlApiAbstractionHeader2": "Medium level of abstraction",
+            "sqlApiAbstractionAnswer2": "Query builders, designed to simplify communication with the database - queries are not created in SQL, but in the language in which the builder is implemented. It is easier to modify and once created query can be used on many types of databases. An example query made in the Knex.js query builder looks as follows:",
+            "sqlApiAbstractionHeader3": "Lowest level of abstraction",
+            "sqlApiAbstractionAnswer3": "Queries created in pure SQL and passed to the database. They are quite simple to create, but at the cost of simplicity, they are often vulnerable to SQL Injection attacks and programmer errors. They are usually not compatible with other types of databases. An example SQL query looks like this:",
+            "sqlPreventionHeader1": "Input data validation",
+            "sqlPreventionAnswer1": "Any data that comes from the user should first be checked for allowed characters (e.g. A-Z, a-z), or the absence of disallowed characters (e.g. ', \", -). This will prevent the attacker from maliciously modifying the SQL query.",
+            "sqlPreventionHeader2": "Queries parametrization",
+            "sqlPreventionAnswer2": "Queries parametrization consists in preparing a database query and the parameters contained in it, and then sending this information to the database engine. The engine, on the basis of information provided, will construct the query itself. In case of syntax errors caused by e.g. special characters, the engine will return the error.",
+            "sqlPreventionHeader3": "Access restriction",
+            "sqlPreventionAnswer3": "Another solution might be to create a read-only access role for the database, and then give that role in combination to the most sensitive functions that are only designed to return data. This will help when an attacker attempts to modify the database structure or its data, but will still allow excessive sensitive data to be stolen."
+        }
     }
 }

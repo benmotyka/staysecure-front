@@ -4,9 +4,12 @@ import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-html";
 import "ace-builds/src-noconflict/theme-chaos";
 import {Container, Wrapper, CodeWrapper, CodeHeaderContainer, CodeHeader, CodeIcon, PageBody} from '../styles.js'
+import { useTranslation } from "react-i18next";
 
 
 const HighlightHtml = (props) => {
+  const {t} = useTranslation()
+
     useEffect(() => {
         props.setWaitForCorrectAnswer(true);
       }, []);
@@ -41,11 +44,11 @@ const HighlightHtml = (props) => {
     </head>
     <body>
         <form id="form">
-        <h1>Sklep internetowy</h1>
-        <label for="input">Wpisz nazwę produktu aby wyszukać:</label>
+        <h1>${t('courses.sql.onlineShop')}</h1>
+        <label for="input">${t('courses.sql.enterProduct')}</label>
         <input id="input" name="input" />
         <br/>
-        <button>Wyszukaj</button>
+        <button>${t('courses.sql.search')}</button>
         </form>
     </body>
   </html>
@@ -57,17 +60,17 @@ const HighlightHtml = (props) => {
         <Wrapper>
         <Browser>
           <PageBody>
-            <h1>Sklep internetowy</h1>
-            <label for="input">Wpisz nazwę produktu aby wyszukać:</label>
+            <h1>{t('courses.sql.onlineShop')}</h1>
+            <label for="input">{t('courses.sql.enterProduct')}</label>
             <input disabled name="input" />
             <br />
-            <button disabled>Wyszukaj</button>
+            <button disabled>{t('courses.sql.search')}</button>
           </PageBody>
         </Browser>
         </Wrapper>
           <CodeWrapper>
               <CodeHeaderContainer>
-              <CodeIcon/> <CodeHeader>Kod źródłowy strony internetowej</CodeHeader> 
+              <CodeIcon/> <CodeHeader>{t('courses.sql.sourceCode')}</CodeHeader> 
               </CodeHeaderContainer>
         <AceEditor
           mode="html"

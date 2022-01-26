@@ -70,7 +70,7 @@ const content = [
             },
             {
                 header: "Analiza kodu API",
-                text: "Wartość wysłana z aplikacji internetowej zostaje przekazana do aplikacji serwerowej, celem jej przetworzenia i zwrócenia odpowiednich informacji. W poniższym kodzie źródłowym przedstawiony jest fragment aplikacji działającej po stronie serwera wykonanej w środowisku Node.js, odpowiadający pobraniu zawartości żądania, a następnie bezpośrednie przekazanie go do zapytania bazodanowego. <br>W zwyczajnych okolicznościach atakujący nie ma możliwości wglądu w kod aplikacji serwerowej, jednak poprzez eksperymentowanie z wartościami wysłanych danych jest on w stanie określić jej podatność na atak typu SQL Injection.<br><br> <b>W tym interaktywnym ćwiczeniu zaznacz fragment kodu, w którym znajduje się parametr przesyłany do aplikacji z formularza.</b>",
+                text: "Wartość wysłana z aplikacji internetowej zostaje przekazana do aplikacji serwerowej, celem jej przetworzenia i zwrócenia odpowiednich informacji. W poniższym kodzie źródłowym przedstawiony jest fragment aplikacji działającej po stronie serwera wykonanej w środowisku Node.js, odpowiadający pobraniu zawartości żądania, a następnie bezpośrednie przekazanie go do zapytania bazodanowego. <br/><br/>W zwyczajnych okolicznościach atakujący nie ma możliwości wglądu w kod aplikacji serwerowej, jednak poprzez eksperymentowanie z wartościami wysłanych danych jest on w stanie określić jej podatność na atak typu SQL Injection.<br><br><b>W tym interaktywnym ćwiczeniu zaznacz fragment kodu, w którym znajduje się parametr przesyłany do aplikacji z formularza.</b>",
                 slide: <HighlightSqlCode/>,
                 level: "basic",
                 interactive: true,
@@ -83,7 +83,7 @@ const content = [
                 slide: <SqlInteractive/>,
             },
             {
-                header: "Poziomy abstrakcji w API",
+                header: "Komunikacja z bazą danych w API",
                 text: "Projektując aplikację działającą po stronie serwera, programiści muszą się zdecydować, na jakiej warstwie abstrakcji aplikacja będzie komunikowała się z bazą danych.<br><br>Co do zasady im wyższy poziom abstrakcji, tym niższa podatność na atak SQL Injection, błędy programistów i zazwyczaj bardziej przyjazna składnia. Każdy wyższy poziom abstrakcji komunikacji z bazą w aplikacji, zazwyczaj wspiera elementy w niższym poziomie, przykładowo używając konstruktorów kwerend czy ORM, można posiłkować się czystym SQL.<br><br>Jednakże im wyższa warstwa abstrakcji, tym większa szansa, że zapytania do bazy nie będą dostatecznie dobrze zoptymalizowane, przez co czas na otrzymanie odpowiedzi może być dłuższy. ",
                 slide: <SqlApiAbstractionLayers/>,
                 level: "advanced"
@@ -91,6 +91,57 @@ const content = [
             {
                 header: "Przeciwdziałanie SQL Injection",
                 text: "Ze względu na łatwość wykonania i potecjalne korzyści dla atakującego (możliwość zdobycia wrażliwych danych, modyfikacja bazy), ataki SQL Injection są ciągle powszechnie wykonywane, a same podatności nadal spotykane w kodach źródłowych aplikacji.<br><br> Kwestia odporności aplikacji na podatność SQL Injection zazwyczaj leży po stronie zespołu programistów, bowiem to oni mają bezpośredni wpływ na jakość wykonanego oprogramowania.<br><br>Tworząc aplkację należy pamiętać o tym, aby miejsca najbardziej wrażliwe na atak, przykładowo takie, które bezpośrednio komunikują się z relacyjną bazą danych, odpowiednio <strong>walidować i oczyszczać</strong>. Cała logika uodporniająca aplikację powinna dziać się jedynie po stronie serwera, a nie po stronie przeglądarki, ze względu na możliwość wykorzystania serwerów proxy.",
+                slide: <SqlPrevention/>,
+                level: "basic"
+            }
+        ]
+    },
+    {
+        course: "sql-injection",
+        language: "en",
+        content: [
+            {
+                header: "Course scenario",
+                text: "A simple web shop page is launched in the browser. Its basic functionality is to search for a product and then browse products related to the entered phrase. <br/><br/>The first step an attacker takes is to carefully examine and analyse the source code of the website. This allows him to review the website's code for potential vulnerabilities and security holes. ",
+                level: "basic",
+                slide: <Introduction/>,
+            },
+            {
+                header: "Website code analysis",
+                text: "As you can see in the attached source code snippet, the shop application consists of a body (starting with a <b>&lt;body&gt;</b> tag), which contains the page structure, and a script (starting with a <b>&lt;script&gt;</b> tag), which is executed when certain circumstances occur. In this case, a function is called when the button, located in the <b>&lt;button&gt;</b> tag is pressed. The task of the function is to send an HTTP request of GET type to the https://api/search with the body as an object. This object contains a key-value pair specifying the string the user is searching for.<br><br><b>In this interactive exercise, try to highlight the function in the code that is responsible for submitting the form.</b>",
+                level: "basic",
+                slide: <HighlightHtml/>,
+                interactive: true,
+            },
+            {
+                header: "Interception and modification of the request",
+                text: "Form fields are usually validated for special characters, which, according to application developers, should not be sent to the server-side application.<br><br>In order to bypass the validation of form values on the client side, an attacker can use a  <b>proxy server</b>, usually running on the same machine from which the attack is launched. It allows to intercept the whole request and modify it in any way. In this example, a field 'value' was modified. Such request should not be possible to send, due to the form field validation being in place. Based on the error codes returned, the attacker is able to determine if this site is vulnerable to an SQL Injection attack.",
+                slide: <WhatIsProxy/>,
+                level: "advanced",
+            },
+            {
+                header: "API code analysis",
+                text: "The value sent from the web application is passed to the server-side application for processing and returning the relevant information. The source code below shows a fragment of a server-side application executed in the Node.js environment, corresponding to retrieving the content of a request and then passing it directly to a database query. <br/><br/>Under normal circumstances, an attacker has no way of viewing the server-side application code, but by experimenting with the values of the data sent, they are able to determine its vulnerability to an SQL Injection attack.<br><br><b>In this interactive exercise, select a piece of code that contains a parameter sent to the application from a form.</b>",
+                slide: <HighlightSqlCode/>,
+                level: "basic",
+                interactive: true,
+            },
+            {
+                header: "API code simulation upon receiving request",
+                text: "An attacker, by submitting various values in a form, and analyzing the error codes, is able to determine if a particular server-side application is vulnerable to an SQL Injection attack.<br><br>This is done by adding unusual characters to the value being searched for, e.g. <strong>'</strong>, <strong>\"</strong>, <strong>-</strong>... Should the value passed to the SQL query is not sanitized in any way, the extra characters can get into the query and completely modify it. You will notice that by adding <strong>'</strong> at the beginning of a word, you can close the apostrophe found in the query in the server application, and add your own part of the query that was not previously there.<br><br><strong>In this interactive exercise, try to perform a SQL Injection attack yourself. Use the apostrophe character, any real value (e.g. 1=1) and a comment.</strong>",
+                level: "basic",
+                interactive: true,
+                slide: <SqlInteractive/>,
+            },
+            {
+                header: "Database communication in",
+                text: "When designing a server-side application, developers must decide on which abstraction layer the application will communicate with the database.<br/><br/>As a rule of thumb, the higher the level of abstraction, the lower the susceptibility to SQL Injection attacks, programmer errors and usually a more friendly syntax. Any higher level of abstraction of database communication in an application will usually support elements in the lower level, for example using query builders or ORM allows developers to fetch for data using pure SQL.<br><br>However, the higher the abstraction layer, the greater the chance that queries to the database will not be optimised well enough, so that response times may be longer.",
+                slide: <SqlApiAbstractionLayers/>,
+                level: "advanced"
+            },
+            {
+                header: "Protection against SQL Injection",
+                text: "Due to the ease of execution and the potential benefits for the attacker (possibility to gain sensitive data, modify the database), SQL Injection attacks are still commonly executed, and the vulnerabilities themselves are still found in the source codes of applications.<br><br> The issue of application resistance to SQL Injection usually lies with the development team, as they have a direct impact on the quality of the developed software.<br><br>While creating an application, one should remember to properly <strong> validate and sanitize</strong> the places that are most vulnerable to the attack, for example those that directly communicate with a relational database. The whole logic making the application resistant should take place only on the server side, and not on the browser side, because of the possibility of using proxy servers.",
                 slide: <SqlPrevention/>,
                 level: "basic"
             }

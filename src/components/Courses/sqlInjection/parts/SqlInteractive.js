@@ -3,6 +3,7 @@ import Browser from "components/Browser/Browser.js";
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-github";
+import { useTranslation } from "react-i18next";
 
 import {
   Container,
@@ -15,8 +16,9 @@ import {
 } from "../styles.js";
 
 const SqlInteractive = (props) => {
-  const [search, setSearch] = useState("Komputer");
+  const [search, setSearch] = useState("Laptop");
   const aceEditor = useRef(null);
+  const {t} = useTranslation()
 
   useEffect(() => {
     props.setWaitForCorrectAnswer(true);
@@ -45,8 +47,8 @@ searchItem: async (args, req) => {
       <Wrapper>
         <Browser>
           <PageBody>
-            <h1>Sklep internetowy</h1>
-            <label for="input">Wpisz nazwę produktu aby wyszukać:</label>
+            <h1>{t('courses.sql.onlineShop')}</h1>
+            <label for="input">{t('courses.sql.enterProduct')}</label>
             <input
               name="input"
               value={search}
@@ -62,7 +64,7 @@ searchItem: async (args, req) => {
                 else props.setWaitForCorrectAnswer(true);
               }}
             >
-              Wyszukaj
+              {t('courses.sql.search')}
             </button>
           </PageBody>
         </Browser>
@@ -70,7 +72,7 @@ searchItem: async (args, req) => {
       <CodeWrapper>
         <CodeHeaderContainer>
           <CodeIcon />{" "}
-          <CodeHeader>Kod źródłowy aplikacji serwerowej</CodeHeader>
+          <CodeHeader>{t('courses.sql.sourceCode')}</CodeHeader>
         </CodeHeaderContainer>
         <AceEditor
           mode="javascript"

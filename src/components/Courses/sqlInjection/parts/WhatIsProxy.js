@@ -6,6 +6,7 @@ import colors from "constans/colors";
 import { ImArrowDown as ArrowDownIcon } from "react-icons/im";
 import { MdComputer as ClientIcon } from "react-icons/md";
 import { VscServerProcess as ProxyIcon, VscServer as InternetIcon } from "react-icons/vsc";
+import { useTranslation } from "react-i18next";
 
 const BigIcon = css`
   font-size: 100px;
@@ -108,29 +109,31 @@ Origin: https://sklep-internetowy.com<br>
 `
 
 const WhatIsProxy = () => {
+  const {t} = useTranslation()
+
   return (
       <Container>
     <InfoColumn>
       <Wrapper>
         <Client />
-        <Header>Klient</Header>
-        <Description>Podczas wyszukiwania produktu zostaje wysłane żądanie w oryginalej postaci i w określonym formacie, np. bez znaków specjalnych</Description>
+        <Header>{t('courses.sql.proxyHeader1')}</Header>
+        <Description>{t('courses.sql.proxyAnswer1')}</Description>
       </Wrapper>
       <Wrapper>
         <ArrowRight />
       </Wrapper>
       <Wrapper>
         <Proxy />
-        <Header>Proxy</Header>
-        <Description>Żądanie zostaje przechwycone i <b>dowolnie</b> zmodyfikowane</Description>
+        <Header>{t('courses.sql.proxyHeader2')}</Header>
+        <Description>{t('courses.sql.proxyAnswer2')}</Description>
       </Wrapper>
       <Wrapper>
         <ArrowRight />
       </Wrapper>
       <Wrapper>
           <Internet/>
-        <Header>Serwer</Header>
-        <Description>Serwer otrzymuje zmodyfikowane żądanie ze znakami specjalnymi</Description>
+        <Header>{t('courses.sql.proxyHeader3')}</Header>
+        <Description>{t('courses.sql.proxyAnswer3')}</Description>
       </Wrapper>
     </InfoColumn>
     <DetailsColumn>

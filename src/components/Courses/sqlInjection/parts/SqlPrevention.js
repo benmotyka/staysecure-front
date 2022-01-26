@@ -5,6 +5,7 @@ import { Line } from "components/PreviewItems/PreviewItems.styles.js";
 import { useState } from "react";
 import {} from "react-icons/bs";
 import { AiFillWarning as WarningIcon } from "react-icons/ai";
+import { useTranslation } from "react-i18next";
 
 import {
   Container,
@@ -83,28 +84,25 @@ const Warning = styled(WarningIcon)`
 
 const SqlPrevention = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const {t} = useTranslation()
 
   return (
     <Container>
       <HeaderWrapper>
         <Button active={activeSlide === 0} onClick={() => setActiveSlide(0)}>
-          Walidacja danych wejściowych
+          {t('courses.sql.sqlPreventionHeader1')}
         </Button>
         <Button active={activeSlide === 1} onClick={() => setActiveSlide(1)}>
-          Parametryzowanie zapytań
+        {t('courses.sql.sqlPreventionHeader2')}
         </Button>
         <Button active={activeSlide === 2} onClick={() => setActiveSlide(2)}>
-          Ograniczenie dostępu
+        {t('courses.sql.sqlPreventionHeader3')}
         </Button>
       </HeaderWrapper>
       {activeSlide === 0 && (
         <ContentWrapper>
           <ContentHeader>
-            Każde dane, które pochodzą od użytkownika, powinny być najpierw
-            sprawdzone pod kątem występowania dozwolonych znaków (np. A-Z, a-z),
-            albo nie występowania znaków nie dozwolonych (np. ', ", -). Dzięki
-            temu atakujący nie będzie w stanie złośliwie zmodyfikować zapytania
-            SQL.
+          {t('courses.sql.sqlPreventionAnswer1')}
             <Line />
           </ContentHeader>
           <FlexCenterWrapper>
@@ -122,12 +120,7 @@ const SqlPrevention = () => {
       {activeSlide === 1 && (
         <ContentWrapper>
           <ContentHeader>
-            Parametryzowanie zapytań polega na przygotowaniu zapytania
-            bazodanowego i parametrów znajdujących się w nim, a następnie
-            przesłanie tych informacji do silnika bazy danych. Silnik, na bazie
-            dostarczonych mu informacji sam skonstruuje zapytanie. W przypadku
-            błędów składniowych spowodowanych np. znakami specjalnymi silnik
-            zwróci błąd.
+          {t('courses.sql.sqlPreventionAnswer2')}
             <Line />
           </ContentHeader>
           <FlexCenterWrapper>
@@ -153,12 +146,7 @@ const SqlPrevention = () => {
       {activeSlide === 2 && (
         <ContentWrapper>
           <ContentHeader>
-            Kolejnym rozwiązaniem może być stworzenie roli dostępu tylko do
-            odczytu dla bazy danych, a następnie nadanie tej roli w połączeniu
-            dla najbardziej wrażliwych funkcji, które mają za zadanie jedynie
-            zwrócić dane. Pomoże to w sytuacji, kiedy atakujący będzie próbował
-            zmodyfikować strukturę bazy lub jej dane, jednak nadal pozwoli na
-            wykradnięcie nadmiernych wrażliwych danych.
+          {t('courses.sql.sqlPreventionAnswer3')}
             <Line />
           </ContentHeader>
           <FlexCenterWrapper>

@@ -19,7 +19,11 @@ import {
 } from "../styles.js";
 import Browser from "components/Browser/Browser.js";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+
 const RansomwareDownload = (props) => {
+  const {t} = useTranslation()
+
   useEffect(() => {
     props.setWaitForCorrectAnswer(true);
   }, []);
@@ -30,37 +34,37 @@ const RansomwareDownload = (props) => {
         <Browser urlValue="https://skrzynka-pocztowa.pl/mail=539108">
           <MailPageSidebar>
             <Mail />
-            <MailPageHeader>Skrzynka pocztowa</MailPageHeader>
+            <MailPageHeader>{t('courses.ransomware.mailbox')}</MailPageHeader>
           </MailPageSidebar>
           <MailContainer>
             <MailWrapper>
               <MailHeaderContainer>
                 <MailDetail>
-                  <strong>Od:</strong> bank@zauf4ny.pl
+                  <strong>{t('courses.ransomware.from')}:</strong> {t('courses.ransomware.bankName')}
                 </MailDetail>
                 <MailDetail>
-                  <strong>Tytuł:</strong> PILNE: Nieuregulowany rachunek
+                  <strong>{t('courses.ransomware.title')}:</strong> {t('courses.ransomware.titleContent')}
                 </MailDetail>
                 <MailDetail>
-                  <strong>Data:</strong> 14.12.2021 22:54
+                  <strong>{t('courses.ransomware.date')}:</strong> 14.12.2021 22:54
                 </MailDetail>
               </MailHeaderContainer>
               <MailBody>
                 <MailText>
-                  Szanowny kliencie,
+                {t('courses.ransomware.mailPart1')}
                   <br />
                   <br />
-                  Zwracamy się z uprzejmą prośbą o uregulowanie rachunku z dnia
-                  14.12.2021. Ostateczny termin do zapłaty to{" "}
+                  {t('courses.ransomware.mailPart2')}
                   <strong>31.12.2021</strong>.<br />
-                  <br /> Jeśli płatność nie zostanie uregulowana konto zostanie
-                  obciążone kwotą 2000 PLN.
+                  <br /> 
+                  {t('courses.ransomware.mailPart3')}
                   <br />
                   <br />
-                  Zaufany Bank
+                  {t('courses.ransomware.mailPart4')}
                   <br />
                   <br />
-                  <strong>Załączniki:</strong>
+                  <strong>
+                  {t('courses.ransomware.mailPart5')}:</strong>
                 </MailText>
                 <DownloadItem
                   active={true}
@@ -73,7 +77,7 @@ const RansomwareDownload = (props) => {
                     <File />
                   </DownloadItemWrapper>{" "}
                   <DownloadItemWrapper>
-                    <Header>rachunek.exe</Header>
+                    <Header>{t('courses.ransomware.program')}</Header>
                   </DownloadItemWrapper>
                 </DownloadItem>
               </MailBody>
@@ -88,7 +92,7 @@ const RansomwareDownload = (props) => {
                 <File />
               </DownloadItemWrapper>{" "}
               <DownloadItemWrapper>
-                <Header>rachunek.exe</Header>
+                <Header>{t('courses.ransomware.program')}</Header>
                 <Description>https://skrzynka-pocz...</Description>
               </DownloadItemWrapper>
             </DownloadItem>

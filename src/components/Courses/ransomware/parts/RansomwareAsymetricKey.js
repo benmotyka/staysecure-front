@@ -1,11 +1,12 @@
+import { useTranslation } from "react-i18next";
 
-import styled, { css } from "styled-components";
-import colors from "constans/colors.js";
 import {Key, BadUser, Arrow, Laptop, Lock, ContentBody, FlexCenterWrapper, ContainerOneItem, ItemsColumnWrapper, ColumnFixedWrapper, ItemDescription} from '../styles.js'
 
 
 
 const RansomwareAsymetricKey = () => {
+  const {t} = useTranslation()
+
     return (
         <ContainerOneItem>
             <ColumnFixedWrapper>
@@ -17,7 +18,7 @@ const RansomwareAsymetricKey = () => {
             <BadUser/>
             </FlexCenterWrapper>
             <ItemDescription>
-            Atakujący jest w posiadaniu dwóch kluczy - prywatnego (zielonego) i publicznego (złotego)
+            {t('courses.ransomware.rceDescription')}
             </ItemDescription>
             </ColumnFixedWrapper>
             <Arrow/>
@@ -30,7 +31,7 @@ const RansomwareAsymetricKey = () => {
             </ContentBody>
             </FlexCenterWrapper>
             <ItemDescription>
-            Atakujący szyfruje dane na urządzeniu kluczem publicznym. Rozszyfrować te dane może jedynie klucz prywatny.
+            {t('courses.ransomware.attackerOwnKeys')}
             </ItemDescription>
             </ColumnFixedWrapper>
         </ContainerOneItem>

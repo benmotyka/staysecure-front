@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import {
   DesktopContainer,
@@ -24,6 +25,8 @@ import {
 } from "./Desktop.styles.js";
 
 const DownloadedRansomwareDesktop = (props) => {
+  const {t} = useTranslation()
+
   const [showRansomDocument, setShowRansomDocument] = useState(false);
 
 
@@ -35,23 +38,23 @@ const DownloadedRansomwareDesktop = (props) => {
       <BasicIcons>
         <Icon>
           <IconImage src="desktop/my_computer.ico" />
-          <IconText>Mój komputer</IconText>
+          <IconText>{t('courses.ransomware.file1')}</IconText>
         </Icon>
         <Icon>
           <IconImage src="desktop/folder.ico" />
-          <IconText>Ważne pliki</IconText>
+          <IconText>{t('courses.ransomware.file2')}</IconText>
         </Icon>
         <Icon>
           <IconImage src="desktop/image.ico" />
-          <IconText>Zdjęcie.jpg</IconText>
+          <IconText>{t('courses.ransomware.file2')}</IconText>
         </Icon>
         <Icon>
           <IconImage src="desktop/textfile.ico" />
-          <IconText>Notatki.txt</IconText>
+          <IconText>{t('courses.ransomware.file3')}</IconText>
         </Icon>
         <Icon>
           <IconImage src="desktop/wordpad.ico" />
-          <IconText>Finsanse.docx</IconText>
+          <IconText>{t('courses.ransomware.file4')}</IconText>
         </Icon>
         <Icon onClick={() => {
           setShowRansomDocument(true)

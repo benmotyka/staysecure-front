@@ -258,7 +258,7 @@ const content = [
                 level: "advanced"
             },
             {
-                header: "Pobranie i uruchomienie wirusa",
+                header: "Pobranie wirusa",
                 text: "Załóżmy, że wirus ransomware został rozesłany do ofiar w postaci <strong>maili phishingowych</strong>. <br/><br/>Dobrze spreparowana wiadomość będzie zachęcała odbiorcę do niezwłocznego pobrania i uruchomienia pliku, bez wcześniejszego zweryfikowania nadawcy ani typu załącznika. Na pierwszy rzut oka nadawca i plik wyglądają prawidłowo, jednak po dalszej analizie, zauważyć można wzbudzający wątpliwości adres mailowy, oraz typ (rozszerzenie) pobranego pliku.<br/><br/>Jeśli ofiara da się przekonać wiadomości, najprawdopodobniej natychmiast pobierze i uruchomi załącznik. <br/><br/><strong>W tym interaktywnym ćwiczeniu wykonaj symulację pobrania złośliwego załącznika.</strong>",
                 level: "basic",
                 slide: <RansomwareDownload/>,
@@ -266,7 +266,7 @@ const content = [
             },
             {
                 header: "Uruchomienie ransomware",
-                text: "Uruchomienie wirusa nie będzie skutkowało natychmiastowym zablokowaniem dostępu do danych na urządzeniu, gdyż musi minąć pewien czas, w ciągu którego ransomware zaszyfruje wszystkie pliki.<br/><br/>Aby wzbudzić zaufanie ofiary i tym samym dać wirusowi więcej czasu na wykonanie swojego zadania, często po uruchomieniu pliku może wyświetlić się oczekiwana treść - w tym przypadku będzie to rachunek bankowy.<br/><br/>Po dokładniejszej analizie zauważyć można jednak, iż nie jest on zgodny z rzeczywistością. Na tym etapie zazwyczaj jest już za późno na podjęcie akcji.<br/><br/><strong>W tym interaktywnym ćwiczeniu postaraj się uruchomić wcześniej pobrany plik.",
+                text: "Uruchomienie wirusa nie będzie skutkowało natychmiastowym zablokowaniem dostępu do danych na urządzeniu, gdyż musi minąć pewien czas, w ciągu którego ransomware zaszyfruje wszystkie pliki.<br/><br/>Aby wzbudzić zaufanie ofiary i tym samym dać wirusowi więcej czasu na wykonanie swojego zadania, często po uruchomieniu pliku może wyświetlić się oczekiwana treść - w tym przypadku będzie to rachunek bankowy.<br/><br/>Po dokładniejszej analizie zauważyć można jednak, iż nie jest on zgodny z rzeczywistością. Na tym etapie zazwyczaj jest już za późno na podjęcie akcji.<br/><br/><strong>W tym interaktywnym ćwiczeniu postaraj się uruchomić wcześniej pobrany plik.</strong>",
                 level: "basic",
                 slide: <RansomwareRun/>,
                 interactive: true
@@ -281,6 +281,57 @@ const content = [
             {
                 header: "Metody ochrony przed ransomware",
                 text: "Przed atakiem typu ransomware ciężko się w pełni ochronić. Można jednak podjąć akcje, które pomogą zniwelować jego skutki.<br/><br/>Najważniejszym elementem jest <strong>zasada ograniczonego zaufania</strong> i dokładnego analizowania otrzymanych maili, pobranych plików.<br/><br/>Kolejnym ze sposobów na ochronę jest częste wykonywanie kopii zapasowych, jednak istnieje możliwość, że ransomware zaszyfruje także wszystkie kopie zapasowe, przez co staną się one bezużyteczne.",
+                level: "basic",
+                slide: <RansomwareProtectMethods/>,
+            },
+        ]
+    },
+    {
+        course: "ransomware",
+        language: "en",
+        content: [
+            {
+                header: "Methods of infection",
+                text: "Ransomware, like any other type of malware, can get into an endpoint device by various means. The most common attack vectors are <strong>remote access</strong>, <strong>phishing emails</strong> or <strong>remote code execution</strong>.<br/><br/> Each of the above-mentioned methods boils down to one thing - installing malicious software (a virus) on the victim's device. <br/><br/>The main goal of ransomware is to encrypt data on the end device in order to demand a ransom for its decryption.",
+                level: "basic",
+                slide: <RansomwareInfection/>,
+            },
+            {
+                header: "Creating keys",
+                text: "The attacker generates a pair of keys: public and private. Asymmetric cryptography works in such a way that anything encrypted with the public key can <strong>only</strong> be decrypted with the private key.<br/><br/>A virus that is spread by an attacker will encrypt files with the <strong>public key</strong>. If the victim complies with the imposed ransom, they may be provided with a private key, which is the only way to decrypt the data. In the vast majority of cases, this will not happen - if you fall victim to ransomware, it is a bad idea to pay off the ransom. Most often the attacker will no longer care about providing the victim with the key to decrypt the data. ",
+                level: "basic",
+                slide: <RansomwareAsymetricKey/>,
+            },
+            {
+                header: "Spam filters",
+                text: "A common practice with most mailbox providers is the functionality of <strong>attachment filters</strong>.<br/><br/>These can analyse the content of attached files, regardless of their type. The content of the files is then compared against a database containing every known malware - in this case ransomware - to estimate the likelihood that the analysed attachment is a ransomware virus.<br/><br/>An email message that turns out to be very similar to a virus will not be delivered to the recipient, thus protecting potential victims from infection.<br/><br/>However, it is worth remembering that even filters sometimes make mistakes. It is not uncommon for them to let a malicious attachment pass or to reject a standard message due to the mistaken belief that its content is suspicious.",
+                slide: <RansomwareFilterEmail/>,
+                level: "advanced"
+            },
+            {
+                header: "Downloading the virus",
+                text: "Let us assume that a ransomware virus has been sent to victims in the form of <strong>phishing emails</strong>.<br/><br/> A well crafted message will encourage the recipient to immediately download and run the file, without first verifying the sender or type of attachment. At first glance, the sender and file look correct, but upon further examination, a questionable email address and type (extension) of the downloaded file can be spotted. <br/><br/>If the victim is persuaded by the message, they are likely to immediately download and run the attachment. <br/><br/><strong>In this interactive exercise, simulate downloading a malicious attachment.</strong>",
+                level: "basic",
+                slide: <RansomwareDownload/>,
+                interactive: true
+            },
+            {
+                header: "Running ransomware",
+                text: "Launching the virus will not immediately block access to data on the device, as a certain amount of time must pass during which the ransomware will encrypt all files.<br/><br/>In order to inspire trust in the victim and thus give the virus more time to complete its task, often the expected content may be displayed after the file is launched - in this case, it will be a bank account.<br/><br/>However, on closer inspection, it may appear to be wrong. At this stage, it is usually too late to take action.<br/><br/><strong>In this interactive exercise, try to run the previously downloaded file.</strong>",
+                level: "basic",
+                slide: <RansomwareRun/>,
+                interactive: true
+            },
+            {
+                header: "Encrypted files",
+                text: "Once the ransomware completes its work, the end user <strong>loses access to all data on the device</strong>. Depending on the type of ransomware, usually the only way to decrypt data is to use an encryption private key in the attacker's possession.<br/><br/>Obtaining this key, however, is not a trivial task - it is accompanied by a monetary payment, made in the most anonymous way possible. In addition, to speed up the process of obtaining the payment, the attacker often threatens the victim with the destruction of the key, which is the only way to gain access to the encrypted data.<br/><br/><strong>In this interactive exercise, try to run a newly created file and then analyse its contents.</strong>",
+                level: "basic",
+                slide: <RansomwareEncrypted/>,
+                interactive: true
+            },
+            {
+                header: "Ransomware protection methods",
+                text: "It is difficult to fully protect yourself from a ransomware attack. However, you can take actions which will help to neutralise its effects.<br/><br/>The most important element is <strong>the principle of limited trust</strong> and thorough analysis of e-mails received and files downloaded.<br/><br/>Another way to protect yourself is to make frequent backups, but it is possible that ransomware will also encrypt all backups, rendering them useless.",
                 level: "basic",
                 slide: <RansomwareProtectMethods/>,
             },

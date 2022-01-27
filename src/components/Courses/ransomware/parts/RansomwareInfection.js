@@ -2,27 +2,29 @@ import { Line } from "components/PreviewItems/PreviewItems.styles.js";
 import { useState } from "react";
 
 import {Container, HeaderWrapper, Button, ContentWrapper, ContentHeader, ContentBody, BadUser, Victim, Arrow, RelativeContainer, Laptop, BadMail, App} from "../styles.js"
+import { useTranslation } from "react-i18next";
 
 const RansomwareInfection = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const {t} = useTranslation()
+
   return (
     <Container>
       <HeaderWrapper>
         <Button active={activeSlide === 0} onClick={() => setActiveSlide(0)}>
-          Zdalny dostęp
+        {t('courses.ransomware.remoteAccessHeader')}
         </Button>
         <Button active={activeSlide === 1} onClick={() => setActiveSlide(1)}>
-          Maile phishingowe
+        {t('courses.ransomware.phishingMailsHeader')}
         </Button>
         <Button active={activeSlide === 2} onClick={() => setActiveSlide(2)}>
-          Zdalne wykonanie kodu
+        {t('courses.ransomware.rceHeader')}
         </Button>
       </HeaderWrapper>
       {activeSlide === 0 && (
         <ContentWrapper>
           <ContentHeader>
-            Atakujący poprzez techniki inżynieri społecznej uzyskuje zdalny
-            dostęp do urządzenia ofiary, używając takich programów jak TeamViewer. Tym samym jest w stanie wykonać na jej urządzeniu dowolną akcję, w tym przypadku będzie to zainstalowanie ransomware, zaszyfrowane wcześniej przygotowanym kluczem.
+          {t('courses.ransomware.remoteAccessDescription')}
           <Line />
           </ContentHeader>
           <ContentBody>
@@ -35,7 +37,7 @@ const RansomwareInfection = () => {
       )}
       {activeSlide === 1 && <ContentWrapper>
           <ContentHeader>
-            Atakujący przygotowuje wspólny szablon maila phishingowego, który następnie zostanie rozesłany do wielu ofiar. Każdy załącznik w mailu będzie zawierał ransomware. Wirus zaszyfruje pliki używając unikalnego dla każdego adresu email, wcześniej przygotowanego klucza.
+          {t('courses.ransomware.phishingMailsDescription')}
           <Line />
           </ContentHeader>
           <ContentBody>
@@ -56,7 +58,7 @@ const RansomwareInfection = () => {
           </ContentWrapper>}{" "}
       {activeSlide === 2 && <ContentWrapper>
         <ContentHeader>
-            Atakujący znajduje lukę w programie, który uruchomiła ofiara lub serwer. Luka ta pozwala na zdalne wykonanie kodu na urzadzeniu końcowym - co wiązać się może z pobraniem, a następnie uruchomieniem ransomware przez atakującego. 
+        {t('courses.ransomware.rceDescription')}
           <Line />
           </ContentHeader>
           <ContentBody>

@@ -1,4 +1,5 @@
 import { Line } from "components/PreviewItems/PreviewItems.styles.js";
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
 
 import {
@@ -18,28 +19,25 @@ import {
 
 const RansomwareProtectMethods = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const {t} = useTranslation()
+
   return (
     <Container>
       <HeaderWrapper>
         <Button active={activeSlide === 0} onClick={() => setActiveSlide(0)}>
-          Zasada ograniczonego zaufania
+        {t('courses.ransomware.principleTrustHeader')}
         </Button>
         <Button active={activeSlide === 1} onClick={() => setActiveSlide(1)}>
-          Kopia zapasowa
+        {t('courses.ransomware.backupHeader')}
         </Button>
         <Button active={activeSlide === 2} onClick={() => setActiveSlide(2)}>
-          Antywirus, aktualizacje
+        {t('courses.ransomware.antivirusUpdatesHeader')}
         </Button>
       </HeaderWrapper>
       {activeSlide === 0 && (
         <ContentWrapper>
           <ContentHeader>
-            Zasada ograniczonego zaufania w firmach polega na dostarczeniu
-            pracownikom dostępu do tych elementów systemu, które są im niezbędne
-            do pracy. Wszystko, do czego nie potrzebują dostępu, powinno być
-            domyślnie <strong>zablokowane</strong>. Zasada ta może być również
-            używana do analizy każdego przychodzącego maila, pobranego pliku czy
-            odebranego SMSa.
+          {t('courses.ransomware.principleTrustDescription')}
             <Line />
           </ContentHeader>
           <FlexCenterWrapper>
@@ -56,16 +54,10 @@ const RansomwareProtectMethods = () => {
       {activeSlide === 1 && (
         <ContentWrapper>
           <ContentHeader>
-            Tworzenie kopii zapasowych polega na okresowym zapisywaniu danych,
-            ewentualnej kompresji i przeniesieniu na inne urządzenie lub usługę
-            chmurową. W przypadku firm kopia zapasowa może również obejmować
-            infrastrukturę aplikacyjną, bazy danych, czy inne ważne dokumenty.{" "}
+          {t('courses.ransomware.backupDescription1')}
             <br />
-            <br />W momencie infekcji wirusem ransomware, rozwiązaniem problemu
-            będzie przywrócenie stanu systemu sprzed momentu infekcji. Należy
-            jednak pamiętać o tym, iż w rzadkich przypadkach, ransomware może
-            również dostać się do miejsca, w którym znajdują się zarchiwizowane
-            dane, jednocześnie je szyfrując, i odbierając tę możliwość.
+            <br />
+            {t('courses.ransomware.backupDescription2')}
             <Line />
           </ContentHeader>
           <FlexCenterWrapper>
@@ -82,13 +74,10 @@ const RansomwareProtectMethods = () => {
       {activeSlide === 2 && (
         <ContentWrapper>
           <ContentHeader>
-            Jedną z najlepszych metod zapobiegania infekcji ransomware jest
-            stosowanie dobrego antywirusa oraz częste aktualizacje wszystkich
-            programów i systemu operacyjnego.
+          {t('courses.ransomware.antivirusUpdatesDescription1')}
             <br />
-            <br />W sytuacji, w której ransomware trafi do urządzenia, dobry
-            antywirus może przeanalizować zawartość złośliwego pliku i często
-            nie pozwoli użytkownikowi go uruchomić.
+            <br />
+            {t('courses.ransomware.antivirusUpdatesDescription2')}
             <Line />
           </ContentHeader>
           <FlexCenterWrapper>

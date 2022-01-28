@@ -46,15 +46,15 @@ const DownloadedRansomwareDesktop = (props) => {
         </Icon>
         <Icon>
           <IconImage src="desktop/image.ico" />
-          <IconText>{t('courses.ransomware.file2')}</IconText>
-        </Icon>
-        <Icon>
-          <IconImage src="desktop/textfile.ico" />
           <IconText>{t('courses.ransomware.file3')}</IconText>
         </Icon>
         <Icon>
-          <IconImage src="desktop/wordpad.ico" />
+          <IconImage src="desktop/textfile.ico" />
           <IconText>{t('courses.ransomware.file4')}</IconText>
+        </Icon>
+        <Icon>
+          <IconImage src="desktop/wordpad.ico" />
+          <IconText>{t('courses.ransomware.file5')}</IconText>
         </Icon>
         <Icon onClick={() => {
           setShowRansomDocument(true)
@@ -62,7 +62,7 @@ const DownloadedRansomwareDesktop = (props) => {
         }
         }>
           <IconImage src="desktop/exe.ico" />
-          <IconText>Rachunek.exe</IconText>
+          <IconText>{t('courses.ransomware.file6')}</IconText>
         </Icon>
       </BasicIcons>
       <ChildContainer>{props.children}</ChildContainer>
@@ -91,21 +91,21 @@ const DownloadedRansomwareDesktop = (props) => {
       {showRansomDocument && (
         <WindowContainer>
           <WindowHeader>
-            <WindowDescription>Rachunek</WindowDescription>
+            <WindowDescription>{t('courses.ransomware.receipt')}</WindowDescription>
             <Close onClick={() => setShowRansomDocument(false)} />
           </WindowHeader>
           <DocumentContainer>
             <DocumentItemWrapper>
-              <Bank /> <DocumentHeader>Zaufany Bank</DocumentHeader>
+              <Bank /> <DocumentHeader>{t('courses.ransomware.trustedBank')}</DocumentHeader>
             </DocumentItemWrapper>
-            <h4>RACHUNEK WINIEN (NADAWCA): JAN KOWALSKI</h4>
-            <p>Numer rachunku: 123456789011121314</p>
-            <p>Nazwa banku: Zaufany Bank</p>
-            <p>Właściciel: JAN KOWALSKI</p>
-            <h4>SZCZEGÓŁY OPERACJI</h4>
-            <p>Kwota operacji: -10.53 PLN</p>
-            <p>Kwota obciążenia: -10.53 PLN</p>
-            <p>Data księgowania:              {newDate.getDate()}/{newDate.getMonth() + 1}/
+            <h4>{t('courses.ransomware.ransomFilePart1')}</h4>
+            <p>{t('courses.ransomware.ransomFilePart2')}: 123456789011121314</p>
+            <p>{t('courses.ransomware.ransomFilePart3')}</p>
+            <p>{t('courses.ransomware.ransomFilePart4')}</p>
+            <h4>{t('courses.ransomware.ransomFilePart5')}</h4>
+            <p>{t('courses.ransomware.ransomFilePart6')}: -10.53 PLN</p>
+            <p>{t('courses.ransomware.ransomFilePart7')}: -10.53 PLN</p>
+            <p>{t('courses.ransomware.ransomFilePart8')}:              {newDate.getDate()}/{newDate.getMonth() + 1}/
               {newDate.getFullYear()}</p>
           </DocumentContainer>
         </WindowContainer>

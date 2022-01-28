@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
     DesktopContainer,
     TaskBar,
@@ -34,6 +35,8 @@ import {
   const [showRansomDocument, setShowRansomDocument] = useState(false);
     const newDate = new Date();
     const ransomwareDate =  new Date(new Date().getTime()+(5*24*60*60*1000));
+  const {t} = useTranslation()
+
 
     return (
       <DesktopContainer
@@ -42,7 +45,7 @@ import {
         <BasicIcons>
           <Icon>
             <IconImage src="desktop/my_computer.ico" />
-            <IconText>Mój komputer</IconText>
+            <IconText>{t('courses.ransomware.file1')}</IconText>
           </Icon>
           <Icon>
             <IconImage src="desktop/file.ico" />
@@ -66,14 +69,14 @@ import {
           }}
           >
             <IconImage src="desktop/exe.ico" />
-            <IconText>Rachunek.exe</IconText>
+            <IconText>{t('courses.ransomware.file6')}</IconText>
           </Icon>
           <Icon onClick={() => {
             props.setWaitForCorrectAnswer(false)
             setShowRansomPopup(true)
           }}>
             <IconImage src="desktop/exe.ico" />
-            <IconText>CLICK ME.exe</IconText>
+            <IconText>{t('courses.ransomware.file7')}</IconText>
           </Icon>
         </BasicIcons>
         <ChildContainer>{props.children}</ChildContainer>
@@ -101,17 +104,17 @@ import {
         </TaskBar>
         {showRansomPopup && 
         <WindowContainer>
-            <WindowHeader><WindowDescription>RANSOMWARE</WindowDescription><Close onClick={() => setShowRansomPopup(false)}/></WindowHeader>
+            <WindowHeader><WindowDescription>{t('courses.ransomware.ransomPopupHeader')}</WindowDescription><Close onClick={() => setShowRansomPopup(false)}/></WindowHeader>
         <RansomwareContainer>
             <RansomwareWrapper>
                 <Lock/>
             <RansomwareWarning>
-                Klucz prywatny zostanie zniszczony: <br/><br/>{ransomwareDate.toDateString()} <br/> {ransomwareDate.getHours()}:{(ransomwareDate.getMinutes() < 10 ? "0" : "") + ransomwareDate.getMinutes()}
+            {t('courses.ransomware.ransomPopupPart1')}: <br/><br/>{ransomwareDate.toDateString()} <br/> {ransomwareDate.getHours()}:{(ransomwareDate.getMinutes() < 10 ? "0" : "") + ransomwareDate.getMinutes()}
                 </RansomwareWarning>
             </RansomwareWrapper>
             <RansomwareWrapper>
-                <RansomwareHeader>Twoje dane zostały zaszyfrowane!</RansomwareHeader>
-                <RansomwareBody><WindowDescription>Wszystkie pliki na tym urządzeniu zostały zaszyfrowane z użyciem unikalnego klucza publicznego RSA-2048, wygenerowanego unikalnie dla tego urządzenia. Aby odszyfrować wszystkie swoje pliki, potrzebujesz <strong>klucza prywatnego</strong>.<br/><br/>Aby uzyskać dostęp do klucza, musisz zapłacić okup 1000 EUR na podany adres Bitcoin:<br/><br/>bc1qj7a5w8myrljmqjg2kxha8xu8kfwtka9evvlall<br/><br/>Jeśli to zrobisz w wyznaczonym czasie, otrzymasz klucz. W przeciwnym razie klucz zostanie usunięty, a twoje dane <strong>nie będą możliwe do odzyskania.</strong>
+                <RansomwareHeader>{t('courses.ransomware.ransomPopupPart2')}</RansomwareHeader>
+                <RansomwareBody><WindowDescription>{t('courses.ransomware.ransomPopupPart3')}<strong>{t('courses.ransomware.ransomPopupPart4')}</strong>.<br/><br/>{t('courses.ransomware.ransomPopupPart5')}<br/><br/>bc1qj7a5w8myrljmqjg2kxha8xu8kfwtka9evvlall<br/><br/>{t('courses.ransomware.ransomPopupPart6')}<strong>{t('courses.ransomware.ransomPopupPart7')}.</strong>
                     </WindowDescription></RansomwareBody>
             </RansomwareWrapper>
             </RansomwareContainer>
@@ -120,21 +123,21 @@ import {
       {showRansomDocument && (
         <WindowContainer>
           <WindowHeader>
-            <WindowDescription>Rachunek</WindowDescription>
+            <WindowDescription>{t('courses.ransomware.receipt')}</WindowDescription>
             <Close onClick={() => setShowRansomDocument(false)} />
           </WindowHeader>
           <DocumentContainer>
             <DocumentItemWrapper>
-              <Bank /> <DocumentHeader>Zaufany Bank</DocumentHeader>
+              <Bank /> <DocumentHeader>{t('courses.ransomware.trustedBank')}</DocumentHeader>
             </DocumentItemWrapper>
-            <h4>RACHUNEK WINIEN (NADAWCA): JAN KOWALSKI</h4>
-            <p>Numer rachunku: 123456789011121314</p>
-            <p>Nazwa banku: Zaufany Bank</p>
-            <p>Właściciel: JAN KOWALSKI</p>
-            <h4>SZCZEGÓŁY OPERACJI</h4>
-            <p>Kwota operacji: -10.53 PLN</p>
-            <p>Kwota obciążenia: -10.53 PLN</p>
-            <p>Data księgowania:              {newDate.getDate()}/{newDate.getMonth() + 1}/
+            <h4>{t('courses.ransomware.ransomFilePart1')}</h4>
+            <p>{t('courses.ransomware.ransomFilePart2')}: 123456789011121314</p>
+            <p>{t('courses.ransomware.ransomFilePart3')}</p>
+            <p>{t('courses.ransomware.ransomFilePart4')}</p>
+            <h4>{t('courses.ransomware.ransomFilePart5')}</h4>
+            <p>{t('courses.ransomware.ransomFilePart6')}: -10.53 PLN</p>
+            <p>{t('courses.ransomware.ransomFilePart7')}: -10.53 PLN</p>
+            <p>{t('courses.ransomware.ransomFilePart8')}:              {newDate.getDate()}/{newDate.getMonth() + 1}/
               {newDate.getFullYear()}</p>
           </DocumentContainer>
         </WindowContainer>

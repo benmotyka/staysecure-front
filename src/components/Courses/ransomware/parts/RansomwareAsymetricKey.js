@@ -18,7 +18,7 @@ const RansomwareAsymetricKey = () => {
             <BadUser/>
             </FlexCenterWrapper>
             <ItemDescription>
-            {t('courses.ransomware.rceDescription')}
+            {t('courses.ransomware.attackerOwnKeys')}
             </ItemDescription>
             </ColumnFixedWrapper>
             <Arrow/>
@@ -31,7 +31,7 @@ const RansomwareAsymetricKey = () => {
             </ContentBody>
             </FlexCenterWrapper>
             <ItemDescription>
-            {t('courses.ransomware.attackerOwnKeys')}
+            {t('courses.ransomware.attackerEncrypts')}
             </ItemDescription>
             </ColumnFixedWrapper>
         </ContainerOneItem>

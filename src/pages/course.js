@@ -174,7 +174,7 @@ const Course = (props) => {
                     setWaitForCorrectAnswer={setWaitForCorrectAnswer}
                   />
                   <MobileAlert/>
-                  <DownloadCourses/>
+                  <DownloadCourses data={content}/>
                 </>
               )}
             </>

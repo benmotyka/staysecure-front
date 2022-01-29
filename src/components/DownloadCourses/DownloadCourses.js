@@ -1,27 +1,42 @@
-import React from 'react';
-import { Container} from './DownloadCourses.styles'
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
+import React from "react";
+import { Container, SlidesWrapper, Slide } from "./DownloadCourses.styles";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
+import { render } from "react-dom";
 
-const DownloadCourses = () => {
-    const print = () => {
-        console.log('VVVVVVVVVVVVV')
-        const input = document.getElementById('divToPrint')
-        input.setAttribute("style", "width: 210mm; height: 297mm;")
-        console.log(input)
-        html2canvas(input)
-        .then((canvas) => {
-          const imgData = canvas.toDataURL('image/png');
-          const pdf = new jsPDF();
-          pdf.addImage(imgData, 'PNG', 0, 0);
-          pdf.addImage(imgData, 'PNG', 0, 0);
-          pdf.save("download.pdf");
-        })
-        input.removeAttribute("style")
+const DownloadCourses = (props) => {
+  const print = () => {
+    const slides = props.data.map((item) => <div className="slide">{item.slide}</div>);
 
-    }
+    const wrapper = document.getElementById("slidesWrapper")
+    wrapper.setAttribute("style", "display: block;");
 
-  return <Container><button onClick={print}>download</button></Container>;
+    const slidesToRender = React.createElement('div', {}, [slides]);
+    render(slidesToRender, wrapper);
+
+    const input = document.getElementsByClassName("slide");
+    const input2 = Array.from(input);
+    const pdf = new jsPDF();
+    input2.forEach(item => {
+        item.setAttribute("style", "width: 210mm; height: 297mm; background-color: #2B2E4A;");
+        html2canvas(item).then((canvas) => {
+            const imgData = canvas.toDataURL("image/png");
+            pdf.addImage(imgData, "JPEG", 0, 0);
+            pdf.addPage();
+          });
+    })
+    wrapper.removeAttribute("style");
+    setTimeout(() => {
+        pdf.save("download.pdf");
+    },5000)
+  };
+
+  return (
+    <Container>
+      <button onClick={print}>download</button>
+      <SlidesWrapper id="slidesWrapper"></SlidesWrapper>
+    </Container>
+  );
 };
 
 export default DownloadCourses;

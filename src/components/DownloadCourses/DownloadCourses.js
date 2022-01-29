@@ -1,10 +1,14 @@
 import React from "react";
-import { Container, SlidesWrapper, Slide } from "./DownloadCourses.styles";
+import { Container, SlidesWrapper } from "./DownloadCourses.styles";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { render } from "react-dom";
 
-// doesnt work very well, use for testing purposes only
+// doesnt work very well, use for testing purposes only,
+// no point in finishing it due to the fact that 
+// most of the slides are interactive and cannot be shown
+// on pdf slides
+
 const DownloadCourses = (props) => {
   const print = () => {
     const slides = props.data.map((item) => <div className="slide">{item.slide}</div>);

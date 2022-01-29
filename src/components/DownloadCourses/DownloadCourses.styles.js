@@ -28,7 +28,3 @@ font-size: 24px;
 export const SlidesWrapper = styled.div`
 display: none;
 `
-
-export const Slide = styled.div`
-background-color: red;
-`

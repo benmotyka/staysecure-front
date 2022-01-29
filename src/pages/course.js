@@ -154,7 +154,7 @@ const Course = (props) => {
                     data={content}
                     activeSlide={activeSlide}
                   />
-                  <PageCourse id="divToPrint" >
+                  <PageCourse>
                     {content.map((step, index) => {
                       if (index === activeSlide)
                         return step.slide

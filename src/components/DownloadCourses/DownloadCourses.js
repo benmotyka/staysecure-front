@@ -4,6 +4,7 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { render } from "react-dom";
 
+// doesnt work very well, use for testing purposes only
 const DownloadCourses = (props) => {
   const print = () => {
     const slides = props.data.map((item) => <div className="slide">{item.slide}</div>);
@@ -32,8 +33,8 @@ const DownloadCourses = (props) => {
   };
 
   return (
-    <Container>
-      <button onClick={print}>download</button>
+    <Container onClick={print}>
+        download
       <SlidesWrapper id="slidesWrapper"></SlidesWrapper>
     </Container>
   );

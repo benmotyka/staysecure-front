@@ -46,7 +46,7 @@ const Container = styled.div`
 
 const PhishingSendDataSimulation = (props) => {
   useEffect(() => {
-    props.setWaitForCorrectAnswer(true);
+    if(props.setWaitForCorrectAnswer) props.setWaitForCorrectAnswer(true);
   }, []);
   const [clickMessages, setClickMessages] = useState(false);
   const [clickSms, setClickSms] = useState(false);

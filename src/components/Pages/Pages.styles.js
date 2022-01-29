@@ -55,6 +55,7 @@ margin-right: ${notebookWidth};
 margin-left: ${courseSidebarWidth};
 display: flex;
 overflow-x: hidden;
+background-color:  #2B2E4A;
 `
 
 export const TemporaryHeader = styled.h1`

@@ -17,6 +17,7 @@ import Sidebar from "components/Course/Sidebar";
 import Modal from "components/Modal/Modal";
 import React from "react";
 import MobileAlert from "components/MobileAlert/MobileAlert";
+import DownloadCourses from "components/DownloadCourses/DownloadCourses";
 const Course = (props) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [loadedData, setLoadedData] = useState(0);
@@ -153,7 +154,7 @@ const Course = (props) => {
                     data={content}
                     activeSlide={activeSlide}
                   />
-                  <PageCourse>
+                  <PageCourse id="divToPrint" >
                     {content.map((step, index) => {
                       if (index === activeSlide)
                         return step.slide
@@ -173,6 +174,7 @@ const Course = (props) => {
                     setWaitForCorrectAnswer={setWaitForCorrectAnswer}
                   />
                   <MobileAlert/>
+                  <DownloadCourses/>
                 </>
               )}
             </>

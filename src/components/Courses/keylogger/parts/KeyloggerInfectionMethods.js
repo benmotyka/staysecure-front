@@ -1,5 +1,6 @@
 import styled, {css} from "styled-components";
 import colors from "constans/colors.js";
+import { useTranslation } from "react-i18next";
 
 import { MdSettingsApplications as AppIcon, MdAttachEmail as MailIcon } from "react-icons/md";
 import { BsLaptop as LaptopIcon } from "react-icons/bs";
@@ -10,11 +11,6 @@ export const Container = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
-`;
-
-export const Header = styled.h5`
-  font-size: 24px;
-  color: ${colors.orange};
 `;
 
 export const RelativeWrapper = styled.div`
@@ -72,29 +68,30 @@ ${Icon};
 
 
 const KeyloggerInfectionMethods = () => {
+  const {t} = useTranslation()
+
   return (
     <Container>
-      <Header></Header>
       <RelativeWrapper>
         <Item style={{ left: "23%", top: "0%" }}>
           <App />
-          <Description>Złośliwe oprogramowanie</Description>
+          <Description>{t('courses.keylogger.maliciousSoftware')}</Description>
         </Item>
         <Item style={{ left: "18%", bottom: "15%" }}>
         <Mail />
-          <Description>Maile phishingowe</Description>
+          <Description>{t('courses.keylogger.phishingMails')}</Description>
         </Item>
         <Item style={{ left: "45%", top: "35%" }}>
         <SoftwareError />
-          <Description>Błędy w oprogramowaniu</Description>
+          <Description>{t('courses.keylogger.softwareBugs')}</Description>
         </Item>
         <Item style={{ right: "15%", top: "10%" }}>
         <Laptop />
-          <Description>Fizyczny dostęp do urządzenia</Description>
+          <Description>{t('courses.keylogger.physicalAccess')}</Description>
         </Item>
         <Item style={{ right: "10%", top: "55%" }}>
         <Remote />
-          <Description>Zdalny dostęp do urządzenia</Description>
+          <Description>{t('courses.keylogger.remoteAccess')}</Description>
         </Item>
       </RelativeWrapper>
     </Container>

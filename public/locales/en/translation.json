@@ -74,6 +74,31 @@
         "meansCorrectAnswerAnd": " stands for correct answer, and",
         "possibleBadAnswer": "for possible bad answer."
     },
+    "desktop": {
+        "myPc": "My Computer",
+        "taskManager": {
+            "taskManager": "Task manager",
+            "file": "File",
+            "options": "Options",
+            "view": "View",
+            "processes": "Processes",
+            "performance": "Performance",
+            "appHistory": "App history",
+            "starting": "Startup",
+            "users": "Users",
+            "details": "Details",
+            "services": "Services",
+            "name": "Name",
+            "state": "State",
+            "procesor": "Processor",
+            "memory": "Memory",
+            "disc": "Disc",
+            "network": "Network",
+            "system": "System",
+            "dnsClient": "DNS Client",
+            "dhcpClient": "DHCP Client"
+        }
+    },
     "courses": {
         "sql": {
             "onlineShop": "Online shop",
@@ -193,6 +218,42 @@
              "backupDescription2": "When infected by a ransomware virus, the solution to the problem will be to restore the system to the state before the infection. However, keep in mind that in rare cases, ransomware can also get into the location of archived data, encrypting it at the same time, and taking away that ability.",
              "antivirusUpdatesDescription1": "One of the best ways to prevent ransomware infections is to use a good antivirus and to frequently update all software and the operating system.",
              "antivirusUpdatesDescription2": "In a situation where ransomware finds its way onto a device, a good antivirus can analyse the contents of the malicious file and will often prevent the user from running it."
+        },
+        "keylogger": {
+            "keylogger": "Keylogger",
+            "employeeActivity": "Employee activity survey",
+            "parentalControl": "Parental controls",
+            "dataTheft": "Data theft",
+            "hardware": "Hardware",
+            "hardwareDescription1": "Infects the device by physical connection",
+            "hardwareDescription2": "Works on the device layer",
+            "hardwareDescription3": "Easy to identify for the user, difficult for an antivirus",
+            "hardwareDescription4": "Easier to remove",
+            "software": "Software",
+            "softwareDescription1": "Infects the device by running a malicious script, application",
+            "softwareDescription2": "Works at the operating system layer",
+            "softwareDescription3": "Difficult for user to identify, easy for antivirus",
+            "softwareDescription4": "Difficult to remove",
+            "flowHeader1": "Attacker infects the device",
+            "flowDescription1": "The attacker infects the victim's device. Depending on the type of keylogger, infection can mean either physical contact with a hardware keylogger, or infection with a software keylogger.",
+            "flowHeader2": "Victim sends sensitive data to attacker",
+            "flowDescription2": "The unsuspecting victim uses the computer and simultaneously sends all the information typed on the keyboard to the attacker. A more advanced keylogger can also send screenshots.",
+            "flowHeader3": "Attacker receives victim's sensitive data",
+            "flowDescription3": "Data is sent to the attacker every certain period of time. An attacker may attempt to use this data to gain unauthorised access to various web services.",
+            "maliciousSoftware": "Malware",
+            "phishingMails": "Phishing mails",
+            "softwareBugs": "Software bugs",
+            "physicalAccess": "Physical access to the device",
+            "remoteAccess": "Remote access to the device",
+            "removingDescription": "For a hardware keylogger, removal will usually be physically unplugging the tool from the computer. For a software keylogger, the process is not so simple. You can try to remove the keylogger with anti-virus software, but it is always safest if you fully format the computer.",
+            "protectionHeader1": "Using the password manager",
+            "protectionHeader2": "Two-factor authentication",
+            "protectionHeader3": "Use of antivirus",
+            "protectionDescription1a": "Password Manager is a program that allows the user to store access data in an encrypted form. It might seem like a bad idea to keep all your passwords in one place, but a master password is required to unlock this program.",
+            "protectionDescription1b": "By keeping the access data in this program, we do not have to remember the login data for each site. Additionally, there is no need to retype them - just copy them from the program. Using a password manager ensures that a device infected with a keylogger listening to the keyboard will not send credentials to the attacker.",
+            "protectionDescription2a": "Two-factor authentication, also known as 2FA, is commonly used on the web. It allows to secure an account with an additional login step, which can be for example a code in an SMS message or from an official application (Google Authenticator). Thanks to this, in order to log in to a chosen account, not only a login and a password but also a 2FA code is sufficient.",
+            "protectionDescription2b": "A keylogger attacker will not be able to use the victim's credentials, as access to the account will require the 2FA code.",
+            "protectionDescription3": "The vast majority of basic antiviruses have built-in mechanisms to prevent keylogger-type attacks. Additionally, they are equipped with mechanisms analysing traffic entering and leaving the network, which will make it much more difficult for an attacker to gain access to sensitive data."
         }
     }
 }

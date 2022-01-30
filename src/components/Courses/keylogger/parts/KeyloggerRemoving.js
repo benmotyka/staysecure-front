@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import colors from "constans/colors.js";
+import { useTranslation } from "react-i18next";
 import { Line } from "components/PreviewItems/PreviewItems.styles";
 import { BsLaptop as LaptopIcon } from "react-icons/bs";
 import { MdSettingsBackupRestore as FormatIcon } from "react-icons/md";
@@ -53,14 +54,12 @@ position: absolute;
 `
 
 const KeyloggerRemoving = () => {
+  const {t} = useTranslation()
+
   return (
     <Container>
       <Description>
-        W przypadku keyloggera sprzętowego, usunięcie będzie zazwyczaj polegało
-        na fizycznym odpięciu narzędzia od komputera. Dla keyloggera
-        programowego, proces ten nie jest taki prosty. Można próbować usuwać
-        keyloggera z pomocą programów antywirusowych, lecz zawsze
-        najbezpieczniej będzie, jeśli w komputer zostanie w pełni sformatowany.{" "}
+      {t('courses.keylogger.removingDescription')}
       </Description>
       <Line />
       <ItemsWrapper>

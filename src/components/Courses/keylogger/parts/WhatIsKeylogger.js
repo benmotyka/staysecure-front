@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import colors from "constans/colors";
+import { useTranslation } from "react-i18next";
 
 import { RiParentFill as ParentIcon } from "react-icons/ri";
 import { FiActivity as ActivityIcon } from "react-icons/fi";
@@ -61,20 +62,22 @@ const ItemDescription = styled.h3`
 `;
 
 const WhatIsKeylogger = () => {
+  const {t} = useTranslation()
+
   return (
     <RelativeContainer>
-      <Header>Keylogger</Header>
+      <Header>{t('courses.keylogger.keylogger')}</Header>
       <AbsoluteContainer style={{ top: "15%" }}>
       <Activity/>
-        <ItemDescription>Badanie aktywności pracowników</ItemDescription>
+        <ItemDescription>{t('courses.keylogger.employeeActivity')}</ItemDescription>
       </AbsoluteContainer>
       <AbsoluteContainer style={{ top: "68%", left: "22%" }}>
         <Parent/>
-        <ItemDescription>Kontrola rodzicielska</ItemDescription>
+        <ItemDescription>{t('courses.keylogger.parentalControl')}</ItemDescription>
       </AbsoluteContainer>
       <AbsoluteContainer style={{ top: "68%", left: "63%" }}>
           <Evil/>
-        <ItemDescription bad>Wykradnięcie danych</ItemDescription>
+        <ItemDescription bad>{t('courses.keylogger.dataTheft')}</ItemDescription>
       </AbsoluteContainer>
       <Arrow style={{ top: "35%", transform: "rotate(180deg)" }} />
       <Arrow style={{ top: "55%", left: "36%", transform: "rotate(45deg)" }} />

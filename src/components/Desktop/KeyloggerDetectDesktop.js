@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   DesktopContainer,
   TaskBar,
@@ -29,6 +30,7 @@ import {
 
 const KeyloggerDetectDesktop = (props) => {
   const [showTaskManager, setShowTaskManager] = useState(false);
+  const {t} = useTranslation()
 
   const newDate = new Date();
   return (
@@ -38,7 +40,7 @@ const KeyloggerDetectDesktop = (props) => {
       <BasicIcons>
         <Icon>
           <IconImage src="desktop/my_computer.ico" />
-          <IconText>Mój komputer</IconText>
+          <IconText>{t('desktop.myPc')}</IconText>
         </Icon>
         <Icon
           onClick={() => {
@@ -46,7 +48,7 @@ const KeyloggerDetectDesktop = (props) => {
           }}
         >
           <IconImage src="desktop/task_manager.png" />
-          <IconText>Menedżer zadań</IconText>
+          <IconText>{t('desktop.taskManager.taskManager')}</IconText>
         </Icon>
       </BasicIcons>
       <ChildContainer>{props.children}</ChildContainer>
@@ -75,50 +77,50 @@ const KeyloggerDetectDesktop = (props) => {
       {showTaskManager && (
         <WindowContainer>
           <WindowHeader>
-            <WindowDescription>Menedżer zadań</WindowDescription>
+            <WindowDescription>{t('desktop.taskManager.taskManager')}</WindowDescription>
             <Close onClick={() => setShowTaskManager(false)} />
           </WindowHeader>
           <TaskManagerContainer>
             <TaskManagerBar>
-              <TaskManagerBarItem>Plik</TaskManagerBarItem>
-              <TaskManagerBarItem>Opcje</TaskManagerBarItem>
-              <TaskManagerBarItem>Widok</TaskManagerBarItem>
+              <TaskManagerBarItem>{t('desktop.taskManager.file')}</TaskManagerBarItem>
+              <TaskManagerBarItem>{t('desktop.taskManager.options')}</TaskManagerBarItem>
+              <TaskManagerBarItem>{t('desktop.taskManager.view')}</TaskManagerBarItem>
             </TaskManagerBar>
             <TaskManagerBar>
               <TaskManagerBarItem withBg active>
-                Procesy
+              {t('desktop.taskManager.processes')}
               </TaskManagerBarItem>
-              <TaskManagerBarItem withBg>Wydajność</TaskManagerBarItem>
-              <TaskManagerBarItem withBg>Historia aplikacji</TaskManagerBarItem>
-              <TaskManagerBarItem withBg>Uruchamianie</TaskManagerBarItem>
-              <TaskManagerBarItem withBg>Użytkownicy</TaskManagerBarItem>
-              <TaskManagerBarItem withBg>Szczegóły</TaskManagerBarItem>
-              <TaskManagerBarItem withBg>Usługi</TaskManagerBarItem>
+              <TaskManagerBarItem withBg>{t('desktop.taskManager.performance')}</TaskManagerBarItem>
+              <TaskManagerBarItem withBg>{t('desktop.taskManager.appHistory')}</TaskManagerBarItem>
+              <TaskManagerBarItem withBg>{t('desktop.taskManager.starting')}</TaskManagerBarItem>
+              <TaskManagerBarItem withBg>{t('desktop.taskManager.users')}</TaskManagerBarItem>
+              <TaskManagerBarItem withBg>{t('desktop.taskManager.details')}</TaskManagerBarItem>
+              <TaskManagerBarItem withBg>{t('desktop.taskManager.services')}</TaskManagerBarItem>
             </TaskManagerBar>
             <TaskManagerTable>
               <TaskManagerTableRow>
                 <TaskManagerTableHeader>
-                  <TaskManagerHeaderText>Nazwa</TaskManagerHeaderText>
+                  <TaskManagerHeaderText>{t('desktop.taskManager.name')}</TaskManagerHeaderText>
                 </TaskManagerTableHeader>
                 <TaskManagerTableHeader>
-                  <TaskManagerHeaderText>Stan</TaskManagerHeaderText>
+                  <TaskManagerHeaderText>{t('desktop.taskManager.state')}</TaskManagerHeaderText>
                 </TaskManagerTableHeader>
                 <TaskManagerTableHeader>
-                  <TaskManagerHeaderText>Procesor</TaskManagerHeaderText>
+                  <TaskManagerHeaderText>{t('desktop.taskManager.procesor')}</TaskManagerHeaderText>
                 </TaskManagerTableHeader>
                 <TaskManagerTableHeader>
-                  <TaskManagerHeaderText>Pamięć</TaskManagerHeaderText>
+                  <TaskManagerHeaderText>{t('desktop.taskManager.memory')}</TaskManagerHeaderText>
                 </TaskManagerTableHeader>
                 <TaskManagerTableHeader>
-                  <TaskManagerHeaderText>Dysk</TaskManagerHeaderText>
+                  <TaskManagerHeaderText>{t('desktop.taskManager.disc')}</TaskManagerHeaderText>
                 </TaskManagerTableHeader>
                 <TaskManagerTableHeader>
-                  <TaskManagerHeaderText>Sieć</TaskManagerHeaderText>
+                  <TaskManagerHeaderText>{t('desktop.taskManager.network')}</TaskManagerHeaderText>
                 </TaskManagerTableHeader>
               </TaskManagerTableRow>
               <TaskManagerTableRow>
                 {/* @TODO: change it to list of objects and map through it */}
-                <TaskManagerTableData>System</TaskManagerTableData>
+                <TaskManagerTableData>{t('desktop.taskManager.system')}</TaskManagerTableData>
                 <TaskManagerTableData></TaskManagerTableData>
                 <TaskManagerTableData yellow right>10.6%</TaskManagerTableData>
                 <TaskManagerTableData yellow right>103.6 MB</TaskManagerTableData>
@@ -126,7 +128,7 @@ const KeyloggerDetectDesktop = (props) => {
                 <TaskManagerTableData yellow right>0 Mb/s</TaskManagerTableData>
               </TaskManagerTableRow>
               <TaskManagerTableRow>
-                <TaskManagerTableData>Menedżer zadań</TaskManagerTableData>
+                <TaskManagerTableData>{t('desktop.taskManager.taskManager')}</TaskManagerTableData>
                 <TaskManagerTableData></TaskManagerTableData>
                 <TaskManagerTableData yellow right>2.2%</TaskManagerTableData>
                 <TaskManagerTableData yellow right>28.5 MB</TaskManagerTableData>
@@ -144,7 +146,7 @@ const KeyloggerDetectDesktop = (props) => {
                 <TaskManagerTableData yellow right>0.1 Mb/s</TaskManagerTableData>
               </TaskManagerTableRow>
               <TaskManagerTableRow>
-                <TaskManagerTableData>Klient DHCP</TaskManagerTableData>
+                <TaskManagerTableData>{t('desktop.taskManager.dhcpClient')}</TaskManagerTableData>
                 <TaskManagerTableData></TaskManagerTableData>
                 <TaskManagerTableData yellow right>0.3%</TaskManagerTableData>
                 <TaskManagerTableData yellow right>1.6 MB</TaskManagerTableData>
@@ -152,7 +154,7 @@ const KeyloggerDetectDesktop = (props) => {
                 <TaskManagerTableData yellow right>0 Mb/s</TaskManagerTableData>
               </TaskManagerTableRow>
               <TaskManagerTableRow>
-                <TaskManagerTableData>Klient DNS</TaskManagerTableData>
+                <TaskManagerTableData>{t('desktop.taskManager.dnsClient')}</TaskManagerTableData>
                 <TaskManagerTableData></TaskManagerTableData>
                 <TaskManagerTableData yellow right>0.1%</TaskManagerTableData>
                 <TaskManagerTableData yellow right>3.5 MB</TaskManagerTableData>

@@ -74,6 +74,31 @@
         "meansCorrectAnswerAnd": "oznacza poprawną odpowiedź, a kolor",
         "possibleBadAnswer": "ewentualną błędnie wybraną odpowiedź"
     },
+    "desktop": {
+        "myPc": "Mój komputer",
+        "taskManager": {
+            "taskManager": "Menedżer zadań",
+            "file": "Plik",
+            "options": "Opcje",
+            "view": "Widok",
+            "processes": "Procesy",
+            "performance": "Wydajność",
+            "appHistory": "Historia aplikacji",
+            "starting": "Uruchamianie",
+            "users": "Użytkownicy",
+            "details": "Szczegóły",
+            "services": "Usługi",
+            "name": "Nazwa",
+            "state": "Stan",
+            "procesor": "Procesor",
+            "memory": "Pamięć",
+            "disc": "Dysk",
+            "network": "Sieć",
+            "system": "System",
+            "dnsClient": "Klient DNS",
+            "dhcpClient": "Klient DHCP"
+        }
+    },
     "courses": {
         "sql": {
             "onlineShop": "Sklep internetowy",
@@ -193,6 +218,42 @@
              "backupDescription2": "W momencie infekcji wirusem ransomware, rozwiązaniem problemu będzie przywrócenie stanu systemu sprzed momentu infekcji. Należy jednak pamiętać o tym, iż w rzadkich przypadkach, ransomware może również dostać się do miejsca, w którym znajdują się zarchiwizowane dane, jednocześnie je szyfrując, i odbierając tę możliwość.",
              "antivirusUpdatesDescription1": "Jedną z najlepszych metod zapobiegania infekcji ransomware jest stosowanie dobrego antywirusa oraz częste aktualizacje wszystkich programów i systemu operacyjnego.",
              "antivirusUpdatesDescription2": "W sytuacji, w której ransomware trafi do urządzenia, dobry antywirus może przeanalizować zawartość złośliwego pliku i często nie pozwoli użytkownikowi go uruchomić."
+        },
+        "keylogger": {
+            "keylogger": "Keylogger",
+            "employeeActivity": "Badanie aktywności pracowników",
+            "parentalControl": "Kontrola rodzicielska",
+            "dataTheft": "Wykradnięcie danych",
+            "hardware": "Sprzętowy",
+            "hardwareDescription1": "Dostaje się na urządzenie poprzez fizyczne podłączenie",
+            "hardwareDescription2": "Działa na warstwie urządzenia",
+            "hardwareDescription3": "Łatwy w identyfikacji dla użytkownika, trudny dla antywirusa",
+            "hardwareDescription4": "Łatwiejszy do usunięcia",
+            "software": "Programowy",
+            "softwareDescription1": "Dostaje się na urządzenie poprzez uruchomienie złośliwego skryptu, aplikacji",
+            "softwareDescription2": "Działa na warstwie systemu operacyjnego",
+            "softwareDescription3": "Trudny w identyfikacji dla użytkownika, łatwy dla antywirusa",
+            "softwareDescription4": "Ciężko go usunąć",
+            "flowHeader1": "Atakujący infekuje urządzenie",
+            "flowDescription1": "Atakujący infekuje urządzenie ofiary. W zależności od typu keyloggera, poprzez infekcję można rozumieć albo fizyczny kontakt celem podłączenia keyloggera sprzętowego, albo infekcję keylogerem programowym.",
+            "flowHeader2": "Ofiara przesyła wrażliwe dane do atakującego",
+            "flowDescription2": "Niczego nieświadoma ofiara używa komputera i jednocześnie przesyła wszystkie informacje wpisane na klawiaturze do atakującego. Bardziej zaawansowany keylogger może również przesyłać zrzuty ekranu.",
+            "flowHeader3": "Atakujący otrzymuje wrażliwe dane ofiary",
+            "flowDescription3": "Dane przesyłane są do atakującego co pewien okres czasu. Atakujący może próbować wykorzystać te dane do uzyskania nieautoryzowanego dostępu do różnych serwisów webowych.",
+            "maliciousSoftware": "Złośliwe oprogramowanie",
+            "phishingMails": "Maile phishingowe",
+            "softwareBugs": "Błędy w oprogramowaniu",
+            "physicalAccess": "Fizyczny dostęp do urządzenia",
+            "remoteAccess": "Zdalny dostęp do urządzenia",
+            "removingDescription": "W przypadku keyloggera sprzętowego, usunięcie będzie zazwyczaj polegało na fizycznym odpięciu narzędzia od komputera. Dla keyloggera programowego, proces ten nie jest taki prosty. Można próbować usuwać keyloggera z pomocą programów antywirusowych, lecz zawsze najbezpieczniej będzie, jeśli w komputer zostanie w pełni sformatowany.",
+            "protectionHeader1": "Korzystanie z menedżera haseł",
+            "protectionHeader2": "Uwierzytelnianie dwuskładnikowe",
+            "protectionHeader3": "Używanie antywirusa",
+            "protectionDescription1a": "Menedżer haseł to program, który pozwala użytkownikowi na przechowywanie danych dostępowych w zaszyfrowanej formie. Wydawać by się mogło, iż trzymanie wszystkich haseł w jednym miejscu jest złym pomysłem, jednak do odblokowania tego programu wymagane jest podanie głównego hasła.",
+            "protectionDescription1b": "Trzymając dane dostępowe w tym programie, nie musimy pamiętać o danych logowania dla każdej strony. Dodatkowo nie ma konieczności wpisywania ich na nowo - wystarczy je skopiować z programu. Używanie menedżera haseł sprawia, że urządzenie zainfekowane keyloggerem nasłuchującym klawiaturę nie będzie przesyłało atakującemu danych uwierzytelniających.",
+            "protectionDescription2a": "Uwierzytelnianie dwuskładnikowe, znane także jako 2FA jest powszechnie używane w sieci. Pozwala na zabezpieczenie konta dodatkowym etapem logowania się, którym może być np. kod w wiadomości SMS lub z oficjalnej aplikacji (Google Authenticator). Dzięki temu, aby zalogować się na wybrane konto, nie wystarczy tylko login i hasło a dodatkowo kod 2FA.",
+            "protectionDescription2b": "Atakujący keylogerem, nie będzie w stanie wykorzystać danych uwierzytelniających ofiary, gdyż dostęp do konta będzie wymagał podania kodu 2FA.",
+            "protectionDescription3": "Zdecydowana większość antywirusów w wersji podstawowej posiada wbudowane mechanizmy przeciwdziałające atakom typu keylogger. Dodatkowo wyposażone są one w mechanizmy analizujące ruch wchodzący i wychodzący do sieci, co znacznie utrudni atakującemu zdobycie wrażliwych danych."
         }
     }
 }

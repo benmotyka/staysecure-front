@@ -1,5 +1,6 @@
 import { Line } from "components/PreviewItems/PreviewItems.styles.js";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import {
   Container,
@@ -65,35 +66,27 @@ color: ${colors.white};
 
 const KeyloggerProtectionMethods = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const {t} = useTranslation()
   return (
     <Container>
       <HeaderWrapper>
         <Button active={activeSlide === 0} onClick={() => setActiveSlide(0)}>
-          Korzystanie z menedżera haseł
+          {t('courses.keylogger.protectionHeader1')}
         </Button>
         <Button active={activeSlide === 1} onClick={() => setActiveSlide(1)}>
-          Uwierzytelnianie dwuskładnikowe
+          {t('courses.keylogger.protectionHeader2')}
         </Button>
         <Button active={activeSlide === 2} onClick={() => setActiveSlide(2)}>
-          Używanie antywirusa
+          {t('courses.keylogger.protectionHeader3')}
         </Button>
       </HeaderWrapper>
       {activeSlide === 0 && (
         <ContentWrapper>
           <ContentHeader>
-            Menedżer haseł to program, który pozwala użytkownikowi na
-            przechowywanie danych dostępowych w zaszyfrowanej formie. Wydawać by
-            się mogło, iż trzymanie wszystkich haseł w jednym miejscu jest złym
-            pomysłem, jednak do odblokowania tego programu wymagane jest podanie
-            głównego hasła.
+          {t('courses.keylogger.protectionDescription1a')}
             <br />
             <br />
-            Trzymając dane dostępowe w tym programie, nie musimy pamiętać o
-            danych logowania dla każdej strony. Dodatkowo nie ma konieczności
-            wpisywania ich na nowo - wystarczy je skopiować z programu. Używanie
-            menedżera haseł sprawia, że urządzenie zainfekowane keyloggerem
-            nasłuchującym klawiaturę nie będzie przesyłało atakującemu danych
-            uwierzytelniających.
+            {t('courses.keylogger.protectionDescription1b')}
             <Line />
           </ContentHeader>
           <FlexCenterWrapper>
@@ -107,17 +100,10 @@ const KeyloggerProtectionMethods = () => {
       {activeSlide === 1 && (
         <ContentWrapper>
           <ContentHeader>
-            Uwierzytelnianie dwuskładnikowe, znane także jako 2FA jest
-            powszechnie używane w sieci. Pozwala na zabezpieczenie konta
-            dodatkowym etapem logowania się, którym może być np. kod w
-            wiadomości SMS lub z oficjalnej aplikacji (Google Authenticator).
-            Dzięki temu, aby zalogować się na wybrane konto, nie wystarczy tylko
-            login i hasło a dodatkowo kod 2FA.
+          {t('courses.keylogger.protectionDescription2a')}
             <br />
             <br />
-            Atakujący keylogerem, nie będzie w stanie wykorzystać danych
-            uwierzytelniających ofiary, gdyż dostęp do konta będzie wymagał
-            podania kodu 2FA.
+            {t('courses.keylogger.protectionDescription2b')}
             <Line />
           </ContentHeader>
           <FlexCenterWrapper>
@@ -132,7 +118,7 @@ const KeyloggerProtectionMethods = () => {
       {activeSlide === 2 && (
         <ContentWrapper>
           <ContentHeader>
-          Zdecydowana większość antywirusów w wersji podstawowej posiada wbudowane mechanizmy przeciwdziałające atakom typu keylogger. Dodatkowo wyposażone są one w mechanizmy analizujące ruch wchodzący i wychodzący do sieci, co znacznie utrudni atakującemu zdobycie wrażliwych danych. 
+          {t('courses.keylogger.protectionDescription3')}
             <Line />
           </ContentHeader>
           <FlexCenterWrapper>

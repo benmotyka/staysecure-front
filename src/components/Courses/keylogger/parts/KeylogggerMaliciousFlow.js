@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import colors from "constans/colors";
+import { useTranslation } from "react-i18next";
 
 import { FaUser as UserIcon } from "react-icons/fa";
 import { BsLaptop as LaptopIcon } from "react-icons/bs";
@@ -99,11 +100,13 @@ export const Description = styled.p`
 `;
 
 const KeylogggerMaliciousFlow = () => {
+  const {t} = useTranslation()
+
   return (
     <Container>
       <Wrapper>
         <ContentWrapper>
-          <Header>1. Atakujący infekuje urządzenie</Header>
+          <Header>1. {t('courses.keylogger.flowHeader1')}</Header>
           <ContentBody>
             <RelativeWrapper style={{ left: "20%" }}>
               <Usb style={{ left: "68px", top: "40px" }} />
@@ -112,15 +115,12 @@ const KeylogggerMaliciousFlow = () => {
             <User bad style={{ left: "50%" }} />
           </ContentBody>
           <Description>
-            Atakujący infekuje urządzenie ofiary. W zależności od typu
-            keyloggera, poprzez infekcję można rozumieć albo fizyczny kontakt
-            celem podłączenia keyloggera sprzętowego, albo infekcję keylogerem
-            programowym.
+          {t('courses.keylogger.flowDescription1')}
           </Description>
         </ContentWrapper>
         <VerticalLine />
         <ContentWrapper>
-          <Header>2. Ofiara przesyła wrażliwe dane do atakującego</Header>
+          <Header>2. {t('courses.keylogger.flowHeader2')}</Header>
           <ContentBody>
             <RelativeWrapper style={{ left: "25%" }}>
               <Usb style={{ left: "68px", top: "40px" }} />
@@ -131,14 +131,12 @@ const KeylogggerMaliciousFlow = () => {
             <User bad style={{ right: "10%" }} />
           </ContentBody>
           <Description>
-            Niczego nieświadoma ofiara używa komputera i jednocześnie przesyła
-            wszystkie informacje wpisane na klawiaturze do atakującego. Bardziej
-            zaawansowany keylogger może również przesyłać zrzuty ekranu.
+          {t('courses.keylogger.flowDescription2')}
           </Description>
         </ContentWrapper>
         <VerticalLine />
         <ContentWrapper>
-          <Header>3. Atakujący otrzymuje wrażliwe dane ofiary</Header>
+          <Header>3. {t('courses.keylogger.flowHeader3')}</Header>
           <ContentBody>
             <RelativeWrapper style={{ left: "35%" }}>
               <Laptop bad />
@@ -146,7 +144,9 @@ const KeylogggerMaliciousFlow = () => {
             </RelativeWrapper>
             <User bad style={{ right: "25%" }} />
           </ContentBody>
-          <Description>Dane przesyłane są do atakującego co pewien okres czasu. Atakujący może próbować wykorzystać te dane do uzyskania nieautoryzowanego dostępu do różnych serwisów webowych.</Description>
+          <Description>
+          {t('courses.keylogger.flowDescription3')}
+          </Description>
         </ContentWrapper>
       </Wrapper>
     </Container>

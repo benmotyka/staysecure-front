@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import colors from "constans/colors";
+import { useTranslation } from "react-i18next";
 
 import { GiUsbKey as UsbIcon } from "react-icons/gi";
 import { MdSettingsApplications as AppIcon } from "react-icons/md";
@@ -62,32 +63,34 @@ export const Description = styled.p`
 `;
 
 const KeyloggerTypes = () => {
+  const {t} = useTranslation()
+
   return (
     <Container>
       <BodyWrapper>
         <ContentWrapper>
-          <Header>Sprzętowy</Header>
+          <Header>{t('courses.keylogger.hardware')}</Header>
           <Usb />
-          <Description>- Dostaje się na urządzenie poprzez fizyczne podłączenie</Description>
-          <Description>- Działa na warstwie urządzenia</Description>
+          <Description>- {t('courses.keylogger.hardwareDescription1')}</Description>
+          <Description>- {t('courses.keylogger.hardwareDescription2')}</Description>
           <Description>
-            - Łatwy w identyfikacji dla użytkownika, trudny dla antywirusa
+            - {t('courses.keylogger.hardwareDescription3')}
           </Description>
           <Description>
-              - Łatwiejszy do usunięcia
+              - {t('courses.keylogger.hardwareDescription4')}
           </Description>
         </ContentWrapper>
         <VerticalLine />
         <ContentWrapper>
-          <Header>Programowy</Header>
+          <Header>{t('courses.keylogger.software')}</Header>
           <App />
-          <Description>- Dostaje się na urządzenie poprzez uruchomienie złośliwego skryptu, aplikacji</Description>
-          <Description>- Działa na warstwie systemu operacyjnego</Description>
+          <Description>- {t('courses.keylogger.softwareDescription1')}</Description>
+          <Description>- {t('courses.keylogger.softwareDescription2')}</Description>
           <Description>
-            - Trudny w identyfikacji dla użytkownika, łatwy dla antywirusa
+            - {t('courses.keylogger.softwareDescription3')}
           </Description>
           <Description>
-              - Ciężko go usunąć
+              - {t('courses.keylogger.softwareDescription4')}
           </Description>
         </ContentWrapper>
       </BodyWrapper>

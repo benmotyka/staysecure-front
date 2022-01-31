@@ -67,7 +67,7 @@ searchItem: async (args, req) => {
       <CodeWrapper>
         <CodeHeaderContainer>
           <CodeIcon />{" "}
-          <CodeHeader>{t('courses.sql.sourceCode')}</CodeHeader>
+          <CodeHeader>{t('courses.sql.sourceCodeApi')}</CodeHeader>
         </CodeHeaderContainer>
         <AceEditor
           mode="javascript"

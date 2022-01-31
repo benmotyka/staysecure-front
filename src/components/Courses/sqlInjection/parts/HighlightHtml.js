@@ -70,7 +70,7 @@ const HighlightHtml = (props) => {
         </Wrapper>
           <CodeWrapper>
               <CodeHeaderContainer>
-              <CodeIcon/> <CodeHeader>{t('courses.sql.sourceCode')}</CodeHeader> 
+              <CodeIcon/> <CodeHeader>{t('courses.sql.sourceCodePage')}</CodeHeader> 
               </CodeHeaderContainer>
         <AceEditor
           mode="html"

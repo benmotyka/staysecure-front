@@ -349,19 +349,19 @@ const content = [
             },
             {
                 header: "Rodzaje keyloggerów",
-                text: "Ogólnie rzecz biorąc keyloggery dzielą się na sprzętowe (hardware) i programowe (software).<br/><br/><strong>Keyloggery sprzętowe</strong> zazwyczaj wyglądem przypominają pamięci przenośne USB (pendrive). Podłączane są do jednostki poprzez interfejs USB, jednak mogą występować jako urządzenie pośredniczące pomiędzy klawiaturą a złączem USB komputera. Ich zaletą jest obszar działania - potrafią rejestrować aktywność, nawet jeśli użytkownik nie uruchomił systemu operacyjnego i co do zasady potrafią być cięższe w detekcji dla antywirusa. W rzadkich przypadkach mogą być również fizycznie zamontowane wewnątrz urządzenia.<br/><br/><strong>Keyloggery programowe</strong> są formą oprogramowania działającego w tle. Dostają się na urządzenie końcowe poprzez zainstalowanie programu. W zależności od celu keyloggera (miejsce pracy, kontrola rodzicielska, wirus), może on maskować swoją obecność, utrudniając tym samym swoją detekcję.",
+                text: "Ogólnie rzecz biorąc keyloggery dzielą się na sprzętowe (hardware) i programowe (software).<br/><br/><strong>Keyloggery sprzętowe</strong> zazwyczaj wyglądem przypominają pamięci przenośne USB (pendrive). Podłączane są do jednostki poprzez interfejs USB, jednak mogą występować jako urządzenie pośredniczące pomiędzy klawiaturą a złączem USB komputera. Ich zaletą jest obszar działania - potrafią rejestrować aktywność, nawet jeśli użytkownik nie uruchomił systemu operacyjnego i co do zasady potrafią być cięższe w detekcji dla antywirusa. W rzadkich przypadkach mogą być również fizycznie zamontowane wewnątrz urządzenia.<br/><br/><strong>Keyloggery programowe</strong> są formą oprogramowania działającego w tle. Dostają się na urządzenie końcowe poprzez zainstalowanie programu. W zależności od celu keyloggera (miejsce pracy, kontrola rodzicielska, wirus), może on maskować swoją obecność, utrudniając tym samym detekcję.",
                 level: "basic",
                 slide: <KeyloggerTypes/>
             },
             {
                 header: "Używanie keyloggera w złośliwych celach",
-                text: "Z biegiem czasu, zaczęto nadużywać to narzędzie, stosując je do złośliwych celów. Obecnie, częstym zastosowaniem keyloggerów jest infekcja niczego niespodziewających się ofiar, a następnie <strong>wykradanie wrażliwych danych</strong>, takich jak dane bankowe, kart kredytowych czy loginy i hasła. <br/><br/>Do bardziej zaawansowanych funkcji keyloggera może należeć przechwytywanie ekranu zainfekowanej ofiary, poprzez tworzenie zrzutów ekranu, lub przechwytywanie skopiowanych informacji.<br/><br/>Keyloggery stanowią wyjątkowe zagrożenie dla przedsiębiorstw - wykradzione dane mogą zapewnić dostęp atakującemu do najbardziej wrażliwych elementów przedsiębiorstwa lub wyjawić konfidencjonalne plany firmy.",
+                text: "Wraz z biegiem czasu, zaczęto nadużywać to narzędzie, stosując je do złośliwych celów. Obecnie, częstym zastosowaniem keyloggerów jest infekcja niczego niespodziewających się ofiar, a następnie <strong>wykradanie wrażliwych danych</strong>, takich jak dane bankowe, kart kredytowych czy loginy i hasła. <br/><br/>Do bardziej zaawansowanych funkcji keyloggera może należeć przechwytywanie ekranu zainfekowanej ofiary, poprzez tworzenie zrzutów ekranu, lub przechwytywanie skopiowanych informacji.<br/><br/>Keyloggery stanowią wyjątkowe zagrożenie dla przedsiębiorstw - wykradzione dane mogą zapewnić dostęp atakującemu do najbardziej wrażliwych elementów przedsiębiorstwa lub wyjawić konfidencjonalne plany firmy.",
                 level: "basic",
                 slide: <KeylogggerMaliciousFlow/>
             },
             {
                 header: "Sposoby infekcji keyloggerem",
-                text: "Urządzenie może zostać zainfekowane keyloggerem na wiele sposobów, które różnią się w zależności od rodzaju tego narzędzia.<br/><br/>Keyloggery sprzętowe, jak sama nazwa wskazuje, zazwyczaj wymagają fizycznej obecności atakującego przy sprzęcie ofiary, celem podłączenia keyloggera do urządzenia ofiary. W związku z tym stanowią one mniejsze zagrożenie dla zwykłych użytkowników niż keyloggery programowe.<br/><br/>Infekcja keyloggerem programowym jest znacznie prostsza, przez co ogólnie rzecz biorąc stanowi on większe zagrożenie, szczególnie jeśli urządzenie nie jest chronione antywirusem. Najczęstszą formą instalacji tego rodzaju złośliwego oprogramowania jest pobranie i uruchomienie podejrzanego załącznika z sieci lub wiadomościach phishingowych.",
+                text: "Urządzenie może zostać zainfekowane keyloggerem na wiele sposobów, które różnią się w zależności od rodzaju tego narzędzia.<br/><br/>Keyloggery sprzętowe, jak sama nazwa wskazuje, zazwyczaj wymagają fizycznej obecności atakującego przy sprzęcie ofiary, celem podłączenia keyloggera do urządzenia. W związku z tym stanowią one mniejsze zagrożenie dla zwykłych użytkowników niż keyloggery programowe.<br/><br/>Infekcja keyloggerem programowym jest znacznie prostsza, przez co ogólnie rzecz biorąc stanowi on większe zagrożenie, szczególnie jeśli urządzenie nie jest chronione antywirusem. Najczęstszą formą instalacji tego rodzaju złośliwego oprogramowania jest pobranie i uruchomienie podejrzanego załącznika z sieci lub z wiadomości phishingowych.",
                 level: "basic",
                 slide: <KeyloggerInfectionMethods/>
             },
@@ -488,16 +488,68 @@ const content = [
         ]
     },
     {
-        course: "csrf",
-        language: "pl",
+        course: "xss",
+        language: "en",
         content: [
             {
-                header: "Jak działają ciasteczka?",
-                text: "wytlumaczyc jak dzialaj ciasteczka i jak to sie ma w kontekscie csrf",
+                header: "What is an XSS attack?",
+                text: "Cross-site scripting (XSS) is based on injecting a malicious script into a website. It is most often found in places where users are able to add content to a page, for example when adding a comment.<br/><br/>A simple script can completely change the appearance and functionality of a website. An example of one type of attack - Reflected XSS - can involve placing a malicious script in the URL of a web page that renders query parameters. The web browser the victim is using is unable to recognise the intent behind the placed script, so it will always try to execute it.<br/><br/>These attacks often occur alone, stealing user cookies to gain unauthorised access. They can also be linked to keyloggers, emails or phishing sites, among others, and more.",
                 level: "basic",
-            }
+                slide: <XssWhatIs/>
+            },
+            {
+                header: "XSS attack types",
+                text: "Despite the fact that the main goal of XSS is to inject a malicious script into the browser, this attack can be executed in many ways.<br/><br/>The vast majority of attacks can be divided into three main categories: <strong>Reflected XSS</strong>, <strong>Stored XSS</strong>, <strong>DOM-based XSS</strong>. Despite the division, some, more advanced XSS attacks may fall under all categories simultaneously.<br/><br/>In addition to the method of execution, the attack types determine whether the attack happens on the client side - the web browser - or the server that runs the service.<br/><br/>A client-side XSS attack is usually simpler to execute, as finding the vulnerability associated with this type of attack is generally easier on the client side.  ",
+                level: "basic",
+                slide: <XssTypes/>
+            },
+            {
+                header: "Course scenario",
+                text: "The slide shows a popular site for finding and interacting with friends. The site consists of three sections: friends, friend finder and user profile. <br/><br/>The friend data, searched for by the person using the service, is added to the query parameter of the URL. Subsequently, in addition to returning the searched friends, the content contained in the query parameters is rendered in the DOM of the web page, just below the 'Search Results'.<br/><br/><strong>In this interactive exercise, try to search for any friend to test the functionality of the page. Also note the URL after searching for a friend.</strong>",
+                level: "basic",
+                interactive: true,
+                slide: <XssInteractiveIntroduction/>
+            },
+            {
+                header: "XSS vulnerability example",
+                text: "The data sent to the search engine appears in both the page content (search results) and the URL address. This is the first indication that a page may be vulnerable to the XSS attack. Additionally, the ability to 'place' an item on a page by modifying the URL is a feature of a Reflected XSS attack.<br/><br/>The next step that can be taken to verify a page for XSS vulnerability is to attempt to insert any HTML tag into the DOM. According to the learned functionality, the search text is placed in the 'Search results'. If you find that the search for an HTML tag modifies the page content, thereby adding the search tag to the DOM tree, you can be almost certain that the page is vulnerable to an XSS attack.<br/><br/><strong>In this interactive exercise, test the behavior of a page by typing and then searching for any HTML tag in the search box.</strong>",
+                level: "basic",
+                interactive: true,
+                slide: <XssInteractiveEnterHtml/>
+            },
+            {
+                header: "XSS attack consequences",
+                text: "The ability to inject any HTML tag into the content of a web page means that there is nothing to prevent malicious JavaScript code from also being placed on the page. Additionally, bearing in mind that the malicious script can be run by any user, provided they enter the URL containing the script, it is a clear indication that the website is vulnerable to a Reflected XSS attack. <br/><br/>This carries very serious consequences. A malicious script can execute anything the JavaScript language allows. For example, an attacker could create a script that sends the victim's session tokens to the attacker, allowing the attacker to directly access the victim's account. The script can also temporarily 'place' a keylogger in the victim's window, using the <strong>addEventListener</strong> method to listen for user keyboard activity. <br/><br/>The victim of an XSS attack may also unknowingly download a virus to their device or infect their browser with adware.",
+                level: "basic",
+                slide: <XssConsequences/>
+            },
+            {
+                header: "Injecting malicious script",
+                text: "Given that the presented application is also vulnerable to Reflected XSS, there is nothing to prevent passing a URL containing a malicious script to another user of this application. This will trigger the execution of the malicious script on his side.<br/><br/>So far, it has been accepted that the proof of a website's vulnerability to an XSS attack is the inclusion of a script that triggers an alert, a built-in browser method that displays a message box with the given content. <br/><br/><strong>In this interactive exercise, try to place a script in a page that executes an alert with any message.</strong>",
+                level: "advanced",
+                interactive: true,
+                slide: <XssInteractiveEnterScript/>
+            },
+            {
+                header: "Protection against XSS attacks",
+                text: "The responsibility for protecting a website from XSS vulnerabilities should usually lie with the development team creating the website. <br/><br/>The most important rules that should be followed are <strong>validation and cleaning of user input</strong>. By applying this simple rule, you can virtually eliminate many of the risks associated with this attack. <br/><br/>It would also be a good idea to add headers to the HTML document that do not allow external JavaScript code execution.",
+                level: "basic",
+                slide: <XssProtection/>
+            },
+
         ]
     },
+    // {
+    //     course: "csrf",
+    //     language: "pl",
+    //     content: [
+    //         {
+    //             header: "Jak działają ciasteczka?",
+    //             text: "wytlumaczyc jak dzialaj ciasteczka i jak to sie ma w kontekscie csrf",
+    //             level: "basic",
+    //         }
+    //     ]
+    // },
     {
         course: "dos",
         language: "pl",

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import colors from "constans/colors.js";
+import { useTranslation } from "react-i18next";
 
 export const Container = styled.div`
   width: 100%;
@@ -24,34 +25,36 @@ export const Description = styled.h4`
 `;
 
 const XssConsequences = () => {
+  const { t } = useTranslation();
+
   return (
     <Container>
         <Item style={{ left: "10%", top: "40%" }}>
-          <Description>Wykradnięcie danych</Description>
+          <Description>{t("courses.xss.dataTheft")}</Description>
         </Item>
         <Item style={{ left: "10%", top: "12%" }}>
-          <Description>Dostęp do kamerki internetowej ofiary</Description>
+          <Description>{t("courses.xss.cameraAccess")}</Description>
         </Item>
         <Item style={{ right: "10%", top: "12%" }}>
-          <Description>Infekcja keyloggerem</Description>
+          <Description>{t("courses.xss.keylogger")}</Description>
         </Item>
         <Item style={{ left: "15%", bottom: "20%" }}>
-          <Description>Phishing</Description>
+          <Description>{t("courses.xss.phisihing")}</Description>
         </Item>
         <Item style={{ right: "15%", bottom: "50%" }}>
-          <Description>Podszywanie się pod ofiarę ataku</Description>
+          <Description>{t("courses.xss.spoofing")}</Description>
         </Item>
         <Item style={{ right: "15%", top: "25%" }}>
-          <Description>Wykorzystanie urządzenia ofiary do kopania kryptowalut</Description>
+          <Description>{t("courses.xss.cryptoMining")}</Description>
         </Item>
         <Item style={{ left: "14%", bottom: "35%" }}>
-          <Description>Nagrywanie mikrofonu ofiary</Description>
+          <Description>{t("courses.xss.usingMicrophone")}</Description>
         </Item>
         <Item style={{ right: "15%", bottom: "25%" }}>
-          <Description>Infekcja przeglądarki reklamami</Description>
+          <Description>{t("courses.xss.infectionAds")}</Description>
         </Item>
         <Item style={{ right: "25%", bottom: "10%" }}>
-          <Description>Pobranie wirusów na urządzenie ofiary</Description>
+          <Description>{t("courses.xss.downloadingViruses")}</Description>
         </Item>
     </Container>
   );

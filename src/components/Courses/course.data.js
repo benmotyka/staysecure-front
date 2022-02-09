@@ -539,17 +539,6 @@ const content = [
 
         ]
     },
-    // {
-    //     course: "csrf",
-    //     language: "pl",
-    //     content: [
-    //         {
-    //             header: "Jak działają ciasteczka?",
-    //             text: "wytlumaczyc jak dzialaj ciasteczka i jak to sie ma w kontekscie csrf",
-    //             level: "basic",
-    //         }
-    //     ]
-    // },
     {
         course: "dos",
         language: "pl",

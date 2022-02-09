@@ -1,6 +1,7 @@
 import Browser from "components/Browser/Browser";
 import Loader from "components/Loader/Loader";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 import {
   BrowserContainer,
@@ -23,7 +24,7 @@ const XssInteractiveEnterHtml = (props) => {
         searchFriend();
       }, []);
 
-      
+  const { t } = useTranslation();
   const [searchValue, setSearchValue] = useState("Jan Kowalski");
   const [urlQuery, setUrlQuery] = useState("");
   const [loading, setLoading] = useState(false);
@@ -58,7 +59,7 @@ const XssInteractiveEnterHtml = (props) => {
             <PageSection>
               <FriendList>
                 <HeaderItem>
-                  <SectionHeader>Znajomi</SectionHeader>
+                  <SectionHeader>{t("courses.xss.friends")}</SectionHeader>
                 </HeaderItem>
                 {[...Array(9)].map((n, index) => (
                 <FriendItem key={index}>
@@ -73,22 +74,22 @@ const XssInteractiveEnterHtml = (props) => {
             </PageSection>
             <PageSection withBorders>
               <HeaderItem>
-                <SectionHeader>Wyszukiwarka znajomych</SectionHeader>
+                <SectionHeader>{t("courses.xss.searchFriends")}</SectionHeader>
               </HeaderItem>
               <ItemWrapper>
                 <input
                   type="text"
-                  placeholder="Wpisz znajomego..."
+                  placeholder={t("courses.xss.enterFriend")}
                   onChange={(e) => setSearchValue(e.target.value)}
                   value={searchValue}
                 />
-                <button onClick={searchFriend}>Wyszukaj</button>
+                <button onClick={searchFriend}>{t("courses.xss.search")}</button>
               </ItemWrapper>
               <FriendList>
               {searchedValue && (
                   <>
                   <ItemWrapper>
-                    Wyniki wyszukiwania dla:<br/>
+                  {t("courses.xss.searchResultsFor")}:<br/>
                     <strong
                       dangerouslySetInnerHTML={{ __html: searchedValue }}
                     ></strong>
@@ -108,7 +109,7 @@ const XssInteractiveEnterHtml = (props) => {
             </PageSection>
             <PageSection>
                 <HeaderItem>
-                  <SectionHeader>Mój profil</SectionHeader>
+                  <SectionHeader>{t("courses.xss.myProfile")}</SectionHeader>
                 </HeaderItem>
               <FriendList>
                 <FriendItem>

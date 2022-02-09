@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import colors from "constans/colors.js";
+import { useTranslation } from "react-i18next";
 
 import { Line } from "components/PreviewItems/PreviewItems.styles.js";
 
@@ -87,27 +88,25 @@ const RelativeContainer = styled.div`
 `;
 
 const XssProtection = () => {
+  const { t } = useTranslation();
   const [activeSlide, setActiveSlide] = useState(0);
   return (
     <Container>
       <HeaderWrapper>
         <Button active={activeSlide === 0} onClick={() => setActiveSlide(0)}>
-          Kodowanie danych wejściowych
+        {t("courses.xss.xssProtection1")}
         </Button>
         <Button active={activeSlide === 1} onClick={() => setActiveSlide(1)}>
-          Ochrona ciasteczek
+        {t("courses.xss.xssProtection2")}
         </Button>
         <Button active={activeSlide === 2} onClick={() => setActiveSlide(2)}>
-          Walidacja po stronie serwera
+        {t("courses.xss.xssProtection3")}
         </Button>
       </HeaderWrapper>
       {activeSlide === 0 && (
         <ContentWrapper>
           <ContentHeader>
-            Pomimo faktu, iż w dzisiejszych czasach większość frameworków
-            (szkieletów oprogramowania) posiada wbudowaną ochronę przed atakami
-            XSS, zawsze należy pamiętać o kodowaniu do encji HTML i czyszczeniu
-            treści wprowadzonej przez użytkownika na stronę
+          {t("courses.xss.xssProtectionDescription1")}
             <Line />
           </ContentHeader>
           <FlexCenterWrapper>
@@ -123,7 +122,9 @@ const XssProtection = () => {
       {activeSlide === 1 && (
         <ContentWrapper>
           <ContentHeader>
-            Jednym ze scenariuszy ataku XSS jest przechwycenie ciasteczek zalogowanego użytkownika, aby uzyskać nieautoryzowany dostęp do jego konta. Dobrym sposobem na ochronę przeciw temu działaniu jest ustawienie flagi <strong>HttpOnly</strong> na każdym wrażliwym ciasteczku. Sprawi to, że nie będzie ono dostępne z poziomu skryptu wykonanego w przeglądarce.
+          {t("courses.xss.xssProtectionDescription2a")}
+            <strong>HttpOnly</strong> 
+          {t("courses.xss.xssProtectionDescription2b")}
             <Line />
           </ContentHeader>
           <ContentBody>
@@ -138,7 +139,7 @@ const XssProtection = () => {
       {activeSlide === 2 && (
         <ContentWrapper>
           <ContentHeader>
-            W przypadku ataku typu Stored XSS, złośliwy skrypt przesyłany jest do serwera, a następnie zapisywany jest w bazie danych. Jeśli skrypt ten zostanie odpowiednio zwalidowany, pod kątem występowania dozwolonych znaków i sparsowany, wyeliminuje to podatność aplikacji na ten typ ataku XSS.
+          {t("courses.xss.xssProtectionDescription3")}
             <Line />
           </ContentHeader>
           <FlexCenterWrapper>

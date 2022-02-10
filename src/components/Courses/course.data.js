@@ -565,7 +565,6 @@ const content = [
                 text: "Atak DOS (Denial Of Service) i DDOS (Distributed Denial Of Service) różnią się, jak sama nazwa wskazuje, rozdystrybuowaniem źródeł ataku. <br/><br/>Atakiem DOS można nazwać sytuację, w której z jednego urządzenia wysyłane jest nienaturalnie wiele żądań w określonej jednostce czasu. <br/><br/>Natomiast atak DDOS miałby miejsce, kiedy to wiele różnych maszyn symulowałoby fałszywy ruch, każda z innej lokalizacji. W takiej sytuacji zdecydowanie trudniej jest ustalić źródło ataku, mając na uwadze, że każda maszyna posiada unikalny adres IP. Maszyny te są zazwyczaj pozyskiwane poprzez zainfekowanie złośliwym oprogramowaniem urządzenia ofiary. Sieć zainfekowanych maszyn, która wykorzystywana jest w atach DDOS na wezwanie atakującego nosi nazwę <strong>botnet</strong>. <br/><br/>W dalszych slajdach, ataki DOS/DDOS będą skrótowo opisywane DDOS.",
                 level: "basic",
                 slide: <DosVsDdos/>
-                //slide to vertical separator, ikonki ze dos zz jednego adresu ip ddos z wielu,
 
             },
             {
@@ -589,6 +588,60 @@ const content = [
             {
                 header: "Ochrona przed atakami DDOS",
                 text: "Przeciwdziałanie atakom DDOS powinno mieć miejsce głównie w ustawieniach zapory infrastruktury sieciowej. Zazwyczaj to właśnie w tym wrażliwym miejscu następuje pierwszy etap procesowania żądań przychodzących do danego systemu.<br/><br/>Wykorzystywanie odpowiednich narzędzi pozwalających na analizę i filtrowanie ruchu przychodzącego to podstawa, która powinna mieć miejsce w każdym serwisie zmagającym się z atakami typu DDOS.<br/><br/>Posiadanie infrastruktury teleinformatycznej w chmurze daje zupełnie nowe możliwości walki z tego typu atakami. Pierwszym sposobem może być wykorzystanie <strong>systemu równoważenia obciążenia</strong>, który może przekierowywać żądania na instancje serwerowe (których może być kilka) według zużycia ich zasobów. Dodając do tego grupę automatycznie skalującą liczbę maszyn w zależności od ruchu, można być pewnym, że system wytrzyma praktycznie większość prób ataku.",
+                level: "basic",
+                slide: <DdosProtection/>
+            }
+        ]
+    },
+    {
+        course: "dos",
+        language: "en",
+        content: [
+            {
+                header: "How do web servers work?",
+                text: "Web servers are programs installed on computers that store and deliver website content. An example of content delivered to a client (browser) could be the content of a website when a user visits it.  They are used by website owners to provide access to a website for ordinary users.<br/><br/>The client (browser) communicates with the web server via the HTTP protocol and receives a response from the server, usually in the form of a page encoded in HTML.<br/><br/>Servers are run on computers (machines, server instances) that have their own processor or RAM. On machines, apart from the server, there are often other applications running which are necessary for the instance to work properly, e.g. automatic creation of backups or a mail client.",
+                level: "basic",
+                slide: <HowWebServersWork/>
+            },
+            // {   //OPTIONAL
+            //     header: "Reverse proxy na serwerze",
+            //     text: "dos",
+            //     level: "advanced"
+            // },
+            {
+                header: "What is a DOS attack?",
+                text: "DOS (Denial Of Service) attack, in a nutshell, consists in redirecting so much traffic to a given web server in a given unit of time, that the server, trying to answer every connection, will use all possible resources (processor, memory), which will cause a bottleneck for other actions of the server, often causing its complete, emergency shutdown.<br/><br/>The targets of attacks are usually widely understood corporate websites: online shops, financial institutions or popular applications.<br/><br/>Very often, attacks are accompanied by a proposal to the victim, in which the attacker will stop sending false traffic in exchange for a monetary payment. Attacks can also be motivated by competitive activity.",
+                slide: <WhatIsDdos/>,
+                level: "basic",
+            },
+            {
+                header: "Differences between DOS and DDOS attacks",
+                text: "DOS (Denial Of Service) and DDOS (Distributed Denial Of Service) attacks differ, as the name suggests, in the distribution of attack sources.<br/><br/>A DOS attack can be called a situation where an unnaturally large number of requests are sent from a single device in a specific unit of time.<br/><br/>A DDOS attack, on the other hand, would occur when many different machines simulate false traffic, each from a different location. In this situation, it is far more difficult to determine the source of the attack, given that each machine has a unique IP address. These machines are usually acquired by infecting the victim's device with malware. The network of infected machines that is used in DDOS attacks at the behest of the attacker is called a <strong>botnet</strong>.<br/><br/>In the following slides, DOS/DDOS attacks will be briefly described as DDOS.",
+                level: "basic",
+                slide: <DosVsDdos/>
+
+            },
+            {
+                header: "DDOS types",
+                text: "The types of DDOS attacks vary depending on where they are targeted, for example an application layer attack operates on a different layer of the OSI model than a TCP attack.<br/><br/>Despite the fact that these attacks aim to load a machine with false traffic, they can be divided into four categories, but each of these categories can do one of two things: overload and reboot the server or fill the network with false traffic.<br/><br/>An attacker may attempt to use one or more of the categories to achieve the targeted effect. Combining attack categories is an additional threat. If a machine applies the appropriate security policies, thereby nullifying the DDOS attempt at the application layer, an attacker may notice this and change the attack category, this time targeting network bandwidth.",
+                slide: <DdosTypes/>,
+                level: "basic"
+            },
+            {
+                header: "DDOS attack identification",
+                text: "The very moment a DDOS attack is launched, its effects can be seen. Jeśli atak skierowany jest na serwer webowy, będzie probował on odpowiadać na każde nadchodzące żądanie, tym samym znacząco zwiększy się czas potrzebny na odpowiedź. Depending on the severity of the attack and the server's resources, the server may stop responding to further incoming requests because it will be too busy responding to requests that arrived earlier. In the worst case, the machine may shut down due to being too busy for a certain amount of time.<br/><br/>Server instance metrics such as CPU or RAM usage will be at peak levels until the attack ends, or suspicious IP addresses are blocked in the firewall.<br/><br/>In the case of an attack at the application layer, additional clues suggesting an attack could be links between incoming requests, such as a common User-Agent header or geolocation.",
+                level: "basic"
+            },
+            {  
+                header: "Use of AI in countering DDOS attacks",
+                text: "Nowadays, artificial intelligence is finding newer and newer areas in which it can be used. Modern firewall solutions specially created to counter DDOS attacks use artificial intelligence and machine learning mechanisms.<br/><br/>By analysing the traffic entering the website, a certain model is created, to which possible subsequent traffic statistics are compared. If, in a given unit of time, network connections exceed accepted norms, the traffic may be classified as a DDOS attack, which will cause firewall mechanisms to be strengthened or CAPTCHA mechanisms to become more sensitive for a certain period of time, until the traffic is restored to normal conditions.",
+                slide: <DdosAi/>,
+                level: "advanced"
+            },
+            // optional: autoscaling groups, use of cloud infrastructure against ddos
+            {
+                header: "Protection against DDOS attacks",
+                text: "Countering DDOS attacks should mainly take place in the firewall settings of the network infrastructure. It is usually at this vulnerable point that the first stage of processing requests coming into a given system occurs.<br/><br/>The use of appropriate tools allowing for the analysis and filtering of incoming traffic is a cornerstone that should take place in any service struggling with DDOS attacks.<br/><br/>Having your ICT infrastructure in the cloud gives you a whole new way to fight these types of attacks. The first way may be to use a load balancing system that can redirect requests to server instances (of which there may be several) according to their resource consumption. By adding a group that automatically scales the number of machines according to traffic, you can be sure that the system can withstand virtually most attack attempts.",
                 level: "basic",
                 slide: <DdosProtection/>
             }

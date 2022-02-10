@@ -1,9 +1,8 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import colors from "constans/colors.js";
 
 import { Line } from "components/PreviewItems/PreviewItems.styles.js";
 import { useState } from "react";
-import {} from "react-icons/bs";
 import { AiFillWarning as WarningIcon } from "react-icons/ai";
 import { useTranslation } from "react-i18next";
 

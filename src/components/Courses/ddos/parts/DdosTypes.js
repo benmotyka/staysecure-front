@@ -2,13 +2,14 @@ import styled, { css } from "styled-components";
 import colors from "constans/colors.js";
 
 import { GiBreakingChain as ChainIcon } from "react-icons/gi";
+import { useTranslation } from "react-i18next";
 
 import {
   MdSettingsApplications as AppIcon,
-  MdMultilineChart as TcpIcon
+  MdMultilineChart as TcpIcon,
 } from "react-icons/md";
 
-import {RiSignalWifiOffFill as NoSignalIcon} from "react-icons/ri"
+import { RiSignalWifiOffFill as NoSignalIcon } from "react-icons/ri";
 
 export const Container = styled.div`
   display: flex;
@@ -78,35 +79,31 @@ export const NoSignal = styled(NoSignalIcon)`
 `;
 
 const DdosTypes = () => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <Header></Header>
       <RelativeWrapper>
         <Item style={{ left: "15%", bottom: "10%" }}>
           <NoSignal />
-          <Description>Ataki wolumetryczne</Description>
-          <Text>Wysyłają fałszywy ruch celem zapełnienia przepustowości sieci, w której znajduje się instancja serwerowa, odbierając jej dostęp do internetu. Do tego celu często wykorzystywane są sieci botnet.</Text>
+          <Description>{t("courses.dos.volumetricAttack")}</Description>
+          <Text>{t("courses.dos.volumetricAttackDescription")}</Text>
         </Item>
         <Item style={{ right: "25%", top: "0" }}>
           <Tcp />
-          <Description>Ataki TCP</Description>
-          <Text>Wykorzystują mechanizm uzgadniania trój-etapowego, konsumując zasoby instancji serwerowej szybciej, niż ta jest w stanie przetworzyć żądania.</Text>
+          <Description>{t("courses.dos.tcpAttack")}</Description>
+          <Text>{t("courses.dos.tcpAttackDescription")}</Text>
         </Item>
         <Item style={{ left: "15%", top: "0" }}>
           <App />
-          <Description>Ataki na warstwie aplikacyjnej</Description>
-          <Text>
-            Próbują nadużyć działanie samej aplikacji, poprzez nadsyłanie wielu żądań HTTP, tym samym generując fałszywy ruch i obciążając zasoby maszyny
-          </Text>
+          <Description>{t("courses.dos.applicationAttack")}</Description>
+          <Text>{t("courses.dos.applicationAttackDescription")}</Text>
         </Item>
         <Item style={{ right: "25%", bottom: "10%" }}>
           <Chain />
-          <Description>Ataki fragmentacyjne</Description>
-          <Text>
-            Znane także jako ataki Teardrop, przesyłają one wiele małych,
-            pofragmentowanych pakietów do maszyny, przez co ponowne złożenie
-            wszystkich pakietów przeciąża docelową sieć
-          </Text>
+          <Description>{t("courses.dos.fragmentationAttack")}</Description>
+          <Text>{t("courses.dos.fragmentationAttackDescription")}</Text>
         </Item>
       </RelativeWrapper>
     </Container>

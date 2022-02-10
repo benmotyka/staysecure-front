@@ -15,6 +15,7 @@ import {
     FaUser as UserIcon,
   FaServer as ServerIcon
 } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 
 const Warning = styled(WarningIcon)`
@@ -53,21 +54,25 @@ color: ${colors.white};
 // @TODO needs hard refactor 
 
 const WhatIsDdos = () => {
+  const {t} = useTranslation()
+
   const [activeSlide, setActiveSlide] = useState(0);
   return (
     <Container>
       <HeaderWrapper columns={2}>
         <Button active={activeSlide === 0} onClick={() => setActiveSlide(0)}>
-          Zwyczajne okoliczności
+        {t('courses.dos.usualCircumstances')}
         </Button>
         <Button active={activeSlide === 1} onClick={() => setActiveSlide(1)}>
-          Atak DOS
+        {t('courses.dos.dosAttack')}
         </Button>
       </HeaderWrapper>
       {activeSlide === 0 && (
         <ContentWrapper>
           <ContentHeader>
-            W zwyczajnych okolicznościach serwer webowy przetwarza żądania dla naturalnego ruchu. Te czynności nie powinny przekraczać dostępnych zasobów serwera.<br/><br/>Poza swoim głównym zadaniem może również automatycznie wykonywać czynności administracyjne, takie jak na przykład wykonywanie kopii zapasowych danych.
+        {t('courses.dos.usualCircumstancesDescription1')}
+            <br/><br/>
+        {t('courses.dos.usualCircumstancesDescription2')}
             <Line />
           </ContentHeader>
           <ContentRelativeWrapper>
@@ -82,7 +87,7 @@ const WhatIsDdos = () => {
       {activeSlide === 1 && (
         <ContentWrapper>
           <ContentHeader>
-            Nadchodzący, nienaturalny ruch obciąża serwer do tego stopnia, że ten nie nadąża z odpowiadaniem na pozostałe, zwykłe żądania. Jednocześnie też brak mu zasobów na dokonywanie czynności administracyjnych.
+          {t('courses.dos.dosAttackDescription')}
             <Line />
           </ContentHeader>
             <ContentRelativeWrapper>

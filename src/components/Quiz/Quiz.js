@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   Container,
   Footer,
   FooterText,
-  NavigateArrow,
   Body,
   HeaderContainer,
   Header,
@@ -21,15 +21,16 @@ const Quiz = (props) => {
   const [loading, setLoading] = useState(false);
   const [userAnswers, setUserAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [choosenAnswer, setChoosenAnswer] = useState(null)
-  const [quizFinished, setQuizFinished] = useState(false)
+  const [choosenAnswer, setChoosenAnswer] = useState(null);
+  const [quizFinished, setQuizFinished] = useState(false);
+  const { t } = useTranslation();
   useEffect(() => {
-    finishQuiz() //required for simulating asynchronous change of state for useranswers
+    finishQuiz(); //required for simulating asynchronous change of state for useranswers
   }, [quizFinished]);
 
   const finishQuiz = async () => {
-    if (!quizFinished) return 
-    setLoading(true)
+    if (!quizFinished) return;
+    setLoading(true);
     const requestBody = {
       query: `
             mutation FinishQuiz($course: String!, $answers: String!){
@@ -53,23 +54,26 @@ const Quiz = (props) => {
             Authorization: `Bearer ${props.user.token}`,
           },
         }
-        );
+      );
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    history.push(`/quiz-summary/${props.courseLink}`)
-    setLoading(false)
-  }
+    history.push(`/quiz-summary/${props.courseLink}`);
+    setLoading(false);
+  };
 
-  const updateUserAnswer = ((question) => {
-    if(choosenAnswer === null) return
-    setUserAnswers(userAnswers => [...userAnswers, {question, answer: choosenAnswer}]);
+  const updateUserAnswer = (question) => {
+    if (choosenAnswer === null) return;
+    setUserAnswers((userAnswers) => [
+      ...userAnswers,
+      { question, answer: choosenAnswer },
+    ]);
     if (currentQuestion >= props.quizData.length - 1) {
       return;
     }
-    setChoosenAnswer(null)
+    setChoosenAnswer(null);
     setCurrentQuestion(currentQuestion + 1);
-  })
+  };
 
   return (
     <>
@@ -83,43 +87,50 @@ const Quiz = (props) => {
                 <>
                   <Body>
                     <HeaderContainer>
-                      <Header>Pytanie {index+1}/{props.quizData.length}</Header>
+                      <Header>
+                        {t("quiz.question")} {index + 1}/{props.quizData.length}
+                      </Header>
                       <Question>{item.question}</Question>
                     </HeaderContainer>
                     <AnswersContainer>
                       {item.answers.map((answer, index) => (
-                        <Answer key={index}
-                        choosen={choosenAnswer === answer}
-                        onClick={() => {
-                          setChoosenAnswer(answer)
-                        }}
-                        >{answer.text}</Answer>
+                        <Answer
+                          key={index}
+                          choosen={choosenAnswer === answer}
+                          onClick={() => {
+                            setChoosenAnswer(answer);
+                          }}
+                        >
+                          {answer.text}
+                        </Answer>
                       ))}
                     </AnswersContainer>
                   </Body>
                   <Footer>
-                    <FooterText  onClick={() => {
-                        console.log(userAnswers)
-                      }}>
-                      {/* <NavigateArrow back/> */}
-                      {/* Poprzednie pytanie */}
-                    </FooterText>
+                    <FooterText
+                      onClick={() => {
+                        console.log(userAnswers);
+                      }}
+                    ></FooterText>
 
-                      {currentQuestion >= (props.quizData.length -1) ?  (
-                    <FooterText onClick={() => {
-                      updateUserAnswer(item.question)
-                      setQuizFinished(true)
-                      finishQuiz()
-                    }}>
-                      Zakończ quiz 
-                    </FooterText>
-                    )
-                    : (
-                <Button text="Następne pytanie"  onClick={() => {
-                  updateUserAnswer(item.question)
-              }}/>
-                    )
-                       } 
+                    {currentQuestion >= props.quizData.length - 1 ? (
+                      <FooterText
+                        onClick={() => {
+                          updateUserAnswer(item.question);
+                          setQuizFinished(true);
+                          finishQuiz();
+                        }}
+                      >
+                        {t("quiz.finishQuiz")}
+                      </FooterText>
+                    ) : (
+                      <Button
+                        text={t("quiz.nextQuestion")}
+                        onClick={() => {
+                          updateUserAnswer(item.question);
+                        }}
+                      />
+                    )}
                   </Footer>
                 </>
               );

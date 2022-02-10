@@ -55,7 +55,7 @@ const LaptopText = styled.p`
   color: ${colors.white};
   position: absolute;
   top: 15%;
-  left: 15%;
+  left: 25%;
 `;
 
 const U2FInLaptop = styled(PendriveIcon)`

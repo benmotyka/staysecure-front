@@ -66,6 +66,9 @@
     "mobileAlertHeader": "This site is not designed for mobile devices",
     "mobileAlertDescription": "To take full advantage of the site, visit this page on your computer",
     "quiz": {
+        "question": "Question ",
+        "nextQuestion": "Next question",
+        "finishQuiz": "Finish quiz",
         "summary": "Quiz summary for",
         "yourScoreIs": "Your score is",
         "green": "green",
@@ -293,6 +296,36 @@
             "xssProtection3": "Server-side validation",
             "xssProtectionDescription3": "In a Stored XSS attack, a malicious script is sent to a server and then stored in a database. If this script is properly validated for allowed characters and parsed, it will eliminate the application's vulnerability to this type of XSS attack.",
             "xssVulnerability": "XSS vulnerability"
+        },
+        "dos": {
+            "clientBrowser": "Client (browser)",
+            "clientSends": "Client sends HTTP request",
+            "serverReturns": "The server returns the HTTP response",
+            "machineDescription": "The machine on which the web server is running",
+            "usualCircumstances": "Ordinary circumstances",
+            "usualCircumstancesDescription1": "Under normal circumstances, the web server processes requests for natural traffic. These activities should not exceed the available resources of the server.",
+            "usualCircumstancesDescription2": "In addition to its main task, it can also automatically perform administrative tasks, such as backing up data.",
+            "dosAttack": "DOS attack",
+            "dosAttackDescription": "The incoming, unnatural traffic overloads the server to such an extent that it cannot keep up with the remaining, normal requests. At the same time, it lacks the resources to carry out administrative tasks.",
+            "volumetricAttack": "Volumetric attacks",
+            "volumetricAttackDescription": "They send fake traffic to fill the bandwidth of the network where the server instance is located, denying it access to the internet. Botnets are often used for this purpose.",
+            "tcpAttack": "TCP attacks",
+            "tcpAttackDescription": "They use a three-step reconciliation mechanism, consuming server instance resources faster than the server instance can process requests.",
+            "applicationAttack": "Attacks at the application layer",
+            "applicationAttackDescription": "They attempt to abuse the operation of the application itself by sending multiple HTTP requests, thereby generating false traffic and putting a strain on the machine's resources.",
+            "fragmentationAttack": "Fragmentation attacks",
+            "fragmentationAttackDescription": "Also known as Teardrop attacks, these send many small, fragmented packets to a machine, so that reassembling all the packets overloads the target network.",
+            "aiDescription1a": "Outgoing user requests, these include requests from the ",
+            "botnet": "botnet",
+            "aiDescription1b": " network, sent to overload the server",
+            "aiDescription2": "Firewall with AI mechanisms analyses traffic and rejects two similar requests",
+            "aiDescription3": "The server receives traffic from real users",
+            "usingFirewalls":"Use of firewalls",
+            "usingFirewallsDescription":"The use of firewalls is fundamental against all types of attacks, not just DDOS-type attacks. For websites, make sure that the machine on which the web server is configured has only those ports open to the world that are necessary for the website to function (HTTP/HTTPS). Using different rules - depending on the firewall - is also a good solution. However, it is worth bearing in mind that using restrictive rules in firewalls can also reject some normal users. The key is to balance the rejection rules appropriately.",
+            "cloudMigration":"Migration to the cloud",
+            "cloudMigrationDescription":"If a company with a traditional type of infrastructure (its own physical machines) is facing problems with DDOS attacks or irregular traffic, it is worth considering the option of migrating the current state of the infrastructure to public clouds. These provide the dynamic ability to scale server instances depending on site traffic, so in the event of increased traffic or a DDOS attack, the problem of unavailability can be partially mitigated by creating more machines.",
+            "monitoringResources":"Monitoring of resources",
+            "monitoringResourcesDescription":"This is one of the key elements allowing protection against DDOS attacks. Thanks to active monitoring of machine resources, it is possible to create models of resource consumption (CPU, RAM) throughout the day. This makes it possible, above all, to spot anomalies in the form of DDOS attacks. If these occur in certain patterns, appropriate rules can be applied to firewalls, for example, to reject even less suspicious requests for a given period of time."
         }
     }
 }

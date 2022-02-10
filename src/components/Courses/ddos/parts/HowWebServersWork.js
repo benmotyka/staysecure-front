@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import colors from "constans/colors.js";
+import { useTranslation } from "react-i18next";
 
 import { FaUser as UserIcon, FaServer as ServerIcon } from "react-icons/fa";
 
@@ -54,21 +55,33 @@ const Description = styled.h5`
 `;
 
 const HowWebServersWork = () => {
+  const {t} = useTranslation()
+
   return (
     <Container>
       <Wrapper>
         <User />
-        <Description>Klient (przeglądarka)</Description>
+        <Description>
+        {t('courses.dos.clientBrowser')}
+        </Description>
       </Wrapper>
       <Wrapper>
-        <ArrowText>Klient wysyła żądanie HTTP</ArrowText>
+        <ArrowText>
+        {t('courses.dos.clientSends')}
+        </ArrowText>
         <Arrow />
         <Arrow back />
-        <ArrowText>Serwer zwraca odpowiedź HTTP</ArrowText>
+        <ArrowText>
+
+        {t('courses.dos.serverReturns')}
+
+        </ArrowText>
       </Wrapper>
       <Wrapper>
         <Server />
-        <Description>Maszyna, na której uruchomiony jest serwer webowy</Description>
+        <Description>
+        {t('courses.dos.machineDescription')}
+</Description>
       </Wrapper>
     </Container>
   );

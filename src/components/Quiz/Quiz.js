@@ -107,25 +107,21 @@ const Quiz = (props) => {
                     </AnswersContainer>
                   </Body>
                   <Footer>
-                    <FooterText
-                      onClick={() => {
-                        console.log(userAnswers);
-                      }}
-                    ></FooterText>
 
                     {currentQuestion >= props.quizData.length - 1 ? (
-                      <FooterText
-                        onClick={() => {
-                          updateUserAnswer(item.question);
-                          setQuizFinished(true);
-                          finishQuiz();
-                        }}
-                      >
-                        {t("quiz.finishQuiz")}
-                      </FooterText>
+                      <Button
+                      text={t("quiz.finishQuiz")}
+                      disabled={!choosenAnswer}
+                      onClick={() => {
+                        updateUserAnswer(item.question);
+                        setQuizFinished(true);
+                        finishQuiz();
+                      }}
+                    />
                     ) : (
                       <Button
                         text={t("quiz.nextQuestion")}
+                        disabled={!choosenAnswer}
                         onClick={() => {
                           updateUserAnswer(item.question);
                         }}

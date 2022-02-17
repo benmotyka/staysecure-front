@@ -11,7 +11,6 @@ font-size: 16px;
 const Icon = css`
 margin-left: auto;
 font-size: 18px;
-transition: 0.2s all ease-in-out;
 `
 
 export const Arrow = styled(ArrowIcon)`
@@ -26,6 +25,7 @@ export const ButtonStyled = styled.button`
 gap: 10px;
 font-family: 'Poppins', sans-serif;
 ${Text};
+color: ${props => props.disabled ? colors.darkPurple : ''};
 background: ${props => props.green ? colors.lightGreen : colors.orange};
 outline: none;
 border: none;
@@ -33,11 +33,15 @@ padding: ${props => props.full ? "15px 20px": "10px 12px"};
 border-radius: 3px;
 display: flex;
 align-items: center;
-cursor: pointer;
+cursor: ${props => props.disabled ? 'auto' : 'pointer'};
+
 transition: 0.2s all ease-in-out;
 width: ${props => props.full ? "100%": "auto"};
 
 &:hover{
-    background-color: ${props => props.green ? colors.hoverLightGreen : colors.hoverOrange};
+background-color: ${props => props.green ? colors.hoverLightGreen : colors.hoverOrange};
+background-color: ${props => props.disabled ? colors.darkPurple : ''};
 }
+
+background-color: ${props => props.disabled ? colors.darkPurple : ''};
 `

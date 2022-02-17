@@ -15,7 +15,7 @@ padding: 25px;
 export const Footer = styled.div`
 display: flex;
 align-items: center;
-justify-content: space-between;
+justify-content: flex-end;
 width: 100%;
 `
 
@@ -69,7 +69,7 @@ opacity: 1;
 export const AnswersContainer = styled.div`
 display: grid;
 grid-template-columns: 1fr 1fr;
-grid-template-rows: 1fr 1fr;
+grid-template-rows: min-content;
 padding: 0 25px;
 gap: 30px;
 margin-bottom: 50px;

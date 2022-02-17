@@ -87,7 +87,7 @@ const DosVsDdos = () => {
     <Container>
       <BodyWrapper>
         <ContentWrapper>
-          <Header>Denial Of Service</Header>
+          <Header>Denial of Service</Header>
           <ContentRelativeWrapper>
             <Server style={{ left: "220px" }} />
             <Arrow
@@ -142,7 +142,7 @@ const DosVsDdos = () => {
         </ContentWrapper>
         <VerticalLine />
         <ContentWrapper>
-          <Header>Distributed Denial Of Service</Header>
+          <Header>Distributed Denial of Service</Header>
           <ContentRelativeWrapper>
             <Server style={{ left: "220px" }} />
 

@@ -14,11 +14,10 @@ const Courses = (props) => {
     })();
   }, []);
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [courses, setCourses] = useState([]);
 
   const getCourses = async () => {
-    setLoading(true);
     const requestBody = {
       query: `
           query{
@@ -38,9 +37,10 @@ const Courses = (props) => {
         },
       } = await axios.post(`${window.env.API_URL}/graphql`, requestBody);
       setCourses(response);
-      setLoading(false);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
   return (

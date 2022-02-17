@@ -23,11 +23,13 @@ import { useTranslation } from "react-i18next";
 const QuizSummary = (props) => {
   const user = useSelector(selectUser);
   const history = useHistory();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [summaryData, setSummaryData] = useState([]);
   const [userAnswers, setUserAnswers] = useState([]);
   const [userScore, setUserScore] = useState(0);
   const {t} = useTranslation()
+  const [language, setLanguage] = useState(localStorage.getItem('i18nextLng'))
+  const [quizName, setQuizName] = useState('')
 
   useEffect(() => {
     (async () => {
@@ -37,11 +39,13 @@ const QuizSummary = (props) => {
   }, []);
 
   const getSummaryData = async () => {
-    setLoading(true);
     const requestBody = {
       query: `
     query GetQuizSummaryData($courseLink: String!){
       getQuizSummaryData(courseLink: $courseLink){
+        quizName {
+          ${language}
+        }
         userAnswers
         scorePercentage
         quizData {
@@ -75,10 +79,12 @@ const QuizSummary = (props) => {
       setUserAnswers(JSON.parse(response.data.getQuizSummaryData.userAnswers));
       setSummaryData(response.data.getQuizSummaryData.quizData);
       setUserScore(response.data.getQuizSummaryData.scorePercentage);
+      setQuizName(response.data.getQuizSummaryData.quizName[language])
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
@@ -91,7 +97,7 @@ const QuizSummary = (props) => {
           <PageWrapper>
             <SummaryInstructions>
               <InstructionsHeader>
-              {t('quiz.summary')} {props.match.params.courseName}
+              {t('quiz.summary')} {quizName}
               </InstructionsHeader>
               <InstructionsSubheader>
                 {t('quiz.yourScoreIs')}: <HighlightText>{userScore * 100}%</HighlightText>

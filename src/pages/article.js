@@ -19,14 +19,13 @@ const Article = (props) => {
     })();
   }, [window.location.pathname]);
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [article, setArticle] = useState({
     header: "",
     description: ""
   });
 
   const getArticle = async () => {
-    setLoading(true);
     const requestBody = {
       query: `
           query{
@@ -45,9 +44,10 @@ const Article = (props) => {
       } = await axios.post(`${window.env.API_URL}/graphql`, requestBody);
       console.log(response)
       setArticle(response);
-      setLoading(false);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 

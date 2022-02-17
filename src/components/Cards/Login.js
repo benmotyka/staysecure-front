@@ -33,7 +33,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const setError = (text) => {
     setErrorMessage(text);
     setTimeout(() => {
@@ -52,7 +52,6 @@ const Login = () => {
           action: "submit",
         })
         .then(async (token) => {
-          setLoading(true);
           const requestBody = {
             query: `
           query Login($email: String!, $password: String!,$captcha: String!, $rememberMe: Boolean!){ 
@@ -93,16 +92,17 @@ const Login = () => {
             }
           } catch (error) {
             console.log(error);
+          } finally {
+            setLoading(false);
           }
-          setLoading(false);
         });
     });
   };
 
   return (
     <Container>
-      {loading && <Loader />}
-      <Header>{t('login')}</Header>
+      {loading ? <Loader /> : <>
+        <Header>{t('login')}</Header>
       <Input
         placeholder={t('email')}
         value={email}
@@ -130,6 +130,7 @@ const Login = () => {
         <Error>{errorMessage}</Error>
       </ErrorsWrapper>
       <Button onClick={sendData} text={t('login')} full />
+      </>}
     </Container>
   );
 };

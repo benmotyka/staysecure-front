@@ -13,7 +13,7 @@ const Quiz = (props) => {
   const history = useHistory();
   const [quizData, setQuizData] = useState([]);
   const user = useSelector(selectUser);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -24,7 +24,6 @@ const Quiz = (props) => {
   }, []);
 
   const checkIfCourseFinished = async () => {
-    setLoading(true);
     const requestBody = {
       query: `
               query CheckIfCourseFinished($courseLink: String!){
@@ -53,17 +52,13 @@ const Quiz = (props) => {
         response.errors[0].message === "course-not-finished"
       ) {
         history.push(`/course/${props.match.params.courseName}`);
-      } else {
-        setLoading(false);
       }
     } catch (error) {
       console.log(error)
-      setLoading(false);
     }
   };
 
   const getQuizData = async () => {
-    setLoading(true);
     const requestBody = {
       query: `
           query GetQuizData($courseLink: String!){
@@ -94,8 +89,9 @@ const Quiz = (props) => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (

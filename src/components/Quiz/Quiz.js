@@ -18,7 +18,7 @@ import Button from "components/Button/Button";
 
 const Quiz = (props) => {
   const history = useHistory();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [userAnswers, setUserAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [choosenAnswer, setChoosenAnswer] = useState(null);
@@ -30,7 +30,6 @@ const Quiz = (props) => {
 
   const finishQuiz = async () => {
     if (!quizFinished) return;
-    setLoading(true);
     const requestBody = {
       query: `
             mutation FinishQuiz($course: String!, $answers: String!){
@@ -57,9 +56,10 @@ const Quiz = (props) => {
       );
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
     history.push(`/quiz-summary/${props.courseLink}`);
-    setLoading(false);
   };
 
   const updateUserAnswer = (question) => {

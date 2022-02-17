@@ -22,13 +22,12 @@ const RegisterConfirm = (props) => {
         }
       }, []);
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [success, setSuccess] = useState(false);
 
 
 
   const confirmRegistration = async (registrationToken) => {
-    setLoading(true);
     const requestBody = {
       query: `
         mutation ConfirmEmail($token: String!){
@@ -46,7 +45,6 @@ const RegisterConfirm = (props) => {
         `${window.env.API_URL}/graphql`,
         requestBody
       );
-      setLoading(false);
       console.log(response)
       if (response.data.errors) {
         history.push("/login");
@@ -58,12 +56,14 @@ const RegisterConfirm = (props) => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
     return (
     <Container>
-        {loading && <Loader/>}
-        {success && <SuccessText>{t('accountConfirmedSuccess')}</SuccessText>}
+        {loading ? <Loader/> : null}
+        {success ? <SuccessText>{t('accountConfirmedSuccess')}</SuccessText> : null}
     </Container>
     )
 }

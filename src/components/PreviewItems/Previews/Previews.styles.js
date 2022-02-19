@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import colors from "constans/colors.js"
 import {IoIosArrowForward as ArrowIcon} from "react-icons/io"
 import {AiOutlineStar as LevelIcon} from "react-icons/ai"
+import {BiCommentDetail as CommentIcon} from "react-icons/bi"
 
 export const Body = styled.div`
 padding: 10px;
@@ -14,6 +15,8 @@ z-index: 100;
 max-height: 130px;
 min-width: 300px;
 position: relative;
+display: flex;
+flex-direction: column;
 
 `
 
@@ -34,13 +37,23 @@ width:100%;
 transition: 0.2s all ease-in-out;
 z-index: 10;
 `
-export const HeaderContainer = styled.div`
+
+const ItemsContainer = css`
 display: flex;
 align-items: center;
 justify-content: space-between;
 font-size: 20px;
+`
+export const HeaderContainer = styled.div`
+${ItemsContainer};
 margin-bottom: 15px;
 `
+
+export const FooterContainer = styled.div`
+${ItemsContainer};
+margin-top: auto;
+`
+
 export const Header = styled.h4`
 ${Text};
 font-size: 20px;
@@ -49,11 +62,21 @@ display: flex;
 align-items: center;
 `
 
-export const DifficultyLevel = styled(LevelIcon)`
-font-size: 25px;
-color: ${colors.gold};
+const Star = css`
+font-size: 18px;
 opacity: 0.6;
 transition: 0.2s all ease-in-out;
+`
+
+export const DifficultyLevel = styled(LevelIcon)`
+color: ${colors.gold};
+${Star};
+`
+
+export const EmptyRateLevel = styled(LevelIcon)`
+color: ${colors.darkestPurple};
+${Star};
+
 `
 
 export const Arrow = styled(ArrowIcon)``
@@ -93,7 +116,17 @@ margin: 20px 20px;
 `
 
 export const DifficultyWrapper = styled.div`
-position: absolute;
-bottom: 0;
-right: 10px;
+`
+
+export const CommentWrapper = styled.div`
+display: flex;
+align-items: center;
+gap: 5px;
+font-weight: 600;
+font-size: 16px;
+`
+
+export const Comment = styled(CommentIcon)`
+font-size: 16px;
+color: ${colors.white};
 `

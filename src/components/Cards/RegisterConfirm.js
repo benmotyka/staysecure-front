@@ -2,30 +2,24 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
 
-import {
-    Container,
-    SuccessText
-  } from "./Cards.styles";
-  import Loader from "components/Loader/Loader";
+import { Container, SuccessText } from "./Cards.styles";
+import Loader from "components/Loader/Loader";
 import { useTranslation } from "react-i18next";
 
 const RegisterConfirm = (props) => {
-    const history = useHistory();
-  const {t} = useTranslation()
-    
+  const history = useHistory();
+  const { t } = useTranslation();
 
-    useEffect(async () => {
-        try {
-          confirmRegistration(props.token);
-        } catch (error) {
-          console.log(error);
-        }
-      }, []);
+  useEffect(async () => {
+    try {
+      confirmRegistration(props.token);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
 
   const [loading, setLoading] = useState(true);
   const [success, setSuccess] = useState(false);
-
-
 
   const confirmRegistration = async (registrationToken) => {
     const requestBody = {
@@ -45,7 +39,6 @@ const RegisterConfirm = (props) => {
         `${window.env.API_URL}/graphql`,
         requestBody
       );
-      console.log(response)
       if (response.data.errors) {
         history.push("/login");
       } else {
@@ -60,12 +53,15 @@ const RegisterConfirm = (props) => {
       setLoading(false);
     }
   };
-    return (
+  return (
     <Container>
-        {loading ? <Loader/> : null}
-        {success ? <SuccessText>{t('accountConfirmedSuccess')}</SuccessText> : null}
+      {loading ? (
+        <Loader />
+      ) : success ? (
+        <SuccessText>{t("accountConfirmedSuccess")}</SuccessText>
+      ) : null}
     </Container>
-    )
-}
+  );
+};
 
-export default RegisterConfirm
+export default RegisterConfirm;

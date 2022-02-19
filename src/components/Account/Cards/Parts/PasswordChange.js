@@ -22,7 +22,7 @@ const PasswordChange = (props) => {
     newPasswordConfirmation: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
   const set = (field) => {
@@ -60,6 +60,7 @@ const PasswordChange = (props) => {
           action: "submit",
         })
         .then(async (token) => {
+          setLoading(true);
           const requestBody = {
             query: `
             mutation ResetPassword($oldPassword: String!, $newPassword: String!, $captcha: String!){

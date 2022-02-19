@@ -18,7 +18,7 @@ import Button from "components/Button/Button";
 
 const Quiz = (props) => {
   const history = useHistory();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [userAnswers, setUserAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [choosenAnswer, setChoosenAnswer] = useState(null);
@@ -45,6 +45,7 @@ const Quiz = (props) => {
       },
     };
     try {
+      setLoading(true)
       const response = await axios.post(
         `${window.env.API_URL}/graphql`,
         requestBody,
@@ -58,8 +59,8 @@ const Quiz = (props) => {
       console.log(error);
     } finally {
       setLoading(false);
+      history.push(`/quiz-summary/${props.courseLink}`);
     }
-    history.push(`/quiz-summary/${props.courseLink}`);
   };
 
   const updateUserAnswer = (question) => {

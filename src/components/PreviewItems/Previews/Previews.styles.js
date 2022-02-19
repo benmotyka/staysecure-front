@@ -45,6 +45,8 @@ export const Header = styled.h4`
 ${Text};
 font-size: 20px;
 margin: 0;
+display: flex;
+align-items: center;
 `
 
 export const DifficultyLevel = styled(LevelIcon)`

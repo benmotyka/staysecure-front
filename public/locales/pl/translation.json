@@ -36,6 +36,9 @@
     "registerSuccessfulEmailSent": "Email z linkiem weryfikacyjnym został wysłany na adres email:",
     "passwordChange": "Zmiana hasła",
     "passwordChangeSuccess": "Hasło zostało zmienione",
+    "easy": "Łatwy",
+    "medium": "Średni",
+    "hard": "Trudny",
     "header": {
         "articles": "Artykuły",
         "courses" : "Kursy"

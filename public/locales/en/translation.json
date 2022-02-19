@@ -36,6 +36,9 @@
     "registerSuccessfulEmailSent": "Email with verification link has been sent to:",
     "passwordChange": "Password change",
     "passwordChangeSuccess": "Password changed successfully",
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard",
     "header": {
         "articles": "Articles",
         "courses" : "Courses"

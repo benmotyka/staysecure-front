@@ -15,6 +15,7 @@ import {
   Wrapper,
   ErrorsWrapper,
   Error,
+  LinkItem
 } from "./Cards.styles";
 
 import Button from "../Button/Button";
@@ -131,6 +132,9 @@ const Login = () => {
         <Error>{errorMessage}</Error>
       </ErrorsWrapper>
       <Button onClick={sendData} text={t('login')} full />
+      <Wrapper>
+        <LinkItem to="/forgot-password">{t('forgotPassword')}</LinkItem>
+      </Wrapper>
     </Container>
   );
 };

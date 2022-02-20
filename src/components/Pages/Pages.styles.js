@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import {sidebarWidth} from "../Account/Sidebar/Sidebar.styles"
 import {notebookWidth} from "components/Notebook/Notebook.styles"
 import { courseSidebarWidth } from "components/Course/Sidebar.styles";
@@ -6,20 +6,22 @@ import { courseSidebarWidth } from "components/Course/Sidebar.styles";
 const footerHeight = "80px";
 const navbarHeight = "80px";
 
-export const PageCentered = styled.div`
-background: transparent linear-gradient(180deg, #2B2E4A 0%, #2B2E4A 100%) 0% 0% no-repeat padding-box;
-display: flex;
+const flexCentered = css`
+display: flex; 
 align-items: center;
 justify-content: center;
+`
+
+export const PageCentered = styled.div`
+background: transparent linear-gradient(180deg, #2B2E4A 0%, #2B2E4A 100%) 0% 0% no-repeat padding-box;
+${flexCentered};
 `
 
 export const PageWrapper = styled.div`
 width: 100%;
 padding: 50px 0;
 
-display: flex; 
-align-items: center;
-justify-content: center;
+${flexCentered};
 flex-direction: column;
 `
 
@@ -27,9 +29,7 @@ export const PageOneChild = styled.div`
 width: 100%;
 height: ${props => props.includeNavbar ? `calc(100vh - ${navbarHeight})` : "100vh"};
 
-display: flex;
-align-items: center;
-justify-content: center;
+${flexCentered};
 flex-direction: column;
 background: transparent linear-gradient(180deg, #2B2E4A 0%, #2B2E4A 100%) 0% 0% no-repeat padding-box;
 `
@@ -58,8 +58,8 @@ overflow-x: hidden;
 background-color:  #2B2E4A;
 `
 
-export const TemporaryHeader = styled.h1`
-font-size: 52px;
-color: white;
-margin: 0;
+export const PageOneItemCentered = styled.div`
+width: 100%;
+height: calc(100vh - ${footerHeight} - ${navbarHeight});
+${flexCentered};
 `

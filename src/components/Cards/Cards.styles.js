@@ -1,5 +1,6 @@
 import styled, {css} from "styled-components";
 import colors from "constans/colors"
+import {Link} from "react-router-dom"
 
 export const Container = styled.div`
 width: 30%;
@@ -41,6 +42,8 @@ margin-left: 15px;
 `
 
 export const Wrapper = styled.div`
+display: flex;
+align-items: center;
 `
 
 export const ErrorsWrapper = styled.div`
@@ -79,4 +82,16 @@ cursor: pointer;
 background-color: ${props => props.active ? colors.mediumDarkPurple: "inherit"};
 color: ${props => props.active ? "rgba(255,255,255,.7)": "rgba(255,255,255,.2)"};
 transition: 0.2s all ease-in-out;
+`
+
+export const LinkItem = styled(Link)`
+text-decoration: none;
+font-size: 11px;
+opacity: ${props => props.orange ? "1": "0.7"};
+transition: 0.2s all ease-in-out;
+color: ${props => props.orange ? colors.orange: colors.white};
+&:hover {
+    color: ${colors.orange}
+}
+margin-top: 10px;
 `

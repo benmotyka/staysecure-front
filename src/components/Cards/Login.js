@@ -133,7 +133,7 @@ const Login = () => {
       </ErrorsWrapper>
       <Button onClick={sendData} text={t('login')} full />
       <Wrapper>
-        <LinkItem to="/forgot-password">{t('forgotPassword')}</LinkItem>
+        <LinkItem to="/forgot-password">{t('forgotPassword.header')}</LinkItem>
       </Wrapper>
     </Container>
   );

@@ -26,7 +26,12 @@
     "settings": "Settings",
     "myCourses": "My courses",
     "logout": "Logout",
-    "forgotPassword": "Forgot password?",
+    "forgotPassword": {
+        "header": "Forgot password?",
+        "instructions": "Enter your email address",
+        "continue": "Continue",
+        "checkEmail": "Forgot password email has been sent successfully."
+    },
     "advanced": "Advanced",
     "basic": "Basic",
     "accountType": "Account type",
@@ -59,7 +64,9 @@
         "wrong-email-name-password": "Invalid email, name or password",
         "passwordsMustMatch": "Passwords must be the same",
         "userExists": "User exists",
-        "wrongPassword": "Invalid password"
+        "wrongPassword": "Invalid password",
+        "wrongEmail": "Invalid email",
+        "somethingWentWrong": "Something went wrong"
     },
     "accountConfirmedSuccess": "Account confirmed. Redirecting to login page...",
     "courseFinishedQuesionHeader": "It looks like you finished this course already",

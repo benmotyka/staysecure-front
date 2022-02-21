@@ -21,7 +21,12 @@
     "settings": "Ustawienia",
     "myCourses": "Moje kursy",
     "logout": "Wyloguj się",
-    "forgotPassword": "Nie pamiętasz hasła?",
+    "forgotPassword": {
+        "header": "Nie pamiętasz hasła?",
+        "instructions": "Podaj adres email",
+        "continue": "Dalej",
+        "checkEmail": "Email ze zmianą hasła został wysłany pomyślnie."
+    },
     "notes": "Notatki",
     "email": "Email",
     "password": "Hasło",
@@ -59,7 +64,9 @@
         "wrong-email-name-password": "Błędny email, nazwa lub hasło",
         "passwordsMustMatch": "Hasła muszą się zgadzać",
         "userExists": "Użytkownik istnieje",
-        "wrongPassword": "Błędne hasło"
+        "wrongPassword": "Błędne hasło",
+        "wrongEmail": "Błędny email",
+        "somethingWentWrong": "Coś poszło nie tak"
     },
     "accountConfirmedSuccess": "Konto zostało potwierdzone. Przekierowanie na stronę logowania...",
     "courseFinishedQuesionHeader": "Ten kurs został już przez Ciebie zakończony",

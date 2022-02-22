@@ -68,7 +68,7 @@ opacity: 0.6;
 transition: 0.2s all ease-in-out;
 `
 
-export const DifficultyLevel = styled(LevelIcon)`
+export const RateLevel = styled(LevelIcon)`
 color: ${colors.gold};
 ${Star};
 `
@@ -102,7 +102,7 @@ margin: 20px 20px;
     opacity: 0.5;
 }
 
-&:hover ${DifficultyLevel} {
+&:hover ${RateLevel} {
     opacity: 1;
 }
 

@@ -11,6 +11,7 @@ import article from "pages/article";
 
 import courses from "pages/courses";
 import course from "pages/course"
+import coursePreview from "pages/coursePreview"
 
 import accountSettings from "pages/account/settings";
 import accountCourses from "pages/account/courses";
@@ -38,6 +39,7 @@ const Routes = () => {
       <Route path="/account/courses" component={accountCourses} exact/>
 
       <Route path="/course/:courseName" component={course} exact/>
+      <Route path="/course-preview/:courseName" component={coursePreview} exact/>
       <Route path="/quiz/:courseName" component={quiz} exact/> 
       <Route path="/quiz-summary/:courseName" component={quizSummary} exact/> 
       <Route path="/forgot-password" component={forgotPassword} exact />

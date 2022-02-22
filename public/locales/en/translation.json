@@ -30,7 +30,8 @@
         "header": "Forgot password?",
         "instructions": "Enter your email address",
         "continue": "Continue",
-        "checkEmail": "Forgot password email has been sent successfully."
+        "checkEmail": "Forgot password email has been sent successfully.",
+        "enterNewPassword": "Enter new password"
     },
     "advanced": "Advanced",
     "basic": "Basic",
@@ -68,6 +69,7 @@
         "wrongEmail": "Invalid email",
         "somethingWentWrong": "Something went wrong"
     },
+    "passwordResetSuccess": "Password changed successfully. Redirecting to login page...",
     "accountConfirmedSuccess": "Account confirmed. Redirecting to login page...",
     "courseFinishedQuesionHeader": "It looks like you finished this course already",
     "courseFinishedQuesionDescription": "Would you like to start again?",

@@ -17,15 +17,9 @@ import accountCourses from "pages/account/courses";
 import quiz from "pages/quiz";
 import quizSummary from "pages/quizSummary"
 import forgotPassword from "pages/forgotPassword";
-// import ForgotPasswordPage from "pages/ForgotPasswordPage";
-// import ForgotPasswordChangePage from "pages/ForgotPasswordChangePage";
-// // COURSES
-// import SqlInjectionCourse from "pages/courses/SqlInjectionCourse";
-// // ARTICLES
-// import KeyloggerPage from "pages/articles/KeyloggerPage";
-// import QuizPage from "pages/QuizPage";
+import forgotPasswordChange from "pages/forgotPasswordChange";
 
-const Routes = (props) => {
+const Routes = () => {
   return (
     <Switch>
       <Route path="/" component={home} exact />
@@ -38,23 +32,16 @@ const Routes = (props) => {
         component={registerConfirm}
         exact
       />
-      <Route path="/article/:articleName" component={article} />
+      <Route path="/article/:articleName" component={article} exact/>
 
-      <Route path="/account/settings" component={accountSettings} />
-      <Route path="/account/courses" component={accountCourses} />
+      <Route path="/account/settings" component={accountSettings} exact/>
+      <Route path="/account/courses" component={accountCourses} exact/>
 
-      <Route path="/course/:courseName" component={course} />
-      <Route path="/quiz/:courseName" component={quiz} /> 
-      <Route path="/quiz-summary/:courseName" component={quizSummary} /> 
+      <Route path="/course/:courseName" component={course} exact/>
+      <Route path="/quiz/:courseName" component={quiz} exact/> 
+      <Route path="/quiz-summary/:courseName" component={quizSummary} exact/> 
       <Route path="/forgot-password" component={forgotPassword} exact />
-
-      {/* 
-
-      <Route
-      path="/forgot-password/:token"
-      component={ForgotPasswordChangePage}
-      />
-      */}
+      <Route path="/forgot-password/:token" component={forgotPasswordChange} exact/>
       <Redirect to="/" />
     </Switch>
   );

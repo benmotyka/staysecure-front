@@ -24,14 +24,16 @@ import {
   Background,
   HeaderContainer,
 } from "./CoursePreview.styles";
+import { useTranslation } from "react-i18next";
 
 const CoursePreview = (props) => {
   const history = useHistory();
+  const {t} = useTranslation()
 
   return (
     <Container>
       <Background backgroundUrl={process.env.PUBLIC_URL + "preview.png"}>
-        <Header>Kurs ransomware</Header>
+        <Header>{props.courseData.name}</Header>
         <div>
           <RateWrapper>
             <RateLevel />
@@ -40,56 +42,35 @@ const CoursePreview = (props) => {
             <RateLevel />
             <EmptyRateLevel />
           </RateWrapper>
-          <RateDescription>Ocena: 4/5</RateDescription>
-          <RateSubDescription>17 głosów</RateSubDescription>
+          <RateDescription>{t('rate')}: 4/5</RateDescription>
+          <RateSubDescription>17 {t('votes')}</RateSubDescription>
         </div>
       </Background>
       <Wrapper>
         <ContentWrapper>
           <Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
-            amet risus libero. Phasellus dignissim mi quis libero congue, vel
-            placerat nisi egestas. Duis pellentesque leo ut eros suscipit
-            scelerisque.
-            <Line />W tym kursie dowiesz się:
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            <Line />{t('inThisCourseYouWillLearnAbout')}:
           </Description>
           <CourseTitlesWrapper>
-            <CourseTitle>Czym jest ransomware?</CourseTitle>
-            <CourseTitle>Rodzaje i typy ranwomware</CourseTitle>
-            <CourseTitle>Jak się bronić?</CourseTitle>
+            {props.courseData.content ? props.courseData.content.map((item, index) => (
+              <CourseTitle key={index}>{item.header}</CourseTitle>
+            )) : null}
           </CourseTitlesWrapper>
           <ButtonWrapper>
-            <Button text="ROZPOCZNIJ" 
+            <Button text={t('start')} 
             onClick={() => {
-              history.push(`/course/${props.courseName}`);
+              history.push(`/course/${props.courseData.course}`);
             }}
             />
           </ButtonWrapper>
         </ContentWrapper>
         <ReviewWrapper>
-          <CommentsHeader>Komentarze</CommentsHeader>
+          <CommentsHeader>
+          {t('comments')} 
+          </CommentsHeader>
             <CommentsWrapper>
-              <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment> <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment> <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment> <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment> <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment> <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment> <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment> <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment> <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment> <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment> <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment> <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment> <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment> <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment> <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment> <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment> <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment> <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment> <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment> <Comment>komentarz</Comment>
-              <Comment>komentarz</Comment>
+              {/* <Comment>komentarz</Comment> */}
             </CommentsWrapper>
         </ReviewWrapper>
       </Wrapper>

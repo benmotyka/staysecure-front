@@ -47,6 +47,7 @@ import XssProtection from "./xss/parts/XssProtection"
 const content = [
     {
         course: "sql-injection",
+        name: "SQL Injection",
         language: "pl",
         content: [
             {
@@ -98,6 +99,7 @@ const content = [
     },
     {
         course: "sql-injection",
+        name: "SQL Injection",
         language: "en",
         content: [
             {
@@ -149,6 +151,7 @@ const content = [
     },
     {
         course: "phishing",
+        name: "Phishing",
         language: "pl",
         content: [
             {
@@ -193,6 +196,7 @@ const content = [
     },
     {
         course: "phishing",
+        name: "Phishing",
         language: "en",
         content: [
             {
@@ -237,6 +241,7 @@ const content = [
     },
     {
         course: "ransomware",
+        name: "Ransomware",
         language: "pl",
         content: [
             {
@@ -288,6 +293,7 @@ const content = [
     },
     {
         course: "ransomware",
+        name: "Ransomware",
         language: "en",
         content: [
             {
@@ -339,6 +345,7 @@ const content = [
     },
     {
         course: "keylogger",
+        name: "Keylogger",
         language: "pl",
         content: [
             {
@@ -388,6 +395,7 @@ const content = [
     },
     {
         course: "keylogger",
+        name: "Keylogger",
         language: "en",
         content: [
             {
@@ -437,6 +445,7 @@ const content = [
     },
     {
         course: "xss",
+        name: "Atak XSS",
         language: "pl",
         content: [
             {
@@ -489,6 +498,7 @@ const content = [
     },
     {
         course: "xss",
+        name: "XSS Attack",
         language: "en",
         content: [
             {
@@ -541,6 +551,7 @@ const content = [
     },
     {
         course: "dos",
+        name: "DoS",
         language: "pl",
         content: [
             {
@@ -595,6 +606,7 @@ const content = [
     },
     {
         course: "dos",
+        name: "DoS",
         language: "en",
         content: [
             {

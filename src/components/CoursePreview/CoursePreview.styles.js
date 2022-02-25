@@ -53,6 +53,7 @@ export const Description = styled.p`
   font-size: 16px;
   color: ${colors.white};
   opacity: 0.7;
+  margin: 0;
 `;
 
 export const CourseTitlesWrapper = styled.ul`

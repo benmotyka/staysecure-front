@@ -49,7 +49,7 @@ const CoursePreview = (props) => {
       <Wrapper>
         <ContentWrapper>
           <Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            {props.courseData.description}
             <Line />{t('inThisCourseYouWillLearnAbout')}:
           </Description>
           <CourseTitlesWrapper>

@@ -48,6 +48,7 @@ const content = [
     {
         course: "sql-injection",
         name: "SQL Injection",
+        description: "Wstrzyknięcie SQL to podatność aplikacji webowych polegająca na zmodyfikowaniu kwerendy bazodanowej wysyłanej do relacyjnej bazy danych. Celem tego ataku może być uzyskanie informacji, do których w zwyczajnych okolicznościach nie powinno się mieć dostępu: danych personalnych innych użytkowników, ich haseł lub numerów kart kredytowych.",
         language: "pl",
         content: [
             {
@@ -100,6 +101,7 @@ const content = [
     {
         course: "sql-injection",
         name: "SQL Injection",
+        description: "SQL injection is a web application vulnerability that involves modifying a database query sent to a relational database. The aim of this attack may be to obtain information that should not normally be accessed: other users' personal data, passwords or credit card numbers.",
         language: "en",
         content: [
             {
@@ -152,6 +154,7 @@ const content = [
     {
         course: "phishing",
         name: "Phishing",
+        description: "Phishing jest pewną formą socjotechniki, w której to atakujący, poprzez podszywanie się pod zaufane osoby lub instytucje, próbuje dokonać nieuczciwego przejęcia poufnych informacji od ofiary.",
         language: "pl",
         content: [
             {
@@ -197,6 +200,7 @@ const content = [
     {
         course: "phishing",
         name: "Phishing",
+        description: "Phishing is a form of social engineering in which an attacker, by impersonating trusted individuals or institutions, attempts to fraudulently acquire confidential information from a victim.",
         language: "en",
         content: [
             {
@@ -242,6 +246,7 @@ const content = [
     {
         course: "ransomware",
         name: "Ransomware",
+        description: "Ransomware to typ złośliwego oprogramowania (ang. malware), którego celem jest zablokowanie dostępu do komputera osobistego poprzez zaszyfrowanie wszystkich możliwych plików. Ten rodzaj szkodliwego oprogramowania jest szczególnie niebezpieczny dla przedsiębiorstw, gdyż utrata ważnych dokumentów czy danych finansowych, może się wiązać z poważnymi konsekwencjami, lub brakiem możliwości reakcji na czas (np. złożeniu oferty w terminie).",
         language: "pl",
         content: [
             {
@@ -294,6 +299,7 @@ const content = [
     {
         course: "ransomware",
         name: "Ransomware",
+        description: "Ransomware is a type of malicious software (malware) that aims to block access to a personal computer by encrypting all possible files. This type of malware is particularly dangerous for businesses, as the loss of important documents or financial data can have serious consequences, or the inability to respond in a timely manner (e.g., submitting a bid on time).",
         language: "en",
         content: [
             {
@@ -346,6 +352,7 @@ const content = [
     {
         course: "keylogger",
         name: "Keylogger",
+        description: "Keylogger to całkowicie legalne narzędzie rejestrujące zdarzenia związane z obsługą klawiatury systemu operacyjnego, na którym się znajduje, zazwyczaj bez wiedzy użytkownika. Pierwsze keyloggery powstały w latach 70 XX wieku i miały służyć służbom specjalnym do przechwytywania informacji na maszynach do pisania w publicznych miejscach. Wraz z biegiem czasu, zaczęto nadużywać to narzędzie, stosując je do złośliwych celów. Obecnie, częstym zastosowaniem keyloggerów jest infekcja, a wykradanie wrażliwych danych, takich jak dane bankowe, kart kredytowych czy loginy i hasła.",
         language: "pl",
         content: [
             {
@@ -396,11 +403,12 @@ const content = [
     {
         course: "keylogger",
         name: "Keylogger",
+        description: "Keylogger is a completely legal tool that records keyboard events of the operating system it is on, usually without the user's knowledge. The first keyloggers were created in the 1970s and were intended to be used by the secret service to capture information on typewriters in public places. As time passed, they began to abuse this tool, using it for malicious purposes. Today, a common use of keyloggers is to infect, and steal sensitive data such as bank details, credit cards, and logins and passwords.",
         language: "en",
         content: [
             {
                 header: "What a keylogger is and how it works?",
-                text: "A keylogger is a perfectly legal tool that records keyboard events of the operating system it is on, usually without the user's knowledge. The first keyloggers were created in the 1970s and were intended to be used by the secret service to capture information on typewriters in public places.<br/><br/>This tool can be used in workplaces to investigate employee activity, as a type of parental control or by fraudsters trying to steal a victim's sensitive data.<br/><br/>Their goal is usually to record a user's keyboard activity and capture this information to extract data such as credentials or credit card numbers.",
+                text: "A keylogger is a completely legal tool that records keyboard events of the operating system it is on, usually without the user's knowledge. The first keyloggers were created in the 1970s and were intended to be used by the secret service to capture information on typewriters in public places.<br/><br/>This tool can be used in workplaces to investigate employee activity, as a type of parental control or by fraudsters trying to steal a victim's sensitive data.<br/><br/>Their goal is usually to record a user's keyboard activity and capture this information to extract data such as credentials or credit card numbers.",
                 level: "basic",
                 slide: <WhatIsKeylogger/>
             },
@@ -446,6 +454,7 @@ const content = [
     {
         course: "xss",
         name: "Atak XSS",
+        description: "XSS jest atakiem skierowanym na klienta korzystającego serwisu webowego, w przeciwieństwie do np. SQL Injection, którego celem jest aplikacja działająca po stronie serwera. Cross-site scripting opiera się głównie na wstrzyknięciu do strony internetowej złośliwego skryptu, który, dla przykładu, może odczytać ciasteczka użytkownika lub inne poufne informacje, które przechowuje przeglądarka, wysłać je do atakującego, aby ten -- używając zapisanych w ciasteczkach danych -- mógł zalogować się na konto użytkownika, który nieświadomie uruchomił dany skrypt.",
         language: "pl",
         content: [
             {
@@ -499,6 +508,7 @@ const content = [
     {
         course: "xss",
         name: "XSS Attack",
+        description: "XSS is an attack aimed at the client using a web service, in contrast to e.g. SQL Injection, which targets the server-side application. Cross-site scripting essentially involves injecting a malicious script into a web page that, for example, can read user cookies or other sensitive information stored in the browser, send it to an attacker, and the attacker -- using the cookie data -- can log into the account of the user who unknowingly ran the script.",
         language: "en",
         content: [
             {
@@ -552,6 +562,7 @@ const content = [
     {
         course: "dos",
         name: "DoS",
+        description: "Celem Blokady usług (DoS) są zazwyczaj serwisy internetowe małych i średnich przedsiębiorstw. Atak ten polega na wykonaniu tak wielu żądań do serwera w jednostkowym czasie, aby ten przestał odpowiadać. Są relatywnie proste w wykonaniu i mogą być powodem poważnych strat dla sieci i systemów komputerowych. Większa część ataków typu Flood odbywa się w oparciu o luki w protokole TCP, co prowadzi do takich ataków jak TCP SYN Flood DoS.",
         language: "pl",
         content: [
             {
@@ -607,6 +618,7 @@ const content = [
     {
         course: "dos",
         name: "DoS",
+        description: "The targets of a Blocking of Services (DoS) are typically small to medium-sized business websites. This attack involves making so many requests to a server in a unit time that the server stops responding. They are relatively simple to execute and can cause serious damage to networks and computer systems. The majority of Flood attacks are based on vulnerabilities in the TCP protocol, leading to attacks such as TCP SYN Flood DoS.",
         language: "en",
         content: [
             {

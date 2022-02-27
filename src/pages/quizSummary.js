@@ -18,6 +18,7 @@ import {
   WrongColor
 } from "components/QuizSummary/QuizSummary.styles";
 import QuizSummaryWidget from "components/QuizSummary/QuizSummary";
+import RateCourseWidget from "components/RateCourse/RateCourse"
 import { useTranslation } from "react-i18next";
 
 const QuizSummary = (props) => {
@@ -107,6 +108,7 @@ const QuizSummary = (props) => {
               </InstructionsDescription>
             <Line/>
             </SummaryInstructions>
+            {/* <RateCourseWidget/> */}
             <QuizSummaryWidget
               quizName={props.match.params.courseName}
               userAnswers={userAnswers}

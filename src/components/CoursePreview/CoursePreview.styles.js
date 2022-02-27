@@ -9,7 +9,6 @@ export const Container = styled.div`
   display: grid;
   grid-template-rows: 15% 85%;
   width: 60%;
-  height: 90%;
   box-sizing: border-box;
   background-color: ${colors.mediumDarkPurple};
   border-radius: 10px;

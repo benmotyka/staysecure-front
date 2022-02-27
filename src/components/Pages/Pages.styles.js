@@ -60,6 +60,8 @@ background-color:  #2B2E4A;
 
 export const PageOneItemCentered = styled.div`
 width: 100%;
-height: calc(100vh - ${footerHeight} - ${navbarHeight});
+min-height: calc(100vh - ${footerHeight} - ${navbarHeight});
 ${flexCentered};
+padding: 25px;
+box-sizing: border-box;
 `

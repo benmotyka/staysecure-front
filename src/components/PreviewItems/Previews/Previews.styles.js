@@ -13,7 +13,7 @@ border: 1px solid ${colors.mediumDarkPurple};
 transition: 0.2s all ease-in-out;
 z-index: 100;
 max-height: 130px;
-min-width: 300px;
+min-width: 200px;
 position: relative;
 display: flex;
 flex-direction: column;
@@ -60,6 +60,9 @@ font-size: 20px;
 margin: 0;
 display: flex;
 align-items: center;
+@media screen and (max-width: 650px){
+    font-size: 14px;
+}
 `
 
 const Star = css`
@@ -85,11 +88,14 @@ ${Text};
 opacity: 0.7;
 font-size: 15px;
 margin: 2px 0;
+@media screen and (max-width: 650px){
+    font-size: 12px;
+}
 `
 
 export const Container = styled(Link)`
 text-decoration: none;
-height: ${props => props.noimage ? "140px": "300px"};
+height: ${props => props.noimage ? "120px": "300px"};
 display: grid;
 grid-template-rows: ${props => props.noimage ? "1fr": "35% 65%"};
 margin: 20px 20px;
@@ -123,6 +129,7 @@ display: flex;
 align-items: center;
 gap: 5px;
 font-weight: 600;
+opacity: 0.6;
 font-size: 16px;
 `
 

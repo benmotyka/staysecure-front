@@ -17,7 +17,7 @@ const RegisterFooter = () => {
                 <TextItem>{t('alreadyHaveAccount')} <LinkItem orange to="/login">{t('login')}</LinkItem></TextItem>
             </Section>
             <Section>
-            <TextItem>by Ben Motyka</TextItem>
+            <TextItem>by staysecure team</TextItem>
             </Section>
         </Container>
     )

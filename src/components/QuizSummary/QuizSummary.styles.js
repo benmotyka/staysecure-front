@@ -24,7 +24,8 @@ export const SummaryList = styled.ul`
 list-style: none;
 margin: 50px 0;
 ${FlexCenterColumn};
-width: 50%;
+min-width: 50%;
+max-width: 90%;
 box-sizing: border-box;
 padding: 0;
 `
@@ -73,7 +74,8 @@ font-size: 25px;
 `
 
 export const SummaryInstructions = styled.div`
-width: 60%;
+min-width: 60%;
+max-width: 90%;
 `
 export const InstructionsSubheader = styled.h3`
 ${InstructionsText};

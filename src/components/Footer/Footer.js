@@ -16,7 +16,7 @@ const Footer = () => {
                 <LinkItem to="/courses">{t('header.courses')}</LinkItem>
             </Section>
             <Section>
-            <TextItem>by Ben Motyka</TextItem>
+            <TextItem>by staysecure team</TextItem>
             </Section>
         </Container>
     )

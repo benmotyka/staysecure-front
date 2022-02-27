@@ -15,7 +15,7 @@ padding: ${props => props.smallPadding ? "0 30px": "0 270px"};
 }
 
 @media screen and (max-width: 650px) {
-    padding: 10px;
+    padding: 10px 0;
     height: 100px;
     display: grid;
     grid-template-columns: 1fr;

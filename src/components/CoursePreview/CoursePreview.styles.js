@@ -6,18 +6,30 @@ import {
 } from "components/PreviewItems/Previews/Previews.styles";
 
 export const Container = styled.div`
-  display: grid;
-  grid-template-rows: 15% 85%;
+  display: flex;
+  flex-direction: column;
   width: 60%;
   box-sizing: border-box;
   background-color: ${colors.mediumDarkPurple};
   border-radius: 10px;
+  min-width: 850px;
+  @media screen and (max-width: 1000px) {
+  width: 80%;
+    min-width: 320px;
+  }
 `;
 
 export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 65% 35%;
+  padding: 45px 25px;
+
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
   padding: 25px;
+    gap: 25px;
+  }
 `;
 
 export const Background = styled.div`
@@ -33,12 +45,18 @@ export const Background = styled.div`
   padding: 15px 45px;
   box-sizing: border-box;
   align-items: center;
+  @media screen and (max-width: 1000px) {
+  padding: 15px 25px;
+  }
 `;
 
 export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 85%;
+  @media screen and (max-width: 1000px) {
+  width: 100%;
+  }
 `;
 
 export const Header = styled.h2`
@@ -46,6 +64,9 @@ export const Header = styled.h2`
   color: ${colors.white};
   font-size: 40px;
   opacity: 0.9;
+  @media screen and (max-width: 1000px) {
+  font-size: 24px;
+  }
 `;
 
 export const Description = styled.p`
@@ -53,16 +74,23 @@ export const Description = styled.p`
   color: ${colors.white};
   opacity: 0.7;
   margin: 0;
+  @media screen and (max-width: 1000px) {
+  font-size: 14px;
+  }
 `;
 
 export const CourseTitlesWrapper = styled.ul`
   padding-left: 25px;
+  margin-bottom: 35px;
 `;
 
 export const CourseTitle = styled.li`
   color: ${colors.white};
   font-size: 16px;
   opacity: 0.7;
+  @media screen and (max-width: 1000px) {
+  font-size: 14px;
+  }
 `;
 
 export const RateWrapper = styled.div`
@@ -109,12 +137,15 @@ export const Comment = styled.li`
 export const CommentsHeader = styled.h4`
   width: 100%;
   height: 10%;
-  font-size: 24px;
+  font-size: 18px;
   text-align: center;
   background-color: ${colors.darkestPurple};
-  color: ${colors.orange};
-  padding: 10px 0;
+  color: ${colors.white};
   margin: 0;
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const ButtonWrapper = styled.div`
@@ -123,6 +154,10 @@ export const ButtonWrapper = styled.div`
 
 const Star = css`
   font-size: 35px;
+
+  @media screen and (max-width: 1000px) {
+  font-size: 20px;
+  }
 `;
 
 export const RateLevel = styled(Rate)`
@@ -142,10 +177,16 @@ export const RateDescription = styled.h4`
   ${GoldText};
   font-size: 20px;
   margin: 0;
+  @media screen and (max-width: 1000px) {
+  font-size: 16px;
+  }
 `;
 
 export const RateSubDescription = styled.p`
   ${GoldText};
   font-size: 12px;
   margin: 0;
+  @media screen and (max-width: 1000px) {
+  font-size: 9px;
+  }
 `;

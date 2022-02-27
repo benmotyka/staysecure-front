@@ -299,7 +299,7 @@ const content = [
     {
         course: "ransomware",
         name: "Ransomware",
-        description: "Ransomware is a type of malicious software (malware) that aims to block access to a personal computer by encrypting all possible files. This type of malware is particularly dangerous for businesses, as the loss of important documents or financial data can have serious consequences, or the inability to respond in a timely manner (e.g., submitting a bid on time).",
+        description: "Ransomware is a type of malicious software (malware) that aims to block access to a personal computer by encrypting all possible files. This type of malware is particularly dangerous for businesses, as the loss of important documents or financial data can have serious consequences, or the inability to respond in a timely manner (e.g. submitting a bid on time).",
         language: "en",
         content: [
             {

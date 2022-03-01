@@ -31,6 +31,7 @@ const QuizSummary = (props) => {
   const {t} = useTranslation()
   const [language, setLanguage] = useState(localStorage.getItem('i18nextLng'))
   const [quizName, setQuizName] = useState('')
+  const [showRateButton, setShowRateButton] = useState(false)
 
   useEffect(() => {
     (async () => {
@@ -48,6 +49,7 @@ const QuizSummary = (props) => {
           ${language}
         }
         userAnswers
+        showRateButton
         scorePercentage
         quizData {
           question
@@ -77,10 +79,12 @@ const QuizSummary = (props) => {
       if (response.errors) {
         history.push(`/`);
       }
-      setUserAnswers(JSON.parse(response.data.getQuizSummaryData.userAnswers));
-      setSummaryData(response.data.getQuizSummaryData.quizData);
-      setUserScore(response.data.getQuizSummaryData.scorePercentage);
-      setQuizName(response.data.getQuizSummaryData.quizName[language])
+      const summaryData = response.data.getQuizSummaryData
+      setUserAnswers(JSON.parse(summaryData.userAnswers));
+      setSummaryData(summaryData.quizData);
+      setUserScore(summaryData.scorePercentage);
+      setQuizName(summaryData.quizName[language])
+      setShowRateButton(summaryData.showRateButton)
     } catch (error) {
       console.log(error);
     } finally {
@@ -108,7 +112,7 @@ const QuizSummary = (props) => {
               </InstructionsDescription>
             <Line/>
             </SummaryInstructions>
-            {/* <RateCourseWidget/> */}
+            {showRateButton ? <RateCourseWidget/> : null }
             <QuizSummaryWidget
               quizName={props.match.params.courseName}
               userAnswers={userAnswers}

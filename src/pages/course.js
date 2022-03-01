@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { selectUser } from "features/userSlice";
 import { useHistory } from "react-router-dom";
@@ -11,14 +11,17 @@ import { PageCourse } from "components/Pages/Pages.styles";
 import Navigation from "components/Course/Navigation";
 import Loader from "components/Loader/Loader";
 import { useTranslation } from "react-i18next";
+import { useOnClickOutside } from 'hooks/useOnClickOutside';
 
 import coursesData from "components/Courses/course.data";
 import Sidebar from "components/Course/Sidebar";
-import Modal from "components/Modal/Modal";
+import ButtonsModal from "components/Modal/ButtonsModal";
 import React from "react";
 import MobileAlert from "components/MobileAlert/MobileAlert";
 import DownloadCourses from "components/DownloadCourses/DownloadCourses";
 const Course = (props) => {
+  const ref = useRef();
+
   const [activeSlide, setActiveSlide] = useState(0);
   const [loadedData, setLoadedData] = useState(0);
   const [content, setContent] = useState([]);
@@ -32,6 +35,7 @@ const Course = (props) => {
   const dispatch = useDispatch();
 
   const courseName = props.match.params.courseName;
+  useOnClickOutside(ref, () => setCourseAlreadyFinishedPopup(false));
 
   useEffect(() => {
     (async () => {
@@ -134,7 +138,8 @@ const Course = (props) => {
           ) : (
             <>
               {courseAlreadyFinishedPopup ? (
-                <Modal
+                <ButtonsModal
+                innerRef={ref}
                   header={t("courseFinishedQuesionHeader")}
                   text={t("courseFinishedQuesionDescription")}
                   button1Text={t("cancel")}

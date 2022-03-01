@@ -5,17 +5,20 @@ import {
   StepsWrapper,
   Step,
 } from "./Navigation.styles";
-import Modal from 'components/Modal/Modal'
-import { useState } from "react";
+import ButtonsModal from 'components/Modal/ButtonsModal'
+import { useState , useRef} from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios"
 import { useTranslation } from "react-i18next";
+import { useOnClickOutside } from 'hooks/useOnClickOutside';
 
 const Navigation = (props) => {
   const {t} = useTranslation()
-
-  const [showEndingModal, setShowEndingModal] = useState(false)
+  const ref = useRef();
   const history = useHistory();
+  
+  const [showEndingModal, setShowEndingModal] = useState(false)
+  useOnClickOutside(ref, () => setShowEndingModal(false));
 
   const changeSlide = (index) => {
     if (index < 0 || props.activeSlide < index - 1 || index === props.activeSlide) return;
@@ -80,7 +83,7 @@ const Navigation = (props) => {
       >
         <Arrow />
       </ChangeSlideButton>
-      {showEndingModal && <Modal header={t('courseFinishConfirmationHeader')} text={t('courseFinishConfirmationDescription')} button1Text={t('cancel')} button2Text={t('proceed')} button1OnClick={() => {
+      {showEndingModal && <ButtonsModal innerRef={ref} header={t('courseFinishConfirmationHeader')} text={t('courseFinishConfirmationDescription')} button1Text={t('cancel')} button2Text={t('proceed')} button1OnClick={() => {
         setShowEndingModal(false)
       }} 
       button2OnClick={() => {

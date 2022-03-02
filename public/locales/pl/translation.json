@@ -57,11 +57,13 @@
     "startNewCourse": "Rozpocznij nowy kurs",
     "inThisCourseYouWillLearnAbout": "W tym kursie dowiesz się o",
     "comments": "Komentarze",
+    "comment": "Komentarz",
     "rate": "Ocena",
     "votes": "głosów",
     "start": "Rozpocznij",
     "continue": "Wznów",
     "proceed": "Przejdź",
+    "sendFeedback": "Prześlij opinię",
     "finishedCourses": "Ukończone kursy",
     "proceedToQuiz": "Podsumowanie quizu",
     "errors": {

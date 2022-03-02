@@ -45,6 +45,7 @@ const AddNewNote = (props) => {
         {newNoteActive && (
           <>
             <NoteText
+              spellCheck="false"
               placeholder={t('enterNote')}
               onChange={(e) => setNoteText(e.target.value)}
             />

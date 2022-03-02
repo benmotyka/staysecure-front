@@ -77,9 +77,8 @@ ${Star};
 `
 
 export const EmptyRateLevel = styled(LevelIcon)`
-color: ${colors.darkestPurple};
+color: ${colors.grey};
 ${Star};
-
 `
 
 export const Arrow = styled(ArrowIcon)``

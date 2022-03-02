@@ -57,11 +57,13 @@
     "startNewCourse": "Start new course",
     "inThisCourseYouWillLearnAbout": "In this course you will learn about",
     "comments": "Comments",
+    "comment": "Comment",
     "rate": "Rate",
     "votes": "votes",
     "start": "Start",
     "continue": "Continue",
     "proceed": "Proceed",
+    "sendFeedback": "Send feedback",
     "finishedCourses": "Finished courses",
     "proceedToQuiz": "Quiz summary",
     "errors": {

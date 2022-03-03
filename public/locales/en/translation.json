@@ -21,6 +21,8 @@
     "notes": "Notes",
     "email": "Email",
     "password": "Password",
+    "feedbackSent": "Feedback sent",
+    "close": "Close",
     "confirmPassword": "Confirm password",
     "userName": "Name",
     "settings": "Settings",

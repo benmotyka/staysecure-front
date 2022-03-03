@@ -31,6 +31,8 @@
     "notes": "Notatki",
     "email": "Email",
     "password": "Hasło",
+    "feedbackSent": "Opinia przesłana",
+    "close": "Zamknij",
     "confirmPassword": "Potwierdź hasło",
     "userName": "Nazwa użytkownika",
     "advanced": "Zaawansowany",

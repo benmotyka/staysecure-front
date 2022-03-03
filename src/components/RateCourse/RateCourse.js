@@ -8,12 +8,7 @@ import { Label } from "components/Cards/Cards.styles";
 import { selectUser } from "features/userSlice";
 import { useSelector } from "react-redux";
 
-import {
-  Wrapper,
-  Header,
-  Star,
-  Input
-} from "./RateCourse.styles";
+import { Wrapper, Header, Star, Input } from "./RateCourse.styles";
 import { useRef } from "react";
 import { useOnClickOutside } from "hooks/useOnClickOutside";
 
@@ -23,15 +18,17 @@ const RateCourse = (props) => {
   const [showModal, setShowModal] = useState(false);
   const [stars, setStars] = useState(null);
   const [comment, setComment] = useState("");
+  const [finish, setFinish] = useState(false);
 
   const user = useSelector(selectUser);
-  
+
   useOnClickOutside(ref, () => setShowModal(false));
 
   const sendData = () => {
     if (!stars) {
       return;
     }
+    setFinish(true);
     window.grecaptcha.ready(() => {
       window.grecaptcha
         .execute("6LdJhwMbAAAAAP658oVQALS41aSkllNuOehb5SvW", {
@@ -50,22 +47,22 @@ const RateCourse = (props) => {
               rate: stars,
               comment,
               captcha: token,
-              courseName: props.courseName
+              courseName: props.courseName,
             },
           };
           try {
-            const data = await axios.post(`${window.env.API_URL}/graphql`, requestBody,{
+            await axios.post(`${window.env.API_URL}/graphql`, requestBody, {
               headers: {
                 Authorization: `Bearer ${user.token}`,
               },
             });
-            console.log(data)
           } catch (error) {
             console.log(error);
+          } finally {
+            props.setShowRateButton(false)
           }
         });
     });
-    props.setShowRateButton(false)
   };
 
   return (
@@ -78,20 +75,31 @@ const RateCourse = (props) => {
       {showModal ? (
         <Modal>
           <Wrapper ref={ref}>
-            <Header>{t("rateCourse")}</Header>
-            <div>
-              {[...Array(5)].map((item, index) => (
-                <Star active={index < stars} key={index} onClick={() => setStars(index+1)}/>
-              ))}
-            </div>
-            <Label htmlFor="comment">{t("comment")}</Label>
-            <Input 
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
-            id="comment" 
-            type="text" 
-            spellCheck="false" />
-            <Button onClick={sendData} noArrow text={t("sendFeedback")} />
+            {finish ? (
+              <Header>{t("feedbackSent")}!</Header>
+            ) : (
+              <>
+                <Header>{t("rateCourse")}</Header>
+                <div>
+                  {[...Array(5)].map((item, index) => (
+                    <Star
+                      active={index < stars}
+                      key={index}
+                      onClick={() => setStars(index + 1)}
+                    />
+                  ))}
+                </div>
+                <Label htmlFor="comment">{t("comment")}</Label>
+                <Input
+                  value={comment}
+                  onChange={(e) => setComment(e.target.value)}
+                  id="comment"
+                  type="text"
+                  spellCheck="false"
+                />
+                <Button onClick={sendData} noArrow text={t("sendFeedback")} />
+              </>
+            )}
           </Wrapper>
         </Modal>
       ) : null}

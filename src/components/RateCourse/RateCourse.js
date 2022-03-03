@@ -3,7 +3,10 @@ import { useTranslation } from "react-i18next";
 import React from "react";
 import Modal from "components/Modal/Modal";
 import { useState } from "react";
+import axios from "axios";
 import { Label } from "components/Cards/Cards.styles";
+import { selectUser } from "features/userSlice";
+import { useSelector } from "react-redux";
 
 import {
   Wrapper,
@@ -14,18 +17,55 @@ import {
 import { useRef } from "react";
 import { useOnClickOutside } from "hooks/useOnClickOutside";
 
-const RateCourse = () => {
+const RateCourse = (props) => {
   const ref = useRef();
   const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
-  const [stars, setStars] = useState(0);
+  const [stars, setStars] = useState(null);
   const [comment, setComment] = useState("");
+
+  const user = useSelector(selectUser);
   
   useOnClickOutside(ref, () => setShowModal(false));
 
   const sendData = () => {
-    console.log(comment)
-    console.log(stars)
+    if (!stars) {
+      return;
+    }
+    window.grecaptcha.ready(() => {
+      window.grecaptcha
+        .execute("6LdJhwMbAAAAAP658oVQALS41aSkllNuOehb5SvW", {
+          action: "submit",
+        })
+        .then(async (token) => {
+          const requestBody = {
+            query: `
+            mutation RateCourse($courseName: String!, $rate: Int!, $comment: String, $captcha: String!){ 
+            rateCourse(courseName: $courseName, rate: $rate, comment: $comment, captchaToken: $captcha) {
+              resultStatus
+            }
+          }  
+          `,
+            variables: {
+              rate: stars,
+              comment,
+              captcha: token,
+              courseName: props.courseName
+            },
+          };
+          try {
+            const data = await axios.post(`${window.env.API_URL}/graphql`, requestBody,{
+              headers: {
+                Authorization: `Bearer ${user.token}`,
+              },
+            });
+            console.log(data)
+          } catch (error) {
+            console.log(error);
+          }
+        });
+    });
+    props.setShowRateButton(false)
   };
 
   return (
@@ -41,7 +81,7 @@ const RateCourse = () => {
             <Header>{t("rateCourse")}</Header>
             <div>
               {[...Array(5)].map((item, index) => (
-                <Star active={index <= stars} key={index} onClick={() => setStars(index)}/>
+                <Star active={index < stars} key={index} onClick={() => setStars(index+1)}/>
               ))}
             </div>
             <Label htmlFor="comment">{t("comment")}</Label>

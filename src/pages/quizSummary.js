@@ -112,7 +112,7 @@ const QuizSummary = (props) => {
               </InstructionsDescription>
             <Line/>
             </SummaryInstructions>
-            {showRateButton ? <RateCourseWidget/> : null }
+            {showRateButton ? <RateCourseWidget setShowRateButton={setShowRateButton} courseName={props.match.params.courseName}/> : null }
             <QuizSummaryWidget
               quizName={props.match.params.courseName}
               userAnswers={userAnswers}

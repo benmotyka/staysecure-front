@@ -13,6 +13,7 @@ padding: 25px;
 border-radius: 5px;
 background-color: ${colors.mediumDarkPurple};
 gap: 10px;
+min-width: min(300px, 80%);
 `
 
 export const Header = styled.h2`

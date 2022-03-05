@@ -39,7 +39,7 @@ export const Background = styled.div`
   width: 100%;
   top: 0;
   left: 0;
-  height: 110px;
+  height: 100px;
   display: flex;
   justify-content: space-between;
   padding: 15px 45px;
@@ -124,15 +124,6 @@ export const CommentsWrapper = styled.ul`
   }
 `;
 
-export const Comment = styled.li`
-  width: 100%;
-  border: 1px solid ${colors.darkestPurple};
-  box-sizing: border-box;
-  font-size: 14px;
-  color: ${colors.white};
-  opacity: 0.7;
-  border-top: none;
-`;
 
 export const CommentsHeader = styled.h4`
   width: 100%;

@@ -40,7 +40,7 @@ const Course = (props) => {
   useEffect(() => {
     (async () => {
       if (!user) {
-        history.push("/login");
+        history.push(`/login?courseRedirect=${courseName}`);
         return;
       }
       const localStorageLang =  localStorage.getItem('i18nextLng')

@@ -15,8 +15,8 @@ const Comment = (props) => {
             <Text>{props.comment}</Text>
         </CommentWrapper>
         <DetailsWrapper>
-            <Details>{new Date(parseInt(props.createdAt)).toLocaleString()}</Details>
             <Details>{props.username}</Details>
+            <Details>{new Date(parseInt(props.createdAt)).toLocaleString()}</Details>
         </DetailsWrapper>
     </Container>
   )

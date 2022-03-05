@@ -1,4 +1,5 @@
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
+import queryString from 'query-string'
 import { useDispatch } from "react-redux";
 import { login } from "features/userSlice";
 import { useSelector } from "react-redux";
@@ -26,6 +27,7 @@ const Login = () => {
     const history = useHistory();
     const user = useSelector(selectUser);
     const {t} = useTranslation()
+    const { search } = useLocation();
 
     useEffect(() => {
       if(user) history.push("/");
@@ -88,7 +90,9 @@ const Login = () => {
                   accountLevel: response.accountLevel
                 })
               );
-              history.push("/my-account");
+              const query = queryString.parse(search)
+              if (query.courseRedirect) return history.push(`/course/${query.courseRedirect}`)
+              return history.push("/account/courses");
             } else {
               setError(t('errors.wrong-login-password'));
             }

@@ -12,7 +12,7 @@ color: ${colors.white};
 border: 1px solid ${colors.mediumDarkPurple};
 transition: 0.2s all ease-in-out;
 z-index: 100;
-max-height: 130px;
+max-height: 100px;
 min-width: 200px;
 position: relative;
 display: flex;

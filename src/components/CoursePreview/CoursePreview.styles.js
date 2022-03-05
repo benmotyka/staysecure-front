@@ -158,14 +158,14 @@ export const EmptyRateLevel = styled(EmptyRate)`
   ${Star};
 `;
 
-const GoldText = css`
-  opacity: 0.6;
-  color: ${colors.gold};
+const Text = css`
+  opacity: 0.7;
+  color: ${colors.white};
   text-align: center;
 `;
 
 export const RateDescription = styled.h4`
-  ${GoldText};
+  ${Text};
   font-size: 20px;
   margin: 0;
   @media screen and (max-width: 1000px) {
@@ -174,7 +174,7 @@ export const RateDescription = styled.h4`
 `;
 
 export const RateSubDescription = styled.p`
-  ${GoldText};
+  ${Text};
   font-size: 12px;
   margin: 0;
   @media screen and (max-width: 1000px) {

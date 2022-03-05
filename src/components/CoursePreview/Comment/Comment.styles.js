@@ -16,6 +16,7 @@ color: ${colors.white};
 opacity: 0.7;
 `
 export const DetailsWrapper = styled.div`
+margin-top: 10px;
 display: flex;
 align-items: center;
 justify-content: space-between;

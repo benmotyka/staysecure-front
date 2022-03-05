@@ -7,10 +7,8 @@ import {
   ContentWrapper,
   RateWrapper,
   CommentsWrapper,
-  Comment,
   Header,
   Description,
-  ContentHeaderWrapper,
   CourseTitlesWrapper,
   CourseTitle,
   ButtonWrapper,
@@ -19,12 +17,11 @@ import {
   RateDescription,
   RateSubDescription,
   CommentsHeader,
-  CommentsContainer,
   Wrapper,
   Background,
-  HeaderContainer,
 } from "./CoursePreview.styles";
 import { useTranslation } from "react-i18next";
+import Comment from "./Comment/Comment";
 
 const CoursePreview = (props) => {
   const history = useHistory();
@@ -36,21 +33,25 @@ const CoursePreview = (props) => {
         <Header>{props.courseData.name}</Header>
         <div>
           <RateWrapper>
-            <RateLevel />
-            <RateLevel />
-            <RateLevel />
-            <RateLevel />
-            <EmptyRateLevel />
+              {[...Array(Math.round(props.courseRating.averageRate))].map((level, index) => (
+                <RateLevel key={index} />
+              ))}
+              {[...Array(5 - Math.round(props.courseRating.averageRate))].map((level, index) => (
+                <EmptyRateLevel key={index} />
+              ))}
           </RateWrapper>
-          <RateDescription>{t('rate')}: 4/5</RateDescription>
-          <RateSubDescription>17 {t('votes')}</RateSubDescription>
+          <RateDescription>{t('rate')}: {Math.round(props.courseRating.averageRate)}/5</RateDescription>
+          <RateSubDescription>{props.courseRating.votes} {t('votes')}</RateSubDescription>
         </div>
       </Background>
       <Wrapper>
         <ContentWrapper>
           <Description>
             {props.courseData.description}
-            <Line />{t('inThisCourseYouWillLearnAbout')}:
+          </Description>
+            <Line />
+          <Description>
+            {t('inThisCourseYouWillLearnAbout')}:
           </Description>
           <CourseTitlesWrapper>
             {props.courseData.content ? props.courseData.content.map((item, index) => (
@@ -70,7 +71,9 @@ const CoursePreview = (props) => {
           {t('comments')} 
           </CommentsHeader>
             <CommentsWrapper>
-              {/* <Comment>komentarz</Comment> */}
+              {props.courseRating.comments.map(item => (
+              <Comment comment={item.comment} createdAt={item.createdAt} username={item.username}/>
+              ))}
             </CommentsWrapper>
         </ReviewWrapper>
       </Wrapper>

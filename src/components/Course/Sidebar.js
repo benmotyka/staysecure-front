@@ -17,7 +17,6 @@ const Sidebar = (props) => {
                 </InteractiveSuccessContainer>
             </Wrapper>
             <LevelWrapper>
-            
 <LevelFrame>
 {props.data[props.activeSlide].level === 'basic' && t('basic')}
 {props.data[props.activeSlide].level === 'advanced' && t('advanced')}

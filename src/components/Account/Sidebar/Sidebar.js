@@ -4,7 +4,7 @@ import { selectUser } from "features/userSlice";
 import { useHistory } from "react-router-dom";
 import {useDispatch} from "react-redux"
 
-import { Container, Item } from "./Sidebar.styles";
+import { Container, Item, Highlight } from "./Sidebar.styles";
 import { useTranslation } from "react-i18next";
 const Sidebar = () => {
   const {t} = useTranslation()
@@ -19,7 +19,7 @@ const Sidebar = () => {
     <Container>
       {user && (
         <>
-      <Item header>{t('welcome')}, {user.name > 15 ? user.name?.substring(0, 15) + '...' : user.name}</Item>
+      <Item header>{t('welcome')},&nbsp; <Highlight>{ + user.name > 15 ? user.name?.substring(0, 15) + '...' : user.name}</Highlight></Item>
       <Item
         onClick={() => {
           history.push("/account/courses");

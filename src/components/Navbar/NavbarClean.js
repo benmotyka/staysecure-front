@@ -1,14 +1,14 @@
 import { useHistory } from "react-router-dom";
 
-import { Container, Section } from './Navbar.styles'
+import { ContainerClean, Section } from './Navbar.styles'
 
 import Logo from "components/Logo/Logo.js"
 const NavbarClean = () => {
 
     return (
-        <Container smallPadding>
+        <ContainerClean smallPadding>
             <Section><Logo/></Section>
-        </Container>
+        </ContainerClean>
     )
 }
 

@@ -1,18 +1,25 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import { Link as NavbarLink } from "react-router-dom";
 import colors from "constans/colors.js"
-export const Container = styled.div`
+
+const commonNavbar = css`
 background-color: ${colors.darkPurple};
 position: sticky;
 height: 80px;
 display: flex;
 align-items: center;
-justify-content: space-between;
-padding: ${props => props.smallPadding ? "0 30px": "0 270px"};
-
+padding: ${props => props.smallPadding ? "0 45px": "0 270px"};
 @media screen and (max-width: 1000px) {
     padding: 0 30px;
 }
+`
+
+export const ContainerClean = styled.div`
+${commonNavbar};
+`
+export const Container = styled.div`
+${commonNavbar};
+justify-content: space-between;
 
 @media screen and (max-width: 650px) {
     padding: 10px 0;

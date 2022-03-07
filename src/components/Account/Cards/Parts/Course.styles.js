@@ -19,6 +19,9 @@ export const Header = styled.h4`
 margin: 0 0 20px 0;
 color: ${colors.white};
 font-size: 18px;
+@media screen and (max-width: 1000px) {
+margin: 0 0 5px 0;
+}
 `
 export const Description = styled.p`
 color: ${colors.white};

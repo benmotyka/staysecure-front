@@ -27,11 +27,13 @@ flex-direction: column;
 
 export const PageOneChild = styled.div`
 width: 100%;
-height: ${props => props.includeNavbar ? `calc(100vh - ${navbarHeight})` : "100vh"};
-
+min-height: ${props => props.includeNavbar ? `calc(100vh - ${navbarHeight})` : "100vh"};
 ${flexCentered};
 flex-direction: column;
 background: transparent linear-gradient(180deg, #2B2E4A 0%, #2B2E4A 100%) 0% 0% no-repeat padding-box;
+@media screen and (max-width: 600px) {
+padding: 25px 0;
+}
 `
 
 export const PageAccount = styled.div`

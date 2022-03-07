@@ -7,7 +7,7 @@ height: 80px;
 display: flex;
 bottom: 0;
 align-items: center;
-justify-content: space-between;
+justify-content: ${props => props.oneItem ? "center": "space-between"};
 padding: 0 270px;
 background-color: ${props => props.noBackground ? "none": colors.darkPurple};
 

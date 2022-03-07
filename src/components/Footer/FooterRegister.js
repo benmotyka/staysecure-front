@@ -11,13 +11,7 @@ const RegisterFooter = () => {
     return (
         <Container noBackground>
             <Section>
-                <TextItem>{getYear()} &copy; staysecure</TextItem>
-            </Section>
-            <Section>
                 <TextItem>{t('alreadyHaveAccount')} <LinkItem orange to="/login">{t('login')}</LinkItem></TextItem>
-            </Section>
-            <Section>
-            <TextItem>by staysecure team</TextItem>
             </Section>
         </Container>
     )

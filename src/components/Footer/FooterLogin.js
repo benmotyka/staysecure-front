@@ -9,15 +9,9 @@ const LoginFooter = () => {
         return new Date().getFullYear();
     }
     return (
-        <Container noBackground>
-            <Section>
-                <TextItem>{getYear()} &copy; staysecure</TextItem>
-            </Section>
+        <Container noBackground oneItem>
             <Section>
                 <TextItem>{t('dontHaveAccount')} <LinkItem orange to="/register">{t('registerNow')}</LinkItem></TextItem>
-            </Section>
-            <Section>
-            <TextItem>by staysecure team</TextItem>
             </Section>
         </Container>
     )

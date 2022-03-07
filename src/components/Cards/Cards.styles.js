@@ -12,7 +12,7 @@ flex-direction: column;
 border-radius: 5px;
 @media screen and (max-width: 1000px) {
     padding: 20px;
-    min-width: 300px;
+    min-width: 250px;
 }
 `
 export const Header = styled.h2`

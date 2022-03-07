@@ -9,9 +9,6 @@ height: 80px;
 display: flex;
 align-items: center;
 padding: ${props => props.smallPadding ? "0 45px": "0 270px"};
-@media screen and (max-width: 1000px) {
-    padding: 0 30px;
-}
 `
 
 export const ContainerClean = styled.div`
@@ -20,6 +17,10 @@ ${commonNavbar};
 export const Container = styled.div`
 ${commonNavbar};
 justify-content: space-between;
+
+@media screen and (max-width: 1000px) {
+    padding: 0 30px;
+}
 
 @media screen and (max-width: 650px) {
     padding: 10px 0;

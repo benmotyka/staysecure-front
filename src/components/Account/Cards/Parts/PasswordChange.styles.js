@@ -9,6 +9,9 @@ margin-bottom: ${props => props.small ? "0": "20px"};
 padding-right: calc(100% - 500px);
 padding-bottom: ${props => props.noPaddingBottom ? "0": "20px"};
 background-color: ${colors.darkPurple};
+@media screen and (max-width: 1000px) {
+    padding-right: 25px;
+}
 `
 export const Header = styled.h3`
 margin: 0 0 20px 0;

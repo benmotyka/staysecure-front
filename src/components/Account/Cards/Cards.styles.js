@@ -10,12 +10,20 @@ margin-bottom: 50px;
 export const Header = styled.h2`
 font-size: 22px;
 color: ${colors.white};
+@media screen and (max-width: 1000px) {
+  text-align: center;
+}
 `
 
 export const HeaderContainer = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: center;
+
+@media screen and (max-width: 1000px) {
+  flex-direction: column;
+  margin-bottom: 25px;
+}
 `
 
 export const ExpandArrow = styled(ExpandArrowIcon)`

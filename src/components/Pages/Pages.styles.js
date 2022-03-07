@@ -44,6 +44,7 @@ display: grid;
 grid-template-columns: 330px 1fr;
 
 @media screen and (max-width: 1000px) {
+height: auto;
 grid-template-columns: 1fr;
 grid-template-rows: min-content 1fr;
 }
@@ -52,6 +53,14 @@ grid-template-rows: min-content 1fr;
 export const PageSection = styled.div`
 padding: 35px;
 overflow-y: auto;
+
+@media screen and (max-width: 1000px) {
+    padding: 35px 20px;
+}
+
+@media screen and (max-width: 600px) {
+    padding: 35px 10px;
+}
 
 `
 

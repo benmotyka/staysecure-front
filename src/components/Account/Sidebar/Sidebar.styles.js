@@ -8,7 +8,9 @@ height: 100%;
 background-color: ${colors.darkPurple};
 margin: 0;
 list-style: none; 
-padding: 0 0 0 30px;
+padding: 0 0 10px 30px;
+
+
 `
 const Text = css`
 color: ${colors.white};
@@ -24,6 +26,7 @@ margin-right: 30px;
 position: relative;
 display: flex;
 align-items: center;
+transition: 0.2s background-color ease-in-out;
 &:hover{
     background-color: ${props => props.header ? "": colors.darkestPurple};
 }
@@ -40,6 +43,8 @@ align-items: center;
 }
 
 @media screen and (max-width: 1000px) {
+padding: 10px 5px;
+font-size: 18px;
 }
 `
 

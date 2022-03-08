@@ -94,7 +94,7 @@ margin: 2px 0;
 
 export const Container = styled(Link)`
 text-decoration: none;
-height: ${props => props.noimage ? "120px": "300px"};
+height: ${props => props.noimage ? "120px": "250px"};
 display: grid;
 grid-template-rows: ${props => props.noimage ? "1fr": "35% 65%"};
 margin: 20px 20px;

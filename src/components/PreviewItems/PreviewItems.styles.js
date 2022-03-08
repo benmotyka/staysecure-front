@@ -5,6 +5,9 @@ export const Container = styled.div`
 margin-bottom: 80px;
     padding: 25px;
 max-width: 1200px;
+@media screen and (max-width: 600px){
+    margin-bottom: 20px;
+}
 `
 export const Header = styled.h2`
 color: ${colors.white};

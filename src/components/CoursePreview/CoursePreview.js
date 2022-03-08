@@ -40,7 +40,7 @@ const CoursePreview = (props) => {
                 <EmptyRateLevel key={index} />
               ))}
           </RateWrapper>
-          <RateDescription>{t('rate')}: {Math.round(props.courseRating.averageRate)}/5</RateDescription>
+          <RateDescription>{t('rate')}: {Math.round(props.courseRating.averageRate*1e2)/1e2}/5</RateDescription>
           <RateSubDescription>{props.courseRating.votes} {t('votes')}</RateSubDescription>
         </div>
       </Background>

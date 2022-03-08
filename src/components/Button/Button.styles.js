@@ -30,6 +30,8 @@ background: ${props => props.green ? colors.lightGreen : colors.orange};
 outline: none;
 border: none;
 padding: ${props => props.full ? "15px 20px": "10px 12px"};
+padding: ${props => props.small ? "5px 10px": ""};
+font-size: ${props => props.small ? "14px": ""};
 border-radius: 3px;
 display: flex;
 align-items: center;
@@ -44,4 +46,8 @@ background-color: ${props => props.disabled ? colors.darkPurple : ''};
 }
 
 background-color: ${props => props.disabled ? colors.darkPurple : ''};
+
+@media screen and (max-width: 600px) {
+    padding: ${props => props.full ? "10px 25px": "5px 10px"};
+}
 `

@@ -12,7 +12,7 @@ export const NotebookIconContainer = styled.div`
 height: 60px;
 width: 60px;
 background-color: ${colors.orange};
-top: 50%;
+bottom: 20%;
 position: fixed;
 right: ${({ active }) => (active ? "240px" : "-10px")};
 transition: 500ms all ease-in-out;
@@ -90,25 +90,34 @@ background-color: ${colors.hoverOrange}
 export const NotebookItemContainer = styled.div`
 position: relative;
 `
+
+export const NotebookShowItemText = styled.p`
+font-size: 18px;
+color: ${colors.white};
+margin: 0;
+`
+
 export const NotebookShowItemContainer = styled.div`
-min-width: 300px;
 background-color: ${colors.mediumDarkPurple};
 position: absolute;
+min-width: 100%;
+box-sizing: border-box;
 top: 50px;
 height: ${({ active }) => (active ? "auto" : "0")};
 padding: ${({ active }) => (active ? "5px 10px 10px 10px" : "0")};
-transition: 200ms all ease-in-out;
+transition: 500ms ease-in-out;
+transition-property: height, padding;
 right: 110%;
 display: flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
-border: ${({ active }) => (active ? `1px solid ${colors.black}` : "none")};
-`
+border: ${({ active }) => (active ? `1px solid ${colors.darkestPurple}` : "none")};
+border-radius: 5px;
 
-export const NotebookShowItemText = styled.p`
-font-size: 18px;
-color: ${colors.white};
+@media screen and (max-width: 600px) {
+  right: 0;
+}
 `
 
 export const NotebookShowItemClose = styled(CloseIcon)`

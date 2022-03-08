@@ -50,8 +50,8 @@ const AddNewNote = (props) => {
               onChange={(e) => setNoteText(e.target.value)}
             />
             <NoteButtonsContainer>
-              <Button noArrow onClick={addNote} text={t('add')} />
-              <Button noArrow onClick={discardNote} text={t('cancel')} />
+              <Button small noArrow onClick={addNote} text={t('add')} />
+              <Button small noArrow onClick={discardNote} text={t('cancel')} />
             </NoteButtonsContainer>
           </>
         )}

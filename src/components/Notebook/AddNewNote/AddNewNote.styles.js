@@ -33,15 +33,23 @@ font-size: 25px;
 `
 
 export const NoteContainer = styled.div`
+border-radius: 5px;
 width: 100%;
 background-color: ${colors.mediumDarkPurple};
 position: absolute;
 right: 110%;
 top: 0;
-height: ${({ active }) => (active ? "200px" : "0")};
-border: ${({ active }) => (active ? `1px solid ${colors.black}` : "none")};
-transition: 300ms all ease-in-out;
+min-height: ${({ active }) => (active ? "auto" : "0")};
+border: ${({ active }) => (active ? `1px solid ${colors.darkestPurple}` : "none")};
+transition: 300ms ease-in-out;
+transition-property: padding;
 padding: ${({ active }) => (active ? "15px" : "0")};
+box-sizing: border-box;
+
+@media screen and (max-width: 600px) {
+    right: 0;
+    top: -100px;
+}
 `
 
 export const NoteText = styled.textarea`
@@ -50,13 +58,17 @@ border: none;
 outline: none;
 resize: none;
 width: 100%;
-height: 75%;
+min-height: 100px;
 color: ${colors.white};
 font-size: 15px;
+::placeholder {
+  opacity: 0.2; /* Firefox */
+  color: ${colors.white};
+}
 `
 
 export const NoteButtonsContainer = styled.div`
 display: flex;
 align-items: center;
-justify-content: space-around;
+justify-content: space-evenly;
 `

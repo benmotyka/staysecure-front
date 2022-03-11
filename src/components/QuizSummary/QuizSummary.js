@@ -5,10 +5,10 @@ const QuizSummaryWidget = (props) => {
             <SummaryList>
             {props.summaryData.map((item, index) => (
                 <SummaryItem key={index}>
-                    <Question>{item.question}</Question>
+                    <Question>{item.question[props.language]}</Question>
                     <AnswersContainer>
                     {item.answers.map(itemAnswer => (
-                        <Answer userAnswer={(props.userAnswers.find(answer => answer.question === item.question))?.answer.text === itemAnswer.text} isCorrect={itemAnswer.isCorrect} >{itemAnswer.text}</Answer>
+                        <Answer userAnswer={(props.userAnswers.find(answer => answer.question[props.language] === item.question[props.language]))?.answer.text[props.language] === itemAnswer.text[props.language]} isCorrect={itemAnswer.isCorrect} >{itemAnswer.text[props.language]}</Answer>
                     ))}
                     </AnswersContainer>
                 </SummaryItem>

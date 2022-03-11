@@ -23,7 +23,6 @@ const Quiz = (props) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [choosenAnswer, setChoosenAnswer] = useState(null);
   const [quizFinished, setQuizFinished] = useState(false);
-  const [language, setLanguage] = useState(localStorage.getItem('i18nextLng'))
   const { t } = useTranslation();
   useEffect(() => {
     finishQuiz(); //required for simulating asynchronous change of state for useranswers
@@ -92,7 +91,7 @@ const Quiz = (props) => {
                       <Header>
                         {t("quiz.question")} {index + 1}/{props.quizData.length}
                       </Header>
-                      <Question>{item.question[language]}</Question>
+                      <Question>{item.question[props.language]}</Question>
                     </HeaderContainer>
                     <AnswersContainer>
                       {item.answers.map((answer, index) => (
@@ -103,7 +102,7 @@ const Quiz = (props) => {
                             setChoosenAnswer(answer);
                           }}
                         >
-                          {answer.text[language]}
+                          {answer.text[props.language]}
                         </Answer>
                       ))}
                     </AnswersContainer>

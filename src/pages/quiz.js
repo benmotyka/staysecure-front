@@ -14,6 +14,7 @@ const Quiz = (props) => {
   const [quizData, setQuizData] = useState([]);
   const user = useSelector(selectUser);
   const [loading, setLoading] = useState(true);
+  const [language, setLanguage] = useState(localStorage.getItem('i18nextLng'))
 
   useEffect(() => {
     (async () => {
@@ -59,7 +60,6 @@ const Quiz = (props) => {
   };
 
   const getQuizData = async () => {
-    const language = localStorage.getItem('i18nextLng')
     const requestBody = {
       query: `
           query GetQuizData($courseLink: String!){
@@ -108,6 +108,7 @@ const Quiz = (props) => {
         <>
           <PageOneChild includeNavbar>
             <QuizWidget
+              language={language}
               courseLink={props.match.params.courseName}
               quizData={quizData}
               user={user}

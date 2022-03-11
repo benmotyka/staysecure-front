@@ -52,9 +52,13 @@ const QuizSummary = (props) => {
         showRateButton
         scorePercentage
         quizData {
-          question
+          question {
+            ${language}
+          }
           answers {
-            text
+            text {
+              ${language}
+            }
             isCorrect
           }
         }
@@ -114,6 +118,7 @@ const QuizSummary = (props) => {
             </SummaryInstructions>
             {showRateButton ? <RateCourseWidget setShowRateButton={setShowRateButton} courseName={props.match.params.courseName}/> : null }
             <QuizSummaryWidget
+              language={language}
               quizName={props.match.params.courseName}
               userAnswers={userAnswers}
               summaryData={summaryData}

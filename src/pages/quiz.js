@@ -59,14 +59,19 @@ const Quiz = (props) => {
   };
 
   const getQuizData = async () => {
+    const language = localStorage.getItem('i18nextLng')
     const requestBody = {
       query: `
           query GetQuizData($courseLink: String!){
             getQuizData(courseLink: $courseLink){
               items {
-                question
+                question {
+                  ${language}
+                }
                 answers {
-                  text
+                  text {
+                  ${language}
+                  }
                 }
               }
               }
@@ -88,7 +93,7 @@ const Quiz = (props) => {
         setQuizData(data.data.getQuizData.items);
       }
     } catch (error) {
-      console.log(error);
+      history.push(`/`);
     } finally {
       setLoading(false);
     }

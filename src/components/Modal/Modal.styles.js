@@ -22,7 +22,7 @@ width: max-content;
 background-color: ${colors.mediumDarkPurple};
 opacity: 1;
 border-radius: 5px;
-
+max-width: 400px;
 @media screen and (max-width: 600px) {
 padding: 15px;
 margin: 10px;

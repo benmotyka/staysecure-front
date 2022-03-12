@@ -41,6 +41,11 @@ const QuizSummary = (props) => {
   }, []);
 
   const getSummaryData = async () => {
+    // quiz data needs to be fetched in all languages,
+    // because client answers in one language are saved
+    // as json, thus they are not automaticaly converted
+    // to the other languages 
+
     const requestBody = {
       query: `
     query GetQuizSummaryData($courseLink: String!){
@@ -53,11 +58,13 @@ const QuizSummary = (props) => {
         scorePercentage
         quizData {
           question {
-            ${language}
+            en
+            pl
           }
           answers {
             text {
-              ${language}
+              en
+              pl
             }
             isCorrect
           }

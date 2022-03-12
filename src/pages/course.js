@@ -19,6 +19,7 @@ import ButtonsModal from "components/Modal/ButtonsModal";
 import React from "react";
 import MobileAlert from "components/MobileAlert/MobileAlert";
 import DownloadCourses from "components/DownloadCourses/DownloadCourses";
+import CourseTutorial from "components/CourseTutorial/CourseTutorial";
 const Course = (props) => {
   const ref = useRef();
 
@@ -28,6 +29,7 @@ const Course = (props) => {
   const [courseAlreadyFinishedPopup, setCourseAlreadyFinishedPopup] =
     useState(0);
   const [loading, setLoading] = useState(0);
+  const [showTutorial, setShowTutorial] = useState(false)
   const [waitForCorrectAnswer, setWaitForCorrectAnswer] = useState(false);
   const history = useHistory();
   const user = useSelector(selectUser);
@@ -64,6 +66,17 @@ const Course = (props) => {
     })();
   }, []);
 
+  const checkCourseTutorial = async () => {
+    const finishedTutorial = localStorage.getItem('finished_tutorial')
+    console.log(finishedTutorial)
+    if (!finishedTutorial) setShowTutorial(true)
+    console.log('DDDDDDDDDDDDDDDDDD')
+  }
+
+  const finishTutorial = () => {
+    setShowTutorial(false)
+    localStorage.setItem('finished_tutorial', 'true')
+  }
   const addCourseToStarted = async () => {
     const requestBody = {
       query: `
@@ -98,6 +111,8 @@ const Course = (props) => {
           dispatch(logout())
           history.push("/login");
         }
+      } else {
+        checkCourseTutorial();
       }
     } catch (error) {
       console.log(error);
@@ -123,10 +138,12 @@ const Course = (props) => {
           Authorization: `Bearer ${user.token}`,
         },
       });
+      checkCourseTutorial();
     } catch (error) {
       console.log(error);
-    }
+    } finally {
     setCourseAlreadyFinishedPopup(false);
+    }
   };
 
   return (
@@ -180,6 +197,7 @@ const Course = (props) => {
                   />
                   <MobileAlert/>
                   {/* <DownloadCourses data={content}/> */}
+                  {/* {showTutorial ? <CourseTutorial finish={finishTutorial}/> : null} */}
                 </>
               )}
             </>

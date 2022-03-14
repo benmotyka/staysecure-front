@@ -9,6 +9,8 @@ import {
   ButtonWrapper,
   SlideBox,
   SlideWrapper,
+  NavigationWrapper,
+  NavigationBox
 } from "./CourseTutorial.styles";
 
 const CourseTutorial = (props) => {
@@ -36,9 +38,22 @@ const CourseTutorial = (props) => {
               Slide content
             </Text>
             <ButtonWrapper>
-              <Button text="Finish" noArrow small onClick={props.finish} />
+              <Button text="Next" noArrow small onClick={() => setStep(2)} />
             </ButtonWrapper>
           </SlideWrapper>
+        </>
+      ) : null}
+      {step === 2 ? (
+        <>
+          <NavigationBox />
+          <NavigationWrapper>
+            <Text>
+              Navigation bar
+            </Text>
+            <ButtonWrapper>
+              <Button text="Finish" noArrow small onClick={props.finish} />
+            </ButtonWrapper>
+          </NavigationWrapper>
         </>
       ) : null}
     </Container>

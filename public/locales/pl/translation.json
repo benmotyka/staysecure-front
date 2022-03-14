@@ -358,6 +358,8 @@
         "navigation": "Panel nawigacyjny",
         "navigationDescription": " przedstawia liczbę slajdów w obecnym kursie. Kwadrat symbolizuje zwykły slajd, a romb slajd interaktywny. Używaj strzałek, aby nawigować po slajdach.",
         "next": "Dalej",
-        "finish": "Zakończ"
+        "finish": "Zakończ",
+        "slideLevel": "Poziom slajdu",
+        "slideLevelDescription": " określa poziom trudności, zgodny z ustawieniami konta. Slajdy o zaawansowanym poziomie trudności nie będą przedstawiane użytkownikom o podstawowym typie konta."
     }
 }

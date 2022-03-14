@@ -11,7 +11,9 @@ import {
   SlideWrapper,
   NavigationWrapper,
   NavigationBox,
-  Highlight
+  Highlight,
+  CourseLevelBox,
+  CourseLevelWrapper
 } from "./CourseTutorial.styles";
 
 const CourseTutorial = (props) => {
@@ -55,9 +57,22 @@ const CourseTutorial = (props) => {
             <Highlight>{t('courseTutorial.navigation')}</Highlight> {t('courseTutorial.navigationDescription')}
             </Text>
             <ButtonWrapper>
-              <Button text={t('courseTutorial.finish')} noArrow small onClick={props.finish} />
+              <Button text={t('courseTutorial.next')} noArrow small onClick={() => setStep(3)} />
             </ButtonWrapper>
           </NavigationWrapper>
+        </>
+      ) : null}
+      {step === 3 ? (
+        <>
+          <CourseLevelBox />
+          <CourseLevelWrapper>
+            <Text>
+            <Highlight>{t('courseTutorial.slideLevel')}</Highlight> {t('courseTutorial.slideLevelDescription')}
+            </Text>
+            <ButtonWrapper>
+              <Button text={t('courseTutorial.finish')} noArrow small onClick={props.finish} />
+            </ButtonWrapper>
+          </CourseLevelWrapper>
         </>
       ) : null}
     </Container>

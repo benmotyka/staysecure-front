@@ -348,16 +348,18 @@
             "cloudMigrationDescription":"If a company with a traditional type of infrastructure (its own physical machines) is facing problems with DDoS attacks or irregular traffic, it is worth considering the option of migrating the current state of the infrastructure to public clouds. These provide the dynamic ability to scale server instances depending on site traffic, so in the event of increased traffic or a DDoS attack, the problem of unavailability can be partially mitigated by creating more machines.",
             "monitoringResources":"Monitoring of resources",
             "monitoringResourcesDescription":"This is one of the key elements allowing protection against DDoS attacks. Thanks to active monitoring of machine resources, it is possible to create models of resource consumption (CPU, RAM) throughout the day. This makes it possible, above all, to spot anomalies in the form of DDoS attacks. If these occur in certain patterns, appropriate rules can be applied to firewalls, for example, to reject even less suspicious requests for a given period of time."
-        },
-        "courseTutorial": {
-            "sidebar": "Sidebar",
-            "sidebarDescription": " describes current slide content and completes slide topic. In case of an interactive slide, the task will be described at the bottom.",
-            "slide": "Slide",
-            "slideDescription": " is the main part of the course. Some slides are interactive and may require you to complete the task to proceed.",
-            "navigation": "Navigation bar",
-            "navigationDescription": " indicates the number of slides in the current course. Square symbolizes the standard slide, while Rhombus indicates the interactive one. Use arrows located on the edges, in order to navigate between slides.",
-            "next": "Next",
-            "finish": "Finish"
         }
+    },
+    "courseTutorial": {
+        "sidebar": "Sidebar",
+        "sidebarDescription": " describes current slide content and completes slide topic. In case of an interactive slide, the task will be described at the bottom.",
+        "slide": "Slide",
+        "slideDescription": " is the main part of the course. Some slides are interactive and may require you to complete the task to proceed.",
+        "navigation": "Navigation bar",
+        "navigationDescription": " indicates the number of slides in the current course. Square symbolizes the standard slide, while Rhombus indicates the interactive one. Use arrows located on the edges, in order to navigate between slides.",
+        "next": "Next",
+        "finish": "Finish",
+        "slideLevel": "Slide level",
+        "slideLevelDescription": " indicates the difficulty level, corresponding to the account type. Advanced difficulty slides will not be presented to users with the Basic type of account."
     }
 }

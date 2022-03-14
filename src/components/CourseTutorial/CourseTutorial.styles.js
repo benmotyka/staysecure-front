@@ -38,10 +38,11 @@ export const SidebarBox = styled.div`
       rgba(255, 255, 255, 0) 0%
     ),
     linear-gradient(to right, ${colors.orange} 33%, rgba(255, 255, 255, 0) 0%),
-    linear-gradient(to right, ${colors.orange} 33%, rgba(255, 255, 255, 0) 0%);
-  background-position: right, bottom, top;
-  background-size: 2px 20px, 20px 2px, 20px 2px;
-  background-repeat: repeat-y, repeat-x, repeat-x;
+    linear-gradient(to right, ${colors.orange} 33%, rgba(255, 255, 255, 0) 0%),
+    linear-gradient(${colors.orange} 33%, rgba(255, 255, 255, 0) 0%);
+  background-position: right, bottom, top, left;
+  background-size: 2px 20px, 20px 2px, 20px 2px, 2px 20px;
+  background-repeat: repeat-y, repeat-x, repeat-x, repeat-y;
 `;
 
 export const SidebarWrapper = styled.div`
@@ -107,14 +108,39 @@ export const NavigationBox = styled.div`
       rgba(255, 255, 255, 0) 0%
     ),
     linear-gradient(to right, ${colors.orange} 33%, rgba(255, 255, 255, 0) 0%),
+    linear-gradient(to right, ${colors.orange} 33%, rgba(255, 255, 255, 0) 0%),
     linear-gradient(${colors.orange} 33%, rgba(255, 255, 255, 0) 0%);
-  background-position: right, top, left;
-  background-size: 2px 20px, 20px 2px, 2px 20px;
-  background-repeat: repeat-y, repeat-x, repeat-y;
+  background-position: right, top, bottom, left;
+  background-size: 2px 20px, 20px 2px, 20px 2px, 2px 20px;
+  background-repeat: repeat-y, repeat-x, repeat-x, repeat-y;
 `;
 
 export const NavigationWrapper = styled.div`
   ${WrapperCommonStyles};
   bottom: 100px;
   left: 50%;
+`;
+
+export const CourseLevelBox = styled.div`
+  ${BoxCommonStyles};
+left: 0;
+width: ${courseSidebarWidth};
+bottom: 0;
+height: 80px;
+background-image: linear-gradient(
+      ${colors.orange} 33%,
+      rgba(255, 255, 255, 0) 0%
+    ),
+    linear-gradient(to right, ${colors.orange} 33%, rgba(255, 255, 255, 0) 0%),
+    linear-gradient(to right, ${colors.orange} 33%, rgba(255, 255, 255, 0) 0%),
+    linear-gradient(${colors.orange} 33%, rgba(255, 255, 255, 0) 0%);
+  background-position: right, bottom, top, left;
+  background-size: 2px 20px, 20px 2px, 20px 2px, 2px 20px;
+  background-repeat: repeat-y, repeat-x, repeat-x, repeat-y;
+`
+
+export const CourseLevelWrapper = styled.div`
+  ${WrapperCommonStyles};
+  bottom: 100px;
+  left: 10%;
 `;

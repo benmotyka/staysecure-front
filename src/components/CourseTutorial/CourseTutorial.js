@@ -1,6 +1,6 @@
 import Button from "components/Button/Button";
 import React, { useState } from "react";
-
+import { useTranslation } from "react-i18next";
 import {
   Container,
   SidebarBox,
@@ -10,11 +10,14 @@ import {
   SlideBox,
   SlideWrapper,
   NavigationWrapper,
-  NavigationBox
+  NavigationBox,
+  Highlight
 } from "./CourseTutorial.styles";
 
 const CourseTutorial = (props) => {
   const [step, setStep] = useState(0);
+  const {t} = useTranslation()
+
   return (
     <Container>
       {step === 0 ? (
@@ -22,10 +25,10 @@ const CourseTutorial = (props) => {
           <SidebarBox />
           <SidebarWrapper>
             <Text>
-              Sidebar
+              <Highlight>{t('courseTutorial.sidebar')}</Highlight>{t('courseTutorial.sidebarDescription')}
             </Text>
             <ButtonWrapper>
-              <Button text="Next" noArrow small onClick={() => setStep(1)} />
+              <Button text={t('courseTutorial.next')} noArrow small onClick={() => setStep(1)} />
             </ButtonWrapper>
           </SidebarWrapper>
         </>
@@ -35,10 +38,11 @@ const CourseTutorial = (props) => {
           <SlideBox />
           <SlideWrapper>
             <Text>
-              Slide content
+            <Highlight>{t('courseTutorial.slide')}</Highlight> 
+             {t('courseTutorial.slideDescription')}
             </Text>
             <ButtonWrapper>
-              <Button text="Next" noArrow small onClick={() => setStep(2)} />
+              <Button text={t('courseTutorial.next')} noArrow small onClick={() => setStep(2)} />
             </ButtonWrapper>
           </SlideWrapper>
         </>
@@ -48,10 +52,10 @@ const CourseTutorial = (props) => {
           <NavigationBox />
           <NavigationWrapper>
             <Text>
-              Navigation bar
+            <Highlight>{t('courseTutorial.navigation')}</Highlight> {t('courseTutorial.navigationDescription')}
             </Text>
             <ButtonWrapper>
-              <Button text="Finish" noArrow small onClick={props.finish} />
+              <Button text={t('courseTutorial.finish')} noArrow small onClick={props.finish} />
             </ButtonWrapper>
           </NavigationWrapper>
         </>

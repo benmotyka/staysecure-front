@@ -349,5 +349,15 @@
             "monitoringResources":"Monitorowanie zasobów",
             "monitoringResourcesDescription":"Jest to jeden z kluczowych elementów pozwalających na ochronę przeciw atakom DDoS. Dzięki aktywnemu monitorowaniu zasobów maszyn można stworzyć modele zużycia zasobów (procesora, pamięci RAM) w ciągu dnia. Pozwala to przede wszystkim na zauważenie anomalii w postaci ataków DDoS. W przypadku gdy pojawiają się one w pewnych schematach, można przykładowo zastosować odpowiednie reguły w firewallach, celem odrzucania nawet mniej podejrzanych żądań przez dany okres czasu."
         }
+    },
+    "courseTutorial": {
+        "sidebar": "Panel boczny",
+        "sidebarDescription": " opisuje i dopełnia zawartość slajdu. W przypadku interaktywnego slajdu, na końcu panelu zostanie przedstawiona treść zadania.",
+        "slide": "Slajd",
+        "slideDescription": " jest główną częścią kursu. Niektóre slajdy są interaktywne i wymagają wykonania zadania, aby kontynuować.",
+        "navigation": "Panel nawigacyjny",
+        "navigationDescription": " przedstawia liczbę slajdów w obecnym kursie. Kwadrat symbolizuje zwykły slajd, a romb slajd interaktywny. Używaj strzałek, aby nawigować po slajdach.",
+        "next": "Dalej",
+        "finish": "Zakończ"
     }
 }

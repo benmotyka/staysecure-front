@@ -7,7 +7,6 @@ import colors from "constans/colors";
 const BoxCommonStyles = css`
   position: absolute;
   box-sizing: border-box;
-  height: 100%;
 `;
 
 const WrapperCommonStyles = css`
@@ -15,7 +14,7 @@ const WrapperCommonStyles = css`
   display: flex;
   flex-direction: column;
   background-color: ${colors.darkestPurple};
-  padding: 20px;
+  padding: 10px;
   border-radius: 5px;
   gap: 20px;
 `;
@@ -32,6 +31,7 @@ export const Container = styled.div`
 
 export const SidebarBox = styled.div`
   ${BoxCommonStyles};
+  height: 100%;
   width: ${courseSidebarWidth};
   background-image: linear-gradient(
       ${colors.orange} 33%,
@@ -40,7 +40,7 @@ export const SidebarBox = styled.div`
     linear-gradient(to right, ${colors.orange} 33%, rgba(255, 255, 255, 0) 0%),
     linear-gradient(to right, ${colors.orange} 33%, rgba(255, 255, 255, 0) 0%);
   background-position: right, bottom, top;
-  background-size: 2px 30px, 30px 2px, 30px 2px;
+  background-size: 2px 20px, 20px 2px, 20px 2px;
   background-repeat: repeat-y, repeat-x, repeat-x;
 `;
 
@@ -59,18 +59,24 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const Text = styled.p`
-  color: ${colors.orange};
-  opacity: 0.8;
-  font-weight: bold;
+  color: ${colors.white};
+  opacity: 0.7;
   font-size: 14px;
-  max-width: 150px;
+  max-width: 250px;
   margin: 0;
 `;
 
+export const Highlight = styled.span`
+  color: ${colors.orange};
+  font-weight: bold;
+`
+
 export const SlideBox = styled.div`
   ${BoxCommonStyles};
+  height: calc(100% - 80px);
   width: calc(100vw - ${notebookWidth} - ${courseSidebarWidth});
   left: ${courseSidebarWidth};
+  top: 0;
   background-image: linear-gradient(
       ${colors.orange} 33%,
       rgba(255, 255, 255, 0) 0%
@@ -79,7 +85,7 @@ export const SlideBox = styled.div`
     linear-gradient(to right, ${colors.orange} 33%, rgba(255, 255, 255, 0) 0%),
     linear-gradient(${colors.orange} 33%, rgba(255, 255, 255, 0) 0%);
   background-position: right, bottom, top, left;
-  background-size: 2px 30px, 30px 2px, 30px 2px, 2px 30px;
+  background-size: 2px 20px, 20px 2px, 20px 2px, 2px 20px;
   background-repeat: repeat-y, repeat-x, repeat-x, repeat-y;
 `;
 
@@ -88,7 +94,7 @@ export const SlideWrapper = styled.div`
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
 `;
 export const NavigationBox = styled.div`
   ${BoxCommonStyles};
@@ -103,7 +109,7 @@ export const NavigationBox = styled.div`
     linear-gradient(to right, ${colors.orange} 33%, rgba(255, 255, 255, 0) 0%),
     linear-gradient(${colors.orange} 33%, rgba(255, 255, 255, 0) 0%);
   background-position: right, top, left;
-  background-size: 2px 30px, 30px 2px, 2px 30px;
+  background-size: 2px 20px, 20px 2px, 2px 20px;
   background-repeat: repeat-y, repeat-x, repeat-y;
 `;
 

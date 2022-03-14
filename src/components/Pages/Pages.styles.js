@@ -1,5 +1,4 @@
 import styled, {css} from "styled-components";
-import {sidebarWidth} from "../Account/Sidebar/Sidebar.styles"
 import {notebookWidth} from "components/Notebook/Notebook.styles"
 import { courseSidebarWidth } from "components/Course/Sidebar.styles";
 

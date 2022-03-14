@@ -197,7 +197,7 @@ const Course = (props) => {
                   />
                   <MobileAlert/>
                   {/* <DownloadCourses data={content}/> */}
-                  {/* {showTutorial ? <CourseTutorial finish={finishTutorial}/> : null} */}
+                  {showTutorial ? <CourseTutorial finish={finishTutorial}/> : null}
                 </>
               )}
             </>

@@ -360,6 +360,7 @@
         "next": "Dalej",
         "finish": "Zakończ",
         "slideLevel": "Poziom slajdu",
-        "slideLevelDescription": " określa poziom trudności, zgodny z ustawieniami konta. Slajdy o zaawansowanym poziomie trudności nie będą przedstawiane użytkownikom o podstawowym typie konta."
+        "slideLevelDescription": " określa poziom trudności, zgodny z ustawieniami konta. Slajdy o zaawansowanym poziomie trudności nie będą przedstawiane użytkownikom o podstawowym typie konta.",
+        "restart": "Zresetuj wprowadzenie"
     }
 }

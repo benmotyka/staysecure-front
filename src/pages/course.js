@@ -6,7 +6,7 @@ import {useDispatch} from "react-redux"
 import axios from "axios";
 import { logout } from "features/userSlice";
 
-import NavbarClean from "components/Navbar/NavbarClean";
+import CourseNavbar from "components/Navbar/CourseNavbar";
 import { PageCourse } from "components/Pages/Pages.styles";
 import Navigation from "components/Course/Navigation";
 import Loader from "components/Loader/Loader";
@@ -170,7 +170,7 @@ const Course = (props) => {
                 />
               ) : (
                 <>
-                  <NavbarClean />
+                  <CourseNavbar setShowTutorial={setShowTutorial}/>
                   <Sidebar
                     waitForCorrectAnswer={waitForCorrectAnswer}
                     data={content}

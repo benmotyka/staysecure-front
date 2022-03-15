@@ -1,11 +1,13 @@
 import styled, {css} from "styled-components";
 import { Link as NavbarLink } from "react-router-dom";
 import colors from "constans/colors.js"
+import {IoSettingsSharp as SettingsIcon} from "react-icons/io5"
+const navbarHeight = "80px";
 
 const commonNavbar = css`
 background-color: ${colors.darkPurple};
 position: sticky;
-height: 80px;
+height: ${navbarHeight};
 display: flex;
 align-items: center;
 padding: ${props => props.smallPadding ? "0 45px": "0 270px"};
@@ -17,7 +19,7 @@ ${commonNavbar};
 export const Container = styled.div`
 ${commonNavbar};
 justify-content: space-between;
-
+z-index: 10;
 @media screen and (max-width: 1000px) {
     padding: 0 30px;
 }
@@ -79,4 +81,31 @@ export const ButtonContainer = styled.div`
 
 export const AccountIcon = styled.img`
 
+`
+
+export const CourseSettings = styled(SettingsIcon)`
+color: ${colors.orange};
+font-size: 25px;
+opacity: 0.5;
+transition: 0.2s opacity ease-in-out;
+cursor: pointer;
+
+&:hover {
+    opacity: 1;
+}
+`
+
+export const CourseSettingsContainer = styled.div`
+`
+
+export const CourseSettingsWrapper = styled.div`
+position: absolute;
+right: 10px;
+border-radius: 0 0 5px 5px;
+top: 80px;
+transition: 0.2s all ease-in-out;
+width: max-content;
+padding: 15px;
+background-color: ${colors.darkPurple};
+z-index: 5;
 `

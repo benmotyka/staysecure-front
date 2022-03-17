@@ -39,11 +39,9 @@ background-color: ${colors.mediumDarkPurple};
 position: absolute;
 right: 110%;
 top: 0;
-min-height: ${({ active }) => (active ? "auto" : "0")};
-border: ${({ active }) => (active ? `1px solid ${colors.darkestPurple}` : "none")};
-transition: 300ms ease-in-out;
-transition-property: padding;
-padding: ${({ active }) => (active ? "15px" : "0")};
+min-height: auto;
+border: 1px solid ${colors.darkestPurple};
+padding: 15px;
 box-sizing: border-box;
 
 @media screen and (max-width: 600px) {

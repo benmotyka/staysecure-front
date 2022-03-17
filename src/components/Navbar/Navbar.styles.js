@@ -2,7 +2,7 @@ import styled, {css} from "styled-components";
 import { Link as NavbarLink } from "react-router-dom";
 import colors from "constans/colors.js"
 import {IoSettingsSharp as SettingsIcon} from "react-icons/io5"
-const navbarHeight = "80px";
+export const navbarHeight = "80px";
 
 const commonNavbar = css`
 background-color: ${colors.darkPurple};

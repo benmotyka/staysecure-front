@@ -1,6 +1,6 @@
 import { Transition } from 'react-transition-group';
 
-const duration = 300;
+const duration = 150;
 
 const defaultStyle = {
   transition: `opacity ${duration}ms ease-in-out`,
@@ -8,10 +8,10 @@ const defaultStyle = {
 }
 
 const transitionStyles = {
-  entering: { opacity: 1 },
-  entered:  { opacity: 1 },
-  exiting:  { opacity: 0 },
-  exited:  { opacity: 0 },
+  entering: { opacity: 0, display: 'block' },
+  entered:  { opacity: 1, display: 'block' },
+  exiting:  { opacity: 0, display: 'block' },
+  exited:  { opacity: 0, display: 'none' },
 };
 
 const FadeIn = (props) => {

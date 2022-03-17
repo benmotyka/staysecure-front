@@ -20,6 +20,7 @@ import React from "react";
 import MobileAlert from "components/MobileAlert/MobileAlert";
 import DownloadCourses from "components/DownloadCourses/DownloadCourses";
 import CourseTutorial from "components/CourseTutorial/CourseTutorial";
+import FadeIn from "components/FadeIn/FadeIn";
 const Course = (props) => {
   const ref = useRef();
 
@@ -154,7 +155,7 @@ const Course = (props) => {
             <Loader />
           ) : (
             <>
-              {courseAlreadyFinishedPopup ? (
+                <FadeIn in={courseAlreadyFinishedPopup}>
                 <ButtonsModal
                 innerRef={ref}
                   header={t("courseFinishedQuesionHeader")}
@@ -168,8 +169,7 @@ const Course = (props) => {
                     restartCourse();
                   }}
                 />
-              ) : (
-                <>
+                </FadeIn>
                   <CourseNavbar setShowTutorial={setShowTutorial}/>
                   <Sidebar
                     waitForCorrectAnswer={waitForCorrectAnswer}
@@ -197,10 +197,10 @@ const Course = (props) => {
                   />
                   <MobileAlert/>
                   {/* <DownloadCourses data={content}/> */}
-                  {showTutorial ? <CourseTutorial finish={finishTutorial}/> : null}
+                  <FadeIn in={showTutorial}>
+                  <CourseTutorial finish={finishTutorial}/>
+                  </FadeIn>
                 </>
-              )}
-            </>
           )}
         </>
       )}

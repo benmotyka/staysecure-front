@@ -20,7 +20,7 @@ const Courses = () => {
 
   const [coursesFinished, setCoursesFinished] = useState([])
   const [coursesStarted, setCoursesStarted] = useState([])
-  const [loading, setLoading] = useState(0)
+  const [loading, setLoading] = useState(1)
   useEffect(() => {
     if (!user) history.push("/login");
       (async function() {
@@ -32,7 +32,6 @@ const Courses = () => {
   const user = useSelector(selectUser);
 
   const getUserInfo = async () => {
-    setLoading(true)
     try {
       const requestBody = {
         query: `
@@ -73,8 +72,9 @@ const Courses = () => {
       if(error.response || error.response.data.errors.length && error.response.data.errors[0].message === 'unauthenticated') dispatch(logout());
       history.push("/login");
       console.log(error)
+    } finally {
+      setLoading(false)
     }
-    setLoading(false)
     }
 
   return (

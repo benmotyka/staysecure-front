@@ -12,9 +12,8 @@ cursor: pointer;
 `
 
 export const DropdownWrapper = styled.ul`
-opacity: ${props => props.active ? "1" : "0"};
-height: ${props => props.active ? "auto" : "0"};
-width: ${props => props.active ? "30px" : "0"};
+opacity: 1;
+width: 30px;
 position: absolute;
 background-color: ${colors.darkestPurple};
 border-radius: 15px;

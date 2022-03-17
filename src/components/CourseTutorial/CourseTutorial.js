@@ -1,4 +1,5 @@
 import Button from "components/Button/Button";
+import FadeIn from "components/FadeIn/FadeIn";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
@@ -22,8 +23,7 @@ const CourseTutorial = (props) => {
 
   return (
     <Container>
-      {step === 0 ? (
-        <>
+        <FadeIn in={step === 0}>
           <SidebarBox />
           <SidebarWrapper>
             <Text>
@@ -33,10 +33,8 @@ const CourseTutorial = (props) => {
               <Button text={t('courseTutorial.next')} noArrow small onClick={() => setStep(1)} />
             </ButtonWrapper>
           </SidebarWrapper>
-        </>
-      ) : null}
-      {step === 1 ? (
-        <>
+          </FadeIn>
+        <FadeIn in={step === 1}>
           <SlideBox />
           <SlideWrapper>
             <Text>
@@ -47,10 +45,8 @@ const CourseTutorial = (props) => {
               <Button text={t('courseTutorial.next')} noArrow small onClick={() => setStep(2)} />
             </ButtonWrapper>
           </SlideWrapper>
-        </>
-      ) : null}
-      {step === 2 ? (
-        <>
+        </FadeIn>
+        <FadeIn in={step === 2}>
           <NavigationBox />
           <NavigationWrapper>
             <Text>
@@ -60,21 +56,21 @@ const CourseTutorial = (props) => {
               <Button text={t('courseTutorial.next')} noArrow small onClick={() => setStep(3)} />
             </ButtonWrapper>
           </NavigationWrapper>
-        </>
-      ) : null}
-      {step === 3 ? (
-        <>
+        </FadeIn>
+        <FadeIn in={step === 3}>
           <CourseLevelBox />
           <CourseLevelWrapper>
             <Text>
             <Highlight>{t('courseTutorial.slideLevel')}</Highlight> {t('courseTutorial.slideLevelDescription')}
             </Text>
             <ButtonWrapper>
-              <Button text={t('courseTutorial.finish')} noArrow small onClick={props.finish} />
+              <Button text={t('courseTutorial.finish')} noArrow small onClick={() => {
+                setStep(0); 
+                props.finish()
+                }} />
             </ButtonWrapper>
           </CourseLevelWrapper>
-        </>
-      ) : null}
+        </FadeIn>
     </Container>
   );
 };

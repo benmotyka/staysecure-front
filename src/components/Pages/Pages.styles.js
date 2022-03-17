@@ -1,9 +1,8 @@
 import styled, {css} from "styled-components";
 import {notebookWidth} from "components/Notebook/Notebook.styles"
 import { courseSidebarWidth } from "components/Course/Sidebar.styles";
-
-const footerHeight = "80px";
-const navbarHeight = "80px";
+import { navbarHeight } from "components/Navbar/Navbar.styles";
+import { footerHeight } from "components/Footer/Footer.styles";
 
 const flexCentered = css`
 display: flex; 

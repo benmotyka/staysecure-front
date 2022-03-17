@@ -11,6 +11,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { useOnClickOutside } from "hooks/useOnClickOutside";
+import FadeIn from "components/FadeIn/FadeIn";
 
 const Navigation = (props) => {
   const { t } = useTranslation();
@@ -91,7 +92,7 @@ const Navigation = (props) => {
       >
         <Arrow />
       </ChangeSlideButton>
-      {showEndingModal && (
+        <FadeIn in={showEndingModal}>
         <ButtonsModal
           innerRef={ref}
           header={t("courseFinishConfirmationHeader")}
@@ -105,7 +106,7 @@ const Navigation = (props) => {
             markCourseFinishedAndProceedToQuiz();
           }}
         />
-      )}
+        </FadeIn>
     </Container>
   );
 };

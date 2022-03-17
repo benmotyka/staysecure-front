@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { courseSidebarWidth } from "components/Course/Sidebar.styles";
 import { notebookWidth } from "components/Notebook/Notebook.styles";
+import { navbarHeight } from "components/Navbar/Navbar.styles";
 
 import colors from "constans/colors";
 
@@ -23,9 +24,9 @@ export const Container = styled.div`
   position: absolute;
   left: 0;
   right: 0;
-  top: 0;
+  top: ${navbarHeight};
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 100;
 `;
 

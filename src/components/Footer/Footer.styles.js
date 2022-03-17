@@ -2,8 +2,10 @@ import styled, {css} from "styled-components";
 import colors from "constans/colors"
 import {Link as FooterLink} from "react-router-dom"
 
+export const footerHeight = "80px";
+
 export const Container = styled.div`
-height: 80px;
+height: ${footerHeight};
 display: flex;
 bottom: 0;
 align-items: center;

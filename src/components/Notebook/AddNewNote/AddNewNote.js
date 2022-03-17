@@ -10,6 +10,7 @@ import {
 } from "./AddNewNote.styles";
 import Button from "components/Button/Button";
 import { useTranslation } from "react-i18next";
+import FadeIn from "components/FadeIn/FadeIn";
 
 const AddNewNote = (props) => {
   const [newNoteActive, setNewNoteActive] = useState(false);
@@ -28,8 +29,8 @@ const AddNewNote = (props) => {
   };
 
   const discardNote = () => {
+    setNewNoteActive(false)
     setNoteText("");
-    setNewNoteActive(false);
   };
   return (
     <AddNewNoteContainer>
@@ -41,21 +42,22 @@ const AddNewNote = (props) => {
         <Text>{t('addNote')}</Text>
         <AddIcon />
       </AddNewNoteButtonWrapper>
+      <FadeIn in={newNoteActive}>
       <NoteContainer active={newNoteActive}>
-        {newNoteActive && (
           <>
             <NoteText
               spellCheck="false"
               placeholder={t('enterNote')}
               onChange={(e) => setNoteText(e.target.value)}
+              value={noteText}
             />
             <NoteButtonsContainer>
               <Button small noArrow onClick={addNote} text={t('add')} />
               <Button small noArrow onClick={discardNote} text={t('cancel')} />
             </NoteButtonsContainer>
           </>
-        )}
       </NoteContainer>
+      </FadeIn>
     </AddNewNoteContainer>
   );
 };

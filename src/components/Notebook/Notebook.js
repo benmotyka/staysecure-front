@@ -20,6 +20,7 @@ import { useState, useEffect } from "react";
 import AddNewNote from "./AddNewNote/AddNewNote";
 import DownloadNotes from "./DownloadNotes/DownloadNotes";
 import { useTranslation } from "react-i18next";
+import FadeIn from "components/FadeIn/FadeIn";
 const Notebook = () => {
   const {t, i18n} = useTranslation()
 
@@ -31,6 +32,7 @@ const Notebook = () => {
   const [notebookActive, setNotebookActive] = useState(false);
   const [notes, setNotes] = useState([]);
   const [showNoteText, setShowNoteText] = useState("");
+  const [showNote, setShowNote] = useState(false)
 
   const downloadNotes = () => {
     let combinedNotes = "";
@@ -58,7 +60,6 @@ const Notebook = () => {
     setNotes(notes.filter((note) => note !== noteToDelete));
     const currentNotes = JSON.parse(window.localStorage.getItem("notes"));
     window.localStorage.setItem("notes", JSON.stringify(currentNotes.filter(note => note !== noteToDelete)));
-    setShowNoteText("");
   };
   return (
     <NotebookContainer>
@@ -79,6 +80,7 @@ const Notebook = () => {
             <NotebookItemContainer key={key}>
               <NotebookItem
                 onClick={() => {
+                  setShowNote(true)
                   setShowNoteText(note);
                 }}
               >
@@ -88,13 +90,13 @@ const Notebook = () => {
             </NotebookItemContainer>
           ))}
           
-            <NotebookShowItemContainer active={showNoteText.length}>
-              {showNoteText.length ? (
+          <FadeIn in={showNote}>
+            <NotebookShowItemContainer>
               <>
               <NotebookShowItemPart>
                 <NotebookShowItemClose
                   onClick={() => {
-                    setShowNoteText("");
+                    setShowNote(false);
                   }}
                 />
               </NotebookShowItemPart>
@@ -105,12 +107,13 @@ const Notebook = () => {
                 <NotebookShowItemDelete
                   onClick={() => {
                     deleteNote(showNoteText);
+                    setShowNote(false);
                   }}
                 />
               </NotebookShowItemPart>
               </>
-              ) : ""}
             </NotebookShowItemContainer>
+            </FadeIn>
         </NotebookBody>
         <NotebookActionsContainer>
         <AddNewNote notes={notes} setNotes={setNotes} />

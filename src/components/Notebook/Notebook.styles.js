@@ -103,8 +103,8 @@ position: absolute;
 min-width: 100%;
 box-sizing: border-box;
 top: 50px;
-height: ${({ active }) => (active ? "auto" : "0")};
-padding: ${({ active }) => (active ? "5px 10px 10px 10px" : "0")};
+height: auto;
+padding: 5px 10px 10px 10px;
 transition: 500ms ease-in-out;
 transition-property: height, padding;
 right: 110%;
@@ -112,9 +112,9 @@ display: flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
-border: ${({ active }) => (active ? `1px solid ${colors.darkestPurple}` : "none")};
+border: 1px solid ${colors.darkestPurple};
 border-radius: 5px;
-
+transition: 0.2s height ease-in-out;
 @media screen and (max-width: 600px) {
   right: 0;
 }

@@ -362,5 +362,7 @@
         "slideLevel": "Slide level",
         "slideLevelDescription": " indicates the difficulty level, corresponding to the account type. Advanced difficulty slides will not be presented to users with the Basic type of account.",
         "restart": "Restart course tutorial"
-    }
+    },
+    "usefulLinks": "Useful links",
+    "categories": "Categories"
 }

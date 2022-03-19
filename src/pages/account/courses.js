@@ -13,10 +13,12 @@ import { PageAccount, PageSection } from "components/Pages/Pages.styles";
 import NavbarClean from "components/Navbar/NavbarClean";
 import FinishedCoursesCard from "components/Account/Cards/FinishedCourses";
 import Loader from "components/Loader/Loader";
+import { useTranslation } from "react-i18next";
 const Courses = () => {
+  const {i18n} = useTranslation()
   const history = useHistory();
   const dispatch = useDispatch();
-  const [startedLang, setStartedLang] = useState(localStorage.getItem('i18nextLng'))
+  const [startedLang, setStartedLang] = useState(i18n.language)
 
   const [coursesFinished, setCoursesFinished] = useState([])
   const [coursesStarted, setCoursesStarted] = useState([])

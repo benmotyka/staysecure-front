@@ -28,8 +28,8 @@ const QuizSummary = (props) => {
   const [summaryData, setSummaryData] = useState([]);
   const [userAnswers, setUserAnswers] = useState([]);
   const [userScore, setUserScore] = useState(0);
-  const {t} = useTranslation()
-  const [language, setLanguage] = useState(localStorage.getItem('i18nextLng'))
+  const {t, i18n} = useTranslation()
+  const [language, setLanguage] = useState(i18n.language)
   const [quizName, setQuizName] = useState('')
   const [showRateButton, setShowRateButton] = useState(false)
 

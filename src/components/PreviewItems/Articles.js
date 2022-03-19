@@ -23,7 +23,7 @@ const Articles = (props) => {
     const requestBody = {
       query: `
       query{
-        articles(quantity: ${props.quantity | null}, language: "${localStorage.getItem('i18nextLng')}", random: ${Boolean(props.random | false)}){
+        articles(quantity: ${props.quantity | null}, language: "${i18n.language}", random: ${Boolean(props.random | false)}){
           header
           description
           link

@@ -34,7 +34,7 @@ const Course = (props) => {
   const [waitForCorrectAnswer, setWaitForCorrectAnswer] = useState(false);
   const history = useHistory();
   const user = useSelector(selectUser);
-  const {t} = useTranslation()
+  const {t, i18n} = useTranslation()
   const dispatch = useDispatch();
 
   const courseName = props.match.params.courseName;
@@ -46,7 +46,7 @@ const Course = (props) => {
         history.push(`/login?courseRedirect=${courseName}`);
         return;
       }
-      const localStorageLang =  localStorage.getItem('i18nextLng')
+      const localStorageLang =  i18n.language
       const courseData = coursesData.find((item) => item.course === courseName && item.language === localStorageLang);
       if (!courseData) {
         history.push("/courses");

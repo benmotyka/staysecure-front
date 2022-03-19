@@ -6,11 +6,11 @@ import CoursePending from "./Parts/CoursePending";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 const StartedCourses = (props) => {
-  const {t} = useTranslation()
+  const {t, i18n} = useTranslation()
 
   const history = useHistory();
 
-  const [startedLang, setStartedLang] = useState(localStorage.getItem('i18nextLng'))
+  const [startedLang, setStartedLang] = useState(i18n.language)
 
   return (
     <Container>

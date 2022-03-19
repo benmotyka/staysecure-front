@@ -4,8 +4,8 @@ import { Container, Header, HeaderContainer, ExpandArrow, Wrapper } from "./Card
 import CourseFinished from "./Parts/CourseFinished";
 
 const FinishedCourses = (props) => {
-  const {t} = useTranslation()
-  const [startedLang, setStartedLang] = useState(localStorage.getItem('i18nextLng'))
+  const {t, i18n} = useTranslation()
+  const [startedLang, setStartedLang] = useState(i18n.language)
 
   const [expanded, setExpanded] = useState(false)
   const contentRef = useRef(null);

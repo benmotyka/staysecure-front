@@ -4,10 +4,13 @@ import Routes from "routes";
 
 import 'i18n.js'
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 function App() {
+  const {i18n} = useTranslation()
+
   useEffect(() => {
-    if(localStorage.getItem('i18nextLng') === 'en') document.title = 'Stay Secure - cybersecurity courses'
+    if(i18n.language === 'en') document.title = 'Stay Secure - cybersecurity courses'
   },[])
   return (
     <>

@@ -8,13 +8,15 @@ import QuizWidget from "components/Quiz/Quiz";
 import { PageOneChild } from "components/Pages/Pages.styles";
 import Loader from "components/Loader/Loader";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 const Quiz = (props) => {
+  const {i18n} = useTranslation()
   const history = useHistory();
   const [quizData, setQuizData] = useState([]);
   const user = useSelector(selectUser);
   const [loading, setLoading] = useState(true);
-  const [language, setLanguage] = useState(localStorage.getItem('i18nextLng'))
+  const [language, setLanguage] = useState(i18n.language)
 
   useEffect(() => {
     (async () => {

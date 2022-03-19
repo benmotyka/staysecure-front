@@ -4,9 +4,11 @@ import axios from "axios";
 import Loader from "components/Loader/Loader";
 import { Container, Header, Line, ItemsWrapper } from "./PreviewItems.styles";
 import { PageCentered } from "components/Pages/Pages.styles";
+import { useTranslation } from "react-i18next";
 
 import Course from "./Previews/Course";
 const Courses = (props) => {
+  const {i18n} = useTranslation()
 
   useEffect(() => {
     (async () => {
@@ -21,7 +23,7 @@ const Courses = (props) => {
     const requestBody = {
       query: `
           query{
-            courses(quantity: ${props.quantity | null}, language: "${localStorage.getItem('i18nextLng')}"){
+            courses(quantity: ${props.quantity | null}, language: "${i18n.language}"){
               header
               description
               difficulty

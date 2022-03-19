@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import Loader from "components/Loader/Loader";
-
 import Navbar from "components/Navbar/Navbar";
 import Footer from "components/Footer/Footer";
 import { PageCentered, PageWrapper } from "components/Pages/Pages.styles";
@@ -11,8 +9,9 @@ import Articles from "components/PreviewItems/Articles";
 import { useTranslation } from "react-i18next";
 
 const Article = (props) => {
-  const {t} = useTranslation()
+  const {t, i18n} = useTranslation()
 
+  console.log(i18n)
   useEffect(() => {
     (async () => {
       await getArticle();
@@ -29,9 +28,13 @@ const Article = (props) => {
     const requestBody = {
       query: `
           query{
-            article(link: ${JSON.stringify(props.match.params.articleName)}, language: "${localStorage.getItem('i18nextLng')}"){
+            article(link: ${JSON.stringify(props.match.params.articleName)}, language: "${i18n.language}"){
               header
               description
+              categories {
+                ${i18n.language}
+              }
+              urls
             }
           }
           `,

@@ -8,10 +8,12 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import Loader from 'components/Loader/Loader';
 import axios from 'axios';
+import { useTranslation } from "react-i18next";
 
 const CoursePreview = (props) => {
   const courseName = props.match.params.courseName;
-  const localStorageLang =  localStorage.getItem('i18nextLng')
+  const {i18n} = useTranslation()
+  const localStorageLang =  i18n.language
   const history = useHistory();
   const [content, setContent] = useState([]);
   const [loading, setLoading] = useState(true);

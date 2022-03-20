@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import colors from "constans/colors";
-
+import {HiExternalLink as ExternalLinkIcon} from "react-icons/hi"
 export const Container = styled.div`
   width: 100%;
   max-width: 1200px;
@@ -51,6 +51,10 @@ export const CategoriesWrapper = styled.div`
 
 export const UrlLink = styled.a`
   color: ${colors.white};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
 `;
 
 export const Category = styled.h5`
@@ -59,9 +63,17 @@ export const Category = styled.h5`
   border-radius: 5px;
   background-color: ${colors.mediumDarkPurple};
   margin: 0;
-  font-size: 18px;
+  font-size: 14px;
   cursor: pointer;
+  transition: 0.2s background-color ease-in-out;
+
+  &:hover {
+  background-color: ${colors.darkestPurple};
+  }
 `;
+
+export const LinkIcon = styled(ExternalLinkIcon)`
+`
 
 export const SectionHeader = styled.h2`
   margin: 0;

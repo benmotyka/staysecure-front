@@ -10,33 +10,40 @@ import {
   UrlLink,
   Category,
   SectionHeader,
+  LinkIcon,
 } from "./Article.styles";
 import Parser from "html-react-parser";
 import { useTranslation } from "react-i18next";
 
 const Article = (props) => {
-  const {t} = useTranslation()
+  const { t, i18n } = useTranslation();
 
   return (
     <Container>
       <Wrapper>
-        <Header>{props.name}</Header>
+        <Header>{props.data.name}</Header>
         <Line />
-        <Content>{Parser(props.description)}</Content>
+        <Content>{Parser(props.data.description)}</Content>
       </Wrapper>
       <AdditionalInfoContainer>
         <AdditionalInfoWrapper>
-          <SectionHeader>{t('usefulLinks')}</SectionHeader>
+          <SectionHeader>{t("usefulLinks")}</SectionHeader>
           <Line smallMargin />
-          <UrlLink target="_blank" href="https://wikipedia.org">
-            https://wikipedia.org
-          </UrlLink>
+          {props.data.urls.map((item, index) => (
+            <UrlLink key={index} target="_blank" href={item}>
+              <LinkIcon /> <span>{item}</span>
+            </UrlLink>
+          ))}
         </AdditionalInfoWrapper>
         <AdditionalInfoWrapper>
-          <SectionHeader>{t('categories')}</SectionHeader>
+          <SectionHeader>{t("categories")}</SectionHeader>
           <Line smallMargin />
           <CategoriesWrapper flex>
-            <Category>Privacy</Category>
+            {props.data.categories[i18n.language]
+              ? props.data.categories[i18n.language].map((item, index) => (
+                  <Category key={index}>{item}</Category>
+                ))
+              : null}
           </CategoriesWrapper>
         </AdditionalInfoWrapper>
       </AdditionalInfoContainer>

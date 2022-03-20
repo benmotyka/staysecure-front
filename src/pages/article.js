@@ -11,7 +11,6 @@ import { useTranslation } from "react-i18next";
 const Article = (props) => {
   const {t, i18n} = useTranslation()
 
-  console.log(i18n)
   useEffect(() => {
     (async () => {
       await getArticle();
@@ -20,8 +19,12 @@ const Article = (props) => {
 
   const [loading, setLoading] = useState(true);
   const [article, setArticle] = useState({
-    header: "",
-    description: ""
+    header: '',
+    description: '',
+    categories: {
+      pl: null
+    },
+    urls: []
   });
 
   const getArticle = async () => {
@@ -58,7 +61,7 @@ const Article = (props) => {
       <Navbar />
       <PageWrapper>
         <PageCentered>
-          <ArticleContent name={article.header} description={article.description} />
+          <ArticleContent data={article} />
         </PageCentered>
             <Articles header={t('similarArticles')} quantity={6} random/>
       </PageWrapper>

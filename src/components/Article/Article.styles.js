@@ -49,7 +49,7 @@ export const AdditionalInfoWrapper = styled.div`
   margin: 0;
   margin-bottom: 30px;
   padding: 25px;
-  min-width: min-content;
+  min-width: 260px;
 `;
 
 export const CategoriesWrapper = styled.div`
@@ -60,7 +60,7 @@ export const CategoriesWrapper = styled.div`
 
 export const UrlLink = styled.a`
   color: ${colors.white};
-  font-size: 14px;
+  font-size: 13px;
   display: block;
   margin-bottom: 15px;
 `;

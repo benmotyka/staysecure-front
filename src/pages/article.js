@@ -37,7 +37,9 @@ const Article = (props) => {
               categories {
                 ${i18n.language}
               }
-              urls
+              urls {
+                ${i18n.language}
+              }
             }
           }
           `,

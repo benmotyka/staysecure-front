@@ -26,10 +26,10 @@ const Article = (props) => {
         <Content>{Parser(props.data.description)}</Content>
       </Wrapper>
       <AdditionalInfoContainer>
-        {props.data.urls.length ? <AdditionalInfoWrapper>
+        {props.data.urls[i18n.language] && props.data.urls[i18n.language].length ? <AdditionalInfoWrapper>
           <SectionHeader>{t("usefulLinks")}</SectionHeader>
           <Line smallMargin />
-          {props.data.urls.map((item, index) => (
+          {props.data.urls[i18n.language] ? props.data.urls[i18n.language].map((item, index) => (
             <UrlLink key={index} target="_blank" href={item}>
               <span>
                 {item.length > MAX_URL_LENGTH
@@ -37,7 +37,7 @@ const Article = (props) => {
                   : item}
               </span>
             </UrlLink>
-          ))}
+          )) : null}
         </AdditionalInfoWrapper> : null }
         {props.data.categories[i18n.language] && props.data.categories[i18n.language].length ? <AdditionalInfoWrapper>
           <SectionHeader>{t("categories")}</SectionHeader>

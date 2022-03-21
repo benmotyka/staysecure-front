@@ -49,12 +49,12 @@ export const AdditionalInfoWrapper = styled.div`
   margin: 0;
   margin-bottom: 30px;
   padding: 25px;
-  min-width: max-content;
+  min-width: min-content;
 `;
 
 export const CategoriesWrapper = styled.div`
   display: flex;
-  gap: 15px 20px;
+  gap: 15px 10px;
   flex-wrap: wrap;
 `;
 
@@ -71,7 +71,7 @@ export const Category = styled.h5`
   border-radius: 5px;
   background-color: ${colors.mediumDarkPurple};
   margin: 0;
-  font-size: 14px;
+  font-size: 13px;
   cursor: pointer;
   transition: 0.2s background-color ease-in-out;
 

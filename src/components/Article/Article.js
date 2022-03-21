@@ -10,10 +10,10 @@ import {
   UrlLink,
   Category,
   SectionHeader,
-  LinkIcon,
 } from "./Article.styles";
 import Parser from "html-react-parser";
 import { useTranslation } from "react-i18next";
+const MAX_URL_LENGTH = 40;
 
 const Article = (props) => {
   const { t, i18n } = useTranslation();
@@ -21,21 +21,25 @@ const Article = (props) => {
   return (
     <Container>
       <Wrapper>
-        <Header>{props.data.name}</Header>
+        <Header>{props.data.header}</Header>
         <Line />
         <Content>{Parser(props.data.description)}</Content>
       </Wrapper>
       <AdditionalInfoContainer>
-        <AdditionalInfoWrapper>
+        {props.data.urls.length ? <AdditionalInfoWrapper>
           <SectionHeader>{t("usefulLinks")}</SectionHeader>
           <Line smallMargin />
           {props.data.urls.map((item, index) => (
             <UrlLink key={index} target="_blank" href={item}>
-              <LinkIcon /> <span>{item}</span>
+              <span>
+                {item.length > MAX_URL_LENGTH
+                  ? `${item.substr(0, MAX_URL_LENGTH)}...`
+                  : item}
+              </span>
             </UrlLink>
           ))}
-        </AdditionalInfoWrapper>
-        <AdditionalInfoWrapper>
+        </AdditionalInfoWrapper> : null }
+        {props.data.categories[i18n.language] && props.data.categories[i18n.language].length ? <AdditionalInfoWrapper>
           <SectionHeader>{t("categories")}</SectionHeader>
           <Line smallMargin />
           <CategoriesWrapper flex>
@@ -45,7 +49,7 @@ const Article = (props) => {
                 ))
               : null}
           </CategoriesWrapper>
-        </AdditionalInfoWrapper>
+        </AdditionalInfoWrapper> : null}
       </AdditionalInfoContainer>
     </Container>
   );

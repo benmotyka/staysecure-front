@@ -1,6 +1,5 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import colors from "constans/colors";
-import {HiExternalLink as ExternalLinkIcon} from "react-icons/hi"
 export const Container = styled.div`
   width: 100%;
   max-width: 1200px;
@@ -9,6 +8,11 @@ export const Container = styled.div`
   padding: 25px;
   display: grid;
   grid-template-columns: 65% 35%;
+
+  @media screen and (max-width: 1000px) {
+  grid-template-columns: 1fr;
+  margin-bottom: 0;
+  }
 `;
 
 export const Wrapper = styled.main``;
@@ -33,6 +37,10 @@ export const Link = styled.p`
 
 export const AdditionalInfoContainer = styled.div`
   margin: 75px 35px;
+
+  @media screen and (max-width: 1000px) {
+  margin: 35px 0 0 0;
+  }
 `;
 
 export const AdditionalInfoWrapper = styled.div`
@@ -41,6 +49,7 @@ export const AdditionalInfoWrapper = styled.div`
   margin: 0;
   margin-bottom: 30px;
   padding: 25px;
+  min-width: max-content;
 `;
 
 export const CategoriesWrapper = styled.div`
@@ -51,10 +60,9 @@ export const CategoriesWrapper = styled.div`
 
 export const UrlLink = styled.a`
   color: ${colors.white};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 15px;
 `;
 
 export const Category = styled.h5`
@@ -71,9 +79,6 @@ export const Category = styled.h5`
   background-color: ${colors.darkestPurple};
   }
 `;
-
-export const LinkIcon = styled(ExternalLinkIcon)`
-`
 
 export const SectionHeader = styled.h2`
   margin: 0;

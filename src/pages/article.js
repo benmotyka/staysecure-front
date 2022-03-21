@@ -61,7 +61,7 @@ const Article = (props) => {
       <Navbar />
       <PageWrapper>
         <PageCentered>
-          <ArticleContent data={article} />
+          {!loading ? <ArticleContent data={article} /> : null}
         </PageCentered>
             <Articles header={t('similarArticles')} quantity={6} random/>
       </PageWrapper>

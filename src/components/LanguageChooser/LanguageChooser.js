@@ -23,13 +23,13 @@ const LanguageChooser = () => {
   return (
     <Container>
       <FlagsWrapper>
-        {localStorage.getItem("i18nextLng") === "pl" && (
+        {i18n.language === "pl" && (
           <CountryIcon
             onClick={() => setDropdownActive(!dropdownActive)}
             src="flags/poland.png"
           />
         )}
-        {localStorage.getItem("i18nextLng") === "en" && (
+        {i18n.language === "en" && (
           <CountryIcon
             onClick={() => setDropdownActive(!dropdownActive)}
             src="flags/united-kingdom.png"
@@ -39,7 +39,7 @@ const LanguageChooser = () => {
       <FadeIn in={dropdownActive}>
         <DropdownWrapper>
           <>
-            {localStorage.getItem("i18nextLng") !== "pl" && (
+            {i18n.language !== "pl" && (
               <FlagsItem>
                 <CountryIcon
                   onClick={() => {
@@ -50,7 +50,7 @@ const LanguageChooser = () => {
                 />
               </FlagsItem>
             )}
-            {localStorage.getItem("i18nextLng") !== "en" && (
+            {i18n.language !== "en" && (
               <FlagsItem>
                 <CountryIcon
                   onClick={() => {

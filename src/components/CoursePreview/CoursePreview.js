@@ -71,8 +71,8 @@ const CoursePreview = (props) => {
           {t('comments')} 
           </CommentsHeader>
             <CommentsWrapper>
-              {props.courseRating.comments.map(item => (
-              <Comment comment={item.comment} createdAt={item.createdAt} username={item.username}/>
+              {props.courseRating.comments.map((item, index) => (
+              <Comment key={index} comment={item.comment} createdAt={item.createdAt} username={item.username}/>
               ))}
             </CommentsWrapper>
         </ReviewWrapper>

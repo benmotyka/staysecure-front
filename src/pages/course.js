@@ -69,9 +69,7 @@ const Course = (props) => {
 
   const checkCourseTutorial = async () => {
     const finishedTutorial = localStorage.getItem('finished_tutorial')
-    console.log(finishedTutorial)
     if (!finishedTutorial) setShowTutorial(true)
-    console.log('DDDDDDDDDDDDDDDDDD')
   }
 
   const finishTutorial = () => {

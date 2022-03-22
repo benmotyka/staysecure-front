@@ -3,17 +3,15 @@ import colors from "constans/colors"
 import {Link} from "react-router-dom"
 
 export const Container = styled.div`
-width: 30%;
+width: 50%;
+min-width: 250px;
+max-width: 550px;
 background-color: ${colors.darkPurple};
 margin-top: 30px;
 padding: 40px;
 display: flex;
 flex-direction: column;
 border-radius: 5px;
-@media screen and (max-width: 1000px) {
-    padding: 20px;
-    min-width: 250px;
-}
 `
 export const Header = styled.h2`
 color: ${colors.white};
@@ -33,9 +31,6 @@ background-color: ${colors.mediumDarkPurple};
 border: 1px solid ${colors.darkestPurple};
 border-radius: 5px;
 outline: none;
-@media screen and (max-width: 1000px) {
-padding: 8px 12px;
-}
 `
 export const Label = styled.label`
 ${Text};

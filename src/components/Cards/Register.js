@@ -23,7 +23,7 @@ import { useTranslation } from "react-i18next";
 const Register = () => {
   const history = useHistory();
   const user = useSelector(selectUser);
-  const {t} = useTranslation()
+  const {t, i18n} = useTranslation()
 
   const [registrationData, setRegistrationData] = useState({
     email: "",
@@ -54,7 +54,6 @@ const Register = () => {
   };
 
   const sendData = () => {
-    console.log(registrationData)
     if (!registrationData.password || !registrationData.email || !registrationData.name || registrationData.password.length < 5 || !isEmail(registrationData.email)) {
       setError(t('errors.wrong-email-name-password'));
       return;
@@ -72,8 +71,8 @@ const Register = () => {
           setLoading(true);
           const requestBody = {
             query: `
-          mutation Register($email: String!, $password: String!, $name: String!, $captcha: String!, $accountLevel: String!){
-            register(email: $email, password: $password, name: $name, captchaToken: $captcha, accountLevel: $accountLevel) {
+          mutation Register($email: String!, $password: String!, $name: String!, $captcha: String!, $accountLevel: String!, $language: String!){
+            register(email: $email, password: $password, name: $name, captchaToken: $captcha, accountLevel: $accountLevel, language: $language) {
                 email
             }
           }   
@@ -83,12 +82,12 @@ const Register = () => {
             password: registrationData.password,
             name: registrationData.name,
             captcha: token,
-            accountLevel: registrationData.accountLevel
+            accountLevel: registrationData.accountLevel,
+            language: i18n.language
           },
           };
           try {
             const {data: {data: {register: response}}} = await axios.post(`${window.env.API_URL}/graphql`, requestBody);
-            console.log(response)
             if (response) {
                 setSuccess(true)
             } else {

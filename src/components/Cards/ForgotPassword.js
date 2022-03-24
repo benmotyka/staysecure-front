@@ -18,7 +18,7 @@ const ForgotPassword = () => {
       setErrorMessage();
     }, 2500);
   };
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const sendData = async () => {
     if (!isEmail(email)) {
@@ -34,15 +34,16 @@ const ForgotPassword = () => {
         .then(async (token) => {
           const requestBody = {
             query: `
-mutation ForgotPassword($email: String!, $captcha: String!){
-forgotPassword(email: $email, captchaToken: $captcha){
+mutation ForgotPassword($email: String!, $captcha: String!, $language: String!){
+forgotPassword(email: $email, captchaToken: $captcha, language: $language){
 email
 }
 }
 `,
             variables: {
-              email: email,
+              email,
               captcha: token,
+              language: i18n.language
             },
           };
 

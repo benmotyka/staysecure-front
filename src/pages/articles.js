@@ -4,12 +4,11 @@ import {PageWrapper} from 'components/Pages/Pages.styles'
 import Articles from 'components/PreviewItems/Articles'
 import { useTranslation } from 'react-i18next'
 const Wiki = () => {
-  const {t, i18n} = useTranslation()
+  const { t } = useTranslation()
     return (
         <>
             <Navbar/>
             <PageWrapper>
-            <Articles header={t('lastArticles')} quantity={6}/>
             <Articles header={t('allArticles')}/>
             </PageWrapper>
             <Footer/>

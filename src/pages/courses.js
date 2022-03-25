@@ -11,7 +11,6 @@ const Courses = () => {
         <>
             <Navbar/>
             <PageWrapper>
-            <CoursesPreview header={t('lastCourses')} quantity={3}/>
             <CoursesPreview header={t('allCourses')} />
             </PageWrapper>
             <Footer/>

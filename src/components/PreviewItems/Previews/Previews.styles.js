@@ -5,6 +5,10 @@ import {IoIosArrowForward as ArrowIcon} from "react-icons/io"
 import {AiOutlineStar as LevelIcon} from "react-icons/ai"
 import {BiCommentDetail as CommentIcon} from "react-icons/bi"
 
+export const Arrow = styled(ArrowIcon)`
+transition: 0.2s transform ease-in-out;
+`
+
 export const Body = styled.div`
 padding: 10px;
 background-color: ${colors.mediumDarkPurple};
@@ -46,6 +50,7 @@ font-size: 20px;
 `
 export const HeaderContainer = styled.div`
 ${ItemsContainer};
+margin-right: 10px;
 margin-bottom: 15px;
 `
 
@@ -60,9 +65,6 @@ font-size: 20px;
 margin: 0;
 display: flex;
 align-items: center;
-@media screen and (max-width: 650px){
-    font-size: 14px;
-}
 `
 
 const Star = css`
@@ -81,15 +83,12 @@ color: ${colors.grey};
 ${Star};
 `
 
-export const Arrow = styled(ArrowIcon)``
 export const Description = styled.p`
+overflow: hidden;
 ${Text};
 opacity: 0.7;
 font-size: 15px;
 margin: 2px 0;
-@media screen and (max-width: 650px){
-    font-size: 12px;
-}
 `
 
 export const Container = styled(Link)`
@@ -118,6 +117,11 @@ margin: 20px 20px;
 &:hover ${Description}{
     opacity: 1;
 }
+
+&:hover ${Arrow}{
+    transform: translateX(10px);
+}
+
 `
 
 export const DifficultyWrapper = styled.div`

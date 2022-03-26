@@ -10,7 +10,7 @@ const Article = (props) => {
             <Header>{props.header}</Header>
             <Arrow/>
         </HeaderContainer>
-        <Description>{Parser(props.description.substr(0, 70))}...</Description>
+        <Description>{Parser(props.description)}...</Description>
     </Body>
 </Container>            
     )

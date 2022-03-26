@@ -18,6 +18,7 @@ ${flexCentered};
 export const PageWrapper = styled.div`
 width: 100%;
 padding: 50px 0;
+min-height: 100vh;
 
 ${flexCentered};
 flex-direction: column;

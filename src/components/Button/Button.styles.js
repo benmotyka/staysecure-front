@@ -14,6 +14,7 @@ font-size: 18px;
 `
 
 export const Arrow = styled(ArrowIcon)`
+transition: 0.2s transform ease-in-out;
 ${Icon};
 `
 
@@ -43,6 +44,10 @@ width: ${props => props.full ? "100%": "auto"};
 &:hover{
 background-color: ${props => props.green ? colors.hoverLightGreen : colors.hoverOrange};
 background-color: ${props => props.disabled ? colors.darkPurple : ''};
+
+&:hover ${Arrow}{
+    transform: translateX(5px);
+}
 }
 
 background-color: ${props => props.disabled ? colors.darkPurple : ''};

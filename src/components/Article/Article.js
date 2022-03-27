@@ -13,7 +13,6 @@ import {
 } from "./Article.styles";
 import Parser from "html-react-parser";
 import { useTranslation } from "react-i18next";
-const MAX_URL_LENGTH = 40;
 
 const Article = (props) => {
   const { t, i18n } = useTranslation();
@@ -32,9 +31,7 @@ const Article = (props) => {
           {props.data.urls[i18n.language] ? props.data.urls[i18n.language].map((item, index) => (
             <UrlLink key={index} target="_blank" href={item}>
               <span>
-                {item.length > MAX_URL_LENGTH
-                  ? `${item.substr(0, MAX_URL_LENGTH)}...`
-                  : item}
+                {item}
               </span>
             </UrlLink>
           )) : null}

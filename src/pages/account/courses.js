@@ -89,7 +89,7 @@ const Courses = () => {
             <PageSection>
               {loading? <Loader/> : ( <>
                 <StartedCoursesCard coursesStarted={coursesStarted}/>
-              <FinishedCoursesCard coursesFinished={coursesFinished}/>         
+              {coursesFinished.length ? <FinishedCoursesCard coursesFinished={coursesFinished}/> : null}     
               </>)}
             </PageSection>
           </PageAccount>

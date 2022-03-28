@@ -15,7 +15,7 @@ const CourseFinished = (props) => {
             </Section>
             <Section alignRight>
                 <Button green text={t('proceedToQuiz')} onClick={() => {
-                    history.push(`/quiz-summary/${props.linkToQuiz}`);
+                    history.push(`/course/${props.linkToQuiz}`);
                 }}/>
             </Section>
         </Container>

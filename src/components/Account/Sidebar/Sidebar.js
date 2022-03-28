@@ -19,7 +19,7 @@ const Sidebar = () => {
     <Container>
       {user && (
         <>
-      <Item header>{t('welcome')},&nbsp; <Highlight>{ + user.name > 15 ? user.name?.substring(0, 15) + '...' : user.name}</Highlight></Item>
+      <Item header noBorder>{t('welcome')},&nbsp; <Highlight>{ + user.name > 15 ? user.name?.substring(0, 15) + '...' : user.name}</Highlight></Item>
       <Item
         onClick={() => {
           history.push("/account/courses");
@@ -27,6 +27,13 @@ const Sidebar = () => {
       >
         {t('myCourses')}
       </Item>
+      {/* <Item
+        onClick={() => {
+          history.push("/account/quizes");
+        }}
+      >
+        {t('myQuizes')}
+      </Item> */}
       <Item
         onClick={() => {
           history.push("/account/settings");

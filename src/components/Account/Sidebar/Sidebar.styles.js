@@ -20,7 +20,7 @@ export const Item = styled.li`
 ${Text};
 font-size: ${props => props.header ? "24px": "20px"};
 cursor: ${props => props.header ? "": "pointer"};
-
+margin-bottom: ${props => props.header ? "25px": ""};
 padding: 15px 10px;
 margin-right: 30px;
 position: relative;

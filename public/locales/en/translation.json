@@ -27,6 +27,7 @@
     "userName": "Name",
     "settings": "Settings",
     "myCourses": "My courses",
+    "myQuizes": "Moje quizy",
     "logout": "Logout",
     "forgotPassword": {
         "header": "Forgot password?",
@@ -67,7 +68,7 @@
     "proceed": "Proceed",
     "sendFeedback": "Send feedback",
     "finishedCourses": "Finished courses",
-    "proceedToQuiz": "Quiz summary",
+    "proceedToQuiz": "Start again",
     "errors": {
         "wrong-login-password": "Invalid login or password",
         "wrong-email-name-password": "Invalid email, name or password",

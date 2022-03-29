@@ -27,13 +27,13 @@ const Sidebar = () => {
       >
         {t('myCourses')}
       </Item>
-      {/* <Item
+      <Item
         onClick={() => {
           history.push("/account/quizes");
         }}
       >
         {t('myQuizes')}
-      </Item> */}
+      </Item>
       <Item
         onClick={() => {
           history.push("/account/settings");

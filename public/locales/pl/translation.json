@@ -71,6 +71,7 @@
     "quizesDetails": "Szczegóły quizów",
     "restartCourse": "Rozpocznij ponownie",
     "quizSummary": "Podsumowanie quizu",
+    "overallQuizesSummary": "Podsumowanie quizów",
     "errors": {
         "wrong-login-password": "Błędny login lub hasło",
         "wrong-email-name-password": "Błędny email, nazwa lub hasło",

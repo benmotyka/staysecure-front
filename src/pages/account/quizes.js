@@ -14,6 +14,7 @@ import Loader from "components/Loader/Loader";
 import { useTranslation } from "react-i18next";
 import ExpandItems from "components/Account/Cards/ExpandItems";
 import ListItem from "components/Account/Cards/Parts/ListItem";
+import OverallQuizSummary from "components/Account/Cards/Parts/OverallQuizSummary";
 const Quizes = () => {
   const { t, i18n } = useTranslation();
   const history = useHistory();
@@ -97,6 +98,7 @@ const Quizes = () => {
                 <Loader />
               ) : (
                 <>
+                  <OverallQuizSummary/>
                   {coursesFinished.length ? (
                     <ExpandItems
                     coursesFinished={coursesFinished}

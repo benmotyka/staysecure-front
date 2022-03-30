@@ -4,7 +4,6 @@ import axios from "axios";
 import { Container, Header } from "./PasswordChange.styles";
 import {
   Input,
-  Wrapper,
   ErrorsWrapper,
   SuccessText,
   Error,

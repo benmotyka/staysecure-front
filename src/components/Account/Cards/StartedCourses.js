@@ -2,9 +2,9 @@ import { useHistory } from "react-router-dom";
 import { Container, Header, HeaderContainer } from "./Cards.styles";
 
 import Button from "components/Button/Button";
-import CoursePending from "./Parts/CoursePending";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
+import ListItem from "./Parts/ListItem";
 const StartedCourses = (props) => {
   const {t, i18n} = useTranslation()
 
@@ -26,7 +26,7 @@ const StartedCourses = (props) => {
         />
       </HeaderContainer>
       {props.coursesStarted && props.coursesStarted.map((course, index) => (
-        <CoursePending header={course.header[startedLang]} key={index} description={course.description[startedLang]} linkToCourse={course.link}/>  
+        <ListItem header={course.header[startedLang]} key={index} description={course.description[startedLang]} buttonLink={`/course/${course.link}`} buttonText={t('continue')}/>  
       ))}
     </Container>
   );

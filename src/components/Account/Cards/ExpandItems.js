@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Container, Header, HeaderContainer, ExpandArrow, Wrapper } from "./Cards.styles";
 import CourseFinished from "./Parts/CourseFinished";
 
-const FinishedCourses = (props) => {
+const ExpandItems = (props) => {
   const {t, i18n} = useTranslation()
   const [startedLang, setStartedLang] = useState(i18n.language)
 
@@ -20,18 +20,16 @@ const FinishedCourses = (props) => {
   return (
     <Container>
       <HeaderContainer>
-        <Header>{t('finishedCourses')}</Header>
+        <Header>{props.header}</Header>
         <ExpandArrow rotate={expanded ? "true" : undefined} onClick={() => {
           setExpanded(!expanded)
         }}/>
       </HeaderContainer>
       <Wrapper ref={contentRef} >
-        {props.coursesFinished && props.coursesFinished.map((course, index) => (
-      <CourseFinished header={course.header[startedLang]} key={index} description={course.description[startedLang]} linkToQuiz={course.link}/>  
-        ))}
+        {props.children}
       </Wrapper>
     </Container>
   );
 };
 
-export default FinishedCourses;
+export default ExpandItems;

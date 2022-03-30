@@ -68,6 +68,7 @@
     "proceed": "Przejdź",
     "sendFeedback": "Prześlij opinię",
     "finishedCourses": "Ukończone kursy",
+    "quizesDetails": "Szczegóły quizów",
     "proceedToQuiz": "Rozpocznij ponownie",
     "errors": {
         "wrong-login-password": "Błędny login lub hasło",

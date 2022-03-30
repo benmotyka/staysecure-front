@@ -69,7 +69,8 @@
     "sendFeedback": "Prześlij opinię",
     "finishedCourses": "Ukończone kursy",
     "quizesDetails": "Szczegóły quizów",
-    "proceedToQuiz": "Rozpocznij ponownie",
+    "restartCourse": "Rozpocznij ponownie",
+    "quizSummary": "Podsumowanie quizu",
     "errors": {
         "wrong-login-password": "Błędny login lub hasło",
         "wrong-email-name-password": "Błędny email, nazwa lub hasło",

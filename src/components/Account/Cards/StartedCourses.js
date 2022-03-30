@@ -26,7 +26,7 @@ const StartedCourses = (props) => {
         />
       </HeaderContainer>
       {props.coursesStarted && props.coursesStarted.map((course, index) => (
-              <CoursePending header={course.header[startedLang]} key={index} description={course.description[startedLang]} linkToCourse={course.link}/>  
+        <CoursePending header={course.header[startedLang]} key={index} description={course.description[startedLang]} linkToCourse={course.link}/>  
       ))}
     </Container>
   );

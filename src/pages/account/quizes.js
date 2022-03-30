@@ -13,7 +13,7 @@ import NavbarClean from "components/Navbar/NavbarClean";
 import Loader from "components/Loader/Loader";
 import { useTranslation } from "react-i18next";
 import ExpandItems from "components/Account/Cards/ExpandItems";
-import CourseFinished from "components/Account/Cards/Parts/CourseFinished";
+import ListItem from "components/Account/Cards/Parts/ListItem";
 const Quizes = () => {
   const { t, i18n } = useTranslation();
   const history = useHistory();
@@ -104,11 +104,13 @@ const Quizes = () => {
                   >
                     {coursesFinished &&
                       coursesFinished.map((course, index) => (
-                        <CourseFinished
-                          header={course.header[startedLang]}
+                        <ListItem
+                          green
                           key={index}
+                          header={course.header[startedLang]}
                           description={course.description[startedLang]}
-                          linkToQuiz={course.link}
+                          buttonText={t('quizSummary')}
+                          buttonLink={`/quiz-summary/${course.link}`}
                         />
                       ))}
                   </ExpandItems>

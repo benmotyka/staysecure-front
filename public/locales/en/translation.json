@@ -69,7 +69,8 @@
     "sendFeedback": "Send feedback",
     "finishedCourses": "Finished courses",
     "quizesDetails": "Quiz details",
-    "proceedToQuiz": "Start again",
+    "restartCourse": "Start again",
+    "quizSummary": "Quiz summary",
     "errors": {
         "wrong-login-password": "Invalid login or password",
         "wrong-email-name-password": "Invalid email, name or password",

@@ -1,11 +1,7 @@
 import { useState, useRef, useEffect } from "react"
-import { useTranslation } from "react-i18next";
 import { Container, Header, HeaderContainer, ExpandArrow, Wrapper } from "./Cards.styles";
-import CourseFinished from "./Parts/CourseFinished";
 
 const ExpandItems = (props) => {
-  const {t, i18n} = useTranslation()
-  const [startedLang, setStartedLang] = useState(i18n.language)
 
   const [expanded, setExpanded] = useState(false)
   const contentRef = useRef(null);

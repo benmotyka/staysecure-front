@@ -41,5 +41,15 @@ transition: transform 0.6s ease;
 export const Wrapper = styled.div`
 overflow: hidden;
 transition: max-height 0.6s ease;
+`
+export const ChartWrapper = styled.div`
+width: 25%;
+min-width: 250px;
+padding: 0 20px 20px 20px;
+margin: 0 auto;
 
+@media screen and (max-width: 400px) {
+padding: 0;
+min-width: 200px;
+}
 `

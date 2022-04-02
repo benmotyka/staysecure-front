@@ -103,7 +103,6 @@ const Courses = () => {
                   <StartedCoursesCard coursesStarted={coursesStarted} />
                   {coursesFinished.length ? (
                     <ExpandItems
-                      coursesFinished={coursesFinished}
                       header={t("finishedCourses")}
                     >
                       {coursesFinished &&

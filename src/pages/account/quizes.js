@@ -20,58 +20,40 @@ const Quizes = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const [startedLang] = useState(i18n.language);
-
+  
   const [coursesFinished, setCoursesFinished] = useState([]);
-  const [loading, setLoading] = useState(1);
+  const [overallChartData, setOverallChartData] = useState(null)
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     if (!user) history.push("/login");
     (async function () {
-      await getUserInfo();
+      await getOverallQuizesData();
     })();
   }, []);
 
   const user = useSelector(selectUser);
 
-  const getUserInfo = async () => {
+  const getOverallQuizesData = async () => {
     try {
       const requestBody = {
         query: `
         query {
-          getUserInfo {
-            email
-            coursesFinished {
-              link
-              header {
-                ${startedLang}
-              }
-              description {
-                ${startedLang}
-              }
-            }
-            coursesStarted {
-              link
-              header {
-                ${startedLang}
-              }
-              description {
-                ${startedLang}
-              }
-            }
+          getOverallQuizesData {
+            value
           }
-          }
+        }
       `,
       };
-
       const {
         data: {
-          data: { getUserInfo },
+          data: { getOverallQuizesData }
         },
       } = await axios.post(`${window.env.API_URL}/graphql`, requestBody, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
       });
-      setCoursesFinished(getUserInfo.coursesFinished);
+      setOverallChartData(getOverallQuizesData)
     } catch (error) {
       if (
         error.response ||
@@ -86,6 +68,7 @@ const Quizes = () => {
     }
   };
 
+
   return (
     <>
       {user && (
@@ -98,10 +81,9 @@ const Quizes = () => {
                 <Loader />
               ) : (
                 <>
-                  <OverallQuizSummary/>
+                  {overallChartData ? <OverallQuizSummary chartData={overallChartData}/> : null}
                   {coursesFinished.length ? (
                     <ExpandItems
-                    coursesFinished={coursesFinished}
                     header={t("quizesDetails")}
                   >
                     {coursesFinished &&

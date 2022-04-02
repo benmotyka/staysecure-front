@@ -7,21 +7,15 @@ import {
 } from "../Cards.styles";
 import ChartDonut from "components/Charts/Donut";
 
-const OverallQuizSummary = () => {
+const OverallQuizSummary = (props) => {
   const { t } = useTranslation();
-  const data = [
-    { value: 70 },
-    { value: 30 }
-  ];
   return (
     <Container>
       <HeaderContainer>
         <Header>{t("overallQuizesSummary")}</Header>
       </HeaderContainer>
       <ChartWrapper>
-        <ChartDonut data={data} />
-        Najlepszy wynik:
-        Najgorszy wynik:
+        <ChartDonut data={props.chartData} />
       </ChartWrapper>
     </Container>
   );

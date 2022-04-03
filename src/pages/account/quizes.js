@@ -19,10 +19,10 @@ const Quizes = () => {
   const { t, i18n } = useTranslation();
   const history = useHistory();
   const dispatch = useDispatch();
-  const [startedLang] = useState(i18n.language);
-  
-  const [coursesFinished, setCoursesFinished] = useState([]);
-  const [overallChartData, setOverallChartData] = useState(null)
+  const [language] = useState(i18n.language);
+
+  const [quizesFinished, setQuizesFinished] = useState([]);
+  const [overallChartData, setOverallChartData] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     if (!user) history.push("/login");
@@ -39,35 +39,45 @@ const Quizes = () => {
         query: `
         query {
           getOverallQuizesData {
-            value
+            overallScore {
+              value
+            }
+            finishedQuizes {
+              scorePercentage
+              header {
+                ${language}
+              }
+              link
+            }
           }
         }
       `,
       };
       const {
         data: {
-          data: { getOverallQuizesData }
+          data: { getOverallQuizesData },
         },
       } = await axios.post(`${window.env.API_URL}/graphql`, requestBody, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
       });
-      setOverallChartData(getOverallQuizesData)
+      setOverallChartData(getOverallQuizesData.overallScore);
+      setQuizesFinished(getOverallQuizesData.finishedQuizes);
     } catch (error) {
+      console.log(error);
       if (
         error.response ||
         (error.response.data.errors.length &&
           error.response.data.errors[0].message === "unauthenticated")
-      )
+      ) {
         dispatch(logout());
-      history.push("/login");
-      console.log(error);
+        history.push("/login");
+      }
     } finally {
       setLoading(false);
     }
   };
-
 
   return (
     <>
@@ -81,23 +91,23 @@ const Quizes = () => {
                 <Loader />
               ) : (
                 <>
-                  {overallChartData ? <OverallQuizSummary chartData={overallChartData}/> : null}
-                  {coursesFinished.length ? (
-                    <ExpandItems
-                    header={t("quizesDetails")}
-                  >
-                    {coursesFinished &&
-                      coursesFinished.map((course, index) => (
+                  {overallChartData ? (
+                    <OverallQuizSummary chartData={overallChartData} />
+                  ) : null}
+                  {JSON.stringify()}
+                  {quizesFinished.length ? (
+                    <ExpandItems header={t("quizesDetails")}>
+                      {quizesFinished.map((quiz, index) => (
                         <ListItem
                           green
                           key={index}
-                          header={course.header[startedLang]}
-                          description={course.description[startedLang]}
-                          buttonText={t('quizSummary')}
-                          buttonLink={`/quiz-summary/${course.link}`}
+                          header={quiz.header[language]}
+                          description={`${quiz.scorePercentage}%`}
+                          buttonText={t("quizSummary")}
+                          buttonLink={`/quiz-summary/${quiz.link}`}
                         />
                       ))}
-                  </ExpandItems>
+                    </ExpandItems>
                   ) : null}
                 </>
               )}

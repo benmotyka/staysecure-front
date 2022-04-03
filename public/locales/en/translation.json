@@ -27,7 +27,7 @@
     "userName": "Name",
     "settings": "Settings",
     "myCourses": "My courses",
-    "myQuizes": "Moje quizy",
+    "myQuizes": "My quizes",
     "logout": "Logout",
     "forgotPassword": {
         "header": "Forgot password?",
@@ -68,7 +68,7 @@
     "proceed": "Proceed",
     "sendFeedback": "Send feedback",
     "finishedCourses": "Finished courses",
-    "quizesDetails": "Quiz details",
+    "quizesDetails": "Quizes details",
     "restartCourse": "Start again",
     "quizSummary": "Quiz summary",
     "overallQuizesSummary": "Quizes summary",

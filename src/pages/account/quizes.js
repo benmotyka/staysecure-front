@@ -15,6 +15,7 @@ import { useTranslation } from "react-i18next";
 import ExpandItems from "components/Account/Cards/ExpandItems";
 import ListItem from "components/Account/Cards/Parts/ListItem";
 import OverallQuizSummary from "components/Account/Cards/Parts/OverallQuizSummary";
+import Scale from "components/Charts/Scale";
 const Quizes = () => {
   const { t, i18n } = useTranslation();
   const history = useHistory();
@@ -62,8 +63,8 @@ const Quizes = () => {
           Authorization: `Bearer ${user.token}`,
         },
       });
-      setOverallChartData(getOverallQuizesData.overallScore);
-      setQuizesFinished(getOverallQuizesData.finishedQuizes);
+        setOverallChartData(getOverallQuizesData.overallScore);
+        setQuizesFinished(getOverallQuizesData.finishedQuizes);
     } catch (error) {
       console.log(error);
       if (
@@ -95,17 +96,18 @@ const Quizes = () => {
                     <OverallQuizSummary chartData={overallChartData} />
                   ) : null}
                   {JSON.stringify()}
-                  {quizesFinished.length ? (
+                  {quizesFinished && quizesFinished.length ? (
                     <ExpandItems header={t("quizesDetails")}>
                       {quizesFinished.map((quiz, index) => (
                         <ListItem
                           green
                           key={index}
                           header={quiz.header[language]}
-                          description={`${quiz.scorePercentage}%`}
                           buttonText={t("quizSummary")}
                           buttonLink={`/quiz-summary/${quiz.link}`}
-                        />
+                        >
+                          <Scale scorePercentage={quiz.scorePercentage} />
+                        </ListItem>
                       ))}
                     </ExpandItems>
                   ) : null}

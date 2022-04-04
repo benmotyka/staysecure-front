@@ -14,7 +14,7 @@ margin-top: 35px;
     min-height: 80px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
     min-width: 150px;
 }
 ` 
@@ -28,7 +28,7 @@ margin: ${props => props.alignRight ? "0 auto": ""};
 }
 `
 export const Header = styled.h4`
-margin: 0 0 20px 0;
+margin: 0 0 11px 0;
 color: ${colors.white};
 font-size: 18px;
 @media screen and (max-width: 1000px) {

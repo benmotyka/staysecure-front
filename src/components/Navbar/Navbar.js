@@ -29,6 +29,9 @@ const Navbar = () => {
       </Section>
       <Section>
         <List>
+        <Item>
+            <Link to="/faq">{t('header.faq')}</Link>
+          </Item>
           <Item>
             <Link to="/articles">{t('header.articles')}</Link>
           </Item>

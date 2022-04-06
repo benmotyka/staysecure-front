@@ -20,12 +20,14 @@ import quiz from "pages/quiz";
 import quizSummary from "pages/quizSummary"
 import forgotPassword from "pages/forgotPassword";
 import forgotPasswordChange from "pages/forgotPasswordChange";
+import faq from "pages/faq"
 
 const Routes = () => {
   return (
     <Switch>
       <Route path="/" component={home} exact />
       <Route path="/articles" component={articles} exact />
+      <Route path="/faq" component={faq} exact />
       <Route path="/courses" component={courses} exact />
       <Route path="/login" component={login} exact />
       <Route path="/register" component={register} exact />

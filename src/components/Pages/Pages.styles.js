@@ -80,3 +80,8 @@ ${flexCentered};
 padding: 25px;
 box-sizing: border-box;
 `
+
+export const BlankPage = styled.div`
+min-height: calc(100vh - ${footerHeight} - ${navbarHeight});
+width: 100%;
+`

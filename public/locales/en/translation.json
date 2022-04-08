@@ -51,7 +51,17 @@
     "hard": "Hard",
     "header": {
         "articles": "Articles",
-        "courses" : "Courses"
+        "courses" : "Courses",
+        "faq": "FAQ"
+    },
+    "faq": {
+        "header": "Frequently asked questions",
+        "inputPlaceholder": "Search for a question...",
+        "categories": {
+            "account": "Account",
+            "courses": "Courses",
+            "quizes": "Quizes"
+        }
     },
     "oldPassword": "Old password",
     "newPassword": "New password",

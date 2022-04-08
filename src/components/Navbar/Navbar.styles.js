@@ -20,13 +20,14 @@ export const Container = styled.div`
 ${commonNavbar};
 justify-content: space-between;
 z-index: 10;
-@media screen and (max-width: 1000px) {
+
+@media screen and (max-width: 1400px) {
     padding: 0 30px;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 800px) {
     padding: 10px 0;
-    height: 100px;
+    height: 120px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
@@ -37,7 +38,7 @@ export const Section = styled.section`
 display: flex;
 align-items: center;
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 800px) {
     align-items: center;
     justify-content: center;
 }
@@ -53,8 +54,11 @@ padding: 0;
 export const Item = styled.li`
 margin: 0 25px;
 
+@media screen and (max-width: 1000px) {
+    margin: 0 15px;
+}
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 800px) {
 margin: 0 10px;
 }
 `

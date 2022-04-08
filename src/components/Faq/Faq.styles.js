@@ -57,20 +57,26 @@ export const ItemsWrapper = styled.ul`
   background-color:  ${colors.mediumDarkPurple};
   width: 50%;
   list-style: none;
-  padding: 20px;
   border-radius: 6px;
   display: flex;
   flex-direction: column;
+  padding: 0;
 `;
 
 export const Item = styled.li`
   color: ${colors.white};
-  padding: 15px 25px;
+  padding: 25px;
   background-color: ${colors.darkPurple};
+  margin: 20px;
+  margin-bottom: 0;
+  &:last-child {
+  margin-bottom: 20px;
+  }
 `;
 
 export const Question = styled.h3`
-margin: 0;
+margin: 0 0 10px 0;
+font-size: 20px;
 `
 
 export const Answer = styled.p`

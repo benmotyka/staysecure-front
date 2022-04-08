@@ -56,7 +56,12 @@
     },
     "faq": {
         "header": "Najczęściej zadawane pytania",
-        "inputPlaceholder": "Wyszukaj pytanie..."
+        "inputPlaceholder": "Wyszukaj pytanie...",
+        "categories": {
+            "account": "Konto",
+            "courses": "Kursy",
+            "quizes": "Quizy"
+        }
     },
     "oldPassword": "Stare hasło",
     "newPassword": "Nowe hasło",

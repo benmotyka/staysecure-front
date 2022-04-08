@@ -15,6 +15,8 @@ import {
   Answer,
 } from "./Faq.styles";
 
+import faqData from './Faq.data'
+
 const Faq = () => {
   const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState("account");
@@ -29,26 +31,30 @@ const Faq = () => {
           active={activeCategory === "account"}
           onClick={() => setActiveCategory("account")}
         >
-          Konto
+          {t("faq.categories.account")}
         </Category>
         <Category
           active={activeCategory === "courses"}
           onClick={() => setActiveCategory("courses")}
         >
-          Kursy
+          {t("faq.categories.courses")}
         </Category>
         <Category
           active={activeCategory === "quizes"}
           onClick={() => setActiveCategory("quizes")}
         >
-          Quizy
+          {t("faq.categories.quizes")}
         </Category>
       </CategoriesWrapper>
       <ItemsWrapper>
-        <Item>
-          <Question>Pytanie numer jeden?</Question>
-          <Answer>Lorem ipsum at fdad sadj ald</Answer>
-        </Item>
+        {faqData
+          .filter((item) => item.category === activeCategory)
+          .map((item, key) => (
+            <Item key={key}>
+              <Question>{item.question}</Question>
+              <Answer>{item.answer}</Answer>
+            </Item>
+          ))}
       </ItemsWrapper>
     </Container>
   );

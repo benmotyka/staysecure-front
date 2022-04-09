@@ -10,6 +10,10 @@ export const Container = styled.div`
   padding: 100px 0;
   box-sizing: border-box;
   border-radius: 5px;
+
+  @media screen and (max-width: 1000px) {
+    padding: 50px 0;
+  }
 `;
 
 export const HeaderWrapper = styled.div`
@@ -97,3 +101,12 @@ export const FaqInput = styled.input`
   width: 100%;
   box-sizing: border-box;
 `;
+
+export const Text = styled.p`
+font-size: 20px;
+color: ${colors.white};
+`
+
+export const Highlight = styled.span`
+color: ${colors.orange};
+`

@@ -57,6 +57,7 @@
     "faq": {
         "header": "Frequently asked questions",
         "inputPlaceholder": "Search for a question...",
+        "searchResultsFor": "Search results for: ",
         "categories": {
             "account": "Account",
             "courses": "Courses",

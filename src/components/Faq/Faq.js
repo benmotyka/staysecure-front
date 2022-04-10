@@ -20,7 +20,7 @@ import {
 import faqData from "./Faq.data";
 
 const Faq = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [activeCategory, setActiveCategory] = useState("account");
   const [faqSearch, setFaqSearch] = useState("");
   const [searchFaqItems, setSearchFaqItems] = useState([]);
@@ -54,12 +54,14 @@ const Faq = () => {
             {t("faq.searchResultsFor")} <Highlight>{faqSearch}</Highlight>
           </Text>
           <ItemsWrapper>
-            {searchFaqItems.map((item, key) => (
-              <Item key={key}>
-                <Question>{item.question}</Question>
-                <Answer>{item.answer}</Answer>
-              </Item>
-            ))}
+            {searchFaqItems
+              .filter((item) => item.language === i18n.language)
+              .map((item, key) => (
+                <Item key={key}>
+                  <Question>{item.question}</Question>
+                  <Answer>{item.answer}</Answer>
+                </Item>
+              ))}
           </ItemsWrapper>
         </>
       ) : (
@@ -86,7 +88,11 @@ const Faq = () => {
           </CategoriesWrapper>
           <ItemsWrapper>
             {faqData
-              .filter((item) => item.category === activeCategory)
+              .filter(
+                (item) =>
+                  item.language === i18n.language &&
+                  item.category === activeCategory
+              )
               .map((item, key) => (
                 <Item key={key}>
                   <Question>{item.question}</Question>

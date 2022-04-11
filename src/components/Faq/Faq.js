@@ -16,6 +16,7 @@ import {
   Text,
   Highlight,
 } from "./Faq.styles";
+import Parser from "html-react-parser";
 
 import faqData from "./Faq.data";
 
@@ -96,7 +97,7 @@ const Faq = () => {
               .map((item, key) => (
                 <Item key={key}>
                   <Question>{item.question}</Question>
-                  <Answer>{item.answer}</Answer>
+                  <Answer>{Parser(item.answer)}</Answer>
                 </Item>
               ))}
           </ItemsWrapper>

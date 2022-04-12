@@ -19,12 +19,15 @@ import {
 import Parser from "html-react-parser";
 
 import faqData from "./Faq.data";
+import FadeIn from "components/FadeIn/FadeIn";
+import ContactForm from "components/ContactForm/ContactForm";
 
 const Faq = () => {
   const { t, i18n } = useTranslation();
   const [activeCategory, setActiveCategory] = useState("account");
   const [faqSearch, setFaqSearch] = useState("");
   const [searchFaqItems, setSearchFaqItems] = useState([]);
+  const [contactModal, showContactModal] = useState(false);
 
   const updateFaqSearch = (value) => {
     setFaqSearch(value);
@@ -103,6 +106,16 @@ const Faq = () => {
           </ItemsWrapper>
         </>
       )}
+      <Text>
+        {t("faq.stillHaveQuestions1")}{" "}
+        <Highlight pointer onClick={() => showContactModal(!contactModal)}>
+          {t("faq.stillHaveQuestions2")}
+        </Highlight>{" "}
+        {t("faq.stillHaveQuestions3")}
+      </Text>
+      <FadeIn in={contactModal}>
+        <ContactForm/>
+      </FadeIn>
     </Container>
   );
 };

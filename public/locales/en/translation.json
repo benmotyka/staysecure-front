@@ -62,7 +62,10 @@
             "account": "Account",
             "courses": "Courses",
             "quizes": "Quizes"
-        }
+        },
+        "stillHaveQuestions1": "Still have questions? Click",
+        "stillHaveQuestions2": "here",
+        "stillHaveQuestions3": "to contact us."
     },
     "oldPassword": "Old password",
     "newPassword": "New password",

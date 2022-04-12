@@ -62,7 +62,10 @@
             "account": "Konto",
             "courses": "Kursy",
             "quizes": "Quizy"
-        }
+        },
+        "stillHaveQuestions1": "Nadal masz pytania? Kliknij",
+        "stillHaveQuestions2": "tutaj",
+        "stillHaveQuestions3": "aby skontaktować się z nami."
     },
     "oldPassword": "Stare hasło",
     "newPassword": "Nowe hasło",

@@ -10,6 +10,7 @@
     "axios": "^0.22.0",
     "d3": "^7.4.0",
     "dotenv": "^8.2.0",
+    "formik": "^2.2.9",
     "html-react-parser": "^1.4.0",
     "html2canvas": "^1.4.1",
     "i18next": "^21.5.3",
@@ -33,7 +34,8 @@
     "redux-persist": "^6.0.0",
     "styled-components": "^5.3.1",
     "validator": "^13.6.0",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-dotenv && react-scripts start",

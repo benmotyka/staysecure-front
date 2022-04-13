@@ -113,9 +113,11 @@ const Faq = () => {
         </Highlight>{" "}
         {t("faq.stillHaveQuestions3")}
       </Text>
-      <FadeIn in={contactModal}>
-        <ContactForm/>
-      </FadeIn>
+      <ItemsWrapper>
+        <FadeIn in={contactModal}>
+          <ContactForm />
+        </FadeIn>
+      </ItemsWrapper>
     </Container>
   );
 };

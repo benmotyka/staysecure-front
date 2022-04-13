@@ -67,6 +67,11 @@
         "stillHaveQuestions2": "here",
         "stillHaveQuestions3": "to contact us."
     },
+    "contactForm": {
+        "emailPlaceholder": "Email", 
+        "subjectPlaceholder": "Subject", 
+        "contentPlaceholder": "Mail content..."
+    },
     "oldPassword": "Old password",
     "newPassword": "New password",
     "confirmNewPassword": "Confirm new password",

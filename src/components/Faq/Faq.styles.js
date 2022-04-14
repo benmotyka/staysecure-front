@@ -20,7 +20,7 @@ export const Container = styled.div`
 export const HeaderWrapper = styled.div`
   width: 800px;
   text-align: center;
-
+  padding: 15px 0;
   @media screen and (max-width: 1000px) {
     width: 90%;
   }
@@ -79,7 +79,10 @@ export const Category = styled.div`
 `;
 
 export const ItemsWrapper = styled.ul`
-  background-color: ${colors.mediumDarkPurple};
+  background-color: ${(props) =>
+    props.noBg
+      ? ``
+      : colors.mediumDarkPurple};
   width: 800px;
   list-style: none;
   border-radius: 6px;
@@ -119,19 +122,24 @@ export const Answer = styled.p`
   }
 `;
 
-export const FaqInput = styled.input`
+export const faqInputStyles = css`
   font-size: 18px;
-  color: ${colors.white};
-  margin: 15px 0;
-  padding: 15px 25px;
   background-color: ${colors.mediumDarkPurple};
-  border: 1px solid ${colors.darkestPurple};s
+  color: ${colors.white};
+  margin: 5px 0;
+  padding: 15px 25px;
+  border: 1px solid ${colors.darkestPurple};
   border: none;
   border-radius: 5px;
   outline: none;
   width: 100%;
   box-sizing: border-box;
+`
+
+export const FaqInput = styled.input`
+  ${faqInputStyles};
 `;
+
 
 export const Text = styled.p`
   font-size: 20px;

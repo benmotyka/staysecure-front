@@ -113,7 +113,7 @@ const Faq = () => {
         </Highlight>{" "}
         {t("faq.stillHaveQuestions3")}
       </Text>
-      <ItemsWrapper>
+      <ItemsWrapper noBg>
         <FadeIn in={contactModal}>
           <ContactForm />
         </FadeIn>

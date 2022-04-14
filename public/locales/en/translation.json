@@ -70,7 +70,8 @@
     "contactForm": {
         "emailPlaceholder": "Email", 
         "subjectPlaceholder": "Subject", 
-        "contentPlaceholder": "Mail content..."
+        "contentPlaceholder": "Mail content...",
+        "send": "Send"
     },
     "oldPassword": "Old password",
     "newPassword": "New password",

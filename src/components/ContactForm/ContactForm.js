@@ -7,13 +7,17 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 import Button from "components/Button/Button";
+import { useSelector } from "react-redux";
+import { selectUser } from "features/userSlice";
 
 const ContactForm = () => {
   const { t, i18n } = useTranslation();
+  const [sent, setSent] = useState(false)
+  const user = useSelector(selectUser);
 
   const formik = useFormik({
     initialValues: {
-      email: "",
+      email: user?.email,
       subject: "",
       content: "",
     },
@@ -40,6 +44,7 @@ const ContactForm = () => {
           maxLength="25"
           onBlur={formik.handleBlur}
           type="text"
+          disabled={user}
         />
         {formik.touched.email && formik.errors.email ? (
           <ErrorMessage>{formik.errors.email}</ErrorMessage>

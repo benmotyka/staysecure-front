@@ -1,6 +1,6 @@
 import axios from "axios";
 import Button from "components/Button/Button";
-import Loader from "components/Loader/Loader";
+import Loader from "components/Loader/GlobalLoader";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import isEmail from "validator/lib/isEmail";

@@ -106,7 +106,7 @@ const Faq = () => {
           </ItemsWrapper>
         </>
       )}
-      <Text>
+      <Text center>
         {t("faq.stillHaveQuestions1")}{" "}
         <Highlight pointer onClick={() => showContactModal(!contactModal)}>
           {t("faq.stillHaveQuestions2")}

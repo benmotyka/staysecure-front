@@ -126,7 +126,7 @@ export const faqInputStyles = css`
   font-size: 18px;
   background-color: ${colors.mediumDarkPurple};
   color: ${colors.white};
-  margin: 5px 0;
+  margin: 0;
   padding: 15px 25px;
   border: 1px solid ${colors.darkestPurple};
   border: none;
@@ -144,7 +144,7 @@ export const FaqInput = styled.input`
 export const Text = styled.p`
   font-size: 20px;
   color: ${colors.white};
-
+  text-align: ${(props) => (props.center ? `center` : '')};
   @media screen and (max-width: 800px) {
     font-size: 16px;
   }

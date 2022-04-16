@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import Loader from "components/Loader/Loader";
+import Loader from "components/Loader/GlobalLoader";
 import { Container, Header, Line, ItemsWrapper } from "./PreviewItems.styles";
 import { PageCentered } from "components/Pages/Pages.styles";
 import { useTranslation } from "react-i18next";

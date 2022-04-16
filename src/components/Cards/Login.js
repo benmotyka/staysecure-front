@@ -20,7 +20,7 @@ import {
 } from "./Cards.styles";
 
 import Button from "../Button/Button";
-import Loader from "components/Loader/Loader";
+import Loader from "components/Loader/GlobalLoader";
 import { useTranslation } from "react-i18next";
 const Login = () => {
     const dispatch = useDispatch();
@@ -46,7 +46,7 @@ const Login = () => {
 
   const sendData = () => {
     if (!password || !email || password.length < 5 || !isEmail(email)) {
-      setError(t('errors.wrong-login-password'));
+      setError(t('errors.wrongLoginPassword'));
       return;
     }
     window.grecaptcha.ready(() => {
@@ -96,7 +96,7 @@ const Login = () => {
               if (query.courseRedirect) return history.push(`/course/${query.courseRedirect}`)
               return history.push("/account/courses");
             } else {
-              setError(t('errors.wrong-login-password'));
+              setError(t('errors.wrongLoginPassword'));
             }
           } catch (error) {
             console.log(error);

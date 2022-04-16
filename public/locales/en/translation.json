@@ -71,7 +71,8 @@
         "emailPlaceholder": "Email", 
         "subjectPlaceholder": "Subject", 
         "contentPlaceholder": "Mail content...",
-        "send": "Send"
+        "send": "Send",
+        "messageSent": "Message sent."
     },
     "oldPassword": "Old password",
     "newPassword": "New password",
@@ -93,13 +94,14 @@
     "quizSummary": "Quiz summary",
     "overallQuizesSummary": "Quizes summary",
     "errors": {
-        "wrong-login-password": "Invalid login or password",
-        "wrong-email-name-password": "Invalid email, name or password",
+        "wrongLoginPassword": "Invalid login or password",
+        "wrongEmailNamePassword": "Invalid email, name or password",
         "passwordsMustMatch": "Passwords must be the same",
         "userExists": "User exists",
         "wrongPassword": "Invalid password",
         "wrongEmail": "Invalid email",
-        "somethingWentWrong": "Something went wrong"
+        "somethingWentWrong": "Something went wrong",
+        "fieldRequired": "Required"
     },
     "passwordResetSuccess": "Password changed successfully. Redirecting to login page...",
     "accountConfirmedSuccess": "Account confirmed. Redirecting to login page...",

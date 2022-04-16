@@ -12,7 +12,7 @@ import StartedCoursesCard from "components/Account/Cards/StartedCourses";
 import { PageAccount, PageSection } from "components/Pages/Pages.styles";
 import NavbarClean from "components/Navbar/NavbarClean";
 import ExpandItems from "components/Account/Cards/ExpandItems";
-import Loader from "components/Loader/Loader";
+import Loader from "components/Loader/GlobalLoader";
 import { useTranslation } from "react-i18next";
 import ListItem from "components/Account/Cards/Parts/ListItem";
 const Courses = () => {

@@ -33,23 +33,6 @@ const Course = (props) => {
           <Arrow />
         </HeaderContainer>
         <Description>{Parser(props.description)}</Description>
-
-        {/* <FooterContainer>
-          <CommentWrapper>
-            51
-            <Comment />
-          </CommentWrapper>
-          <div>
-            <DifficultyWrapper>
-              {[...Array(props.difficulty)].map((level, index) => (
-                <RateLevel key={index} />
-              ))}
-              {[...Array(5 - props.difficulty)].map((level, index) => (
-                <EmptyRateLevel key={index} />
-              ))}
-            </DifficultyWrapper>
-          </div>
-        </FooterContainer> */}
       </Body>
     </Container>
   );

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import Loader from "components/Loader/Loader";
+import Loader from "components/Loader/GlobalLoader";
 import { useSelector } from "react-redux";
 import { selectUser } from "features/userSlice";
 import Navbar from "components/Navbar/Navbar";

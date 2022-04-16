@@ -1,17 +1,17 @@
 import ReactLoader from "react-loader-spinner";
 
-import {LoaderContainer} from "./Loader.styles"
-const Loader = () => {
+import {LocalLoaderContainer} from "./Loader.styles"
+const LocalLoader = () => {
   return (
-    <LoaderContainer>
+    <LocalLoaderContainer>
       <ReactLoader
         type="TailSpin"
         color="#eee"
         height={100}
         width={100}
       />
-    </LoaderContainer>
+    </LocalLoaderContainer>
   );
 };
 
-export default Loader;
+export default LocalLoader;

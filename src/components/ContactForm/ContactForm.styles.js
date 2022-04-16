@@ -1,4 +1,4 @@
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 import colors from "constans/colors"
 import { faqInputStyles } from "components/Faq/Faq.styles";
 
@@ -13,6 +13,7 @@ export const ErrorMessage = styled.p`
 font-size: 12px;
 color: ${colors.red};
 margin: 0 0 0 5px;
+position: absolute;
 `
 
 export const FormContent = styled.textarea`
@@ -23,5 +24,5 @@ min-height: 150px;
 `
 
 export const InputWrapper = styled.div`
-margin-bottom: 10px;
+margin-bottom: 25px;
 `

@@ -6,7 +6,7 @@ import { PageOneItemCentered } from 'components/Pages/Pages.styles'
 import CoursePreviewWidget from 'components/CoursePreview/CoursePreview'
 import { useEffect } from 'react';
 import { useState } from 'react';
-import Loader from 'components/Loader/Loader';
+import Loader from 'components/Loader/GlobalLoader';
 import axios from 'axios';
 import { useTranslation } from "react-i18next";
 

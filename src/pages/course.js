@@ -9,7 +9,7 @@ import { logout } from "features/userSlice";
 import CourseNavbar from "components/Navbar/CourseNavbar";
 import { PageCourse } from "components/Pages/Pages.styles";
 import Navigation from "components/Course/Navigation";
-import Loader from "components/Loader/Loader";
+import Loader from "components/Loader/GlobalLoader";
 import { useTranslation } from "react-i18next";
 import { useOnClickOutside } from 'hooks/useOnClickOutside';
 

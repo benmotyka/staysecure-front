@@ -13,7 +13,7 @@ import {
 } from "./Quiz.styles";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import Loader from "components/Loader/Loader";
+import Loader from "components/Loader/GlobalLoader";
 import Button from "components/Button/Button";
 
 const Quiz = (props) => {

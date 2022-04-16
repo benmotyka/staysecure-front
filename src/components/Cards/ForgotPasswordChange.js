@@ -1,6 +1,6 @@
 import axios from "axios";
 import Button from "components/Button/Button";
-import Loader from "components/Loader/Loader";
+import Loader from "components/Loader/GlobalLoader";
 import { useHistory } from "react-router";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";

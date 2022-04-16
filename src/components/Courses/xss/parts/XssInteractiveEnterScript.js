@@ -1,5 +1,5 @@
 import Browser from "components/Browser/Browser";
-import Loader from "components/Loader/Loader";
+import Loader from "components/Loader/GlobalLoader";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 

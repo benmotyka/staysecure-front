@@ -51,6 +51,7 @@ box-sizing: border-box;
 `
 
 export const NoteText = styled.textarea`
+font-family: inherit;
 background-color: transparent;
 border: none;
 outline: none;

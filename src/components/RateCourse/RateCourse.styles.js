@@ -29,6 +29,7 @@ export const Star = styled(Rate)`
 `;
 
 export const Input = styled.textarea`
+font-family: inherit;
 background-color: ${colors.darkestPurple};
 padding: 15px;
 margin: 10px 0 20px 0;

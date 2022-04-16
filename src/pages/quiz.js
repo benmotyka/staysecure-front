@@ -6,7 +6,7 @@ import { selectUser } from "features/userSlice";
 import NavbarClean from "components/Navbar/NavbarClean";
 import QuizWidget from "components/Quiz/Quiz";
 import { PageOneChild } from "components/Pages/Pages.styles";
-import Loader from "components/Loader/Loader";
+import Loader from "components/Loader/GlobalLoader";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 

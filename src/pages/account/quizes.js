@@ -10,7 +10,7 @@ import Footer from "components/Footer/Footer";
 import Sidebar from "components/Account/Sidebar/Sidebar";
 import { PageAccount, PageSection } from "components/Pages/Pages.styles";
 import NavbarClean from "components/Navbar/NavbarClean";
-import Loader from "components/Loader/Loader";
+import Loader from "components/Loader/GlobalLoader";
 import { useTranslation } from "react-i18next";
 import ExpandItems from "components/Account/Cards/ExpandItems";
 import ListItem from "components/Account/Cards/Parts/ListItem";

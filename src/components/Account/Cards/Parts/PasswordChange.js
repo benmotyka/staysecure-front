@@ -9,7 +9,7 @@ import {
   Error,
 } from "components/Cards/Cards.styles";
 import Button from "components/Button/Button";
-import Loader from "components/Loader/Loader";
+import Loader from "components/Loader/GlobalLoader";
 import { useTranslation } from "react-i18next";
 
 const PasswordChange = (props) => {
@@ -43,7 +43,7 @@ const PasswordChange = (props) => {
       !passwordChangeData.newPasswordConfirmation ||
       passwordChangeData.newPassword.length < 5
     ) {
-      setError(t('errors.wrong-login-password'));
+      setError(t('errors.wrongLoginPassword'));
       return;
     }
     if (

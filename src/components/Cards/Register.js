@@ -15,7 +15,7 @@ import {
   Error,
   SuccessText,
 } from "./Cards.styles";
-import Loader from "components/Loader/Loader";
+import Loader from "components/Loader/GlobalLoader";
 import AccountLevel from "components/Account/Cards/Parts/AccountLevel";
 
 import Button from "../Button/Button";
@@ -55,7 +55,7 @@ const Register = () => {
 
   const sendData = () => {
     if (!registrationData.password || !registrationData.email || !registrationData.name || registrationData.password.length < 5 || !isEmail(registrationData.email)) {
-      setError(t('errors.wrong-email-name-password'));
+      setError(t('errors.wrongEmailNamePassword'));
       return;
     }
     if(registrationData.password !== registrationData.passwordConfirmation) {

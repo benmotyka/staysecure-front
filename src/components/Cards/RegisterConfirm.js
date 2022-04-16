@@ -3,7 +3,7 @@ import axios from "axios";
 import { useHistory } from "react-router";
 
 import { Container, SuccessText } from "./Cards.styles";
-import Loader from "components/Loader/Loader";
+import Loader from "components/Loader/GlobalLoader";
 import { useTranslation } from "react-i18next";
 
 const RegisterConfirm = (props) => {

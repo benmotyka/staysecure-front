@@ -62,7 +62,17 @@
             "account": "Konto",
             "courses": "Kursy",
             "quizes": "Quizy"
-        }
+        },
+        "stillHaveQuestions1": "Masz inne pytanie? Kliknij",
+        "stillHaveQuestions2": "tutaj",
+        "stillHaveQuestions3": "aby skontaktować się z nami."
+    },
+    "contactForm": {
+        "emailPlaceholder": "Email", 
+        "subjectPlaceholder": "Temat", 
+        "contentPlaceholder": "Treść wiadomości...",
+        "send": "Wyślij",
+        "messageSent": "Wiadomość wysłana."
     },
     "oldPassword": "Stare hasło",
     "newPassword": "Nowe hasło",
@@ -84,13 +94,14 @@
     "quizSummary": "Podsumowanie quizu",
     "overallQuizesSummary": "Podsumowanie quizów",
     "errors": {
-        "wrong-login-password": "Błędny login lub hasło",
-        "wrong-email-name-password": "Błędny email, nazwa lub hasło",
+        "wrongLoginPassword": "Błędny login lub hasło",
+        "wrongEmailNamePassword": "Błędny email, nazwa lub hasło",
         "passwordsMustMatch": "Hasła muszą się zgadzać",
         "userExists": "Użytkownik istnieje",
         "wrongPassword": "Błędne hasło",
         "wrongEmail": "Błędny email",
-        "somethingWentWrong": "Coś poszło nie tak"
+        "somethingWentWrong": "Coś poszło nie tak",
+        "fieldRequired": "Pole wymagane"
     },
     "passwordResetSuccess": "Hasło zostało zmienione pomyślnie. Przekierowanie na stronę logowania...",
     "accountConfirmedSuccess": "Konto zostało potwierdzone. Przekierowanie na stronę logowania...",

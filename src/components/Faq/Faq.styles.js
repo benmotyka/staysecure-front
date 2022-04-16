@@ -11,7 +11,6 @@ export const Container = styled.div`
   box-sizing: border-box;
   border-radius: 5px;
   min-width: 800px;
-
   @media screen and (max-width: 1000px) {
     min-width: 200px;
     padding: 50px 0;
@@ -19,11 +18,11 @@ export const Container = styled.div`
 `;
 
 export const HeaderWrapper = styled.div`
-  width: 50%;
+  width: 800px;
   text-align: center;
-  
+  padding: 15px 0;
   @media screen and (max-width: 1000px) {
-    width: 80%;
+    width: 90%;
   }
 `;
 
@@ -39,10 +38,10 @@ export const Header = styled.h1`
 export const CategoriesWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  width: 50%;
+  width: 800px;
   gap: 20px;
   @media screen and (max-width: 1000px) {
-    width: 80%;
+    width: 90%;
   }
 
   @media screen and (max-width: 450px) {
@@ -80,8 +79,11 @@ export const Category = styled.div`
 `;
 
 export const ItemsWrapper = styled.ul`
-  background-color: ${colors.mediumDarkPurple};
-  width: 50%;
+  background-color: ${(props) =>
+    props.noBg
+      ? ``
+      : colors.mediumDarkPurple};
+  width: 800px;
   list-style: none;
   border-radius: 6px;
   display: flex;
@@ -89,7 +91,7 @@ export const ItemsWrapper = styled.ul`
   padding: 0;
 
   @media screen and (max-width: 1000px) {
-    width: 80%;
+    width: 90%;
   }
 `;
 
@@ -120,24 +122,29 @@ export const Answer = styled.p`
   }
 `;
 
-export const FaqInput = styled.input`
+export const faqInputStyles = css`
   font-size: 18px;
-  color: ${colors.white};
-  margin: 15px 0;
-  padding: 15px 25px;
   background-color: ${colors.mediumDarkPurple};
-  border: 1px solid ${colors.darkestPurple};s
+  color: ${colors.white};
+  margin: 0;
+  padding: 15px 25px;
+  border: 1px solid ${colors.darkestPurple};
   border: none;
   border-radius: 5px;
   outline: none;
   width: 100%;
   box-sizing: border-box;
+`
+
+export const FaqInput = styled.input`
+  ${faqInputStyles};
 `;
+
 
 export const Text = styled.p`
   font-size: 20px;
   color: ${colors.white};
-
+  text-align: ${(props) => (props.center ? `center` : '')};
   @media screen and (max-width: 800px) {
     font-size: 16px;
   }
@@ -145,4 +152,5 @@ export const Text = styled.p`
 
 export const Highlight = styled.span`
   color: ${colors.orange};
+  cursor: ${(props) => (props.pointer ? `pointer` : `auto`)};
 `;

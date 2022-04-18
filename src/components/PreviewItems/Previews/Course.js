@@ -10,12 +10,6 @@ import {
   Header,
   Arrow,
   Description,
-  RateLevel,
-  DifficultyWrapper,
-  FooterContainer,
-  Comment,
-  CommentWrapper,
-  EmptyRateLevel,
 } from "./Previews.styles";
 import Difficulty from "./Difficulty/Difficulty";
 const Course = (props) => {

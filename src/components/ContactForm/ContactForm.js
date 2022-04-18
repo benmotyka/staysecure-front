@@ -49,7 +49,7 @@ const ContactForm = () => {
               query: `
             query SendContactMessage($email: String!, $subject: String!,$content: String!, $captcha: String!){ 
               sendContactMessage(email: $email, subject: $subject, content: $content, captchaToken: $captcha) {
-                status
+                resultStatus
               }
             }  
             `,

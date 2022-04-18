@@ -60,6 +60,7 @@ const Login = () => {
             query: `
           query Login($email: String!, $password: String!,$captcha: String!, $rememberMe: Boolean!){ 
             login(userInput: {email: $email, password: $password, captchaToken: $captcha, rememberMe: $rememberMe}) {
+              email
               userId
               name
               token
@@ -84,7 +85,7 @@ const Login = () => {
             if (response) {
               dispatch(
                 login({
-                  email: null,
+                  email: response.email,
                   token: response.token,
                   userId: response.userId,
                   name: response.name,

@@ -11,17 +11,16 @@ transition: 0.2s transform ease-in-out;
 
 export const Body = styled.div`
 padding: 10px;
+box-sizing: border-box;
 background-color: ${colors.mediumDarkPurple};
 color: ${colors.white};
 border: 1px solid ${colors.mediumDarkPurple};
 transition: 0.2s all ease-in-out;
-z-index: 100;
-max-height: 100px;
+height: 120px;
 min-width: 200px;
-position: relative;
+max-width: 500px;
 display: flex;
 flex-direction: column;
-
 `
 
 const Text = css`
@@ -93,9 +92,8 @@ margin: 2px 0;
 
 export const Container = styled(Link)`
 text-decoration: none;
-height: ${props => props.noimage ? "120px": "250px"};
-display: grid;
-grid-template-rows: ${props => props.noimage ? "1fr": "35% 65%"};
+display: flex;
+flex-direction: column;
 margin: 20px 20px;
 
 &:hover ${Body} {

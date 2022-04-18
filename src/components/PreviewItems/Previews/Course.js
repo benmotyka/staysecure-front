@@ -15,9 +15,7 @@ import Difficulty from "./Difficulty/Difficulty";
 const Course = (props) => {
   return (
     <Container to={props.to}>
-      <ImageContainer>
         <Image src={props.img} />
-      </ImageContainer>
       <Body>
         <HeaderContainer>
           <Header>

@@ -8,7 +8,7 @@ import { Label } from "components/Cards/Cards.styles";
 import { selectUser } from "features/userSlice";
 import { useSelector } from "react-redux";
 
-import { Wrapper, Header, Star, Input } from "./RateCourse.styles";
+import { Wrapper, Header, Star, Textarea } from "./RateCourse.styles";
 import { useRef } from "react";
 import { useOnClickOutside } from "hooks/useOnClickOutside";
 
@@ -90,12 +90,11 @@ const RateCourse = (props) => {
                   ))}
                 </div>
                 <Label htmlFor="comment">{t("comment")}</Label>
-                <Input
+                <Textarea
                   value={comment}
                   onChange={(e) => setComment(e.target.value)}
                   id="comment"
                   type="text"
-                  spellCheck="false"
                 />
                 <Button onClick={sendData} noArrow text={t("sendFeedback")} />
               </>

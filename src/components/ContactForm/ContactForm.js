@@ -3,11 +3,10 @@ import { useFormik } from "formik";
 
 import {
   Container,
-  InputWrapper,
+  ButtonWrapper,
   ErrorMessage,
   FormContent,
 } from "./ContactForm.styles";
-import { FaqInput } from "../Faq/Faq.styles";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
@@ -17,6 +16,7 @@ import { selectUser } from "features/userSlice";
 import LocalLoader from "components/Loader/LocalLoader";
 import { SuccessText } from "components/Cards/Cards.styles";
 import axios from "axios";
+import BasicInput from "components/BasicInput/BasicInput";
 
 const ContactForm = () => {
   const { t, i18n } = useTranslation();
@@ -84,8 +84,7 @@ const ContactForm = () => {
         <SuccessText>{t("contactForm.messageSent")}</SuccessText>
       ) : (
         <>
-          <InputWrapper>
-            <FaqInput
+            <BasicInput
               id="email"
               placeholder={t("contactForm.emailPlaceholder")}
               onChange={formik.handleChange}
@@ -94,24 +93,22 @@ const ContactForm = () => {
               onBlur={formik.handleBlur}
               type="text"
               disabled={user}
+              fullWidth
             />
             {formik.touched.email && formik.errors.email ? (
               <ErrorMessage>{formik.errors.email}</ErrorMessage>
             ) : null}
-          </InputWrapper>
-          <InputWrapper>
-            <FaqInput
+            <BasicInput
               id="subject"
               placeholder={t("contactForm.subjectPlaceholder")}
               onChange={formik.handleChange}
               value={formik.values.subject}
               type="text"
+              fullWidth
             />
             {formik.touched.subject && formik.errors.subject ? (
               <ErrorMessage>{formik.errors.subject}</ErrorMessage>
             ) : null}
-          </InputWrapper>
-          <InputWrapper>
             <FormContent
               id="content"
               placeholder={t("contactForm.contentPlaceholder")}
@@ -122,8 +119,9 @@ const ContactForm = () => {
             {formik.touched.content && formik.errors.content ? (
               <ErrorMessage>{formik.errors.content}</ErrorMessage>
             ) : null}
-          </InputWrapper>
+          <ButtonWrapper>
           <Button full text={t("contactForm.send")} />
+          </ButtonWrapper>
         </>
       )}
     </Container>

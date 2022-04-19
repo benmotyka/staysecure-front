@@ -1,11 +1,12 @@
 import axios from "axios";
+import BasicInput from "components/BasicInput/BasicInput";
 import Button from "components/Button/Button";
 import Loader from "components/Loader/GlobalLoader";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import isEmail from "validator/lib/isEmail";
 
-import { Container, Error, ErrorsWrapper, Header, Input, SuccessText } from "./Cards.styles";
+import { Container, Error, ErrorsWrapper, Header, SuccessText } from "./Cards.styles";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -76,7 +77,7 @@ email
           ) : (
             <>
               <Header>{t("forgotPassword.instructions")}</Header>
-              <Input
+              <BasicInput
                 placeholder={t("email")}
                 value={email}
                 type="email"

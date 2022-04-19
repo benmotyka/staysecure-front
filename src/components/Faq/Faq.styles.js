@@ -129,17 +129,11 @@ export const faqInputStyles = css`
   margin: 0;
   padding: 15px 25px;
   border: 1px solid ${colors.darkestPurple};
-  border: none;
   border-radius: 5px;
   outline: none;
   width: 100%;
   box-sizing: border-box;
 `
-
-export const FaqInput = styled.input`
-  ${faqInputStyles};
-`;
-
 
 export const Text = styled.p`
   font-size: 20px;

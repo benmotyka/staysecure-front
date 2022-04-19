@@ -28,7 +28,7 @@ export const Star = styled(Rate)`
   color: ${props => props.active ? colors.gold : ''};
 `;
 
-export const Input = styled.textarea`
+export const Textarea = styled.textarea`
 font-family: inherit;
 background-color: ${colors.darkestPurple};
 padding: 15px;

@@ -12,8 +12,7 @@ row-gap: 10px;
 export const ErrorMessage = styled.p`
 font-size: 12px;
 color: ${colors.red};
-margin: 0 0 0 5px;
-position: absolute;
+margin: 0;
 `
 
 export const FormContent = styled.textarea`
@@ -21,8 +20,9 @@ ${faqInputStyles};
 font-family: inherit;
 resize: none;
 min-height: 150px;
+margin: 15px 0;
 `
 
-export const InputWrapper = styled.div`
-margin-bottom: 25px;
+export const ButtonWrapper = styled.div`
+margin-top: 25px;
 `

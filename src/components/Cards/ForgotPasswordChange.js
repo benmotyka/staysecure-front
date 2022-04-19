@@ -5,7 +5,8 @@ import { useHistory } from "react-router";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Container, Error, ErrorsWrapper, Header, Input, SuccessText } from "./Cards.styles";
+import { Container, Error, ErrorsWrapper, Header, SuccessText } from "./Cards.styles";
+import BasicInput from "components/BasicInput/BasicInput";
 
 const ForgotPassword = (props) => {
   const [password, setPassword] = useState("");
@@ -85,13 +86,13 @@ const ForgotPassword = (props) => {
           ) : (
             <>
               <Header>{t("forgotPassword.enterNewPassword")}</Header>
-              <Input
+              <BasicInput
                 placeholder={t("password")}
                 value={password}
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <Input
+              <BasicInput
                 placeholder={t("confirmPassword")}
                 value={password2}
                 type="password"

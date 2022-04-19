@@ -11,7 +11,6 @@ import isEmail from "validator/lib/isEmail";
 import {
   Container,
   Header,
-  Input,
   Label,
   Wrapper,
   ErrorsWrapper,
@@ -22,6 +21,7 @@ import {
 import Button from "../Button/Button";
 import Loader from "components/Loader/GlobalLoader";
 import { useTranslation } from "react-i18next";
+import BasicInput from "components/BasicInput/BasicInput";
 const Login = () => {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -111,20 +111,20 @@ const Login = () => {
     <Container>
       {loading && <Loader />}
       <Header>{t('login')}</Header>
-      <Input
+      <BasicInput
         placeholder={t('email')}
         value={email}
         type="email"
         onChange={(e) => setEmail(e.target.value)}
       />
-      <Input
+      <BasicInput
         placeholder={t('password')}
         value={password}
         type="password"
         onChange={(e) => setPassword(e.target.value)}
       />
       <Wrapper>
-        <Input
+        <BasicInput
           id="checkbox"
           type="checkbox"
           value={rememberMe}

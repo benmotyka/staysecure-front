@@ -3,7 +3,6 @@ import axios from "axios";
 
 import { Container, Header } from "./PasswordChange.styles";
 import {
-  Input,
   ErrorsWrapper,
   SuccessText,
   Error,
@@ -11,6 +10,7 @@ import {
 import Button from "components/Button/Button";
 import Loader from "components/Loader/GlobalLoader";
 import { useTranslation } from "react-i18next";
+import BasicInput from "components/BasicInput/BasicInput";
 
 const PasswordChange = (props) => {
   const {t} = useTranslation()
@@ -103,19 +103,19 @@ const PasswordChange = (props) => {
       ) : (
         <>
           <Header>{t('passwordChange')}</Header>
-          <Input
+          <BasicInput
             placeholder={t('oldPassword')}
             type="password"
             value={passwordChangeData.oldPassword}
             onChange={set("oldPassword")}
           />
-          <Input
+          <BasicInput
             placeholder={t('newPassword')}
             type="password"
             value={passwordChangeData.newPassword}
             onChange={set("newPassword")}
           />
-          <Input
+          <BasicInput
             placeholder={t('confirmNewPassword')}
             type="password"
             value={passwordChangeData.newPasswordConfirmation}

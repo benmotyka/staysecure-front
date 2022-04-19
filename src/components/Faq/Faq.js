@@ -8,7 +8,6 @@ import {
   CategoriesWrapper,
   ItemsWrapper,
   Item,
-  FaqInput,
   Category,
   Container,
   Question,
@@ -21,6 +20,7 @@ import Parser from "html-react-parser";
 import faqData from "./Faq.data";
 import FadeIn from "components/FadeIn/FadeIn";
 import ContactForm from "components/ContactForm/ContactForm";
+import BasicInput from "components/BasicInput/BasicInput";
 
 const Faq = () => {
   const { t, i18n } = useTranslation();
@@ -45,7 +45,7 @@ const Faq = () => {
     <Container>
       <HeaderWrapper>
         <Header>{t("faq.header")}</Header>
-        <FaqInput
+        <BasicInput
           placeholder={t("faq.inputPlaceholder")}
           onChange={(e) => updateFaqSearch(e.target.value)}
           maxLength="25"

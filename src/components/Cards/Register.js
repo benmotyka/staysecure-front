@@ -10,7 +10,6 @@ import isEmail from "validator/lib/isEmail";
 import {
   Container,
   Header,
-  Input,
   ErrorsWrapper,
   Error,
   SuccessText,
@@ -20,6 +19,7 @@ import AccountLevel from "components/Account/Cards/Parts/AccountLevel";
 
 import Button from "../Button/Button";
 import { useTranslation } from "react-i18next";
+import BasicInput from "components/BasicInput/BasicInput";
 const Register = () => {
   const history = useHistory();
   const user = useSelector(selectUser);
@@ -108,33 +108,33 @@ const Register = () => {
       {success ? (<SuccessText>{t('registerSuccessfulEmailSent')} {registrationData.email}</SuccessText>) : (
           <>
       <Header>{t('register')}</Header>
-      <Input
+      <BasicInput
         placeholder={t('email')}
         type="email"
         autocomplete="off"
         value={registrationData.email}
         onChange={set("email")}
-      ></Input>
-      <Input
+      />
+      <BasicInput
         placeholder={t('userName')}
         autocomplete="off"
         value={registrationData.name}
         onChange={set("name")}
-      ></Input>
-      <Input
+      />
+      <BasicInput
         placeholder={t('password')}
         type="password"
         autocomplete="off"
         value={registrationData.password}
         onChange={set("password")}
-      ></Input>
-      <Input
+      />
+      <BasicInput
         placeholder={t('confirmPassword')}
         type="password"
         autocomplete="off"
         value={registrationData.passwordConfirmation}
         onChange={set("passwordConfirmation")}
-      ></Input>
+      />
       <AccountLevel small data={registrationData.accountLevel} onClick={setRegistrationData}/>
       <ErrorsWrapper>
         <Error>{errorMessage}</Error>

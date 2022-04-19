@@ -12,9 +12,9 @@ import StartedCoursesCard from "components/Account/Cards/StartedCourses";
 import { PageAccount, PageSection } from "components/Pages/Pages.styles";
 import NavbarClean from "components/Navbar/NavbarClean";
 import ExpandItems from "components/Account/Cards/ExpandItems";
-import Loader from "components/Loader/GlobalLoader";
 import { useTranslation } from "react-i18next";
 import ListItem from "components/Account/Cards/Parts/ListItem";
+import LocalLoader from "components/Loader/LocalLoader";
 const Courses = () => {
   const { t, i18n } = useTranslation();
   const history = useHistory();
@@ -97,7 +97,7 @@ const Courses = () => {
             <Sidebar />
             <PageSection>
               {loading ? (
-                <Loader />
+                <LocalLoader />
               ) : (
                 <>
                   <StartedCoursesCard coursesStarted={coursesStarted} />

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Loader from "components/Loader/GlobalLoader";
 
 import { Container, Header, Line, ItemsWrapper } from "./PreviewItems.styles";
 import { PageCentered } from "components/Pages/Pages.styles";
 import Article from "./Previews/Article";
 import { useTranslation } from "react-i18next";
+import LocalLoader from "components/Loader/LocalLoader";
 const Articles = (props) => {
   const {t, i18n} = useTranslation()
 
@@ -47,7 +47,7 @@ const Articles = (props) => {
 
   return (
     <PageCentered>
-      {loading ? <Loader /> : (
+      {loading ? <LocalLoader /> : (
       <Container>
       <Header>{props.header}</Header>
       <Line></Line>

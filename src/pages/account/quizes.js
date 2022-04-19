@@ -10,12 +10,12 @@ import Footer from "components/Footer/Footer";
 import Sidebar from "components/Account/Sidebar/Sidebar";
 import { PageAccount, PageSection } from "components/Pages/Pages.styles";
 import NavbarClean from "components/Navbar/NavbarClean";
-import Loader from "components/Loader/GlobalLoader";
 import { useTranslation } from "react-i18next";
 import ExpandItems from "components/Account/Cards/ExpandItems";
 import ListItem from "components/Account/Cards/Parts/ListItem";
 import OverallQuizSummary from "components/Account/Cards/Parts/OverallQuizSummary";
 import Scale from "components/Charts/Scale";
+import LocalLoader from "components/Loader/LocalLoader";
 const Quizes = () => {
   const { t, i18n } = useTranslation();
   const history = useHistory();
@@ -89,7 +89,7 @@ const Quizes = () => {
             <Sidebar />
             <PageSection>
               {loading ? (
-                <Loader />
+                <LocalLoader />
               ) : (
                 <>
                   {overallChartData ? (

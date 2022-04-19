@@ -6,9 +6,9 @@ import { PageOneItemCentered } from 'components/Pages/Pages.styles'
 import CoursePreviewWidget from 'components/CoursePreview/CoursePreview'
 import { useEffect } from 'react';
 import { useState } from 'react';
-import Loader from 'components/Loader/GlobalLoader';
 import axios from 'axios';
 import { useTranslation } from "react-i18next";
+import LocalLoader from 'components/Loader/LocalLoader';
 
 const CoursePreview = (props) => {
   const courseName = props.match.params.courseName;
@@ -69,7 +69,7 @@ const CoursePreview = (props) => {
     <Navbar/>
     <PageOneItemCentered>
     {loading ? (
-        <Loader />
+        <LocalLoader />
       ) : (
         <CoursePreviewWidget 
         courseData={content}

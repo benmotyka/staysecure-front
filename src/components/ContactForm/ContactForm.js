@@ -24,12 +24,49 @@ const ContactForm = () => {
   const [loading, setLoading] = useState(false);
   const user = useSelector(selectUser);
 
+  const onSubmit = async (values) => {
+    window.grecaptcha.ready(() => {
+      window.grecaptcha
+        .execute("6LdJhwMbAAAAAP658oVQALS41aSkllNuOehb5SvW", {
+          action: "submit",
+        })
+        .then(async (token) => {
+          setLoading(true);
+          const requestBody = {
+            query: `
+          query SendContactMessage($email: String!, $subject: String!,$content: String!, $captcha: String!){ 
+            sendContactMessage(email: $email, subject: $subject, content: $content, captchaToken: $captcha) {
+              resultStatus
+            }
+          }  
+          `,
+            variables: {
+              email: values.email,
+              subject: values.subject,
+              content: values.content,
+              captcha: token,
+            },
+          };
+          try {
+            await axios.post(`${window.env.API_URL}/graphql`, requestBody);
+          } catch (error) {
+            console.log(error);
+          } finally {
+            setSent(true);
+            setLoading(false);
+          }
+        });
+    });
+  };
+
   const formik = useFormik({
     initialValues: {
       email: user?.email,
       subject: "",
       content: "",
     },
+    validateOnChange: false,
+    validateOnBlur: false,
     validationSchema: Yup.object({
       email: Yup.string()
         .email(t("errors.wrongEmail"))
@@ -37,43 +74,7 @@ const ContactForm = () => {
       subject: Yup.string().required(t("errors.fieldRequired")),
       content: Yup.string().required(t("errors.fieldRequired")),
     }),
-    onSubmit: async (values) => {
-      window.grecaptcha.ready(() => {
-        window.grecaptcha
-          .execute("6LdJhwMbAAAAAP658oVQALS41aSkllNuOehb5SvW", {
-            action: "submit",
-          })
-          .then(async (token) => {
-            setLoading(true);
-            const requestBody = {
-              query: `
-            query SendContactMessage($email: String!, $subject: String!,$content: String!, $captcha: String!){ 
-              sendContactMessage(email: $email, subject: $subject, content: $content, captchaToken: $captcha) {
-                resultStatus
-              }
-            }  
-            `,
-              variables: {
-                email: values.email,
-                subject: values.subject,
-                content: values.content,
-                captcha: token,
-              },
-            };
-            try {
-              await axios.post(
-                `${window.env.API_URL}/graphql`,
-                requestBody
-              );
-            } catch (error) {
-              console.log(error);
-            } finally {
-              setSent(true);
-              setLoading(false);
-            }
-          });
-      });
-    },
+    onSubmit,
   });
 
   return (
@@ -84,43 +85,43 @@ const ContactForm = () => {
         <SuccessText>{t("contactForm.messageSent")}</SuccessText>
       ) : (
         <>
-            <BasicInput
-              id="email"
-              placeholder={t("contactForm.emailPlaceholder")}
-              onChange={formik.handleChange}
-              value={formik.values.email}
-              maxLength="25"
-              onBlur={formik.handleBlur}
-              type="text"
-              disabled={user}
-              fullWidth
-            />
-            {formik.touched.email && formik.errors.email ? (
-              <ErrorMessage>{formik.errors.email}</ErrorMessage>
-            ) : null}
-            <BasicInput
-              id="subject"
-              placeholder={t("contactForm.subjectPlaceholder")}
-              onChange={formik.handleChange}
-              value={formik.values.subject}
-              type="text"
-              fullWidth
-            />
-            {formik.touched.subject && formik.errors.subject ? (
-              <ErrorMessage>{formik.errors.subject}</ErrorMessage>
-            ) : null}
-            <FormContent
-              id="content"
-              placeholder={t("contactForm.contentPlaceholder")}
-              onChange={formik.handleChange}
-              value={formik.values.content}
-              type="text"
-            />
-            {formik.touched.content && formik.errors.content ? (
-              <ErrorMessage>{formik.errors.content}</ErrorMessage>
-            ) : null}
+          <BasicInput
+            id="email"
+            placeholder={t("contactForm.emailPlaceholder")}
+            onChange={formik.handleChange}
+            value={formik.values.email}
+            maxLength="25"
+            onBlur={formik.handleBlur}
+            type="text"
+            disabled={user}
+            fullWidth
+          />
+          {formik.touched.email && formik.errors.email ? (
+            <ErrorMessage>{formik.errors.email}</ErrorMessage>
+          ) : null}
+          <BasicInput
+            id="subject"
+            placeholder={t("contactForm.subjectPlaceholder")}
+            onChange={formik.handleChange}
+            value={formik.values.subject}
+            type="text"
+            fullWidth
+          />
+          {formik.touched.subject && formik.errors.subject ? (
+            <ErrorMessage>{formik.errors.subject}</ErrorMessage>
+          ) : null}
+          <FormContent
+            id="content"
+            placeholder={t("contactForm.contentPlaceholder")}
+            onChange={formik.handleChange}
+            value={formik.values.content}
+            type="text"
+          />
+          {formik.touched.content && formik.errors.content ? (
+            <ErrorMessage>{formik.errors.content}</ErrorMessage>
+          ) : null}
           <ButtonWrapper>
-          <Button full text={t("contactForm.send")} />
+            <Button full text={t("contactForm.send")} />
           </ButtonWrapper>
         </>
       )}

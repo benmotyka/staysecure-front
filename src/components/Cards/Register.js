@@ -6,6 +6,8 @@ import { selectUser } from "features/userSlice";
 
 import axios from "axios";
 import isEmail from "validator/lib/isEmail";
+import * as Yup from "yup";
+import { useFormik } from "formik";
 
 import {
   Container,
@@ -23,44 +25,23 @@ import BasicInput from "components/BasicInput/BasicInput";
 const Register = () => {
   const history = useHistory();
   const user = useSelector(selectUser);
-  const {t, i18n} = useTranslation()
+  const { t, i18n } = useTranslation();
 
-  const [registrationData, setRegistrationData] = useState({
-    email: "",
-    name: "",
-    password: "",
-    passwordConfirmation: "",
-    accountLevel: "basic"
-  });
-  const [errorMessage, setErrorMessage] = useState("");
+  const [accountLevel, setAccountLevel] = useState("basic");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    if(user) history.push("/");
-  }, [])
+    if (user) history.push("/");
+  }, []);
 
-  const set = (field) => {
-    return ({ target: { value } }) => {
-      setRegistrationData((oldValues) => ({ ...oldValues, [field]: value }));
-    };
-  };
-
-  const setError = (text) => {
-    setErrorMessage(text);
-    setTimeout(() => {
-      setErrorMessage();
-    }, 2500);
-  };
-
-  const sendData = () => {
-    if (!registrationData.password || !registrationData.email || !registrationData.name || registrationData.password.length < 5 || !isEmail(registrationData.email)) {
-      setError(t('errors.wrongEmailNamePassword'));
+  const onSubmit = (
+    { email, name, password, passwordConfirmation },
+    { setFieldError }
+  ) => {
+    if (password !== passwordConfirmation) {
+      setFieldError("password", t("errors.passwordsMustMatch"));
       return;
-    }
-    if(registrationData.password !== registrationData.passwordConfirmation) {
-        setError(t('errors.passwordsMustMatch'));
-        return; 
     }
     window.grecaptcha.ready(() => {
       window.grecaptcha
@@ -77,70 +58,115 @@ const Register = () => {
             }
           }   
           `,
-          variables: {
-            email: registrationData.email,
-            password: registrationData.password,
-            name: registrationData.name,
-            captcha: token,
-            accountLevel: registrationData.accountLevel,
-            language: i18n.language
-          },
+            variables: {
+              email,
+              password,
+              name,
+              captcha: token,
+              accountLevel,
+              language: i18n.language,
+            },
           };
           try {
-            const {data: {data: {register: response}}} = await axios.post(`${window.env.API_URL}/graphql`, requestBody);
+            const {
+              data: {
+                data: { register: response },
+              },
+            } = await axios.post(`${window.env.API_URL}/graphql`, requestBody);
             if (response) {
-                setSuccess(true)
+              setSuccess(true);
             } else {
-                setError(t('errors.userExists'));
+              setFieldError("email", t("errors.userExists"));
             }
           } catch (error) {
-                console.log(error);
+            console.log(error);
           } finally {
-          setLoading(false);
+            setLoading(false);
           }
         });
     });
   };
 
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      name: "",
+      password: "",
+      passwordConfirmation: "",
+    },
+    validateOnChange: false,
+    validateOnBlur: false,
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .email(t("errors.wrongEmailNamePassword"))
+        .required(t("errors.wrongEmailNamePassword")),
+      password: Yup.string()
+        .required(t("errors.wrongEmailNamePassword"))
+        .min(5, t("errors.wrongEmailNamePassword")),
+      name: Yup.string()
+        .required(t("errors.wrongEmailNamePassword"))
+        .min(3, t("errors.wrongEmailNamePassword")),
+    }),
+    onSubmit,
+  });
+
   return (
     <Container>
-      {loading && <Loader />}
-      {success ? (<SuccessText>{t('registerSuccessfulEmailSent')} {registrationData.email}</SuccessText>) : (
-          <>
-      <Header>{t('register')}</Header>
-      <BasicInput
-        placeholder={t('email')}
-        type="email"
-        autocomplete="off"
-        value={registrationData.email}
-        onChange={set("email")}
-      />
-      <BasicInput
-        placeholder={t('userName')}
-        autocomplete="off"
-        value={registrationData.name}
-        onChange={set("name")}
-      />
-      <BasicInput
-        placeholder={t('password')}
-        type="password"
-        autocomplete="off"
-        value={registrationData.password}
-        onChange={set("password")}
-      />
-      <BasicInput
-        placeholder={t('confirmPassword')}
-        type="password"
-        autocomplete="off"
-        value={registrationData.passwordConfirmation}
-        onChange={set("passwordConfirmation")}
-      />
-      <AccountLevel small data={registrationData.accountLevel} onClick={setRegistrationData}/>
-      <ErrorsWrapper>
-        <Error>{errorMessage}</Error>
-      </ErrorsWrapper>
-      <Button  onClick={sendData} text={t('register')} full/>
-      </>
+      {loading ? <Loader /> : null}
+      {success ? (
+        <SuccessText>
+          {t("registerSuccessfulEmailSent")} {formik.values.email}
+        </SuccessText>
+      ) : (
+        <>
+          <Header>{t("register")}</Header>
+          <BasicInput
+            id="email"
+            placeholder={t("email")}
+            type="email"
+            autocomplete="off"
+            onChange={formik.handleChange}
+            value={formik.values.email}
+            onBlur={formik.handleBlur}
+          />
+          <BasicInput
+            id="name"
+            placeholder={t("userName")}
+            autocomplete="off"
+            onChange={formik.handleChange}
+            value={formik.values.name}
+            onBlur={formik.handleBlur}
+          />
+          <BasicInput
+            id="password"
+            placeholder={t("password")}
+            type="password"
+            autocomplete="off"
+            onChange={formik.handleChange}
+            value={formik.values.password}
+            onBlur={formik.handleBlur}
+          />
+          <BasicInput
+            id="passwordConfirmation"
+            placeholder={t("confirmPassword")}
+            type="password"
+            autocomplete="off"
+            onChange={formik.handleChange}
+            value={formik.values.passwordConfirmation}
+            onBlur={formik.handleBlur}
+          />
+          <AccountLevel small onClick={setAccountLevel} data={accountLevel} />
+          <ErrorsWrapper>
+            {formik.touched.email && formik.errors.email ? (
+              <Error>{formik.errors.email}</Error>
+            ) : formik.touched.name && formik.errors.name ? (
+              <Error>{formik.errors.name}</Error>
+            ) : formik.touched.password && formik.errors.password ? (
+              <Error>{formik.errors.password}</Error>
+            ) : null}
+          </ErrorsWrapper>
+          <Button onClick={formik.handleSubmit} text={t("register")} full />
+        </>
       )}
     </Container>
   );

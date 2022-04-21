@@ -20,10 +20,7 @@ const AccountLevel = (props) => {
           active={props.data === "basic"}
           onClick={() => {
             if (props.data === "basic") return;
-            props.onClick((oldValues) => ({
-              ...oldValues,
-              accountLevel: "basic",
-            }));
+            props.onClick("basic");
             if (props.sendRequest) props.sendRequest("basic");
           }}
         >
@@ -33,10 +30,7 @@ const AccountLevel = (props) => {
           active={props.data === "advanced"}
           onClick={() => {
             if (props.data === "advanced") return;
-            props.onClick((oldValues) => ({
-              ...oldValues,
-              accountLevel: "advanced",
-            }));
+            props.onClick("advanced");
             if (props.sendRequest) props.sendRequest("advanced");
           }}
         >

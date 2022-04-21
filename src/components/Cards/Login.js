@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import { selectUser } from "features/userSlice";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import isEmail from "validator/lib/isEmail";
 import * as Yup from "yup";
 
 import {

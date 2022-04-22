@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { selectUser } from "features/userSlice";
 
 import axios from "axios";
-import isEmail from "validator/lib/isEmail";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 
@@ -36,13 +35,9 @@ const Register = () => {
   }, []);
 
   const onSubmit = (
-    { email, name, password, passwordConfirmation },
+    { email, name, password },
     { setFieldError }
   ) => {
-    if (password !== passwordConfirmation) {
-      setFieldError("password", t("errors.passwordsMustMatch"));
-      return;
-    }
     window.grecaptcha.ready(() => {
       window.grecaptcha
         .execute("6LdJhwMbAAAAAP658oVQALS41aSkllNuOehb5SvW", {
@@ -103,6 +98,8 @@ const Register = () => {
       password: Yup.string()
         .required(t("errors.wrongEmailNamePassword"))
         .min(5, t("errors.wrongEmailNamePassword")),
+      passwordConfirmation: Yup.string().oneOf([
+        Yup.ref("password"), null], t("errors.passwordsMustMatch")).required(t("errors.passwordsMustMatch")),
       name: Yup.string()
         .required(t("errors.wrongEmailNamePassword"))
         .min(3, t("errors.wrongEmailNamePassword")),
@@ -163,6 +160,8 @@ const Register = () => {
               <Error>{formik.errors.name}</Error>
             ) : formik.touched.password && formik.errors.password ? (
               <Error>{formik.errors.password}</Error>
+            ) : formik.touched.passwordConfirmation && formik.errors.passwordConfirmation ? (
+              <Error>{formik.errors.passwordConfirmation}</Error>
             ) : null}
           </ErrorsWrapper>
           <Button onClick={formik.handleSubmit} text={t("register")} full />

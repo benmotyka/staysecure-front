@@ -19,7 +19,7 @@ import axios from "axios";
 import BasicInput from "components/BasicInput/BasicInput";
 
 const ContactForm = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const user = useSelector(selectUser);

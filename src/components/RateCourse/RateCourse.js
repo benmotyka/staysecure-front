@@ -105,6 +105,7 @@ const RateCourse = (props) => {
                 <Label htmlFor="comment">{t("comment")}</Label>
                 <BasicTextarea
                   id="comment"
+                  placeholder={t("enterComment")}
                   onChange={formik.handleChange}
                   value={formik.values.comment}
                   onBlur={formik.handleBlur}

@@ -5,7 +5,6 @@ import {
   Container,
   ButtonWrapper,
   ErrorMessage,
-  FormContent,
 } from "./ContactForm.styles";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -17,6 +16,7 @@ import LocalLoader from "components/Loader/LocalLoader";
 import { SuccessText } from "components/Cards/Cards.styles";
 import axios from "axios";
 import BasicInput from "components/BasicInput/BasicInput";
+import BasicTextarea from "components/BasicTextarea/BasicTextarea";
 
 const ContactForm = () => {
   const { t } = useTranslation();
@@ -110,12 +110,13 @@ const ContactForm = () => {
           {formik.touched.subject && formik.errors.subject ? (
             <ErrorMessage>{formik.errors.subject}</ErrorMessage>
           ) : null}
-          <FormContent
+          <BasicTextarea
             id="content"
             placeholder={t("contactForm.contentPlaceholder")}
             onChange={formik.handleChange}
             value={formik.values.content}
             type="text"
+            bigFont
           />
           {formik.touched.content && formik.errors.content ? (
             <ErrorMessage>{formik.errors.content}</ErrorMessage>

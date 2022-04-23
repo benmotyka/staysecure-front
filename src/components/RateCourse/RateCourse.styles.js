@@ -11,7 +11,7 @@ justify-content: center;
 flex-direction: column;
 padding: 25px;
 border-radius: 5px;
-background-color: ${colors.mediumDarkPurple};
+background-color: ${colors.lightPurple};
 gap: 10px;
 min-width: min(300px, 80%);
 `

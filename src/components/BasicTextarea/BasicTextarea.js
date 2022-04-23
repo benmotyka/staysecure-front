@@ -2,8 +2,17 @@ import React from "react";
 
 import { Textarea } from "./BasicTextarea.styles";
 
-const BasicTextarea = ({ id, value, onChange, onBlur }) => {
-  return <Textarea value={value} onChange={onChange} id={id} onBlur={onBlur} />;
+const BasicTextarea = ({ id, value, placeholder, onChange, onBlur, bigFont }) => {
+  return (
+    <Textarea
+      value={value}
+      onChange={onChange}
+      id={id}
+      onBlur={onBlur}
+      placeholder={placeholder}
+      bigFont={bigFont}
+    />
+  );
 };
 
 export default BasicTextarea;

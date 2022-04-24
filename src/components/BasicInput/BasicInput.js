@@ -15,6 +15,7 @@ const BasicInput = ({ id, placeholder, type, value, onChange, disabled, fullWidt
       fullWidth={fullWidth}
       maxLength={maxLength}
       onBlur={onBlur}
+      autoComplete="off"
     />
   );
 };

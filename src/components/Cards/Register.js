@@ -121,7 +121,6 @@ const Register = () => {
             id="email"
             placeholder={t("email")}
             type="email"
-            autocomplete="off"
             onChange={formik.handleChange}
             value={formik.values.email}
             onBlur={formik.handleBlur}
@@ -129,7 +128,6 @@ const Register = () => {
           <BasicInput
             id="name"
             placeholder={t("userName")}
-            autocomplete="off"
             onChange={formik.handleChange}
             value={formik.values.name}
             onBlur={formik.handleBlur}
@@ -138,7 +136,6 @@ const Register = () => {
             id="password"
             placeholder={t("password")}
             type="password"
-            autocomplete="off"
             onChange={formik.handleChange}
             value={formik.values.password}
             onBlur={formik.handleBlur}
@@ -147,7 +144,6 @@ const Register = () => {
             id="passwordConfirmation"
             placeholder={t("confirmPassword")}
             type="password"
-            autocomplete="off"
             onChange={formik.handleChange}
             value={formik.values.passwordConfirmation}
             onBlur={formik.handleBlur}

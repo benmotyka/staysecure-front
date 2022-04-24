@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import colors from "constans/colors";
 
 export const Container = styled.div`
@@ -121,19 +121,6 @@ export const Answer = styled.p`
     font-size: 14px;
   }
 `;
-
-export const faqInputStyles = css`
-  font-size: 18px;
-  background-color: ${colors.mediumDarkPurple};
-  color: ${colors.white};
-  margin: 0;
-  padding: 15px 25px;
-  border: 1px solid ${colors.darkestPurple};
-  border-radius: 5px;
-  outline: none;
-  width: 100%;
-  box-sizing: border-box;
-`
 
 export const Text = styled.p`
   font-size: 20px;

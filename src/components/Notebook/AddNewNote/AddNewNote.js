@@ -5,17 +5,17 @@ import {
   Text,
   AddIcon,
   NoteContainer,
-  NoteText,
   NoteButtonsContainer,
 } from "./AddNewNote.styles";
 import Button from "components/Button/Button";
 import { useTranslation } from "react-i18next";
 import FadeIn from "components/FadeIn/FadeIn";
+import BasicTextarea from "components/BasicTextarea/BasicTextarea";
 
 const AddNewNote = (props) => {
   const [newNoteActive, setNewNoteActive] = useState(false);
   const [noteText, setNoteText] = useState("");
-  const {t, i18n} = useTranslation()
+  const {t} = useTranslation()
 
   const addNote = () => {
     if (!noteText) return;
@@ -45,7 +45,7 @@ const AddNewNote = (props) => {
       <FadeIn in={newNoteActive}>
       <NoteContainer active={newNoteActive}>
           <>
-            <NoteText
+            <BasicTextarea
               spellCheck="false"
               placeholder={t('enterNote')}
               onChange={(e) => setNoteText(e.target.value)}

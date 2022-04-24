@@ -35,7 +35,7 @@ font-size: 25px;
 export const NoteContainer = styled.div`
 border-radius: 5px;
 width: 100%;
-background-color: ${colors.mediumDarkPurple};
+background-color: ${colors.lightPurple};
 position: absolute;
 right: 110%;
 top: 0;
@@ -47,22 +47,6 @@ box-sizing: border-box;
 @media screen and (max-width: 600px) {
     right: 0;
     top: -100px;
-}
-`
-
-export const NoteText = styled.textarea`
-font-family: inherit;
-background-color: transparent;
-border: none;
-outline: none;
-resize: none;
-width: 100%;
-min-height: 100px;
-color: ${colors.white};
-font-size: 15px;
-::placeholder {
-  opacity: 0.2; /* Firefox */
-  color: ${colors.white};
 }
 `
 

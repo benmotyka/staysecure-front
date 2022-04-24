@@ -50,6 +50,7 @@ const Faq = () => {
           onChange={(e) => updateFaqSearch(e.target.value)}
           maxLength="25"
           type="text"
+          fullWidth
         />
       </HeaderWrapper>
       {faqSearch.length > 3 ? (

@@ -7,24 +7,25 @@ import axios from "axios";
 import { Label } from "components/Cards/Cards.styles";
 import { selectUser } from "features/userSlice";
 import { useSelector } from "react-redux";
-
-import { Wrapper, Header, Star, Textarea } from "./RateCourse.styles";
+import * as Yup from "yup";
+import { useFormik } from "formik";
+import { Wrapper, Header, Star } from "./RateCourse.styles";
 import { useRef } from "react";
 import { useOnClickOutside } from "hooks/useOnClickOutside";
+import BasicTextarea from "components/BasicTextarea/BasicTextarea";
 
 const RateCourse = (props) => {
   const ref = useRef();
   const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
   const [stars, setStars] = useState(null);
-  const [comment, setComment] = useState("");
   const [finish, setFinish] = useState(false);
 
   const user = useSelector(selectUser);
 
   useOnClickOutside(ref, () => setShowModal(false));
 
-  const sendData = () => {
+  const onSubmit = ({comment}) => {
     if (!stars) {
       return;
     }
@@ -59,11 +60,23 @@ const RateCourse = (props) => {
           } catch (error) {
             console.log(error);
           } finally {
-            props.setShowRateButton(false)
+            props.setShowRateButton(false);
           }
         });
     });
   };
+
+  const formik = useFormik({
+    initialValues: {
+      comment: "",
+    },
+    validateOnChange: false,
+    validateOnBlur: false,
+    validationSchema: Yup.object({
+      comment: Yup.string(),
+    }),
+    onSubmit,
+  });
 
   return (
     <>
@@ -90,13 +103,18 @@ const RateCourse = (props) => {
                   ))}
                 </div>
                 <Label htmlFor="comment">{t("comment")}</Label>
-                <Textarea
-                  value={comment}
-                  onChange={(e) => setComment(e.target.value)}
+                <BasicTextarea
                   id="comment"
-                  type="text"
+                  placeholder={t("enterComment")}
+                  onChange={formik.handleChange}
+                  value={formik.values.comment}
+                  onBlur={formik.handleBlur}
                 />
-                <Button onClick={sendData} noArrow text={t("sendFeedback")} />
+                <Button
+                  onClick={formik.handleSubmit}
+                  noArrow
+                  text={t("sendFeedback")}
+                />
               </>
             )}
           </Wrapper>

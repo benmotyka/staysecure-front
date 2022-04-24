@@ -1,31 +1,28 @@
 import axios from "axios";
+import * as Yup from "yup";
+import { useFormik } from "formik";
+
 import BasicInput from "components/BasicInput/BasicInput";
 import Button from "components/Button/Button";
 import Loader from "components/Loader/GlobalLoader";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import isEmail from "validator/lib/isEmail";
 
-import { Container, Error, ErrorsWrapper, Header, SuccessText } from "./Cards.styles";
+import {
+  Container,
+  Error,
+  ErrorsWrapper,
+  Header,
+  SuccessText,
+} from "./Cards.styles";
 
 const ForgotPassword = () => {
-  const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-  const setError = (text) => {
-    setErrorMessage(text);
-    setTimeout(() => {
-      setErrorMessage();
-    }, 2500);
-  };
+
   const { t, i18n } = useTranslation();
 
-  const sendData = async () => {
-    if (!isEmail(email)) {
-      setError(t("errors.wrongEmail"));
-      return;
-    }
+  const onSubmit = async ({ email }, { setFieldError }) => {
     setLoading(true);
     window.grecaptcha.ready(() => {
       window.grecaptcha
@@ -44,7 +41,7 @@ email
             variables: {
               email,
               captcha: token,
-              language: i18n.language
+              language: i18n.language,
             },
           };
 
@@ -54,7 +51,7 @@ email
               requestBody
             );
             if (response.data.errors) {
-              setError(t("errors.somethingWentWrong"));
+              setFieldError("email", t("errors.somethingWentWrong"));
               return;
             }
             setSuccess(true);
@@ -66,6 +63,21 @@ email
         });
     });
   };
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+    },
+    validateOnChange: false,
+    validateOnBlur: false,
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .email(t("errors.wrongEmail"))
+        .required(t("errors.wrongEmail")),
+    }),
+    onSubmit,
+  });
+
   return (
     <>
       {loading ? (
@@ -73,21 +85,25 @@ email
       ) : (
         <Container>
           {success ? (
-              <SuccessText>{t("forgotPassword.checkEmail")}</SuccessText>
+            <SuccessText>{t("forgotPassword.checkEmail")}</SuccessText>
           ) : (
             <>
               <Header>{t("forgotPassword.instructions")}</Header>
               <BasicInput
+                id="email"
                 placeholder={t("email")}
-                value={email}
                 type="email"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={formik.handleChange}
+                value={formik.values.email}
+                onBlur={formik.handleBlur}
               />
               <ErrorsWrapper>
-                <Error>{errorMessage}</Error>
+                {formik.touched.email && formik.errors.email ? (
+                  <Error>{formik.errors.email}</Error>
+                ) : null}
               </ErrorsWrapper>
               <Button
-                onClick={sendData}
+                onClick={formik.handleSubmit}
                 text={t("forgotPassword.continue")}
                 full
               />

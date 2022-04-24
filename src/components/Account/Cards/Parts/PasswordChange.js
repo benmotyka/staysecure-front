@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import * as Yup from "yup";
+import { useFormik } from "formik";
 
 import { Container, Header } from "./PasswordChange.styles";
 import {
@@ -13,46 +15,15 @@ import { useTranslation } from "react-i18next";
 import BasicInput from "components/BasicInput/BasicInput";
 
 const PasswordChange = (props) => {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
-  const [passwordChangeData, setPasswordChangeData] = useState({
-    oldPassword: "",
-    newPassword: "",
-    newPasswordConfirmation: "",
-  });
-  const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const set = (field) => {
-    return ({ target: { value } }) => {
-      setPasswordChangeData((oldValues) => ({ ...oldValues, [field]: value }));
-    };
-  };
-  const setError = (text) => {
-    setErrorMessage(text);
-    setTimeout(() => {
-      setErrorMessage();
-    }, 2500);
-  };
-
-  const sendData = () => {
-    if (
-      !passwordChangeData.oldPassword ||
-      !passwordChangeData.newPassword ||
-      !passwordChangeData.newPasswordConfirmation ||
-      passwordChangeData.newPassword.length < 5
-    ) {
-      setError(t('errors.wrongLoginPassword'));
-      return;
-    }
-    if (
-      passwordChangeData.newPassword !==
-      passwordChangeData.newPasswordConfirmation
-    ) {
-      setError(t('errors.passwordsMustMatch'));
-      return;
-    }
+  const onSubmit = (
+    { oldPassword, newPassword },
+    { setFieldError }
+  ) => {
     window.grecaptcha.ready(() => {
       window.grecaptcha
         .execute("6LdJhwMbAAAAAP658oVQALS41aSkllNuOehb5SvW", {
@@ -69,14 +40,16 @@ const PasswordChange = (props) => {
               }
           `,
             variables: {
-              oldPassword: passwordChangeData.oldPassword,
-              newPassword: passwordChangeData.newPassword,
-              captcha: passwordChangeData.newPasswordConfirmation,
+              oldPassword: oldPassword,
+              newPassword: newPassword,
+              captcha: token,
             },
           };
           try {
             const {
-              data: { data: {resetPassword: response} },
+              data: {
+                data: { resetPassword: response },
+              },
             } = await axios.post(`${window.env.API_URL}/graphql`, requestBody, {
               headers: {
                 Authorization: `Bearer ${props.user.token}`,
@@ -85,7 +58,8 @@ const PasswordChange = (props) => {
             if (response) {
               setSuccess(true);
             } else {
-              setError(t('errors.wrongPassword'));
+              setFieldError("oldPassword", t("errors.wrongPassword"));
+              return;
             }
           } catch (error) {
             console.log(error);
@@ -95,36 +69,71 @@ const PasswordChange = (props) => {
         });
     });
   };
+
+  const formik = useFormik({
+    initialValues: {
+      oldPassword: "",
+      newPassword: "",
+      newPasswordConfirmation: "",
+    },
+    validateOnChange: false,
+    validateOnBlur: false,
+    validationSchema: Yup.object({
+      oldPassword: Yup.string()
+        .required(t("errors.wrongPassword"))
+        .min(5, t("errors.wrongPassword")),
+      newPassword: Yup.string()
+        .required(t("errors.wrongPassword"))
+        .min(5, t("errors.wrongPassword")),
+      newPasswordConfirmation: Yup.string().oneOf([
+        Yup.ref("newPassword"), null], t("errors.passwordsMustMatch")).required(t("errors.passwordsMustMatch")),
+    }),
+    onSubmit,
+  });
+
   return (
     <Container>
       {loading && <Loader />}
       {success ? (
-        <SuccessText>{t('passwordChangeSuccess')}</SuccessText>
+        <SuccessText>{t("passwordChangeSuccess")}</SuccessText>
       ) : (
         <>
-          <Header>{t('passwordChange')}</Header>
+          <Header>{t("passwordChange")}</Header>
           <BasicInput
-            placeholder={t('oldPassword')}
+            id="oldPassword"
+            placeholder={t("oldPassword")}
             type="password"
-            value={passwordChangeData.oldPassword}
-            onChange={set("oldPassword")}
+            onChange={formik.handleChange}
+            value={formik.values.oldPassword}
+            onBlur={formik.handleBlur}
           />
           <BasicInput
-            placeholder={t('newPassword')}
+            id="newPassword"
+            placeholder={t("newPassword")}
             type="password"
-            value={passwordChangeData.newPassword}
-            onChange={set("newPassword")}
+            onChange={formik.handleChange}
+            value={formik.values.newPassword}
+            onBlur={formik.handleBlur}
           />
           <BasicInput
-            placeholder={t('confirmNewPassword')}
+            id="newPasswordConfirmation"
+            placeholder={t("confirmNewPassword")}
             type="password"
-            value={passwordChangeData.newPasswordConfirmation}
-            onChange={set("newPasswordConfirmation")}
+            onChange={formik.handleChange}
+            value={formik.values.newPasswordConfirmation}
+            onBlur={formik.handleBlur}
           />
           <ErrorsWrapper>
-            <Error>{errorMessage}</Error>
+            {formik.touched.oldPassword && formik.errors.oldPassword ? (
+              <Error>{formik.errors.oldPassword}</Error>
+            ) : formik.touched.newPassword && formik.errors.newPassword ? (
+              <Error>{formik.errors.newPassword}</Error>
+            ) : formik.touched.newPasswordConfirmation &&
+              formik.errors.newPasswordConfirmation ? (
+              <Error>{formik.errors.newPasswordConfirmation}</Error>
+            ) : null}
           </ErrorsWrapper>
-          <Button onClick={sendData} full text={t('change')} />
+          <Button onClick={formik.handleSubmit} full text={t("change")} />
         </>
       )}
     </Container>

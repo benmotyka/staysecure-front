@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import { Container, Header, Line, ItemsWrapper } from "./PreviewItems.styles";
-import { PageCentered } from "components/Pages/Pages.styles";
+import { Container, Wrapper, Header, Line, ItemsWrapper } from "./PreviewItems.styles";
 import Article from "./Previews/Article";
 import { useTranslation } from "react-i18next";
 import LocalLoader from "components/Loader/LocalLoader";
@@ -46,11 +45,11 @@ const Articles = (props) => {
   };
 
   return (
-    <PageCentered>
-      {loading ? <LocalLoader /> : (
+    <Wrapper>
       <Container>
       <Header>{props.header}</Header>
       <Line></Line>
+      {loading ? <LocalLoader /> : (
       <ItemsWrapper>
         {articles.map((article, index) => (
           <Article
@@ -61,9 +60,9 @@ const Articles = (props) => {
           />
         ))}
       </ItemsWrapper>
-    </Container>
       )}
-    </PageCentered>
+    </Container>
+    </Wrapper>
   );
 };
 

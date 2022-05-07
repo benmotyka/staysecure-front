@@ -85,3 +85,14 @@ export const BlankPage = styled.div`
 min-height: calc(100vh - ${footerHeight} - ${navbarHeight});
 width: 100%;
 `
+
+
+export const PageWrapperNoCentered = styled.div`
+width: 100%;
+padding: 50px 0;
+min-height: 100vh;
+
+display: flex; 
+align-items: center;
+flex-direction: column;
+`

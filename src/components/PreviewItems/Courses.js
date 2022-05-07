@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import { Container, Header, Line, ItemsWrapper } from "./PreviewItems.styles";
-import { PageCentered } from "components/Pages/Pages.styles";
+import { Container, Header, Line, ItemsWrapper, Wrapper } from "./PreviewItems.styles";
 import { useTranslation } from "react-i18next";
 
 import Course from "./Previews/Course";
 import LocalLoader from "components/Loader/LocalLoader";
 const Courses = (props) => {
-  const {i18n} = useTranslation()
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     (async () => {
@@ -23,7 +22,9 @@ const Courses = (props) => {
     const requestBody = {
       query: `
           query{
-            courses(quantity: ${props.quantity | null}, language: "${i18n.language}"){
+            courses(quantity: ${props.quantity | null}, language: "${
+        i18n.language
+      }"){
               header
               description
               difficulty
@@ -46,13 +47,13 @@ const Courses = (props) => {
     }
   };
   return (
-    <PageCentered>
-      {loading ? (
-        <LocalLoader />
-      ) : (
-        <Container>
-          <Header>{props.header}</Header>
-          <Line/>
+    <Wrapper>
+      <Container>
+        <Header>{props.header}</Header>
+        <Line />
+        {loading ? (
+          <LocalLoader />
+        ) : (
           <ItemsWrapper>
             {courses.map((course, index) => (
               <Course
@@ -65,9 +66,9 @@ const Courses = (props) => {
               />
             ))}
           </ItemsWrapper>
-        </Container>
-      )}
-    </PageCentered>
+        )}
+      </Container>
+    </Wrapper>
   );
 };
 

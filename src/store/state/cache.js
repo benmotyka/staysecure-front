@@ -2,17 +2,23 @@
 import { atom } from 'recoil';
 
 const coursesAtom = atom({
-    key: 'coursesAtom',
+    key: 'courses',
     default: []
   });
 
 const articlesAtom = atom({
-    key: 'articlesAtom',
+    key: 'articles',
     default: [],
   });
+
+const finishedQuizesAtom = atom({
+  key: 'finishedQuizes',
+  default: null
+})
   
 
 export {
     coursesAtom,
-    articlesAtom
+    articlesAtom,
+    finishedQuizesAtom
 }

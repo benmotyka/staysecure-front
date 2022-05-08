@@ -16,15 +16,20 @@ import ListItem from "components/Account/Cards/Parts/ListItem";
 import OverallQuizSummary from "components/Account/Cards/Parts/OverallQuizSummary";
 import Scale from "components/Charts/Scale";
 import LocalLoader from "components/Loader/LocalLoader";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { finishedQuizesAtom } from "store/state/cache";
 const Quizes = () => {
   const { t, i18n } = useTranslation();
   const history = useHistory();
   const dispatch = useDispatch();
   const [language] = useState(i18n.language);
 
-  const [quizesFinished, setQuizesFinished] = useState([]);
-  const [overallChartData, setOverallChartData] = useState(null);
+  const [quizesData, setQuizesData] = useState(null)
   const [loading, setLoading] = useState(true);
+
+  const cachedItems = useRecoilValue(finishedQuizesAtom);
+  const setCachedItems = useSetRecoilState(finishedQuizesAtom);
+
   useEffect(() => {
     if (!user) history.push("/login");
     (async function () {
@@ -36,6 +41,9 @@ const Quizes = () => {
 
   const getOverallQuizesData = async () => {
     try {
+      if (cachedItems) {
+        return  setQuizesData(cachedItems)
+      }
       const requestBody = {
         query: `
         query {
@@ -63,8 +71,8 @@ const Quizes = () => {
           Authorization: `Bearer ${user.token}`,
         },
       });
-        setOverallChartData(getOverallQuizesData.overallScore);
-        setQuizesFinished(getOverallQuizesData.finishedQuizes);
+      setCachedItems(getOverallQuizesData)
+      setQuizesData(getOverallQuizesData)
     } catch (error) {
       console.log(error);
       if (
@@ -92,13 +100,12 @@ const Quizes = () => {
                 <LocalLoader />
               ) : (
                 <>
-                  {overallChartData ? (
-                    <OverallQuizSummary chartData={overallChartData} />
+                  {quizesData.overallScore ? (
+                    <OverallQuizSummary chartData={quizesData.overallScore} />
                   ) : null}
-                  {JSON.stringify()}
-                  {quizesFinished && quizesFinished.length ? (
+                  {quizesData.finishedQuizes && quizesData.finishedQuizes.length ? (
                     <ExpandItems header={t("quizesDetails")}>
-                      {quizesFinished.map((quiz, index) => (
+                      {quizesData.finishedQuizes.map((quiz, index) => (
                         <ListItem
                           green
                           key={index}

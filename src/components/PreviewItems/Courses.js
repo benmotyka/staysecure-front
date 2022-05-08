@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import { Container, Header, Line, ItemsWrapper, Wrapper } from "./PreviewItems.styles";
+import {
+  Container,
+  Header,
+  Line,
+  ItemsWrapper,
+  Wrapper,
+} from "./PreviewItems.styles";
 import { useTranslation } from "react-i18next";
 
 import Course from "./Previews/Course";
 import LocalLoader from "components/Loader/LocalLoader";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { coursesAtom } from "store/state/cache";
-const Courses = (props) => {
+const Courses = ({ header, quantity }) => {
   const { i18n } = useTranslation();
 
   useEffect(() => {
@@ -20,20 +26,18 @@ const Courses = (props) => {
   const [loading, setLoading] = useState(true);
   const [courses, setCourses] = useState([]);
 
-  const cachedItems = useRecoilValue(coursesAtom)
+  const cachedItems = useRecoilValue(coursesAtom);
   const setCachedItems = useSetRecoilState(coursesAtom);
 
   const getCourses = async () => {
     try {
-    if (cachedItems.length) {
-      return setCourses(cachedItems)
-    }
-    const requestBody = {
-      query: `
+      if (cachedItems.length) {
+        return setCourses(cachedItems.slice(0,quantity));
+      }
+      const requestBody = {
+        query: `
           query{
-            courses(language: "${
-        i18n.language
-      }"){
+            courses(language: "${i18n.language}"){
               header
               description
               difficulty
@@ -41,14 +45,14 @@ const Courses = (props) => {
             }
           }
           `,
-    };
+      };
       const {
         data: {
           data: { courses: response },
         },
       } = await axios.post(`${window.env.API_URL}/graphql`, requestBody);
-      setCourses(response);
-      setCachedItems(response)
+      setCourses(response.slice(0,quantity));
+      setCachedItems(response);
     } catch (error) {
       console.log(error);
     } finally {
@@ -58,7 +62,7 @@ const Courses = (props) => {
   return (
     <Wrapper>
       <Container>
-        <Header>{props.header}</Header>
+        <Header>{header}</Header>
         <Line />
         {loading ? (
           <LocalLoader />

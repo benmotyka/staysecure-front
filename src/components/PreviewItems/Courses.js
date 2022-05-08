@@ -6,6 +6,8 @@ import { useTranslation } from "react-i18next";
 
 import Course from "./Previews/Course";
 import LocalLoader from "components/Loader/LocalLoader";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { coursesAtom } from "store/state/cache";
 const Courses = (props) => {
   const { i18n } = useTranslation();
 
@@ -18,11 +20,18 @@ const Courses = (props) => {
   const [loading, setLoading] = useState(true);
   const [courses, setCourses] = useState([]);
 
+  const cachedItems = useRecoilValue(coursesAtom)
+  const setCachedItems = useSetRecoilState(coursesAtom);
+
   const getCourses = async () => {
+    try {
+    if (cachedItems.length) {
+      return setCourses(cachedItems)
+    }
     const requestBody = {
       query: `
           query{
-            courses(quantity: ${props.quantity | null}, language: "${
+            courses(language: "${
         i18n.language
       }"){
               header
@@ -33,13 +42,13 @@ const Courses = (props) => {
           }
           `,
     };
-    try {
       const {
         data: {
           data: { courses: response },
         },
       } = await axios.post(`${window.env.API_URL}/graphql`, requestBody);
       setCourses(response);
+      setCachedItems(response)
     } catch (error) {
       console.log(error);
     } finally {

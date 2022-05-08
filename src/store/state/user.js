@@ -5,7 +5,7 @@ import { recoilPersist } from 'recoil-persist';
 const { persistAtom } = recoilPersist();
 
 const userAtom = atom({
-    key: 'emailVerification',
+    key: 'userAtom',
     default: {
       email: '',
       jwt: '',

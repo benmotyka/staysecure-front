@@ -16,7 +16,7 @@ import ListItem from "components/Account/Cards/Parts/ListItem";
 import OverallQuizSummary from "components/Account/Cards/Parts/OverallQuizSummary";
 import Scale from "components/Charts/Scale";
 import LocalLoader from "components/Loader/LocalLoader";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { finishedQuizesAtom } from "store/state/cache";
 const Quizes = () => {
   const { t, i18n } = useTranslation();
@@ -27,8 +27,7 @@ const Quizes = () => {
   const [quizesData, setQuizesData] = useState(null)
   const [loading, setLoading] = useState(true);
 
-  const cachedItems = useRecoilValue(finishedQuizesAtom);
-  const setCachedItems = useSetRecoilState(finishedQuizesAtom);
+  const [cachedItems, setCachedItems] = useRecoilState(finishedQuizesAtom);
 
   useEffect(() => {
     if (!user) history.push("/login");

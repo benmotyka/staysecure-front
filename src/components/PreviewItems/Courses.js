@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 
 import Course from "./Previews/Course";
 import LocalLoader from "components/Loader/LocalLoader";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState} from "recoil";
 import { coursesAtom } from "store/state/cache";
 const Courses = ({ header, quantity }) => {
   const { i18n } = useTranslation();
@@ -26,8 +26,7 @@ const Courses = ({ header, quantity }) => {
   const [loading, setLoading] = useState(true);
   const [courses, setCourses] = useState([]);
 
-  const cachedItems = useRecoilValue(coursesAtom);
-  const setCachedItems = useSetRecoilState(coursesAtom);
+  const [cachedItems, setCachedItems] = useRecoilState(coursesAtom);
 
   const getCourses = async () => {
     try {

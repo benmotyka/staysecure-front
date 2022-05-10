@@ -15,6 +15,8 @@ import ExpandItems from "components/Account/Cards/ExpandItems";
 import { useTranslation } from "react-i18next";
 import ListItem from "components/Account/Cards/Parts/ListItem";
 import LocalLoader from "components/Loader/LocalLoader";
+import { useRecoilState } from "recoil";
+import { accountCourses } from "store/state/cache";
 const Courses = () => {
   const { t, i18n } = useTranslation();
   const history = useHistory();
@@ -31,10 +33,16 @@ const Courses = () => {
     })();
   }, []);
 
+  const [cachedItems, setCachedItems] = useRecoilState(accountCourses);
+
   const user = useSelector(selectUser);
 
   const getUserInfo = async () => {
     try {
+      if (cachedItems?.started && cachedItems?.finished) {
+          setCoursesStarted(cachedItems.started)
+          return setCoursesFinished(cachedItems.finished)
+      }
       const requestBody = {
         query: `
         query {
@@ -74,6 +82,10 @@ const Courses = () => {
       });
       setCoursesFinished(getUserInfo.coursesFinished);
       setCoursesStarted(getUserInfo.coursesStarted);
+      setCachedItems({
+        started: getUserInfo.coursesStarted,
+        finished: getUserInfo.coursesFinished,
+      })
     } catch (error) {
       if (
         error.response ||

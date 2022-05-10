@@ -5,7 +5,7 @@ import { Container, Wrapper, Header, Line, ItemsWrapper } from "./PreviewItems.s
 import Article from "./Previews/Article";
 import { useTranslation } from "react-i18next";
 import LocalLoader from "components/Loader/LocalLoader";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { articlesAtom } from "store/state/cache";
 const Articles = ({header, random, quantity}) => {
   const { i18n } = useTranslation()
@@ -20,8 +20,7 @@ const Articles = ({header, random, quantity}) => {
   const [loading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
 
-  const cachedItems = useRecoilValue(articlesAtom)
-  const setCachedItems = useSetRecoilState(articlesAtom);
+  const [cachedItems, setCachedItems] = useRecoilState(articlesAtom);
 
   const getArticles = async () => {
     try {

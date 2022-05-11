@@ -14,6 +14,7 @@ margin-bottom: 80px;
 max-width: 1200px;
 @media screen and (max-width: 600px){
     margin-bottom: 20px;
+    padding: 15px;
 }
 `
 export const Header = styled.h2`
@@ -29,10 +30,10 @@ opacity: 10%;
 
 export const ItemsWrapper = styled.div`
 display: grid;
-grid-template-columns: repeat(3, 1fr);
+grid-template-columns: repeat(3, 33.3%);
 
-@media screen and (max-width: 1200px) {
-    grid-template-columns: 1fr;
-grid-template-rows: repeat(3, 1fr);
+@media screen and (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
 }
 `

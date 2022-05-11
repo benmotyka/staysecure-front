@@ -18,7 +18,6 @@ border: 1px solid ${colors.mediumDarkPurple};
 transition: 0.2s all ease-in-out;
 height: 120px;
 min-width: 200px;
-max-width: 500px;
 display: flex;
 flex-direction: column;
 `
@@ -94,7 +93,7 @@ export const Container = styled(Link)`
 text-decoration: none;
 display: flex;
 flex-direction: column;
-margin: 20px 20px;
+margin: 20px;
 
 &:hover ${Body} {
     border: 1px solid ${colors.orange};

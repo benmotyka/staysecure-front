@@ -11,6 +11,15 @@ import {
   FlagsItem,
 } from "./LanguageChooser.styles.js";
 
+const languages = {
+  pl: {
+    iconFile: "poland.png",
+  },
+  en: {
+    iconFile: "united-kingdom.png",
+  },
+};
+
 const LanguageChooser = () => {
   const history = useHistory();
   const { i18n } = useTranslation();
@@ -20,47 +29,32 @@ const LanguageChooser = () => {
     i18n.changeLanguage(language);
     history.go(0);
   };
+
   return (
     <Container>
       <FlagsWrapper>
-        {i18n.language === "pl" && (
-          <CountryIcon
-            onClick={() => setDropdownActive(!dropdownActive)}
-            src="flags/poland.png"
-          />
-        )}
-        {i18n.language === "en" && (
-          <CountryIcon
-            onClick={() => setDropdownActive(!dropdownActive)}
-            src="flags/united-kingdom.png"
-          />
-        )}
+        {}
+        <CountryIcon
+          onClick={() => setDropdownActive(!dropdownActive)}
+          src={`flags/${languages[i18n.language].iconFile}`}
+        />
       </FlagsWrapper>
       <FadeIn in={dropdownActive}>
         <DropdownWrapper>
           <>
-            {i18n.language !== "pl" && (
-              <FlagsItem>
-                <CountryIcon
-                  onClick={() => {
-                    changeLanguage("pl");
-                    setDropdownActive(false);
-                  }}
-                  src="flags/poland.png"
-                />
-              </FlagsItem>
-            )}
-            {i18n.language !== "en" && (
-              <FlagsItem>
-                <CountryIcon
-                  onClick={() => {
-                    changeLanguage("en");
-                    setDropdownActive(false);
-                  }}
-                  src="flags/united-kingdom.png"
-                />
-              </FlagsItem>
-            )}
+            {Object.keys(languages)
+              .filter((lang) => lang !== i18n.language)
+              .map((item) => (
+                <FlagsItem>
+                  <CountryIcon
+                    onClick={() => {
+                      changeLanguage(item);
+                      setDropdownActive(false);
+                    }}
+                    src={`flags/${languages[item].iconFile}`}
+                  />
+                </FlagsItem>
+              ))}
           </>
         </DropdownWrapper>
       </FadeIn>

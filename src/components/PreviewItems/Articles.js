@@ -5,24 +5,32 @@ import { Container, Wrapper, Header, Line, ItemsWrapper } from "./PreviewItems.s
 import Article from "./Previews/Article";
 import { useTranslation } from "react-i18next";
 import LocalLoader from "components/Loader/LocalLoader";
-const Articles = (props) => {
-  const {t, i18n} = useTranslation()
+import { useRecoilState } from "recoil";
+import { articlesAtom } from "store/state/cache";
+const Articles = ({header, random, quantity}) => {
+  const { i18n } = useTranslation()
 
   useEffect(() => {
     (async () => {
       await getArticles();
     })();
-  }, [window.location.pathname]);
+  }, []);
+// }, [window.location.pathname]);
 
   const [loading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
 
+  const [cachedItems, setCachedItems] = useRecoilState(articlesAtom);
 
   const getArticles = async () => {
+    try {
+    if (cachedItems.length) {
+      return setArticles(cachedItems.slice(0,quantity))
+    }
     const requestBody = {
       query: `
       query{
-        articles(quantity: ${props.quantity | null}, language: "${i18n.language}", random: ${Boolean(props.random | false)}){
+        articles(language: "${i18n.language}", random: ${Boolean(random | false)}){
           header
           description
           link
@@ -30,13 +38,13 @@ const Articles = (props) => {
       }
       `,
     };
-    try {
       const {
         data: {
           data: { articles: response },
         },
       } = await axios.post(`${window.env.API_URL}/graphql`, requestBody);
-      setArticles(response);
+      setArticles(response.slice(0,quantity));
+      setCachedItems(response)
     } catch (error) {
       console.log(error);
     } finally {
@@ -47,7 +55,7 @@ const Articles = (props) => {
   return (
     <Wrapper>
       <Container>
-      <Header>{props.header}</Header>
+      <Header>{header}</Header>
       <Line></Line>
       {loading ? <LocalLoader /> : (
       <ItemsWrapper>

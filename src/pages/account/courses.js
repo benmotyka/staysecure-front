@@ -16,7 +16,7 @@ import { useTranslation } from "react-i18next";
 import ListItem from "components/Account/Cards/Parts/ListItem";
 import LocalLoader from "components/Loader/LocalLoader";
 import { useRecoilState } from "recoil";
-import { accountCourses } from "store/state/cache";
+import { accountCoursesAtom } from "store/state/cache";
 const Courses = () => {
   const { t, i18n } = useTranslation();
   const history = useHistory();
@@ -33,7 +33,7 @@ const Courses = () => {
     })();
   }, []);
 
-  const [cachedItems, setCachedItems] = useRecoilState(accountCourses);
+  const [cachedItems, setCachedItems] = useRecoilState(accountCoursesAtom);
 
   const user = useSelector(selectUser);
 

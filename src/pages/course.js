@@ -21,6 +21,8 @@ import MobileAlert from "components/MobileAlert/MobileAlert";
 import DownloadCourses from "components/DownloadCourses/DownloadCourses";
 import CourseTutorial from "components/CourseTutorial/CourseTutorial";
 import FadeIn from "components/FadeIn/FadeIn";
+import { accountCoursesAtom, finishedQuizesAtom } from "store/state/cache";
+import { useResetRecoilState } from "recoil";
 const Course = (props) => {
   const ref = useRef();
 
@@ -36,6 +38,8 @@ const Course = (props) => {
   const user = useSelector(selectUser);
   const {t, i18n} = useTranslation()
   const dispatch = useDispatch();
+  const resetCoursesCache = useResetRecoilState(accountCoursesAtom);
+  const resetQuizesCache = useResetRecoilState(finishedQuizesAtom);
 
   const courseName = props.match.params.courseName;
   useOnClickOutside(ref, () => setCourseAlreadyFinishedPopup(false));
@@ -112,6 +116,8 @@ const Course = (props) => {
         }
       } else {
         checkCourseTutorial();
+        resetCoursesCache();
+        resetQuizesCache();
       }
     } catch (error) {
       console.log(error);
@@ -138,10 +144,12 @@ const Course = (props) => {
         },
       });
       checkCourseTutorial();
+      resetCoursesCache();
+      resetQuizesCache();
     } catch (error) {
       console.log(error);
     } finally {
-    setCourseAlreadyFinishedPopup(false);
+      setCourseAlreadyFinishedPopup(false);
     }
   };
 

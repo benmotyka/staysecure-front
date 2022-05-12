@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import {
   Container,
   Footer,
-  FooterText,
   Body,
   HeaderContainer,
   Header,
@@ -15,6 +14,8 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Loader from "components/Loader/GlobalLoader";
 import Button from "components/Button/Button";
+import { finishedQuizesAtom } from "store/state/cache";
+import { useResetRecoilState } from "recoil";
 
 const Quiz = (props) => {
   const history = useHistory();
@@ -23,6 +24,8 @@ const Quiz = (props) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [choosenAnswer, setChoosenAnswer] = useState(null);
   const [quizFinished, setQuizFinished] = useState(false);
+  const resetQuizesCache = useResetRecoilState(finishedQuizesAtom);
+
   const { t } = useTranslation();
   useEffect(() => {
     finishQuiz(); //required for simulating asynchronous change of state for useranswers
@@ -55,6 +58,8 @@ const Quiz = (props) => {
           },
         }
       );
+      resetQuizesCache();
+
     } catch (error) {
       console.log(error);
     } finally {

@@ -12,6 +12,8 @@ import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { useOnClickOutside } from "hooks/useOnClickOutside";
 import FadeIn from "components/FadeIn/FadeIn";
+import { accountCoursesAtom } from "store/state/cache";
+import { useResetRecoilState } from "recoil";
 
 const Navigation = (props) => {
   const { t } = useTranslation();
@@ -19,6 +21,8 @@ const Navigation = (props) => {
   const history = useHistory();
 
   const [showEndingModal, setShowEndingModal] = useState(false);
+  const resetCoursesCache = useResetRecoilState(accountCoursesAtom);
+  
   useOnClickOutside(ref, () => setShowEndingModal(false));
 
   const changeSlide = (index) => {
@@ -57,6 +61,7 @@ const Navigation = (props) => {
         },
       });
       history.push(`/quiz/${props.courseName}`);
+      resetCoursesCache();
     } catch (error) {
       console.log(error);
     }

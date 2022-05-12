@@ -16,25 +16,14 @@ const finishedQuizesAtom = atom({
   default: null
 })
 
-const startedCourses = atom({
-  key: 'startedCourses',
-  default: []
-})
-
-const finishedCourses = atom({
-  key: 'finishedCourses',
-  default: []
-})
-
-const accountCourses = atom({
-  key: 'accountCourses',
+const accountCoursesAtom = atom({
+  key: 'accountCoursesAtom',
   default: null
 })
+
 export {
     coursesAtom,
     articlesAtom,
     finishedQuizesAtom,
-    startedCourses,
-    finishedCourses,
-    accountCourses
+    accountCoursesAtom
 }

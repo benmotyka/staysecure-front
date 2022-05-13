@@ -391,5 +391,7 @@
         "restart": "Restart course tutorial"
     },
     "usefulLinks": "Useful links",
-    "categories": "Categories"
+    "categories": "Categories",
+    "deleteAccountHeader": "Delete account",
+    "delete": "Delete"
 }

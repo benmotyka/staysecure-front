@@ -79,3 +79,9 @@ color: ${props => props.orange ? colors.orange: colors.white};
 }
 margin-top: 10px;
 `
+
+export const Description = styled.p`
+margin: 0 0 25px 0;
+color: ${colors.white};
+opacity: 0.7;
+`

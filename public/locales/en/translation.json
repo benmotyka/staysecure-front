@@ -393,5 +393,6 @@
     "usefulLinks": "Useful links",
     "categories": "Categories",
     "deleteAccountHeader": "Delete account",
+    "deleteAccountDescription": "We are sorry to see you go, however, we respect your opinion. In order to delete your account, please enter your password and then click the 'Delete' button.",
     "delete": "Delete"
 }

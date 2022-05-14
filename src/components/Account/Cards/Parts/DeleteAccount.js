@@ -8,18 +8,25 @@ import Button from "components/Button/Button";
 import Loader from "components/Loader/GlobalLoader";
 import { useTranslation } from "react-i18next";
 import BasicInput from "components/BasicInput/BasicInput";
-import { Description } from "components/Cards/Cards.styles";
+import {
+  Description,
+  DeleteAccountModalWrapper,
+  DeleteAccountButtonsWrapper,
+} from "components/Cards/Cards.styles";
+import Modal from "components/Modal/Modal";
+import { useOnClickOutside } from "hooks/useOnClickOutside";
+import { useRef } from "react";
 
 const DeleteAccount = (props) => {
+  const ref = useRef();
   const { t } = useTranslation();
 
+  const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
 
-  const onSubmit = (
-    { oldPassword, newPassword },
-    { setFieldError }
-  ) => {
+  useOnClickOutside(ref, () => setShowModal(false));
+
+  const onSubmit = ({ password }, { setFieldError }) => {
     window.grecaptcha.ready(() => {
       window.grecaptcha
         .execute("6LdJhwMbAAAAAP658oVQALS41aSkllNuOehb5SvW", {
@@ -29,22 +36,21 @@ const DeleteAccount = (props) => {
           setLoading(true);
           const requestBody = {
             query: `
-            mutation ResetPassword($oldPassword: String!, $newPassword: String!, $captcha: String!){
-                resetPassword(oldPassword: $oldPassword, newPassword: $newPassword, captchaToken: $captcha){
-                  email
+            mutation DeleteAccount($password: String!){
+              deleteAccount(password: $password){
+                  status
                 }
               }
           `,
             variables: {
-              oldPassword: oldPassword,
-              newPassword: newPassword,
+              password: password,
               captcha: token,
             },
           };
           try {
             const {
               data: {
-                data: { resetPassword: response },
+                data: { deleteAccount: response },
               },
             } = await axios.post(`${window.env.API_URL}/graphql`, requestBody, {
               headers: {
@@ -52,9 +58,9 @@ const DeleteAccount = (props) => {
               },
             });
             if (response) {
-              setSuccess(true);
+              console.log(response);
             } else {
-              setFieldError("oldPassword", t("errors.wrongPassword"));
+              setFieldError("password", t("errors.wrongPassword"));
               return;
             }
           } catch (error) {
@@ -66,15 +72,51 @@ const DeleteAccount = (props) => {
     });
   };
 
+  const formik = useFormik({
+    initialValues: {
+      password: "",
+    },
+    validateOnChange: false,
+    validateOnBlur: false,
+    validationSchema: Yup.object({
+      password: Yup.string()
+        .required(t("errors.wrongPassword"))
+        .min(5, t("errors.wrongPassword")),
+    }),
+    onSubmit,
+  });
+
   return (
     <Container>
-          <Header>{t("deleteAccountHeader")}</Header>
-          <Description>
-              {t("deleteAccountDescription")}
-          </Description>
-          <div>
-          <Button text={t("delete")} />
-          </div>
+      <Header>{t("deleteAccountHeader")}</Header>
+      <div>
+        <Button text={t("delete")} onClick={() => setShowModal(true)} />
+      </div>
+      {showModal ? (
+        <Modal>
+          <DeleteAccountModalWrapper ref={ref}>
+            <Header>{t("deleteAccountHeader")}</Header>
+            <Description>{t("deleteAccountDescription")}</Description>
+            <BasicInput
+              id="password"
+              placeholder={t("confirmPassword")}
+              type="password"
+              onChange={formik.handleChange}
+              value={formik.values.password}
+              onBlur={formik.handleBlur}
+            />
+            {/* <ErrorsWrapper>
+            {formik.touched.oldPassword && formik.errors.oldPassword ? (
+              <Error>{formik.errors.oldPassword}</Error>
+            ) : null}
+          </ErrorsWrapper> */}
+            <DeleteAccountButtonsWrapper>
+              <Button onClick={formik.handleSubmit} text={t("cancel")} />
+              <Button onClick={formik.handleSubmit} text={t("delete")} />
+            </DeleteAccountButtonsWrapper>
+          </DeleteAccountModalWrapper>
+        </Modal>
+      ) : null}
     </Container>
   );
 };

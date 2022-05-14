@@ -85,3 +85,26 @@ margin: 0 0 25px 0;
 color: ${colors.white};
 opacity: 0.7;
 `
+
+export const DeleteAccountModalWrapper = styled.div`
+background-color: ${colors.lightPurple};
+padding: 25px;
+border-radius: 5px;
+max-width: 450px;
+display: flex;
+align-items: center;
+flex-direction: column;
+
+@media screen and (max-width: 600px) {
+padding: 15px;
+    width: 75%;
+}
+`
+
+export const DeleteAccountButtonsWrapper = styled.div`
+margin: 15px 0;
+display: flex;
+width: 100%;
+align-items: center;
+justify-content: space-evenly;
+`

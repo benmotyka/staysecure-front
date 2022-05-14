@@ -393,6 +393,6 @@
     "usefulLinks": "Przydatne linki",
     "categories": "Kategorie",
     "deleteAccountHeader": "Usuń konto",
-    "deleteAccountDescription": "Przykro nam, że odchodzisz, jednak szanujemy Twoje zdanie.",
+    "deleteAccountDescription": "Przykro nam, że odchodzisz, jednak szanujemy Twoje zdanie. Aby usunąć konto, podaj hasło do swojego konta i kliknij przycisk 'Usuń'.",
     "delete": "Usuń"
 }

@@ -12,10 +12,15 @@ import {
   Description,
   DeleteAccountModalWrapper,
   DeleteAccountButtonsWrapper,
+  ErrorsWrapper,
+  Error,
 } from "components/Cards/Cards.styles";
 import Modal from "components/Modal/Modal";
 import { useOnClickOutside } from "hooks/useOnClickOutside";
 import { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { logout } from "features/userSlice";
+import { useHistory } from "react-router-dom";
 
 const DeleteAccount = (props) => {
   const ref = useRef();
@@ -23,6 +28,8 @@ const DeleteAccount = (props) => {
 
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   useOnClickOutside(ref, () => setShowModal(false));
 
@@ -38,7 +45,7 @@ const DeleteAccount = (props) => {
             query: `
             mutation DeleteAccount($password: String!){
               deleteAccount(password: $password){
-                  status
+                  resultStatus
                 }
               }
           `,
@@ -50,7 +57,7 @@ const DeleteAccount = (props) => {
           try {
             const {
               data: {
-                data: { deleteAccount: response },
+                data: {deleteAccount: response},
               },
             } = await axios.post(`${window.env.API_URL}/graphql`, requestBody, {
               headers: {
@@ -58,7 +65,8 @@ const DeleteAccount = (props) => {
               },
             });
             if (response) {
-              console.log(response);
+              dispatch(logout());
+              history.push("/");
             } else {
               setFieldError("password", t("errors.wrongPassword"));
               return;
@@ -105,13 +113,13 @@ const DeleteAccount = (props) => {
               value={formik.values.password}
               onBlur={formik.handleBlur}
             />
-            {/* <ErrorsWrapper>
-            {formik.touched.oldPassword && formik.errors.oldPassword ? (
-              <Error>{formik.errors.oldPassword}</Error>
+            <ErrorsWrapper>
+            {formik.touched.password && formik.errors.password ? (
+              <Error>{formik.errors.password}</Error>
             ) : null}
-          </ErrorsWrapper> */}
+          </ErrorsWrapper>
             <DeleteAccountButtonsWrapper>
-              <Button onClick={formik.handleSubmit} text={t("cancel")} />
+              <Button onClick={() => setShowModal(false)} text={t("cancel")} />
               <Button onClick={formik.handleSubmit} text={t("delete")} />
             </DeleteAccountButtonsWrapper>
           </DeleteAccountModalWrapper>

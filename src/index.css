@@ -32,3 +32,9 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+div#loading-screen {
+  width: 100vh;
+  height: 100vh;
+  background-color: #2B2E4A;
+}

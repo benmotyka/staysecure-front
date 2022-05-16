@@ -8,6 +8,7 @@ import { login } from "features/userSlice";
 import { useSelector } from "react-redux";
 import { selectUser } from "features/userSlice";
 import { useTranslation } from "react-i18next";
+import DeleteAccount from "./Parts/DeleteAccount";
 
 const Settings  = () => {
   const {t} = useTranslation()
@@ -60,6 +61,7 @@ const Settings  = () => {
             <Header>{t('settings')}</Header>
             <AccountLevel account data={userData.accountLevel} onClick={setUserData} sendRequest={sendRequest}/>
             <PasswordChange user={user}/>
+            <DeleteAccount user={user}/>
         </Container>
     )
 }

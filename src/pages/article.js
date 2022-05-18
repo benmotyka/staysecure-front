@@ -15,6 +15,7 @@ const Article = (props) => {
     (async () => {
       await getArticle();
     })();
+    window.scrollTo(0, 0)
   }, [window.location.pathname]);
 
   const [loading, setLoading] = useState(true);

@@ -8,6 +8,8 @@ import { login } from "features/userSlice";
 import { useSelector } from "react-redux";
 import { selectUser } from "features/userSlice";
 import { useTranslation } from "react-i18next";
+import DeleteAccount from "./Parts/DeleteAccount";
+import { useChangeAccountLevel } from "store/actions/user";
 
 const Settings  = () => {
   const {t} = useTranslation()
@@ -15,6 +17,7 @@ const Settings  = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
+  const { changeAccountLevel } = useChangeAccountLevel();
   const [userData, setUserData] = useState({
       accountLevel: user.accountLevel
     })
@@ -50,6 +53,7 @@ const Settings  = () => {
                   accountLevel: accountLevel
                 })
               );
+              changeAccountLevel(accountLevel)
           }
       } catch (error) {
         console.log(error);
@@ -60,6 +64,7 @@ const Settings  = () => {
             <Header>{t('settings')}</Header>
             <AccountLevel account data={userData.accountLevel} onClick={setUserData} sendRequest={sendRequest}/>
             <PasswordChange user={user}/>
+            <DeleteAccount user={user}/>
         </Container>
     )
 }

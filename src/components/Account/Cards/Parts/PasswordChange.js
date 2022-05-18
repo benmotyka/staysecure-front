@@ -133,7 +133,9 @@ const PasswordChange = (props) => {
               <Error>{formik.errors.newPasswordConfirmation}</Error>
             ) : null}
           </ErrorsWrapper>
-          <Button onClick={formik.handleSubmit} full text={t("change")} />
+          <div>
+          <Button onClick={formik.handleSubmit} text={t("change")} />
+          </div>
         </>
       )}
     </Container>

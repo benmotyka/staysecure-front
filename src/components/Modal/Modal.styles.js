@@ -3,10 +3,7 @@ import colors  from "constans/colors";
 
 export const Container = styled.div`
 position: fixed;
-top: 0;
-right: 0;
-left: 0;
-bottom: 0;
+inset: 0;
 background-color: rgba(33, 36, 57,0.8);
 z-index: 1000;
 display: flex;

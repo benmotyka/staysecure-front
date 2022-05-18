@@ -11,9 +11,8 @@ import {store, persistor} from "app/store"
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}> 
-
     <Router>
-  <Suspense fallback={<div></div>}>
+    <Suspense fallback={<div id="loading-screen"></div>}>
     <App />
     </Suspense>
     </Router>

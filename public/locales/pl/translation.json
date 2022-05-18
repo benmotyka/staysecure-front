@@ -383,7 +383,7 @@
         "slide": "Slajd",
         "slideDescription": " jest główną częścią kursu. Niektóre slajdy są interaktywne i wymagają wykonania zadania, aby kontynuować.",
         "navigation": "Panel nawigacyjny",
-        "navigationDescription": " przedstawia liczbę slajdów w obecnym kursie. Kwadrat symbolizuje zwykły slajd, a romb slajd interaktywny. Używaj strzałek, aby nawigować po slajdach.",
+        "navigationDescription": " przedstawia liczbę slajdów w obecnym kursie. Kwadrat symbolizuje zwykły slajd, a romb slajd interaktywny. Używaj strzałek, aby nawigować po slajdach.",
         "next": "Dalej",
         "finish": "Zakończ",
         "slideLevel": "Poziom slajdu",
@@ -391,5 +391,8 @@
         "restart": "Zresetuj wprowadzenie"
     },
     "usefulLinks": "Przydatne linki",
-    "categories": "Kategorie"
+    "categories": "Kategorie",
+    "deleteAccountHeader": "Usuń konto",
+    "deleteAccountDescription": "Przykro nam, że odchodzisz, jednak szanujemy Twoje zdanie. Aby usunąć konto, podaj hasło do swojego konta i kliknij przycisk 'Usuń'.",
+    "delete": "Usuń"
 }

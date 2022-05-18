@@ -7,6 +7,7 @@ import { PageCentered, PageWrapper } from "components/Pages/Pages.styles";
 import ArticleContent from "components/Article/Article";
 import Articles from "components/PreviewItems/Articles";
 import { useTranslation } from "react-i18next";
+import LocalLoader from "components/Loader/LocalLoader";
 
 const Article = (props) => {
   const {t, i18n} = useTranslation()
@@ -64,9 +65,9 @@ const Article = (props) => {
       <Navbar />
       <PageWrapper>
         <PageCentered>
-          {!loading ? <ArticleContent data={article} /> : null}
+          {!loading ? <ArticleContent data={article} /> : <LocalLoader/>}
         </PageCentered>
-            <Articles header={t('similarArticles')} quantity={6} random/>
+        {!loading ? <Articles header={t('similarArticles')} quantity={6} random/> : null}
       </PageWrapper>
       <Footer />
     </>

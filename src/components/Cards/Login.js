@@ -23,7 +23,9 @@ import Button from "../Button/Button";
 import Loader from "components/Loader/GlobalLoader";
 import { useTranslation } from "react-i18next";
 import BasicInput from "components/BasicInput/BasicInput";
+import { useLogin } from "store/actions/user";
 const Login = () => {
+  const { loginUser } = useLogin()
   const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector(selectUser);
@@ -48,7 +50,6 @@ const Login = () => {
           query Login($email: String!, $password: String!,$captcha: String!, $rememberMe: Boolean!){ 
             login(userInput: {email: $email, password: $password, captchaToken: $captcha, rememberMe: $rememberMe}) {
               email
-              userId
               name
               token
               tokenExpiration
@@ -74,11 +75,11 @@ const Login = () => {
                 login({
                   email: response.email,
                   token: response.token,
-                  userId: response.userId,
                   name: response.name,
                   accountLevel: response.accountLevel,
                 })
               );
+              loginUser(response)
               const query = queryString.parse(search);
               if (query.courseRedirect)
                 return history.push(`/course/${query.courseRedirect}`);

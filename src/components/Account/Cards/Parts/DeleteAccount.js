@@ -21,10 +21,12 @@ import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "features/userSlice";
 import { useHistory } from "react-router-dom";
+import { useLogin } from "store/actions/user";
 
 const DeleteAccount = (props) => {
   const ref = useRef();
   const { t } = useTranslation();
+  const { logoutUser } = useLogin()
 
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -66,6 +68,7 @@ const DeleteAccount = (props) => {
             });
             if (response) {
               dispatch(logout());
+              logoutUser()
               history.push("/");
             } else {
               setFieldError("password", t("errors.wrongPassword"));

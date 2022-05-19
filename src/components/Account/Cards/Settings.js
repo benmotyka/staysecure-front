@@ -18,9 +18,7 @@ const Settings  = () => {
   const user = useSelector(selectUser);
 
   const { changeAccountLevel } = useChangeAccountLevel();
-  const [userData, setUserData] = useState({
-      accountLevel: user.accountLevel
-    })
+  const [userData, setUserData] = useState(user.accountLevel)
 
   const sendRequest = async (newLevel) => {
       try {
@@ -48,7 +46,6 @@ const Settings  = () => {
             dispatch(
                 login({
                     token: user.token,
-                    userId: user.userId,
                     name: user.name,
                   accountLevel: accountLevel
                 })
@@ -62,7 +59,7 @@ const Settings  = () => {
     return (
         <Container>
             <Header>{t('settings')}</Header>
-            <AccountLevel account data={userData.accountLevel} onClick={setUserData} sendRequest={sendRequest}/>
+            <AccountLevel account data={userData} onClick={setUserData} sendRequest={sendRequest}/>
             <PasswordChange user={user}/>
             <DeleteAccount user={user}/>
         </Container>

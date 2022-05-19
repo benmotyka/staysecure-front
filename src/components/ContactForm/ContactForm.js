@@ -10,19 +10,18 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 import Button from "components/Button/Button";
-import { useSelector } from "react-redux";
-import { selectUser } from "features/userSlice";
 import LocalLoader from "components/Loader/LocalLoader";
 import { SuccessText } from "components/Cards/Cards.styles";
 import axios from "axios";
 import BasicInput from "components/BasicInput/BasicInput";
 import BasicTextarea from "components/BasicTextarea/BasicTextarea";
+import { useLogin } from "store/actions/user";
 
 const ContactForm = () => {
   const { t } = useTranslation();
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
-  const user = useSelector(selectUser);
+  const { userDetails } = useLogin()
 
   const onSubmit = async (values) => {
     window.grecaptcha.ready(() => {
@@ -61,7 +60,7 @@ const ContactForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: user?.email,
+      email: userDetails.email,
       subject: "",
       content: "",
     },
@@ -93,7 +92,7 @@ const ContactForm = () => {
             maxLength="25"
             onBlur={formik.handleBlur}
             type="text"
-            disabled={user}
+            disabled={userDetails.email}
             fullWidth
           />
           {formik.touched.email && formik.errors.email ? (

@@ -45,7 +45,7 @@ const LanguageChooser = () => {
             {Object.keys(languages)
               .filter((lang) => lang !== i18n.language)
               .map((item) => (
-                <FlagsItem>
+                <FlagsItem key={item}>
                   <CountryIcon
                     onClick={() => {
                       changeLanguage(item);

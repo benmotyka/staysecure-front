@@ -8,8 +8,7 @@ const userAtom = atom({
     key: 'userAtom',
     default: {
       email: '',
-      jwt: '',
-      userId: '',
+      token: '',
       name: '',
       accountLevel: 'basic'
     },

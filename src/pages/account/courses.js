@@ -17,12 +17,13 @@ import ListItem from "components/Account/Cards/Parts/ListItem";
 import LocalLoader from "components/Loader/LocalLoader";
 import { useRecoilState } from "recoil";
 import { accountCoursesAtom } from "store/state/cache";
+import { useLogin } from "store/actions/user";
 const Courses = () => {
   const { t, i18n } = useTranslation();
   const history = useHistory();
   const dispatch = useDispatch();
   const [startedLang, setStartedLang] = useState(i18n.language);
-
+  const { logoutUser } = useLogin()
   const [coursesFinished, setCoursesFinished] = useState([]);
   const [coursesStarted, setCoursesStarted] = useState([]);
   const [loading, setLoading] = useState(1);
@@ -93,6 +94,7 @@ const Courses = () => {
           error.response.data.errors[0].message === "unauthenticated")
       )
         dispatch(logout());
+        logoutUser()
       history.push("/login");
       console.log(error);
     } finally {

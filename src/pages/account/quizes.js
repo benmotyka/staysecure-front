@@ -18,12 +18,13 @@ import Scale from "components/Charts/Scale";
 import LocalLoader from "components/Loader/LocalLoader";
 import { useRecoilState } from "recoil";
 import { finishedQuizesAtom } from "store/state/cache";
+import { useLogin } from "store/actions/user";
 const Quizes = () => {
   const { t, i18n } = useTranslation();
   const history = useHistory();
   const dispatch = useDispatch();
   const [language] = useState(i18n.language);
-
+  const { logoutUser } = useLogin()
   const [quizesData, setQuizesData] = useState(null)
   const [loading, setLoading] = useState(true);
 
@@ -80,6 +81,7 @@ const Quizes = () => {
           error.response.data.errors[0].message === "unauthenticated")
       ) {
         dispatch(logout());
+        logoutUser()
         history.push("/login");
       }
     } finally {

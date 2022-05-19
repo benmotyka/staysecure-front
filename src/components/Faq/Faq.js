@@ -61,8 +61,8 @@ const Faq = () => {
           <ItemsWrapper>
             {searchFaqItems
               .filter((item) => item.language === i18n.language)
-              .map((item, key) => (
-                <Item key={key}>
+              .map((item) => (
+                <Item key={item.question}>
                   <Question>{item.question}</Question>
                   <Answer>{item.answer}</Answer>
                 </Item>
@@ -98,8 +98,8 @@ const Faq = () => {
                   item.language === i18n.language &&
                   item.category === activeCategory
               )
-              .map((item, key) => (
-                <Item key={key}>
+              .map((item) => (
+                <Item key={item.question}>
                   <Question>{item.question}</Question>
                   <Answer>{Parser(item.answer)}</Answer>
                 </Item>

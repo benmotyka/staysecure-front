@@ -6,11 +6,12 @@ import {useDispatch} from "react-redux"
 
 import { Container, Item, Highlight } from "./Sidebar.styles";
 import { useTranslation } from "react-i18next";
+import { useLogin } from "store/actions/user";
 const Sidebar = () => {
   const {t} = useTranslation()
 
   const history = useHistory();
-
+  const { logoutUser } = useLogin()
   const user = useSelector(selectUser);
 
   const dispatch = useDispatch();
@@ -45,6 +46,7 @@ const Sidebar = () => {
         noBorder
         onClick={() => {
           dispatch(logout());
+          logoutUser()
           history.push("/");
         }}
       >

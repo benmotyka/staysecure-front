@@ -23,9 +23,10 @@ import CourseTutorial from "components/CourseTutorial/CourseTutorial";
 import FadeIn from "components/FadeIn/FadeIn";
 import { accountCoursesAtom, finishedQuizesAtom } from "store/state/cache";
 import { useResetRecoilState } from "recoil";
+import { useLogin } from "store/actions/user";
 const Course = (props) => {
   const ref = useRef();
-
+  const { logoutUser } = useLogin()
   const [activeSlide, setActiveSlide] = useState(0);
   const [loadedData, setLoadedData] = useState(0);
   const [content, setContent] = useState([]);
@@ -112,6 +113,7 @@ const Course = (props) => {
         }
         if (data.errors[0].message === "unauthenticated") {
           dispatch(logout())
+          logoutUser()
           history.push("/login");
         }
       } else {

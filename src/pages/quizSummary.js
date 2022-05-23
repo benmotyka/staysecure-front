@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Loader from "components/Loader/GlobalLoader";
-import { useSelector } from "react-redux";
-import { selectUser } from "features/userSlice";
 import Navbar from "components/Navbar/Navbar";
 import { PageWrapper } from "components/Pages/Pages.styles";
 import {Line} from "components/PreviewItems/PreviewItems.styles"
@@ -20,9 +18,10 @@ import {
 import QuizSummaryWidget from "components/QuizSummary/QuizSummary";
 import RateCourseWidget from "components/RateCourse/RateCourse"
 import { useTranslation } from "react-i18next";
+import { useLogin } from "store/actions/user";
 
 const QuizSummary = (props) => {
-  const user = useSelector(selectUser);
+  const { userDetails } = useLogin()
   const history = useHistory();
   const [loading, setLoading] = useState(true);
   const [summaryData, setSummaryData] = useState([]);
@@ -35,7 +34,7 @@ const QuizSummary = (props) => {
 
   useEffect(() => {
     (async () => {
-      if (!user) history.push("/login");
+      if (!userDetails) history.push("/login");
       await getSummaryData();
     })();
   }, []);
@@ -83,7 +82,7 @@ const QuizSummary = (props) => {
         requestBody,
         {
           headers: {
-            Authorization: `Bearer ${user.token}`,
+            Authorization: `Bearer ${userDetails.token}`,
           },
         }
       );

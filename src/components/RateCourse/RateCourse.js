@@ -5,14 +5,13 @@ import Modal from "components/Modal/Modal";
 import { useState } from "react";
 import axios from "axios";
 import { Label } from "components/Cards/Cards.styles";
-import { selectUser } from "features/userSlice";
-import { useSelector } from "react-redux";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { Wrapper, Header, Star } from "./RateCourse.styles";
 import { useRef } from "react";
 import { useOnClickOutside } from "hooks/useOnClickOutside";
 import BasicTextarea from "components/BasicTextarea/BasicTextarea";
+import { useLogin } from "store/actions/user";
 
 const RateCourse = (props) => {
   const ref = useRef();
@@ -20,8 +19,7 @@ const RateCourse = (props) => {
   const [showModal, setShowModal] = useState(false);
   const [stars, setStars] = useState(null);
   const [finish, setFinish] = useState(false);
-
-  const user = useSelector(selectUser);
+  const { userDetails } = useLogin()
 
   useOnClickOutside(ref, () => setShowModal(false));
 
@@ -54,7 +52,7 @@ const RateCourse = (props) => {
           try {
             await axios.post(`${window.env.API_URL}/graphql`, requestBody, {
               headers: {
-                Authorization: `Bearer ${user.token}`,
+                Authorization: `Bearer ${userDetails.token}`,
               },
             });
           } catch (error) {

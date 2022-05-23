@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectUser } from "features/userSlice";
 
 import NavbarClean from "components/Navbar/NavbarClean";
 import QuizWidget from "components/Quiz/Quiz";
@@ -9,18 +7,19 @@ import { PageOneChild } from "components/Pages/Pages.styles";
 import Loader from "components/Loader/GlobalLoader";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
+import { useLogin } from "store/actions/user";
 
 const Quiz = (props) => {
   const {i18n} = useTranslation()
   const history = useHistory();
   const [quizData, setQuizData] = useState([]);
-  const user = useSelector(selectUser);
+  const { userDetails } = useLogin()
   const [loading, setLoading] = useState(true);
   const [language, setLanguage] = useState(i18n.language)
 
   useEffect(() => {
     (async () => {
-      if (!user) history.push("/login");
+      if (!userDetails) history.push("/login");
       await checkIfCourseFinished();
       await getQuizData();
     })();
@@ -45,7 +44,7 @@ const Quiz = (props) => {
         requestBody,
         {
           headers: {
-            Authorization: `Bearer ${user.token}`,
+            Authorization: `Bearer ${userDetails.token}`,
           },
         }
       );
@@ -86,7 +85,7 @@ const Quiz = (props) => {
     try {
       const {data}  = await axios.post(`${window.env.API_URL}/graphql`, requestBody, {
         headers: {
-          Authorization: `Bearer ${user.token}`,
+          Authorization: `Bearer ${userDetails.token}`,
         },
       });
       if (data.errors && data.errors[0].message === 'quiz-finished') {
@@ -113,7 +112,7 @@ const Quiz = (props) => {
               language={language}
               courseLink={props.match.params.courseName}
               quizData={quizData}
-              user={user}
+              user={userDetails}
             />
           </PageOneChild>
         </>

@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-import { useSelector } from "react-redux";
-import { selectUser } from "features/userSlice";
-
 import axios from "axios";
 import * as Yup from "yup";
 import { useFormik } from "formik";
@@ -21,9 +18,10 @@ import AccountLevel from "components/Account/Cards/Parts/AccountLevel";
 import Button from "../Button/Button";
 import { useTranslation } from "react-i18next";
 import BasicInput from "components/BasicInput/BasicInput";
+import { useLogin } from "store/actions/user";
 const Register = () => {
   const history = useHistory();
-  const user = useSelector(selectUser);
+  const { userDetails } = useLogin()
   const { t, i18n } = useTranslation();
 
   const [accountLevel, setAccountLevel] = useState("basic");
@@ -31,7 +29,7 @@ const Register = () => {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    if (user) history.push("/");
+    if (userDetails) history.push("/");
   }, []);
 
   const onSubmit = (

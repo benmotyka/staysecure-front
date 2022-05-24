@@ -5,7 +5,6 @@ import { useFormik } from "formik";
 
 import { Container, Header } from "./PasswordChange.styles";
 import Button from "components/Button/Button";
-import Loader from "components/Loader/GlobalLoader";
 import { useTranslation } from "react-i18next";
 import BasicInput from "components/BasicInput/BasicInput";
 import {
@@ -18,8 +17,6 @@ import {
 import Modal from "components/Modal/Modal";
 import { useOnClickOutside } from "hooks/useOnClickOutside";
 import { useRef } from "react";
-import { useDispatch } from "react-redux";
-import { logout } from "features/userSlice";
 import { useHistory } from "react-router-dom";
 import { useLogin } from "store/actions/user";
 
@@ -30,7 +27,6 @@ const DeleteAccount = (props) => {
 
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
-  const dispatch = useDispatch();
   const history = useHistory();
 
   useOnClickOutside(ref, () => setShowModal(false));
@@ -67,7 +63,6 @@ const DeleteAccount = (props) => {
               },
             });
             if (response) {
-              dispatch(logout());
               logoutUser()
               history.push("/");
             } else {

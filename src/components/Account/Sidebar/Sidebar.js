@@ -1,8 +1,4 @@
-import { logout } from "features/userSlice";
-import { useSelector } from "react-redux";
-import { selectUser } from "features/userSlice";
 import { useHistory } from "react-router-dom";
-import {useDispatch} from "react-redux"
 
 import { Container, Item, Highlight } from "./Sidebar.styles";
 import { useTranslation } from "react-i18next";
@@ -11,16 +7,14 @@ const Sidebar = () => {
   const {t} = useTranslation()
 
   const history = useHistory();
-  const { logoutUser } = useLogin()
-  const user = useSelector(selectUser);
+  const { logoutUser, userDetails } = useLogin()
 
-  const dispatch = useDispatch();
 
   return (
     <Container>
-      {user && (
+      {userDetails && (
         <>
-      <Item header noBorder>{t('welcome')},&nbsp; <Highlight>{ + user.name > 15 ? user.name?.substring(0, 15) + '...' : user.name}</Highlight></Item>
+      <Item header noBorder>{t('welcome')},&nbsp; <Highlight>{ + userDetails.name > 15 ? userDetails.name?.substring(0, 15) + '...' : userDetails.name}</Highlight></Item>
       <Item
         onClick={() => {
           history.push("/account/courses");
@@ -45,7 +39,6 @@ const Sidebar = () => {
       <Item
         noBorder
         onClick={() => {
-          dispatch(logout());
           logoutUser()
           history.push("/");
         }}

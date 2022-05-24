@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { selectUser } from "features/userSlice";
 import { useHistory } from "react-router-dom";
-import { logout } from "features/userSlice";
-import { useDispatch } from "react-redux";
 import axios from "axios";
 
 import Footer from "components/Footer/Footer";
@@ -22,22 +18,19 @@ import { useLogin } from "store/actions/user";
 const Quizes = () => {
   const { t, i18n } = useTranslation();
   const history = useHistory();
-  const dispatch = useDispatch();
   const [language] = useState(i18n.language);
-  const { logoutUser } = useLogin()
+  const { logoutUser, userDetails } = useLogin()
   const [quizesData, setQuizesData] = useState(null)
   const [loading, setLoading] = useState(true);
 
   const [cachedItems, setCachedItems] = useRecoilState(finishedQuizesAtom);
 
   useEffect(() => {
-    if (!user) history.push("/login");
+    if (!userDetails) history.push("/login");
     (async function () {
       await getOverallQuizesData();
     })();
   }, []);
-
-  const user = useSelector(selectUser);
 
   const getOverallQuizesData = async () => {
     try {
@@ -68,7 +61,7 @@ const Quizes = () => {
         },
       } = await axios.post(`${window.env.API_URL}/graphql`, requestBody, {
         headers: {
-          Authorization: `Bearer ${user.token}`,
+          Authorization: `Bearer ${userDetails.token}`,
         },
       });
       setCachedItems(getOverallQuizesData)
@@ -80,7 +73,6 @@ const Quizes = () => {
         (error.response.data.errors.length &&
           error.response.data.errors[0].message === "unauthenticated")
       ) {
-        dispatch(logout());
         logoutUser()
         history.push("/login");
       }
@@ -91,7 +83,7 @@ const Quizes = () => {
 
   return (
     <>
-      {user && (
+      {userDetails && (
         <>
           <NavbarClean />
           <PageAccount>

@@ -1,10 +1,6 @@
 import { useHistory, useLocation } from "react-router-dom";
 import { useFormik } from "formik";
 import queryString from "query-string";
-import { useDispatch } from "react-redux";
-import { login } from "features/userSlice";
-import { useSelector } from "react-redux";
-import { selectUser } from "features/userSlice";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import * as Yup from "yup";
@@ -25,15 +21,13 @@ import { useTranslation } from "react-i18next";
 import BasicInput from "components/BasicInput/BasicInput";
 import { useLogin } from "store/actions/user";
 const Login = () => {
-  const { loginUser } = useLogin()
-  const dispatch = useDispatch();
+  const { loginUser, userDetails } = useLogin()
   const history = useHistory();
-  const user = useSelector(selectUser);
   const { t } = useTranslation();
   const { search } = useLocation();
 
   useEffect(() => {
-    if (user) history.push("/");
+    if (userDetails.token) history.push("/");
   }, []);
   const [loading, setLoading] = useState(false);
 
@@ -71,14 +65,6 @@ const Login = () => {
               },
             } = await axios.post(`${window.env.API_URL}/graphql`, requestBody);
             if (response) {
-              dispatch(
-                login({
-                  email: response.email,
-                  token: response.token,
-                  name: response.name,
-                  accountLevel: response.accountLevel,
-                })
-              );
               loginUser(response)
               const query = queryString.parse(search);
               if (query.courseRedirect)

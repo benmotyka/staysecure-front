@@ -1,10 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
-import { selectUser } from "features/userSlice";
 import { useHistory } from "react-router-dom";
-import {useDispatch} from "react-redux"
 import axios from "axios";
-import { logout } from "features/userSlice";
 
 import CourseNavbar from "components/Navbar/CourseNavbar";
 import { PageCourse } from "components/Pages/Pages.styles";
@@ -26,7 +22,7 @@ import { useResetRecoilState } from "recoil";
 import { useLogin } from "store/actions/user";
 const Course = (props) => {
   const ref = useRef();
-  const { logoutUser } = useLogin()
+  const { logoutUser, userDetails } = useLogin()
   const [activeSlide, setActiveSlide] = useState(0);
   const [loadedData, setLoadedData] = useState(0);
   const [content, setContent] = useState([]);
@@ -36,9 +32,7 @@ const Course = (props) => {
   const [showTutorial, setShowTutorial] = useState(false)
   const [waitForCorrectAnswer, setWaitForCorrectAnswer] = useState(false);
   const history = useHistory();
-  const user = useSelector(selectUser);
   const {t, i18n} = useTranslation()
-  const dispatch = useDispatch();
   const resetCoursesCache = useResetRecoilState(accountCoursesAtom);
   const resetQuizesCache = useResetRecoilState(finishedQuizesAtom);
 
@@ -47,7 +41,7 @@ const Course = (props) => {
 
   useEffect(() => {
     (async () => {
-      if (!user) {
+      if (!userDetails) {
         history.push(`/login?courseRedirect=${courseName}`);
         return;
       }
@@ -57,12 +51,12 @@ const Course = (props) => {
         history.push("/courses");
         return;
       }
-      if (user.accountLevel === "basic") {
+      if (userDetails.accountLevel === "basic") {
         setContent(
           courseData.content.filter((slide) => slide.level === "basic")
         );
       }
-      if (user.accountLevel === "advanced") {
+      if (userDetails.accountLevel === "advanced") {
         setContent(courseData.content);
       }
       setLoadedData(true);
@@ -100,7 +94,7 @@ const Course = (props) => {
         requestBody,
         {
           headers: {
-            Authorization: `Bearer ${user.token}`,
+            Authorization: `Bearer ${userDetails.token}`,
           },
         }
       );
@@ -112,7 +106,6 @@ const Course = (props) => {
           history.push("/courses");
         }
         if (data.errors[0].message === "unauthenticated") {
-          dispatch(logout())
           logoutUser()
           history.push("/login");
         }
@@ -142,7 +135,7 @@ const Course = (props) => {
     try {
       await axios.post(`${window.env.API_URL}/graphql`, requestBody, {
         headers: {
-          Authorization: `Bearer ${user.token}`,
+          Authorization: `Bearer ${userDetails.token}`,
         },
       });
       checkCourseTutorial();
@@ -157,7 +150,7 @@ const Course = (props) => {
 
   return (
     <>
-      {user && loadedData && (
+      {userDetails && loadedData && (
         <>
           {loading ? (
             <Loader />
@@ -195,7 +188,7 @@ const Course = (props) => {
                     })}
                   </PageCourse>
                   <Navigation
-                    user={user}
+                    user={userDetails}
                     data={content}
                     activeSlide={activeSlide}
                     setActiveSlide={setActiveSlide}

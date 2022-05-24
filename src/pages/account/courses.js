@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { selectUser } from "features/userSlice";
 import { useHistory } from "react-router-dom";
-import { logout } from "features/userSlice";
-import { useDispatch } from "react-redux";
 import axios from "axios";
 
 import Footer from "components/Footer/Footer";
@@ -21,22 +17,19 @@ import { useLogin } from "store/actions/user";
 const Courses = () => {
   const { t, i18n } = useTranslation();
   const history = useHistory();
-  const dispatch = useDispatch();
   const [startedLang, setStartedLang] = useState(i18n.language);
-  const { logoutUser } = useLogin()
+  const { logoutUser, userDetails } = useLogin()
   const [coursesFinished, setCoursesFinished] = useState([]);
   const [coursesStarted, setCoursesStarted] = useState([]);
   const [loading, setLoading] = useState(1);
   useEffect(() => {
-    if (!user) history.push("/login");
+    if (!userDetails) history.push("/login");
     (async function () {
       await getUserInfo();
     })();
   }, []);
 
   const [cachedItems, setCachedItems] = useRecoilState(accountCoursesAtom);
-
-  const user = useSelector(selectUser);
 
   const getUserInfo = async () => {
     try {
@@ -78,7 +71,7 @@ const Courses = () => {
         },
       } = await axios.post(`${window.env.API_URL}/graphql`, requestBody, {
         headers: {
-          Authorization: `Bearer ${user.token}`,
+          Authorization: `Bearer ${userDetails.token}`,
         },
       });
       setCoursesFinished(getUserInfo.coursesFinished);
@@ -93,7 +86,6 @@ const Courses = () => {
         (error.response.data.errors.length &&
           error.response.data.errors[0].message === "unauthenticated")
       )
-        dispatch(logout());
         logoutUser()
       history.push("/login");
       console.log(error);
@@ -104,7 +96,7 @@ const Courses = () => {
 
   return (
     <>
-      {user && (
+      {userDetails && (
         <>
           <NavbarClean />
           <PageAccount>

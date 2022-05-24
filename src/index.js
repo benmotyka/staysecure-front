@@ -1,23 +1,14 @@
-import React , {Suspense}from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import {  BrowserRouter as Router } from "react-router-dom";
-import { PersistGate } from 'redux-persist/integration/react'
-import {Provider} from "react-redux"
-import {store, persistor} from "app/store"
-
+import React, { Suspense } from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import { BrowserRouter as Router } from "react-router-dom";
 
 ReactDOM.render(
-  <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}> 
-    <Router>
+  <Router>
     <Suspense fallback={<div id="loading-screen"></div>}>
-    <App />
+      <App />
     </Suspense>
-    </Router>
-    </PersistGate>
-  </Provider>,
-  document.getElementById('root')
+  </Router>,
+  document.getElementById("root")
 );
-

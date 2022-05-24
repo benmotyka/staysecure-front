@@ -1,8 +1,5 @@
 import { useHistory } from "react-router-dom";
 
-import { useSelector } from "react-redux";
-import { selectUser } from "features/userSlice";
-
 import {
   Container,
   Section,
@@ -17,9 +14,10 @@ import Button from "components/Button/Button.js";
 import Logo from "components/Logo/Logo.js";
 import { useTranslation } from "react-i18next";
 import LanguageChooser from "components/LanguageChooser/LanguageChooser";
+import { useLogin } from "store/actions/user";
 const Navbar = () => {
   const history = useHistory();
-  const user = useSelector(selectUser);
+  const { userDetails } = useLogin()
   const {t} = useTranslation()
 
   return (
@@ -38,11 +36,11 @@ const Navbar = () => {
           <Item>
             <Link to="/courses">{t('header.courses')}</Link>
           </Item>
-          {user ? (
+          {userDetails.token ? (
             <Item>
               <Link to="/account/courses">
                 <AccountIcon src="profile.svg" />
-                {user.name}
+                {userDetails.name}
               </Link>
             </Item>
           ) : (

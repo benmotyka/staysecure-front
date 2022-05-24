@@ -27,7 +27,7 @@ const Login = () => {
   const { search } = useLocation();
 
   useEffect(() => {
-    if (userDetails) history.push("/");
+    if (userDetails.token) history.push("/");
   }, []);
   const [loading, setLoading] = useState(false);
 

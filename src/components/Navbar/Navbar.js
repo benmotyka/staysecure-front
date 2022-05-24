@@ -36,7 +36,7 @@ const Navbar = () => {
           <Item>
             <Link to="/courses">{t('header.courses')}</Link>
           </Item>
-          {userDetails ? (
+          {userDetails.token ? (
             <Item>
               <Link to="/account/courses">
                 <AccountIcon src="profile.svg" />

@@ -23,7 +23,7 @@ const Hero = () => {
         <Subheader>by</Subheader>
         <Logo />
       </SubheaderContainer>
-      {userDetails ? (
+      {userDetails.token ? (
         <Button
         onClick={() => {
           history.push("/courses");

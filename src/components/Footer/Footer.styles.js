@@ -46,6 +46,7 @@ text-align: center;
 `
 export const TextItem = styled.p`
 ${Text};
+min-width: max-content;
 `
 
 export const LinkItem = styled(FooterLink)`

@@ -29,7 +29,7 @@ const Register = () => {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    if (userDetails) history.push("/");
+    if (userDetails.token) history.push("/");
   }, []);
 
   const onSubmit = (

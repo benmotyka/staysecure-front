@@ -14,7 +14,7 @@ import {
 import Difficulty from "./Difficulty/Difficulty";
 const Course = (props) => {
   return (
-    <Container to={props.to}>
+    <Container to={props.to} data-testid="preview__course">
         <Image src={props.img} />
       <Body>
         <HeaderContainer>

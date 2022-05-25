@@ -17,8 +17,8 @@ const Hero = () => {
   const {t} = useTranslation()
 
   return (
-    <Container backgroundUrl={process.env.PUBLIC_URL + '/hero_background.png'}>
-      <Header data-testid="heroHeader">{t('heroHeader')}</Header>
+    <Container data-testid="hero" backgroundUrl={process.env.PUBLIC_URL + '/hero_background.png'}>
+      <Header>{t('heroHeader')}</Header>
       <SubheaderContainer>
         <Subheader>by</Subheader>
         <Logo />

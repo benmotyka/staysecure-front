@@ -18,7 +18,7 @@ const Hero = () => {
 
   return (
     <Container backgroundUrl={process.env.PUBLIC_URL + '/hero_background.png'}>
-      <Header>{t('heroHeader')}</Header>
+      <Header data-testid="heroHeader">{t('heroHeader')}</Header>
       <SubheaderContainer>
         <Subheader>by</Subheader>
         <Logo />

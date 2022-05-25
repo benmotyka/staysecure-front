@@ -53,7 +53,7 @@ const Articles = ({header, random, quantity}) => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper  data-testid="articlesWrapper">
       <Container>
       <Header>{header}</Header>
       <Line></Line>

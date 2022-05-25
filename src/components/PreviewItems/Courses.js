@@ -59,7 +59,7 @@ const Courses = ({ header, quantity }) => {
     }
   };
   return (
-    <Wrapper>
+    <Wrapper data-testid="coursesWrapper">
       <Container>
         <Header>{header}</Header>
         <Line />

@@ -45,7 +45,7 @@ export const NotebookWrapper = styled.div`
   overflow: none;
   z-index: 200;
 `
-export const NotebookHeaderContainer = styled.div`
+export const NotebookHeaderContainer = styled.header`
 padding: 25px;
 width: 100%;
 display: flex;
@@ -58,7 +58,7 @@ color: ${colors.white};
 font-size: 30px;
 margin: 0;
 `
-export const NotebookBody = styled.div`
+export const NotebookBody = styled.main`
 width: 100%;
 max-height: 60%;
 overflow-y: auto;
@@ -139,7 +139,7 @@ width: 100%;
 display: flex;
 `
 
-export const NotebookActionsContainer = styled.div`
+export const NotebookActionsContainer = styled.footer`
 width: 100%;
 margin-top: 15px;
 `

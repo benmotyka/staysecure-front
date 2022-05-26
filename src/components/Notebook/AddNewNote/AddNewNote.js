@@ -35,6 +35,7 @@ const AddNewNote = (props) => {
   return (
     <AddNewNoteContainer>
       <AddNewNoteButtonWrapper
+      data-testid="notebook__add_note"
         onClick={() => {
           setNewNoteActive(!newNoteActive);
         }}
@@ -43,7 +44,9 @@ const AddNewNote = (props) => {
         <AddIcon />
       </AddNewNoteButtonWrapper>
       <FadeIn in={newNoteActive}>
-      <NoteContainer active={newNoteActive}>
+      <NoteContainer
+      data-testid="notebook__new_note_wrapper"
+      active={newNoteActive}>
           <>
             <BasicTextarea
               spellCheck="false"

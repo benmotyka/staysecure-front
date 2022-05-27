@@ -64,6 +64,7 @@ const Notebook = () => {
   return (
     <NotebookContainer>
       <NotebookIconContainer
+       data-testid="notebook__icon"
         active={notebookActive}
         onClick={() => {
           setNotebookActive(!notebookActive);
@@ -71,7 +72,10 @@ const Notebook = () => {
       >
         <NotebookIcon />
       </NotebookIconContainer>
-      <NotebookWrapper active={notebookActive}>
+      <NotebookWrapper 
+      active={notebookActive}
+      data-testid="notebook__wrapper"
+      >
         <NotebookHeaderContainer>
           <NotebookHeader>{t('notes')}</NotebookHeader>
         </NotebookHeaderContainer>

@@ -38,7 +38,7 @@
   "scripts": {
     "start": "react-dotenv && react-scripts start",
     "build": "react-dotenv && react-scripts build",
-    "test": "react-dotenv && react-scripts test",
+    "test": "npx cypress run",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -63,5 +63,8 @@
     "whitelist": [
       "API_URL"
     ]
+  },
+  "devDependencies": {
+    "cypress": "^9.7.0"
   }
 }

@@ -17,7 +17,7 @@ export const Container = styled.div`
   }
 `;
 
-export const HeaderWrapper = styled.div`
+export const HeaderWrapper = styled.header`
   width: 800px;
   text-align: center;
   padding: 15px 0;

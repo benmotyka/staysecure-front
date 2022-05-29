@@ -13,6 +13,7 @@ import Button from "components/Button/Button";
 import Loader from "components/Loader/GlobalLoader";
 import { useTranslation } from "react-i18next";
 import BasicInput from "components/BasicInput/BasicInput";
+import { useGlobalLoader } from "store/actions/global";
 
 const PasswordChange = (props) => {
   const { t } = useTranslation();
@@ -20,6 +21,7 @@ const PasswordChange = (props) => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
+  const {loaderStatus } = useGlobalLoader();
   const onSubmit = (
     { oldPassword, newPassword },
     { setFieldError }

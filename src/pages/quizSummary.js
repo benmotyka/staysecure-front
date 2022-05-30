@@ -19,6 +19,8 @@ import QuizSummaryWidget from "components/QuizSummary/QuizSummary";
 import RateCourseWidget from "components/RateCourse/RateCourse"
 import { useTranslation } from "react-i18next";
 import { useLogin } from "store/actions/user";
+import { useGlobalLoader } from "store/actions/global";
+import GlobalLoaderContext from "context/GlobalLoader.context";
 
 const QuizSummary = (props) => {
   const { userDetails } = useLogin()
@@ -28,10 +30,10 @@ const QuizSummary = (props) => {
   const [userAnswers, setUserAnswers] = useState([]);
   const [userScore, setUserScore] = useState(0);
   const {t, i18n} = useTranslation()
-  const [language, setLanguage] = useState(i18n.language)
+  const [language] = useState(i18n.language)
   const [quizName, setQuizName] = useState('')
   const [showRateButton, setShowRateButton] = useState(false)
-
+  const { startGlobalLoader, stopGlobalLoader } = useGlobalLoader()
   useEffect(() => {
     (async () => {
       if (!userDetails) history.push("/login");
@@ -103,7 +105,7 @@ const QuizSummary = (props) => {
   };
 
   return (
-    <>
+    <GlobalLoaderContext>
       <Navbar />
       {loading ? (
         <Loader />
@@ -114,7 +116,11 @@ const QuizSummary = (props) => {
               <InstructionsHeader>
               {t('quiz.summary')} {quizName}
               </InstructionsHeader>
-              <InstructionsSubheader>
+              <InstructionsSubheader onClick={async () => {
+                startGlobalLoader('quizSummary')
+                await new Promise(res => setTimeout(res,1000))
+                stopGlobalLoader('quizSummary')
+              }}>
                 {t('quiz.yourScoreIs')}: <HighlightText>{userScore * 100}%</HighlightText>
               </InstructionsSubheader>
               <InstructionsDescription>
@@ -133,7 +139,7 @@ const QuizSummary = (props) => {
           </PageWrapper>
         </>
       )}
-    </>
+    </GlobalLoaderContext>
   );
 };
 

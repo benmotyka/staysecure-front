@@ -7,8 +7,6 @@ import {
 } from "./QuizSummary.styles";
 
 const QuizSummaryWidget = (props) => {
-  console.log(props.userAnswers);
-  console.log(props.summaryData);
   return (
     <SummaryList>
       {props.summaryData.map((item, index) => (

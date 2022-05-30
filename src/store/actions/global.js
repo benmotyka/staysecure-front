@@ -2,7 +2,7 @@ import { useRecoilState, useResetRecoilState } from "recoil";
 import { globalLoaderAtom } from "../state/global";
 
 const useGlobalLoader = () => {
-  const [loader, setLoader] = useRecoilState();
+  const [loader, setLoader] = useRecoilState(globalLoaderAtom);
 
   const addToLoader = (event) => {
     setLoader((previousEvents) => [...previousEvents, event]);
@@ -10,7 +10,11 @@ const useGlobalLoader = () => {
 
   const resetLoader = useResetRecoilState(globalLoaderAtom);
 
-  return { loaderStatus: !!loader.length, setLoader: addToLoader, resetLoader };
+  const removeFromLoader = (event) => {
+    setLoader((previousEvents) => previousEvents.filter(item => item !== event));
+  }
+
+  return { loaderStatus: !!loader.length, startGlobalLoader: addToLoader, stopGlobalLoader: removeFromLoader, resetLoader };
 };
 
 export { useGlobalLoader };

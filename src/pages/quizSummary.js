@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import Loader from "components/Loader/GlobalLoader";
 import Navbar from "components/Navbar/Navbar";
 import { PageWrapper } from "components/Pages/Pages.styles";
-import {Line} from "components/PreviewItems/PreviewItems.styles"
+import { Line } from "components/PreviewItems/PreviewItems.styles";
 
 import {
   InstructionsHeader,
@@ -13,30 +12,30 @@ import {
   InstructionsDescription,
   HighlightText,
   CorrectColor,
-  WrongColor
+  WrongColor,
 } from "components/QuizSummary/QuizSummary.styles";
 import QuizSummaryWidget from "components/QuizSummary/QuizSummary";
-import RateCourseWidget from "components/RateCourse/RateCourse"
+import RateCourseWidget from "components/RateCourse/RateCourse";
 import { useTranslation } from "react-i18next";
 import { useLogin } from "store/actions/user";
 import { useGlobalLoader } from "store/actions/global";
 import GlobalLoaderContext from "context/GlobalLoader.context";
 
 const QuizSummary = (props) => {
-  const { userDetails } = useLogin()
+  const { userDetails } = useLogin();
   const history = useHistory();
-  const [loading, setLoading] = useState(true);
   const [summaryData, setSummaryData] = useState([]);
   const [userAnswers, setUserAnswers] = useState([]);
   const [userScore, setUserScore] = useState(0);
-  const {t, i18n} = useTranslation()
-  const [language] = useState(i18n.language)
-  const [quizName, setQuizName] = useState('')
-  const [showRateButton, setShowRateButton] = useState(false)
-  const { startGlobalLoader, stopGlobalLoader } = useGlobalLoader()
+  const { t, i18n } = useTranslation();
+  const [language] = useState(i18n.language);
+  const [quizName, setQuizName] = useState("");
+  const [showRateButton, setShowRateButton] = useState(false);
+  const { startGlobalLoader, stopGlobalLoader } = useGlobalLoader();
   useEffect(() => {
     (async () => {
       if (!userDetails) history.push("/login");
+      startGlobalLoader("quizSummary");
       await getSummaryData();
     })();
   }, []);
@@ -45,7 +44,7 @@ const QuizSummary = (props) => {
     // quiz data needs to be fetched in all languages,
     // because client answers in one language are saved
     // as json, thus they are not automaticaly converted
-    // to the other languages 
+    // to the other languages
 
     const requestBody = {
       query: `
@@ -91,54 +90,53 @@ const QuizSummary = (props) => {
       if (response.errors) {
         history.push(`/`);
       }
-      const summaryData = response.data.getQuizSummaryData
+      const summaryData = response.data.getQuizSummaryData;
       setUserAnswers(JSON.parse(summaryData.userAnswers));
       setSummaryData(summaryData.quizData);
       setUserScore(summaryData.scorePercentage);
-      setQuizName(summaryData.quizName[language])
-      setShowRateButton(summaryData.showRateButton)
+      setQuizName(summaryData.quizName[language]);
+      setShowRateButton(summaryData.showRateButton);
     } catch (error) {
       console.log(error);
     } finally {
-      setLoading(false);
+      stopGlobalLoader("quizSummary");
     }
   };
 
   return (
     <GlobalLoaderContext>
       <Navbar />
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <PageWrapper>
-            <SummaryInstructions>
-              <InstructionsHeader>
-              {t('quiz.summary')} {quizName}
-              </InstructionsHeader>
-              <InstructionsSubheader onClick={async () => {
-                startGlobalLoader('quizSummary')
-                await new Promise(res => setTimeout(res,1000))
-                stopGlobalLoader('quizSummary')
-              }}>
-                {t('quiz.yourScoreIs')}: <HighlightText>{userScore * 100}%</HighlightText>
-              </InstructionsSubheader>
-              <InstructionsDescription>
-              {t('quiz.color')} <CorrectColor>{t('quiz.green')}</CorrectColor> {t('quiz.meansCorrectAnswerAnd')} <WrongColor>{t('quiz.red')}</WrongColor> {t('quiz.possibleBadAnswer')}
-              </InstructionsDescription>
-            <Line/>
-            </SummaryInstructions>
-            {showRateButton ? <RateCourseWidget setShowRateButton={setShowRateButton} courseName={props.match.params.courseName}/> : null }
-            <QuizSummaryWidget
-              language={language}
-              quizName={props.match.params.courseName}
-              userAnswers={userAnswers}
-              summaryData={summaryData}
-              userScore={userScore}
-            />
-          </PageWrapper>
-        </>
-      )}
+      <PageWrapper>
+        <SummaryInstructions>
+          <InstructionsHeader>
+            {t("quiz.summary")} {quizName}
+          </InstructionsHeader>
+          <InstructionsSubheader>
+            {t("quiz.yourScoreIs")}:{" "}
+            <HighlightText>{userScore * 100}%</HighlightText>
+          </InstructionsSubheader>
+          <InstructionsDescription>
+            {t("quiz.color")} <CorrectColor>{t("quiz.green")}</CorrectColor>{" "}
+            {t("quiz.meansCorrectAnswerAnd")}{" "}
+            <WrongColor>{t("quiz.red")}</WrongColor>{" "}
+            {t("quiz.possibleBadAnswer")}
+          </InstructionsDescription>
+          <Line />
+        </SummaryInstructions>
+        {showRateButton ? (
+          <RateCourseWidget
+            setShowRateButton={setShowRateButton}
+            courseName={props.match.params.courseName}
+          />
+        ) : null}
+        <QuizSummaryWidget
+          language={language}
+          quizName={props.match.params.courseName}
+          userAnswers={userAnswers}
+          summaryData={summaryData}
+          userScore={userScore}
+        />
+      </PageWrapper>
     </GlobalLoaderContext>
   );
 };

@@ -7,7 +7,7 @@ import { PageCourse } from "components/Pages/Pages.styles";
 import Navigation from "components/Course/Navigation";
 import Loader from "components/Loader/GlobalLoader";
 import { useTranslation } from "react-i18next";
-import { useOnClickOutside } from 'hooks/useOnClickOutside';
+import { useOnClickOutside } from "hooks/useOnClickOutside";
 
 import coursesData from "components/Courses/course.data";
 import Sidebar from "components/Course/Sidebar";
@@ -20,24 +20,26 @@ import FadeIn from "components/FadeIn/FadeIn";
 import { accountCoursesAtom, finishedQuizesAtom } from "store/state/cache";
 import { useResetRecoilState } from "recoil";
 import { useLogin } from "store/actions/user";
+import GlobalLoaderContext from "context/GlobalLoader.context";
+import { useGlobalLoader } from "store/actions/global";
 const Course = (props) => {
   const ref = useRef();
-  const { logoutUser, userDetails } = useLogin()
+  const { logoutUser, userDetails } = useLogin();
   const [activeSlide, setActiveSlide] = useState(0);
   const [loadedData, setLoadedData] = useState(0);
   const [content, setContent] = useState([]);
   const [courseAlreadyFinishedPopup, setCourseAlreadyFinishedPopup] =
     useState(0);
-  const [loading, setLoading] = useState(0);
-  const [showTutorial, setShowTutorial] = useState(false)
+  const [showTutorial, setShowTutorial] = useState(false);
   const [waitForCorrectAnswer, setWaitForCorrectAnswer] = useState(false);
   const history = useHistory();
-  const {t, i18n} = useTranslation()
+  const { t, i18n } = useTranslation();
   const resetCoursesCache = useResetRecoilState(accountCoursesAtom);
   const resetQuizesCache = useResetRecoilState(finishedQuizesAtom);
 
   const courseName = props.match.params.courseName;
   useOnClickOutside(ref, () => setCourseAlreadyFinishedPopup(false));
+  const { startGlobalLoader, stopGlobalLoader } = useGlobalLoader();
 
   useEffect(() => {
     (async () => {
@@ -45,8 +47,11 @@ const Course = (props) => {
         history.push(`/login?courseRedirect=${courseName}`);
         return;
       }
-      const localStorageLang =  i18n.language
-      const courseData = coursesData.find((item) => item.course === courseName && item.language === localStorageLang);
+      const localStorageLang = i18n.language;
+      const courseData = coursesData.find(
+        (item) =>
+          item.course === courseName && item.language === localStorageLang
+      );
       if (!courseData) {
         history.push("/courses");
         return;
@@ -60,21 +65,19 @@ const Course = (props) => {
         setContent(courseData.content);
       }
       setLoadedData(true);
-      setLoading(true);
       await addCourseToStarted();
-      setLoading(false);
     })();
   }, []);
 
   const checkCourseTutorial = async () => {
-    const finishedTutorial = localStorage.getItem('finished_tutorial')
-    if (!finishedTutorial) setShowTutorial(true)
-  }
+    const finishedTutorial = localStorage.getItem("finished_tutorial");
+    if (!finishedTutorial) setShowTutorial(true);
+  };
 
   const finishTutorial = () => {
-    setShowTutorial(false)
-    localStorage.setItem('finished_tutorial', 'true')
-  }
+    setShowTutorial(false);
+    localStorage.setItem("finished_tutorial", "true");
+  };
   const addCourseToStarted = async () => {
     const requestBody = {
       query: `
@@ -89,6 +92,7 @@ const Course = (props) => {
       },
     };
     try {
+      startGlobalLoader("pages");
       const { data } = await axios.post(
         `${window.env.API_URL}/graphql`,
         requestBody,
@@ -106,7 +110,7 @@ const Course = (props) => {
           history.push("/courses");
         }
         if (data.errors[0].message === "unauthenticated") {
-          logoutUser()
+          logoutUser();
           history.push("/login");
         }
       } else {
@@ -116,6 +120,8 @@ const Course = (props) => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      stopGlobalLoader("pages");
     }
   };
 
@@ -149,64 +155,57 @@ const Course = (props) => {
   };
 
   return (
-    <>
-      {userDetails && loadedData && (
+    <GlobalLoaderContext>
+      {userDetails && loadedData ? (
         <>
-          {loading ? (
-            <Loader />
-          ) : (
-            <>
-                <FadeIn in={courseAlreadyFinishedPopup}>
-                <ButtonsModal
-                innerRef={ref}
-                  header={t("courseFinishedQuesionHeader")}
-                  text={t("courseFinishedQuesionDescription")}
-                  button1Text={t("cancel")}
-                  button2Text={t("start")}
-                  button1OnClick={() => {
-                    history.push("/courses");
-                  }}
-                  button2OnClick={() => {
-                    restartCourse();
-                  }}
-                />
-                </FadeIn>
-                  <CourseNavbar setShowTutorial={setShowTutorial}/>
-                  <Sidebar
-                    waitForCorrectAnswer={waitForCorrectAnswer}
-                    data={content}
-                    activeSlide={activeSlide}
-                  />
-                  <PageCourse>
-                    {content.map((step, index) => {
-                      if (index === activeSlide)
-                        return step.slide
-                          ? React.cloneElement(step.slide, {
-                              setWaitForCorrectAnswer,
-                            })
-                          : "";
-                    })}
-                  </PageCourse>
-                  <Navigation
-                    user={userDetails}
-                    data={content}
-                    activeSlide={activeSlide}
-                    setActiveSlide={setActiveSlide}
-                    courseName={courseName}
-                    waitForCorrectAnswer={waitForCorrectAnswer}
-                    setWaitForCorrectAnswer={setWaitForCorrectAnswer}
-                  />
-                  <MobileAlert/>
-                  {/* <DownloadCourses data={content}/> */}
-                  <FadeIn in={showTutorial}>
-                  <CourseTutorial finish={finishTutorial}/>
-                  </FadeIn>
-                </>
-          )}
+          <FadeIn in={courseAlreadyFinishedPopup}>
+            <ButtonsModal
+              innerRef={ref}
+              header={t("courseFinishedQuesionHeader")}
+              text={t("courseFinishedQuesionDescription")}
+              button1Text={t("cancel")}
+              button2Text={t("start")}
+              button1OnClick={() => {
+                history.push("/courses");
+              }}
+              button2OnClick={() => {
+                restartCourse();
+              }}
+            />
+          </FadeIn>
+          <CourseNavbar setShowTutorial={setShowTutorial} />
+          <Sidebar
+            waitForCorrectAnswer={waitForCorrectAnswer}
+            data={content}
+            activeSlide={activeSlide}
+          />
+          <PageCourse>
+            {content.map((step, index) => {
+              if (index === activeSlide)
+                return step.slide
+                  ? React.cloneElement(step.slide, {
+                      setWaitForCorrectAnswer,
+                    })
+                  : "";
+            })}
+          </PageCourse>
+          <Navigation
+            user={userDetails}
+            data={content}
+            activeSlide={activeSlide}
+            setActiveSlide={setActiveSlide}
+            courseName={courseName}
+            waitForCorrectAnswer={waitForCorrectAnswer}
+            setWaitForCorrectAnswer={setWaitForCorrectAnswer}
+          />
+          <MobileAlert />
+          {/* <DownloadCourses data={content}/> */}
+          <FadeIn in={showTutorial}>
+            <CourseTutorial finish={finishTutorial} />
+          </FadeIn>
         </>
-      )}
-    </>
+      ) : null}
+    </GlobalLoaderContext>
   );
 };
-
 export default Course;

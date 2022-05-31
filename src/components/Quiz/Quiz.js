@@ -12,19 +12,19 @@ import {
 } from "./Quiz.styles";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import Loader from "components/Loader/GlobalLoader";
 import Button from "components/Button/Button";
 import { finishedQuizesAtom } from "store/state/cache";
 import { useResetRecoilState } from "recoil";
+import { useGlobalLoader } from "store/actions/global";
 
 const Quiz = (props) => {
   const history = useHistory();
-  const [loading, setLoading] = useState(false);
   const [userAnswers, setUserAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [choosenAnswer, setChoosenAnswer] = useState(null);
   const [quizFinished, setQuizFinished] = useState(false);
   const resetQuizesCache = useResetRecoilState(finishedQuizesAtom);
+  const { startGlobalLoader, stopGlobalLoader } = useGlobalLoader();
 
   const { t } = useTranslation();
   useEffect(() => {
@@ -48,7 +48,7 @@ const Quiz = (props) => {
       },
     };
     try {
-      setLoading(true)
+      startGlobalLoader("finishQuiz");
       await axios.post(
         `${window.env.API_URL}/graphql`,
         requestBody,
@@ -63,7 +63,7 @@ const Quiz = (props) => {
     } catch (error) {
       console.log(error);
     } finally {
-      setLoading(false);
+      stopGlobalLoader("finishQuiz");
       history.push(`/quiz-summary/${props.courseLink}`);
     }
   };
@@ -82,10 +82,6 @@ const Quiz = (props) => {
   };
 
   return (
-    <>
-      {loading ? (
-        <Loader />
-      ) : (
         <Container>
           {props.quizData.map((item, index) => {
             if (index === currentQuestion)
@@ -138,8 +134,6 @@ const Quiz = (props) => {
               );
           })}
         </Container>
-      )}
-    </>
   );
 };
 

@@ -4,22 +4,24 @@ import { useHistory } from "react-router-dom";
 import NavbarClean from "components/Navbar/NavbarClean";
 import QuizWidget from "components/Quiz/Quiz";
 import { PageOneChild } from "components/Pages/Pages.styles";
-import Loader from "components/Loader/GlobalLoader";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { useLogin } from "store/actions/user";
+import GlobalLoaderContext from "context/GlobalLoader.context";
+import { useGlobalLoader } from "store/actions/global";
 
 const Quiz = (props) => {
-  const {i18n} = useTranslation()
+  const { i18n } = useTranslation();
   const history = useHistory();
   const [quizData, setQuizData] = useState([]);
-  const { userDetails } = useLogin()
-  const [loading, setLoading] = useState(true);
-  const [language, setLanguage] = useState(i18n.language)
+  const { userDetails } = useLogin();
+  const [language] = useState(i18n.language);
+  const { startGlobalLoader, stopGlobalLoader } = useGlobalLoader();
 
   useEffect(() => {
     (async () => {
       if (!userDetails) history.push("/login");
+      startGlobalLoader("quiz");
       await checkIfCourseFinished();
       await getQuizData();
     })();
@@ -56,7 +58,7 @@ const Quiz = (props) => {
         history.push(`/course/${props.match.params.courseName}`);
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
@@ -83,12 +85,16 @@ const Quiz = (props) => {
       },
     };
     try {
-      const {data}  = await axios.post(`${window.env.API_URL}/graphql`, requestBody, {
-        headers: {
-          Authorization: `Bearer ${userDetails.token}`,
-        },
-      });
-      if (data.errors && data.errors[0].message === 'quiz-finished') {
+      const { data } = await axios.post(
+        `${window.env.API_URL}/graphql`,
+        requestBody,
+        {
+          headers: {
+            Authorization: `Bearer ${userDetails.token}`,
+          },
+        }
+      );
+      if (data.errors && data.errors[0].message === "quiz-finished") {
         history.push(`/quiz-summary/${props.match.params.courseName}`);
       } else {
         setQuizData(data.data.getQuizData.items);
@@ -96,28 +102,22 @@ const Quiz = (props) => {
     } catch (error) {
       history.push(`/`);
     } finally {
-      setLoading(false);
+      stopGlobalLoader("quiz");
     }
   };
 
   return (
-    <>
+    <GlobalLoaderContext>
       <NavbarClean />
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <PageOneChild includeNavbar>
-            <QuizWidget
-              language={language}
-              courseLink={props.match.params.courseName}
-              quizData={quizData}
-              user={userDetails}
-            />
-          </PageOneChild>
-        </>
-      )}
-    </>
+      <PageOneChild includeNavbar>
+        <QuizWidget
+          language={language}
+          courseLink={props.match.params.courseName}
+          quizData={quizData}
+          user={userDetails}
+        />
+      </PageOneChild>
+    </GlobalLoaderContext>
   );
 };
 

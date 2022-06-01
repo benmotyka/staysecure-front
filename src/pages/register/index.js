@@ -1,4 +1,3 @@
-import FooterRegister from 'components/Footer/FooterRegister'
 import Logo from 'components/Logo/Logo'
 import {PageOneChild} from 'components/Pages/Pages.styles'
 
@@ -8,7 +7,6 @@ const register = () => {
             <PageOneChild>
                 <Logo/>
                 <RegisterCard/>
-                <FooterRegister/>
             </PageOneChild>
     )
 }

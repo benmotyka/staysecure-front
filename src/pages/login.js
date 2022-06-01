@@ -1,4 +1,3 @@
-import FooterLogin from 'components/Footer/FooterLogin'
 import Logo from 'components/Logo/Logo'
 import {PageOneChild} from 'components/Pages/Pages.styles'
 
@@ -9,7 +8,6 @@ const Login = () => {
             <PageOneChild>
                 <Logo/>
                 <LoginCard/>
-                <FooterLogin/>
             </PageOneChild>
     )
 }

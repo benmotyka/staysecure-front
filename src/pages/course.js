@@ -92,7 +92,7 @@ const Course = (props) => {
       },
     };
     try {
-      startGlobalLoader("pages");
+      startGlobalLoader("course");
       const { data } = await axios.post(
         `${window.env.API_URL}/graphql`,
         requestBody,
@@ -121,7 +121,7 @@ const Course = (props) => {
     } catch (error) {
       console.log(error);
     } finally {
-      stopGlobalLoader("pages");
+      stopGlobalLoader("course");
     }
   };
 

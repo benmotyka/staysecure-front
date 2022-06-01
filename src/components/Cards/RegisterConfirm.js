@@ -1,25 +1,20 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
 
 import { Container, SuccessText } from "./Cards.styles";
-import Loader from "components/Loader/GlobalLoader";
 import { useTranslation } from "react-i18next";
+import { useGlobalLoader } from "store/actions/global";
+import GlobalLoaderContext from "context/GlobalLoader.context";
 
 const RegisterConfirm = (props) => {
   const history = useHistory();
   const { t } = useTranslation();
+  const { startGlobalLoader, stopGlobalLoader } = useGlobalLoader();
 
-  useEffect(async () => {
-    try {
+  useEffect(() => {
       confirmRegistration(props.token);
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
-
-  const [loading, setLoading] = useState(true);
-  const [success, setSuccess] = useState(false);
+  },[]);
 
   const confirmRegistration = async (registrationToken) => {
     const requestBody = {
@@ -35,14 +30,15 @@ const RegisterConfirm = (props) => {
       },
     };
     try {
+      startGlobalLoader("registerConfirm");
       const response = await axios.post(
         `${window.env.API_URL}/graphql`,
         requestBody
       );
       if (response.data.errors) {
+        console.log(response.data.errors);
         history.push("/login");
       } else {
-        setSuccess(true);
         setTimeout(() => {
           history.push("/login");
         }, 2000);
@@ -50,17 +46,15 @@ const RegisterConfirm = (props) => {
     } catch (error) {
       console.log(error);
     } finally {
-      setLoading(false);
+      stopGlobalLoader("registerConfirm");
     }
   };
   return (
-    <Container>
-      {loading ? (
-        <Loader />
-      ) : success ? (
+    <GlobalLoaderContext>
+      <Container>
         <SuccessText>{t("accountConfirmedSuccess")}</SuccessText>
-      ) : null}
-    </Container>
+      </Container>
+    </GlobalLoaderContext>
   );
 };
 

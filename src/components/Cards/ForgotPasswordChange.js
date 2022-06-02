@@ -1,11 +1,12 @@
 import axios from "axios";
 import Button from "components/Button/Button";
-import Loader from "components/Loader/GlobalLoader";
 import { useHistory } from "react-router";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 import { useFormik } from "formik";
+import GlobalLoaderContext from "context/GlobalLoader.context";
+import { useGlobalLoader } from "store/actions/global";
 
 import {
   Container,
@@ -17,14 +18,13 @@ import {
 import BasicInput from "components/BasicInput/BasicInput";
 
 const ForgotPassword = (props) => {
-  const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const history = useHistory();
+  const { startGlobalLoader, stopGlobalLoader } = useGlobalLoader();
 
   const { t } = useTranslation();
 
   const onSubmit = async ({ password }, { setFieldError }) => {
-    setLoading(true);
     window.grecaptcha.ready(() => {
       window.grecaptcha
         .execute("6LdJhwMbAAAAAP658oVQALS41aSkllNuOehb5SvW", {
@@ -46,6 +46,7 @@ const ForgotPassword = (props) => {
             },
           };
           try {
+            startGlobalLoader("forgotPasswordChange");
             const response = await axios.post(
               `${window.env.API_URL}/graphql`,
               requestBody
@@ -61,7 +62,7 @@ const ForgotPassword = (props) => {
           } catch (error) {
             console.log(error);
           } finally {
-            setLoading(false);
+            stopGlobalLoader("forgotPasswordChange");
           }
         });
     });
@@ -86,50 +87,46 @@ const ForgotPassword = (props) => {
   });
 
   return (
-    <>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Container>
-          {success ? (
-            <SuccessText>{t("passwordResetSuccess")}</SuccessText>
-          ) : (
-            <>
-              <Header>{t("forgotPassword.enterNewPassword")}</Header>
-              <BasicInput
-                id="password"
-                placeholder={t("password")}
-                type="password"
-                onChange={formik.handleChange}
-                value={formik.values.password}
-                onBlur={formik.handleBlur}
-              />
-              <BasicInput
-                id="passwordConfirmation"
-                placeholder={t("confirmPassword")}
-                type="password"
-                onChange={formik.handleChange}
-                value={formik.values.passwordConfirmation}
-                onBlur={formik.handleBlur}
-              />
-              <ErrorsWrapper>
-                {formik.touched.password && formik.errors.password ? (
-                  <Error>{formik.errors.password}</Error>
-                ) : formik.touched.passwordConfirmation &&
-                  formik.errors.passwordConfirmation ? (
-                  <Error>{formik.errors.passwordConfirmation}</Error>
-                ) : null}
-              </ErrorsWrapper>
-              <Button
-                onClick={formik.handleSubmit}
-                text={t("forgotPassword.continue")}
-                full
-              />
-            </>
-          )}
-        </Container>
-      )}
-    </>
+    <GlobalLoaderContext>
+      <Container>
+        {success ? (
+          <SuccessText>{t("passwordResetSuccess")}</SuccessText>
+        ) : (
+          <>
+            <Header>{t("forgotPassword.enterNewPassword")}</Header>
+            <BasicInput
+              id="password"
+              placeholder={t("password")}
+              type="password"
+              onChange={formik.handleChange}
+              value={formik.values.password}
+              onBlur={formik.handleBlur}
+            />
+            <BasicInput
+              id="passwordConfirmation"
+              placeholder={t("confirmPassword")}
+              type="password"
+              onChange={formik.handleChange}
+              value={formik.values.passwordConfirmation}
+              onBlur={formik.handleBlur}
+            />
+            <ErrorsWrapper>
+              {formik.touched.password && formik.errors.password ? (
+                <Error>{formik.errors.password}</Error>
+              ) : formik.touched.passwordConfirmation &&
+                formik.errors.passwordConfirmation ? (
+                <Error>{formik.errors.passwordConfirmation}</Error>
+              ) : null}
+            </ErrorsWrapper>
+            <Button
+              onClick={formik.handleSubmit}
+              text={t("forgotPassword.continue")}
+              full
+            />
+          </>
+        )}
+      </Container>
+    </GlobalLoaderContext>
   );
 };
 

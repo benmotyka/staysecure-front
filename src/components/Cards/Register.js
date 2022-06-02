@@ -12,20 +12,22 @@ import {
   Error,
   SuccessText,
 } from "./Cards.styles";
-import Loader from "components/Loader/GlobalLoader";
 import AccountLevel from "components/Account/Cards/Parts/AccountLevel";
+import FooterRegister from 'components/Footer/FooterRegister'
 
 import Button from "../Button/Button";
 import { useTranslation } from "react-i18next";
 import BasicInput from "components/BasicInput/BasicInput";
 import { useLogin } from "store/actions/user";
+import GlobalLoaderContext from "context/GlobalLoader.context";
+import { useGlobalLoader } from "store/actions/global";
 const Register = () => {
   const history = useHistory();
   const { userDetails } = useLogin()
   const { t, i18n } = useTranslation();
+  const { startGlobalLoader, stopGlobalLoader } = useGlobalLoader();
 
   const [accountLevel, setAccountLevel] = useState("basic");
-  const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
@@ -42,7 +44,6 @@ const Register = () => {
           action: "submit",
         })
         .then(async (token) => {
-          setLoading(true);
           const requestBody = {
             query: `
           mutation Register($email: String!, $password: String!, $name: String!, $captcha: String!, $accountLevel: String!, $language: String!){
@@ -61,6 +62,7 @@ const Register = () => {
             },
           };
           try {
+            startGlobalLoader("register");
             const {
               data: {
                 data: { register: response },
@@ -74,7 +76,7 @@ const Register = () => {
           } catch (error) {
             console.log(error);
           } finally {
-            setLoading(false);
+            stopGlobalLoader("register");
           }
         });
     });
@@ -106,8 +108,8 @@ const Register = () => {
   });
 
   return (
+    <GlobalLoaderContext>
     <Container>
-      {loading ? <Loader /> : null}
       {success ? (
         <SuccessText>
           {t("registerSuccessfulEmailSent")} {formik.values.email}
@@ -162,6 +164,8 @@ const Register = () => {
         </>
       )}
     </Container>
+    <FooterRegister/>
+    </GlobalLoaderContext>
   );
 };
 

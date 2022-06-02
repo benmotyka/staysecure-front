@@ -4,7 +4,8 @@ import { useFormik } from "formik";
 
 import BasicInput from "components/BasicInput/BasicInput";
 import Button from "components/Button/Button";
-import Loader from "components/Loader/GlobalLoader";
+import GlobalLoaderContext from "context/GlobalLoader.context";
+import { useGlobalLoader } from "store/actions/global";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -17,13 +18,12 @@ import {
 } from "./Cards.styles";
 
 const ForgotPassword = () => {
-  const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const { startGlobalLoader, stopGlobalLoader } = useGlobalLoader();
 
   const { t, i18n } = useTranslation();
 
   const onSubmit = async ({ email }, { setFieldError }) => {
-    setLoading(true);
     window.grecaptcha.ready(() => {
       window.grecaptcha
         .execute("6LdJhwMbAAAAAP658oVQALS41aSkllNuOehb5SvW", {
@@ -46,6 +46,7 @@ email
           };
 
           try {
+            startGlobalLoader("forgotPassword");
             const response = await axios.post(
               `${window.env.API_URL}/graphql`,
               requestBody
@@ -58,7 +59,7 @@ email
           } catch (error) {
             console.log(error);
           } finally {
-            setLoading(false);
+            stopGlobalLoader("forgotPassword");
           }
         });
     });
@@ -79,39 +80,35 @@ email
   });
 
   return (
-    <>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Container>
-          {success ? (
-            <SuccessText>{t("forgotPassword.checkEmail")}</SuccessText>
-          ) : (
-            <>
-              <Header>{t("forgotPassword.instructions")}</Header>
-              <BasicInput
-                id="email"
-                placeholder={t("email")}
-                type="email"
-                onChange={formik.handleChange}
-                value={formik.values.email}
-                onBlur={formik.handleBlur}
-              />
-              <ErrorsWrapper>
-                {formik.touched.email && formik.errors.email ? (
-                  <Error>{formik.errors.email}</Error>
-                ) : null}
-              </ErrorsWrapper>
-              <Button
-                onClick={formik.handleSubmit}
-                text={t("forgotPassword.continue")}
-                full
-              />
-            </>
-          )}
-        </Container>
-      )}
-    </>
+    <GlobalLoaderContext>
+      <Container>
+        {success ? (
+          <SuccessText>{t("forgotPassword.checkEmail")}</SuccessText>
+        ) : (
+          <>
+            <Header>{t("forgotPassword.instructions")}</Header>
+            <BasicInput
+              id="email"
+              placeholder={t("email")}
+              type="email"
+              onChange={formik.handleChange}
+              value={formik.values.email}
+              onBlur={formik.handleBlur}
+            />
+            <ErrorsWrapper>
+              {formik.touched.email && formik.errors.email ? (
+                <Error>{formik.errors.email}</Error>
+              ) : null}
+            </ErrorsWrapper>
+            <Button
+              onClick={formik.handleSubmit}
+              text={t("forgotPassword.continue")}
+              full
+            />
+          </>
+        )}
+      </Container>
+    </GlobalLoaderContext>
   );
 };
 

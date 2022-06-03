@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Navbar from "components/Navbar/Navbar";
@@ -32,7 +32,7 @@ const QuizSummary = (props) => {
   const [quizName, setQuizName] = useState("");
   const [showRateButton, setShowRateButton] = useState(false);
   const { startGlobalLoader, stopGlobalLoader } = useGlobalLoader();
-  useEffect(() => {
+  useLayoutEffect(() => {
     (async () => {
       if (!userDetails) history.push("/login");
       startGlobalLoader("quizSummary");

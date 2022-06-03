@@ -17,7 +17,7 @@ import { useLogin } from "store/actions/user";
 const Courses = () => {
   const { t, i18n } = useTranslation();
   const history = useHistory();
-  const [startedLang, setStartedLang] = useState(i18n.language);
+  const [startedLang] = useState(i18n.language);
   const { logoutUser, userDetails } = useLogin()
   const [coursesFinished, setCoursesFinished] = useState([]);
   const [coursesStarted, setCoursesStarted] = useState([]);
@@ -86,7 +86,7 @@ const Courses = () => {
         (error.response.data.errors.length &&
           error.response.data.errors[0].message === "unauthenticated")
       )
-        logoutUser()
+      logoutUser()
       history.push("/login");
       console.log(error);
     } finally {
@@ -96,7 +96,7 @@ const Courses = () => {
 
   return (
     <>
-      {userDetails && (
+      {userDetails.token && (
         <>
           <NavbarClean />
           <PageAccount>

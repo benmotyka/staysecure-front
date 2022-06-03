@@ -5,7 +5,7 @@ const LocalLoader = () => {
   return (
     <LocalLoaderContainer>
       <ReactLoader
-        type="TailSpin"
+        type="BallTriangle"
         color="#eee"
         height={100}
         width={100}

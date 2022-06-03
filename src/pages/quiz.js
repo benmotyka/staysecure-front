@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import NavbarClean from "components/Navbar/NavbarClean";
@@ -18,7 +18,7 @@ const Quiz = (props) => {
   const [language] = useState(i18n.language);
   const { startGlobalLoader, stopGlobalLoader } = useGlobalLoader();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     (async () => {
       if (!userDetails) history.push("/login");
       startGlobalLoader("quiz");

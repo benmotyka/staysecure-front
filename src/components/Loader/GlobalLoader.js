@@ -1,11 +1,15 @@
+import Logo from "components/Logo/Logo";
 import ReactLoader from "react-loader-spinner";
 
-import {GlobalLoaderContainer} from "./Loader.styles"
+import {GlobalLoaderContainer, LogoWrapper} from "./Loader.styles"
 const GlobalLoader = () => {
   return (
     <GlobalLoaderContainer>
+      <LogoWrapper>
+        <Logo />
+      </LogoWrapper>
       <ReactLoader
-        type="TailSpin"
+        type="BallTriangle"
         color="#eee"
         height={100}
         width={100}

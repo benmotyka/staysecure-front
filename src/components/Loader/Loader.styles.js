@@ -5,18 +5,17 @@ const loaderCommon = css`
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.2;
+  opacity: 1;
   z-index: 10000;
 `;
 
 export const GlobalLoaderContainer = styled.div`
   ${loaderCommon};
   position: fixed;
-  background-color: ${colors.black};
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  background-color: ${colors.lightPurple};
+  inset: 0;
+  opacity: 1;
+  flex-direction: column;
 `;
 
 export const LocalLoaderContainer = styled.div`
@@ -24,3 +23,8 @@ export const LocalLoaderContainer = styled.div`
   width: 100%;
   height: 100%;
 `;
+
+export const LogoWrapper = styled.div`
+position: absolute;
+top: 20%;
+`

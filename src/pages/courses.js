@@ -1,21 +1,25 @@
-import Navbar from 'components/Navbar/Navbar'
-import Footer from 'components/Footer/Footer'
-import {PageWrapperNoCentered} from 'components/Pages/Pages.styles'
-import CoursesPreview from 'components/PreviewItems/Courses'
-import { useTranslation } from 'react-i18next'
+import Navbar from "components/Navbar/Navbar";
+import Footer from "components/Footer/Footer";
+import { PageWrapperNoCentered } from "components/Pages/Pages.styles";
+import CoursesPreview from "components/PreviewItems/Courses";
+import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 
 const Courses = () => {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
-    return (
-        <>
-            <Navbar/>
-            <PageWrapperNoCentered>
-            <CoursesPreview header={t('allCourses')} />
-            </PageWrapperNoCentered>
-            <Footer/>
-        </>
-    )
-}
+  return (
+    <>
+      <Helmet>
+        <title>{t("helmet.titles.courses")}</title>
+      </Helmet>
+      <Navbar />
+      <PageWrapperNoCentered>
+        <CoursesPreview header={t("allCourses")} />
+      </PageWrapperNoCentered>
+      <Footer />
+    </>
+  );
+};
 
-export default Courses
+export default Courses;

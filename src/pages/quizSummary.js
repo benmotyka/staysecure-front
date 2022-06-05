@@ -20,6 +20,7 @@ import { useTranslation } from "react-i18next";
 import { useLogin } from "store/actions/user";
 import { useGlobalLoader } from "store/actions/global";
 import GlobalLoaderContext from "context/GlobalLoader.context";
+import { Helmet } from "react-helmet";
 
 const QuizSummary = (props) => {
   const { userDetails } = useLogin();
@@ -32,6 +33,7 @@ const QuizSummary = (props) => {
   const [quizName, setQuizName] = useState("");
   const [showRateButton, setShowRateButton] = useState(false);
   const { startGlobalLoader, stopGlobalLoader } = useGlobalLoader();
+
   useLayoutEffect(() => {
     (async () => {
       if (!userDetails) history.push("/login");
@@ -105,6 +107,9 @@ const QuizSummary = (props) => {
 
   return (
     <GlobalLoaderContext>
+      <Helmet>
+        <title>{t("helmet.titles.quiz")}</title>
+      </Helmet>
       <Navbar />
       <PageWrapper>
         <SummaryInstructions>

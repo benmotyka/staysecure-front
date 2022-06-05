@@ -393,5 +393,17 @@
     "categories": "Kategorie",
     "deleteAccountHeader": "Usuń konto",
     "deleteAccountDescription": "Przykro nam, że odchodzisz, jednak szanujemy Twoje zdanie. Aby usunąć konto, podaj hasło do swojego konta i kliknij przycisk 'Usuń'.",
-    "delete": "Usuń"
+    "delete": "Usuń",
+    "helmet": {
+        "titles": {
+            "home": "staysecure | kursy cyberbezpieczeństwa",
+            "login": "staysecure | logowanie",
+            "register": "staysecure | rejestracja",
+            "faq": "staysecure | faq",
+            "articles": "staysecure | artykuły",
+            "courses": "staysecure | kursy",
+            "account": "staysecure | konto",
+            "quiz": "staysecure | quiz"
+        }
+    }
 }

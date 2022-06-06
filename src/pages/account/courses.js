@@ -14,11 +14,13 @@ import LocalLoader from "components/Loader/LocalLoader";
 import { useRecoilState } from "recoil";
 import { accountCoursesAtom } from "store/state/cache";
 import { useLogin } from "store/actions/user";
+import { Helmet } from "react-helmet";
+
 const Courses = () => {
   const { t, i18n } = useTranslation();
   const history = useHistory();
   const [startedLang] = useState(i18n.language);
-  const { logoutUser, userDetails } = useLogin()
+  const { logoutUser, userDetails } = useLogin();
   const [coursesFinished, setCoursesFinished] = useState([]);
   const [coursesStarted, setCoursesStarted] = useState([]);
   const [loading, setLoading] = useState(1);
@@ -34,8 +36,8 @@ const Courses = () => {
   const getUserInfo = async () => {
     try {
       if (cachedItems?.started && cachedItems?.finished) {
-          setCoursesStarted(cachedItems.started)
-          return setCoursesFinished(cachedItems.finished)
+        setCoursesStarted(cachedItems.started);
+        return setCoursesFinished(cachedItems.finished);
       }
       const requestBody = {
         query: `
@@ -79,14 +81,14 @@ const Courses = () => {
       setCachedItems({
         started: getUserInfo.coursesStarted,
         finished: getUserInfo.coursesFinished,
-      })
+      });
     } catch (error) {
       if (
         error.response ||
         (error.response.data.errors.length &&
           error.response.data.errors[0].message === "unauthenticated")
       )
-      logoutUser()
+        logoutUser();
       history.push("/login");
       console.log(error);
     } finally {
@@ -96,6 +98,9 @@ const Courses = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{t("helmet.titles.account")}</title>
+      </Helmet>
       {userDetails.token && (
         <>
           <NavbarClean />
@@ -108,18 +113,16 @@ const Courses = () => {
                 <>
                   <StartedCoursesCard coursesStarted={coursesStarted} />
                   {coursesFinished.length ? (
-                    <ExpandItems
-                      header={t("finishedCourses")}
-                    >
+                    <ExpandItems header={t("finishedCourses")}>
                       {coursesFinished &&
                         coursesFinished.map((course, index) => (
                           <ListItem
-                          green
-                          key={index}
-                          header={course.header[startedLang]}
-                          description={course.description[startedLang]}
-                          buttonText={t('restartCourse')}
-                          buttonLink={`/course/${course.link}`}
+                            green
+                            key={index}
+                            header={course.header[startedLang]}
+                            description={course.description[startedLang]}
+                            buttonText={t("restartCourse")}
+                            buttonLink={`/course/${course.link}`}
                           />
                         ))}
                     </ExpandItems>

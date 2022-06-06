@@ -15,6 +15,8 @@ import LocalLoader from "components/Loader/LocalLoader";
 import { useRecoilState } from "recoil";
 import { finishedQuizesAtom } from "store/state/cache";
 import { useLogin } from "store/actions/user";
+import { Helmet } from "react-helmet";
+
 const Quizes = () => {
   const { t, i18n } = useTranslation();
   const history = useHistory();
@@ -83,6 +85,9 @@ const Quizes = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{t("helmet.titles.account")}</title>
+      </Helmet>
       {userDetails && (
         <>
           <NavbarClean />

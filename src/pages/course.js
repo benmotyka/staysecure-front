@@ -22,6 +22,8 @@ import { useResetRecoilState } from "recoil";
 import { useLogin } from "store/actions/user";
 import GlobalLoaderContext from "context/GlobalLoader.context";
 import { useGlobalLoader } from "store/actions/global";
+import { Helmet } from "react-helmet";
+
 const Course = (props) => {
   const ref = useRef();
   const { logoutUser, userDetails } = useLogin();
@@ -156,6 +158,9 @@ const Course = (props) => {
 
   return (
     <GlobalLoaderContext>
+      <Helmet>
+        <title>{t("helmet.titles.courses")}</title>
+      </Helmet>
       {userDetails && loadedData ? (
         <>
           <FadeIn in={courseAlreadyFinishedPopup}>

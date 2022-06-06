@@ -9,9 +9,10 @@ import { useTranslation } from "react-i18next";
 import { useLogin } from "store/actions/user";
 import GlobalLoaderContext from "context/GlobalLoader.context";
 import { useGlobalLoader } from "store/actions/global";
+import { Helmet } from "react-helmet";
 
 const Quiz = (props) => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const history = useHistory();
   const [quizData, setQuizData] = useState([]);
   const { userDetails } = useLogin();
@@ -108,6 +109,9 @@ const Quiz = (props) => {
 
   return (
     <GlobalLoaderContext>
+      <Helmet>
+        <title>{t("helmet.titles.quiz")}</title>
+      </Helmet>
       <NavbarClean />
       <PageOneChild includeNavbar>
         <QuizWidget

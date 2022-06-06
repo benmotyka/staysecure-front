@@ -21,6 +21,7 @@
     "myCourses": "Moje kursy",
     "myQuizes": "Moje quizy",
     "logout": "Wyloguj się",
+    "logoutModalConfirm": "Czy na pewno chcesz się wylogować?",
     "forgotPassword": {
         "header": "Nie pamiętasz hasła?",
         "instructions": "Podaj adres email",

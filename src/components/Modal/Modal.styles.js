@@ -27,7 +27,7 @@ margin: 10px;
 `
 
 export const Header = styled.h2`
-margin: 0;
+margin: 0 0 10px 0;
 color: ${colors.white};
 font-size: 20px;
 @media screen and (max-width: 600px) {

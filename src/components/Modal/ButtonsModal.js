@@ -6,7 +6,7 @@ const ButtonsModal = (props) => {
 <Container>
     <Wrapper ref={props.innerRef}>
         <Header>{props.header}</Header>
-        <Text>{props.text}</Text>
+        {props.text ? <Text>{props.text}</Text> : null}
         <ButtonsContainer>
             <Button onClick={props.button1OnClick} text={props.button1Text} />
             {!props.oneButton && <Button onClick={props.button2OnClick} text={props.button2Text} />}

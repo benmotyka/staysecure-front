@@ -28,6 +28,7 @@
     "myCourses": "My courses",
     "myQuizes": "My quizes",
     "logout": "Logout",
+    "logoutModalConfirm": "Are you sure you want to logout?",
     "forgotPassword": {
         "header": "Forgot password?",
         "instructions": "Enter your email address",

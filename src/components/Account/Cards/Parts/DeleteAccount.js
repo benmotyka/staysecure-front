@@ -15,15 +15,17 @@ import {
   Error,
 } from "components/Cards/Cards.styles";
 import Modal from "components/Modal/Modal";
+import FadeIn from "components/FadeIn/FadeIn";
 import { useOnClickOutside } from "hooks/useOnClickOutside";
 import { useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { useLogin } from "store/actions/user";
+import LocalLoader from "components/Loader/LocalLoader";
 
 const DeleteAccount = (props) => {
   const ref = useRef();
   const { t } = useTranslation();
-  const { logoutUser } = useLogin()
+  const { logoutUser } = useLogin();
 
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -55,7 +57,7 @@ const DeleteAccount = (props) => {
           try {
             const {
               data: {
-                data: {deleteAccount: response},
+                data: { deleteAccount: response },
               },
             } = await axios.post(`${window.env.API_URL}/graphql`, requestBody, {
               headers: {
@@ -63,7 +65,7 @@ const DeleteAccount = (props) => {
               },
             });
             if (response) {
-              logoutUser()
+              logoutUser();
               history.push("/");
             } else {
               setFieldError("password", t("errors.wrongPassword"));
@@ -98,31 +100,35 @@ const DeleteAccount = (props) => {
       <div>
         <Button text={t("delete")} onClick={() => setShowModal(true)} />
       </div>
-      {showModal ? (
+      <FadeIn in={showModal}>
         <Modal>
           <DeleteAccountModalWrapper ref={ref}>
             <Header>{t("deleteAccountHeader")}</Header>
             <Description>{t("deleteAccountDescription")}</Description>
-            <BasicInput
-              id="password"
-              placeholder={t("confirmPassword")}
-              type="password"
-              onChange={formik.handleChange}
-              value={formik.values.password}
-              onBlur={formik.handleBlur}
-            />
+            {loading ? (
+              <LocalLoader />
+            ) : (
+              <BasicInput
+                id="password"
+                placeholder={t("confirmPassword")}
+                type="password"
+                onChange={formik.handleChange}
+                value={formik.values.password}
+                onBlur={formik.handleBlur}
+              />
+            )}
             <ErrorsWrapper>
-            {formik.touched.password && formik.errors.password ? (
-              <Error>{formik.errors.password}</Error>
-            ) : null}
-          </ErrorsWrapper>
+              {formik.touched.password && formik.errors.password ? (
+                <Error>{formik.errors.password}</Error>
+              ) : null}
+            </ErrorsWrapper>
             <DeleteAccountButtonsWrapper>
               <Button onClick={() => setShowModal(false)} text={t("cancel")} />
               <Button onClick={formik.handleSubmit} text={t("delete")} />
             </DeleteAccountButtonsWrapper>
           </DeleteAccountModalWrapper>
         </Modal>
-      ) : null}
+      </FadeIn>
     </Container>
   );
 };

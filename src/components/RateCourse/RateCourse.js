@@ -12,6 +12,7 @@ import { useRef } from "react";
 import { useOnClickOutside } from "hooks/useOnClickOutside";
 import BasicTextarea from "components/BasicTextarea/BasicTextarea";
 import { useLogin } from "store/actions/user";
+import FadeIn from "components/FadeIn/FadeIn";
 
 const RateCourse = (props) => {
   const ref = useRef();
@@ -19,11 +20,11 @@ const RateCourse = (props) => {
   const [showModal, setShowModal] = useState(false);
   const [stars, setStars] = useState(null);
   const [finish, setFinish] = useState(false);
-  const { userDetails } = useLogin()
+  const { userDetails } = useLogin();
 
   useOnClickOutside(ref, () => setShowModal(false));
 
-  const onSubmit = ({comment}) => {
+  const onSubmit = ({ comment }) => {
     if (!stars) {
       return;
     }
@@ -83,7 +84,7 @@ const RateCourse = (props) => {
         noArrow
         text={t("rateCourse")}
       />
-      {showModal ? (
+      <FadeIn in={showModal}>
         <Modal>
           <Wrapper ref={ref}>
             {finish ? (
@@ -117,7 +118,7 @@ const RateCourse = (props) => {
             )}
           </Wrapper>
         </Modal>
-      ) : null}
+      </FadeIn>
     </>
   );
 };

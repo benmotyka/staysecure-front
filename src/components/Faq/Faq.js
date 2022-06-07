@@ -27,7 +27,7 @@ const Faq = () => {
   const [activeCategory, setActiveCategory] = useState("account");
   const [faqSearch, setFaqSearch] = useState("");
   const [searchFaqItems, setSearchFaqItems] = useState([]);
-  const [contactModal, showContactModal] = useState(false);
+  const [contactForm, showContactForm] = useState(false);
 
   const updateFaqSearch = (value) => {
     setFaqSearch(value);
@@ -109,13 +109,13 @@ const Faq = () => {
       )}
       <Text center>
         {t("faq.stillHaveQuestions1")}{" "}
-        <Highlight pointer onClick={() => showContactModal(!contactModal)}>
+        <Highlight pointer onClick={() => showContactForm(!contactForm)}>
           {t("faq.stillHaveQuestions2")}
         </Highlight>{" "}
         {t("faq.stillHaveQuestions3")}
       </Text>
       <ItemsWrapper noBg>
-        <FadeIn in={contactModal}>
+        <FadeIn in={contactForm}>
           <ContactForm />
         </FadeIn>
       </ItemsWrapper>

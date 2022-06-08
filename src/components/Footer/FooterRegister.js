@@ -5,9 +5,6 @@ import {Container, Section, TextItem, LinkItem} from "./Footer.styles"
 const RegisterFooter = () => {
   const {t} = useTranslation()
 
-    const getYear = () => {
-        return new Date().getFullYear();
-    }
     return (
         <Container noBackground>
             <Section>

@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import {DownloadNotesContainer, Text, DownloadIcon} from "./DownloadNotes.styles"
 
 const DownloadNotes = (props) => {
-  const {t, i18n} = useTranslation()
+  const { t } = useTranslation()
 
     return (
     <DownloadNotesContainer onClick={props.onClick}>

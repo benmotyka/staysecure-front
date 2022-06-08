@@ -3,7 +3,6 @@ import Parser from "html-react-parser";
 
 import {
   Container,
-  ImageContainer,
   Image,
   Body,
   HeaderContainer,

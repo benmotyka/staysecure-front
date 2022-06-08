@@ -22,7 +22,7 @@ import DownloadNotes from "./DownloadNotes/DownloadNotes";
 import { useTranslation } from "react-i18next";
 import FadeIn from "components/FadeIn/FadeIn";
 const Notebook = () => {
-  const {t, i18n} = useTranslation()
+  const { t } = useTranslation()
 
   useEffect(() => {
     const notes = JSON.parse(window.localStorage.getItem("notes"));

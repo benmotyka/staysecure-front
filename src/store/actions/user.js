@@ -23,7 +23,7 @@ const useChangeAccountLevel = () => {
     }));
   };
 
-  return { changeAccountLevel }
+  return { changeAccountLevel, userDetails: user }
 };
 
 export { useLogin, useChangeAccountLevel };

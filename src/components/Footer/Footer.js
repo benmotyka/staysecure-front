@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 
 import {Container, Section, TextItem, LinkItem} from "./Footer.styles"
 const Footer = () => {
-  const {t, i18n} = useTranslation()
+  const { t } = useTranslation()
 
     const getYear = () => {
         return new Date().getFullYear();

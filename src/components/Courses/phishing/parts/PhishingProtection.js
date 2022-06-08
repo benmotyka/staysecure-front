@@ -24,7 +24,7 @@ import {
   FaUser as UserIcon,
   FaLock as LockIcon
 } from "react-icons/fa";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import colors from "constans/colors.js";
 import { useTranslation } from "react-i18next";
 

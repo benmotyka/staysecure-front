@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { useState, useEffect } from "react";
 import Iphone from "components/Iphone/Iphone";
 import { useTranslation } from "react-i18next";

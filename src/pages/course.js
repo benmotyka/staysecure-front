@@ -5,7 +5,6 @@ import axios from "axios";
 import CourseNavbar from "components/Navbar/CourseNavbar";
 import { PageCourse } from "components/Pages/Pages.styles";
 import Navigation from "components/Course/Navigation";
-import Loader from "components/Loader/GlobalLoader";
 import { useTranslation } from "react-i18next";
 import { useOnClickOutside } from "hooks/useOnClickOutside";
 
@@ -14,7 +13,7 @@ import Sidebar from "components/Course/Sidebar";
 import ButtonsModal from "components/Modal/ButtonsModal";
 import React from "react";
 import MobileAlert from "components/MobileAlert/MobileAlert";
-import DownloadCourses from "components/DownloadCourses/DownloadCourses";
+// import DownloadCourses from "components/DownloadCourses/DownloadCourses";
 import CourseTutorial from "components/CourseTutorial/CourseTutorial";
 import FadeIn from "components/FadeIn/FadeIn";
 import { accountCoursesAtom, finishedQuizesAtom } from "store/state/cache";

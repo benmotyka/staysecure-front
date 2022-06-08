@@ -10,7 +10,7 @@ const StartedCourses = (props) => {
 
   const history = useHistory();
 
-  const [startedLang, setStartedLang] = useState(i18n.language)
+  const [startedLang] = useState(i18n.language)
 
   return (
     <Container>

@@ -56,4 +56,7 @@ color: inherit;
 
 export const Highlight = styled.span`
 color: ${colors.orange};
+white-space: nowrap;
+text-overflow: ellipsis;
+overflow: hidden;
 `

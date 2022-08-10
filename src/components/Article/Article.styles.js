@@ -63,6 +63,9 @@ export const UrlLink = styled.a`
   font-size: 13px;
   display: block;
   margin-bottom: 15px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;
 
 export const Category = styled.h5`

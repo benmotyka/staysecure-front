@@ -22,7 +22,7 @@ const Sidebar = () => {
     <Container>
       {userDetails && (
         <>
-      <Item header noBorder>{t('welcome')},&nbsp; <Highlight>{ + userDetails.name > 15 ? userDetails.name?.substring(0, 15) + '...' : userDetails.name}</Highlight></Item>
+      <Item header noBorder>{t('welcome')},&nbsp; <Highlight>{userDetails.name}</Highlight></Item>
       <Item
         onClick={() => {
           history.push("/account/courses");

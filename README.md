@@ -5,18 +5,16 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="public/readme/banner.svg" alt="Banner">
+    <img src="readme/banner.svg" alt="Banner">
   </a>
 
-  <h3 align="center">Staysecure</h3>
-
+  <h1 align="center">Staysecure</h1>
+  <h2 align="center">Cybersecurity courses</h2>
   <p align="center">
-    Cybersecurity courses 
     <br />
-    <a href="https://staysecure.pl"><strong>Explore the page »</strong></a>
+    <a href="https://staysecure.pl"><h3>Explore the page »</h3></a>
     <br />
     <br />
-    ·
     <a href="https://github.com/benmotyka/staysecure_front/issues">Report Bug</a>
     ·
     <a href="https://github.com/benmotyka/staysecure_front/issues">Request Feature</a>
@@ -53,13 +51,23 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 todo
+
+<details>
+	<summary>View screenshots</summary>
+
+![Homepage](readme/screenshot_1.png)
+![Phishing course](readme/screenshot_2.png)
+![Quiz summary](readme/screenshot_3.png)
+![Account page](readme/screenshot_4.png)
+</details>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 ### Built With
 
-* [![React][React.js]][React-url]
+[![React][React.js]][React-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -136,16 +144,11 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Ben Motyka - [@your_twitter](https://twitter.com/your_username) - benmotykax@gmail.com
+Ben Motyka - [LinkedIn](https://www.linkedin.com/in/ben-motyka-97a729240/) - benmotykax@gmail.com
 
 Project Link: [https://github.com/benmotyka/staysecure_front](https://github.com/benmotyka/staysecure_front)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->

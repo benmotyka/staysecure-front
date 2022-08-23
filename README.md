@@ -2,16 +2,14 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/benmotyka/staysecure_front">
     <img src="readme/banner.svg" alt="Banner">
   </a>
   <h1 align="center">staysecure.pl</h1>
   <h3 align="center">Cybersecurity courses</h3>
   <h5 align="center">Front-end App</h5>
   <p align="center">
-    <br />
     <a href="https://staysecure.pl"><h4>Explore the page »</h4></a>
-    <br />
     <a href="https://github.com/benmotyka/staysecure_front/issues">Report Bug</a>
     ·
     <a href="https://github.com/benmotyka/staysecure_front/issues">Request Feature</a>

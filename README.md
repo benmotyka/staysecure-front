@@ -5,7 +5,8 @@
   <a href="https://github.com/othneildrew/Best-README-Template">
     <img src="readme/banner.svg" alt="Banner">
   </a>
-  <h1 align="center">Cybersecurity courses</h1>
+  <h1 align="center">staysecure.pl</h1>
+  <h3 align="center">Cybersecurity courses</h3>
   <h5 align="center">Front-end App</h5>
   <p align="center">
     <br />
@@ -44,9 +45,9 @@
 
 ## About The Project
 
-Staysecure is a web application that educates users in the field of cybersecurity. The user has the option of creating an account and basic operations related to it (password reminder, password reset). In the process of creating an account, the user has the option to declare the "level of advancement" of the account - basic or advanced. Level of advancement affects the type of slides included in the course.
+Staysecure is a web application that educates users in the field of cybersecurity. The user has the option of creating an account and basic operations related to it (password reminder, password reset). In the process of creating an account, the user declares the "level of advancement" - basic or advanced, that affects the type of slides included in the course.
 
-The main goal of the website is to take part in the interactive courses with elements of virtual reality. The courses are divided into three levels: easy, medium and hard. The topics of the courses are related to the current threats on the web, such as: Phishing, Keylogger, Ransomware, DDoS, SQL Injection, XSS attacks. Course consist of slides, often interactive, and a description of the current slide. Interactive slides require user interaction to continue the course. The slides describe in detail the source of the threat, its course and potential protection methods.
+The main goal of the website is to allow user to take part in the interactive courses with elements of virtual reality. The courses are divided into three levels: easy, medium and hard. The topics of the courses are related to the current threats on the web, such as: Phishing, Keylogger, Ransomware, DDoS, SQL Injection, XSS attacks. Course consist of slides, often interactive, and a description of the current slide. Interactive slides require user interaction to continue the course. The slides describe in detail the source of the threat, its course and potential protection methods.
 
 After completing the course, the user takes a quiz that summarizes the learning outcomes. The user can take part in many courses and save relevant content in the notes panel, as well as can comment on and rate the courses. Comments and the average grade of the course are presented to users before the course starts.
 
@@ -62,8 +63,8 @@ After completing the course, the user takes a quiz that summarizes the learning 
 
 ### Built With
 
-[![React][react.js]][react-url]
-[![styled-components][styled-components]][styled-components-url]
+* [![React][react.js]][react-url]
+* [![styled-components][styled-components]][styled-components-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

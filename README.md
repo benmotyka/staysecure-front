@@ -73,6 +73,7 @@ After completing the course, the user takes a quiz that summarizes the learning 
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/en/download/)
+- [staysecure server](https://github.com/benmotyka/staysecure_api)
 
 ### Installation
 
@@ -89,6 +90,10 @@ After completing the course, the user takes a quiz that summarizes the learning 
    ```
    NODE_PATH=src/
    API_URL=<server_url> // eg: http://localhost:8081
+   ```
+5. Run app
+   ```sh
+   npm start
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -145,7 +150,6 @@ Project Link: [https://github.com/benmotyka/staysecure_front](https://github.com
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-[product-screenshot]: images/screenshot.png
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
 [styled-components]: https://img.shields.io/badge/styled--components-v5.3.1-orange

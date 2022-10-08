@@ -10,6 +10,8 @@
   <h5 align="center">Front-end App</h5>
   <p align="center">
     <a href="https://staysecure.pl"><strong>Explore the page »</strong></a>
+    <br />
+    <br />
     <a href="https://github.com/benmotyka/staysecure_front/issues">Report Bug</a>
     ·
     <a href="https://github.com/benmotyka/staysecure_front/issues">Request Feature</a>

@@ -9,7 +9,7 @@
   <h3 align="center">Cybersecurity courses</h3>
   <h5 align="center">Front-end App</h5>
   <p align="center">
-    <a href="https://staysecure.pl"><h4>Explore the page »</h4></a>
+    <a href="https://staysecure.pl"><strong>Explore the page »</strong></a>
     <a href="https://github.com/benmotyka/staysecure_front/issues">Report Bug</a>
     ·
     <a href="https://github.com/benmotyka/staysecure_front/issues">Request Feature</a>
@@ -109,7 +109,7 @@ After completing the course, the user takes a quiz that summarizes the learning 
 - [x] Multi-language Support
   - [x] English
   - [x] Polish
-- [ ] Frontend adjustments
+- [x] Frontend adjustments
 - [ ] Add comments under articles
 - [ ] Mobile view for courses
 
@@ -134,13 +134,6 @@ Thanks again!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LICENSE
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
- -->
 
 ## Contact
 
@@ -149,8 +142,3 @@ Ben Motyka - [LinkedIn](https://www.linkedin.com/in/ben-motyka-97a729240/) - ben
 Project Link: [https://github.com/benmotyka/staysecure_front](https://github.com/benmotyka/staysecure_front)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-[react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[react-url]: https://reactjs.org/
-[styled-components]: https://img.shields.io/badge/styled--components-v5.3.1-orange
-[styled-components-url]: https://styled-components.com/

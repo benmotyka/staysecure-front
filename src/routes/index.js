@@ -1,3 +1,4 @@
+import { React } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 
 import Home from "pages/home";
@@ -17,6 +18,7 @@ import QuizSummary from "pages/quizSummary";
 import ForgotPassword from "pages/forgotPassword";
 import ForgotPasswordChange from "pages/forgotPasswordChange";
 import Faq from "pages/faq";
+import AnimateWrapper from "components/AnimateWrapper/AnimateWrapper";
 
 const routes = [
   {
@@ -93,7 +95,12 @@ const Routes = () => {
   return (
     <Switch>
       {routes.map((item) => (
-        <Route path={item.path} component={item.component} exact />
+        <Route
+          key={item.path}
+          path={item.path}
+          component={(props) => AnimateWrapper({ Component: item.component, ...props })}
+          exact
+        />
       ))}
       <Redirect to="/" />
     </Switch>

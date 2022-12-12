@@ -11,6 +11,7 @@ height: ${navbarHeight};
 display: flex;
 align-items: center;
 padding: ${props => props.smallPadding ? "0 45px": "0 270px"};
+z-index: 50;
 `
 
 export const ContainerClean = styled.div`
@@ -19,7 +20,6 @@ ${commonNavbar};
 export const Container = styled.div`
 ${commonNavbar};
 justify-content: space-between;
-z-index: 10;
 
 @media screen and (max-width: 1400px) {
     padding: 0 30px;

@@ -9,8 +9,7 @@ background-color: ${colors.darkPurple};
 margin: 0;
 list-style: none; 
 padding: 0 0 10px 30px;
-
-
+z-index: 40;
 `
 const Text = css`
 color: ${colors.white};

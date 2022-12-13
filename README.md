@@ -63,8 +63,8 @@ After completing the course, the user takes a quiz that summarizes the learning 
 
 ### Built With
 
-* [![React][react.js]][react-url]
-* [![styled-components][styled-components]][styled-components-url]
+* [React](https://reactjs.org/)
+* [styled-components](https://styled-components.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

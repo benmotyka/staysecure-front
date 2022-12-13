@@ -12,6 +12,7 @@ height: ${navbarHeight};
 display: flex;
 align-items: center;
 padding: ${props => props.smallPadding ? "0 45px": "0 270px"};
+z-index: 50;
 `
 
 export const ContainerClean = styled.div`

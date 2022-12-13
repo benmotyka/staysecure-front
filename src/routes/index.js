@@ -1,53 +1,107 @@
+import { React } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 
-import home from "pages/home";
+import Home from "pages/home";
+import Login from "pages/login";
+import Register from "pages/register/index";
+import RegisterConfirm from "pages/register/confirm";
+import Articles from "pages/articles";
+import Article from "pages/article";
+import Courses from "pages/courses";
+import Course from "pages/course";
+import CoursePreview from "pages/coursePreview";
+import AccountSettings from "pages/account/settings";
+import AccountCourses from "pages/account/courses";
+import AccountQuizes from "pages/account/quizes";
+import Quiz from "pages/quiz";
+import QuizSummary from "pages/quizSummary";
+import ForgotPassword from "pages/forgotPassword";
+import ForgotPasswordChange from "pages/forgotPasswordChange";
+import Faq from "pages/faq";
+import AnimateWrapper from "components/AnimateWrapper/AnimateWrapper";
 
-import login from "pages/login";
-import register from "pages/register/index";
-import registerConfirm from "pages/register/confirm";
-
-import articles from "pages/articles";
-import article from "pages/article";
-
-import courses from "pages/courses";
-import course from "pages/course"
-import coursePreview from "pages/coursePreview"
-
-import accountSettings from "pages/account/settings";
-import accountCourses from "pages/account/courses";
-import accountQuizes from "pages/account/quizes"
-import quiz from "pages/quiz";
-import quizSummary from "pages/quizSummary"
-import forgotPassword from "pages/forgotPassword";
-import forgotPasswordChange from "pages/forgotPasswordChange";
-import faq from "pages/faq"
+const routes = [
+  {
+    path: "/",
+    component: Home,
+  },
+  {
+    path: "/articles",
+    component: Articles,
+  },
+  {
+    path: "/faq",
+    component: Faq,
+  },
+  {
+    path: "/courses",
+    component: Courses,
+  },
+  {
+    path: "/login",
+    component: Login,
+  },
+  {
+    path: "/register",
+    component: Register,
+  },
+  {
+    path: "/register/confirm/:token",
+    component: RegisterConfirm,
+  },
+  {
+    path: "/article/:articleName",
+    component: Article,
+  },
+  {
+    path: "/account/settings",
+    component: AccountSettings,
+  },
+  {
+    path: "/account/courses",
+    component: AccountCourses,
+  },
+  {
+    path: "/account/quizes",
+    component: AccountQuizes,
+  },
+  {
+    path: "/course/:courseName",
+    component: Course,
+  },
+  {
+    path: "/course-preview/:courseName",
+    component: CoursePreview,
+  },
+  {
+    path: "/quiz/:courseName",
+    component: Quiz,
+  },
+  {
+    path: "/quiz-summary/:courseName",
+    component: QuizSummary,
+  },
+  {
+    path: "/forgot-password",
+    component: ForgotPassword,
+  },
+  {
+    path: "/forgot-password/:token",
+    component: ForgotPasswordChange,
+  },
+];
 
 const Routes = () => {
   return (
     <Switch>
-      <Route path="/" component={home} exact />
-      <Route path="/articles" component={articles} exact />
-      <Route path="/faq" component={faq} exact />
-      <Route path="/courses" component={courses} exact />
-      <Route path="/login" component={login} exact />
-      <Route path="/register" component={register} exact />
-      <Route
-        path="/register/confirm/:token"
-        component={registerConfirm}
-        exact
-      />
-      <Route path="/article/:articleName" component={article} exact/>
-
-      <Route path="/account/settings" component={accountSettings} exact/>
-      <Route path="/account/courses" component={accountCourses} exact/>
-      <Route path="/account/quizes" component={accountQuizes} exact/>
-
-      <Route path="/course/:courseName" component={course} exact/>
-      <Route path="/course-preview/:courseName" component={coursePreview} exact/>
-      <Route path="/quiz/:courseName" component={quiz} exact/> 
-      <Route path="/quiz-summary/:courseName" component={quizSummary} exact/> 
-      <Route path="/forgot-password" component={forgotPassword} exact />
-      <Route path="/forgot-password/:token" component={forgotPasswordChange} exact/>
+      {routes.map((item) => (
+        <Route
+          key={item.path}
+          path={item.path}
+          component={(props) => AnimateWrapper({ Component: item.component, ...props })}
+          exact
+        />
+      ))}
       <Redirect to="/" />
     </Switch>
   );

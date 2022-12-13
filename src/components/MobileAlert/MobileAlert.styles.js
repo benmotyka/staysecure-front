@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import colors from "constans/colors";
 import {MdMobileOff as Icon} from "react-icons/md"
+import zIndex from "constans/zIndex";
+
 export const Container = styled.div`
 position: fixed;
 top: 0;
@@ -8,7 +10,7 @@ bottom: 0;
 right: 0;
 left: 0;
 background-color: ${colors.darkestPurple};
-z-index: 1000;
+z-index: ${zIndex[1000]};
 display: none;
 align-items: center;
 justify-content: center;

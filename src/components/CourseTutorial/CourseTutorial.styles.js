@@ -4,6 +4,7 @@ import { notebookWidth } from "components/Notebook/Notebook.styles";
 import { navbarHeight } from "components/Navbar/Navbar.styles";
 
 import colors from "constans/colors";
+import zIndex from "constans/zIndex";
 
 const BoxCommonStyles = css`
   position: absolute;
@@ -27,7 +28,7 @@ export const Container = styled.div`
   top: ${navbarHeight};
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 100;
+  z-index: ${zIndex[100]};
 `;
 
 export const SidebarBox = styled.div`

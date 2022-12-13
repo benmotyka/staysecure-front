@@ -27,6 +27,7 @@ import {
 import styled from "styled-components";
 import colors from "constans/colors.js";
 import { useTranslation } from "react-i18next";
+import zIndex from "constans/zIndex.js";
 
 const Warning = styled(WarningIcon)`
 font-size: 60px;
@@ -60,7 +61,7 @@ color: ${colors.white};
 font-size: 50px;
 position: absolute;
 left: 34%;
-z-index: -1;
+z-index: ${zIndex[-1]};
 top: 30%;
 `
 

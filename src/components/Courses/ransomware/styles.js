@@ -16,6 +16,7 @@ import { BsLaptop as LaptopIcon } from "react-icons/bs";
 import { IoIosApps as AppIcon } from "react-icons/io";
 import {VscWorkspaceUntrusted as TrustIcon} from "react-icons/vsc"
 import {MdBackup as BackupIcon} from "react-icons/md" 
+import zIndex from "constans/zIndex";
 
 const flexCenter = css`
   display: flex;
@@ -91,7 +92,7 @@ export const MailPageSidebar = styled.div`
   left: 0;
   height: 50px;
   background-color: ${colors.mediumDarkPurple};
-  z-index: 1;
+  z-index: ${zIndex[1]};
   ${flexCenter};
   gap: 10px;
 `;
@@ -156,7 +157,7 @@ export const RunFileContainer = styled.div`
   ${flexCenter};
   flex-direction: column;
   opacity: ${(props) => (props.active ? "100%" : "0")};
-  z-index: ${(props) => (props.active ? "100" : "-100")};
+  z-index: ${(props) => (props.active ? zIndex[100] : zIndex[-100])};
   transition: 0.3s all ease-in-out;
 `;
 

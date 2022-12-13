@@ -3,6 +3,7 @@ import colors  from "constans/colors";
 import {BsPencil} from "react-icons/bs"
 import {IoClose as CloseIcon} from "react-icons/io5"
 import {FaTrash} from "react-icons/fa"
+import zIndex from "constans/zIndex";
 
 export const notebookWidth = "250px"
 
@@ -20,7 +21,7 @@ cursor: pointer;
 border-radius: 50% 15% 15% 50%;
 display: flex;
 align-items: center;
-z-index: 100;
+z-index: ${zIndex[100]};
 justify-content: center;
 `
 
@@ -43,7 +44,7 @@ export const NotebookWrapper = styled.div`
   height: 100vh;
   border-left: 1px solid ${colors.darkestPurple};
   overflow: none;
-  z-index: 200;
+  z-index: ${zIndex[200]};
 `
 export const NotebookHeaderContainer = styled.header`
 padding: 25px;

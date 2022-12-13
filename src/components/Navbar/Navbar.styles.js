@@ -2,6 +2,7 @@ import styled, {css} from "styled-components";
 import { Link as NavbarLink } from "react-router-dom";
 import colors from "constans/colors.js"
 import {IoSettingsSharp as SettingsIcon} from "react-icons/io5"
+import zIndex from "constans/zIndex";
 export const navbarHeight = "80px";
 
 const commonNavbar = css`
@@ -19,7 +20,7 @@ ${commonNavbar};
 export const Container = styled.div`
 ${commonNavbar};
 justify-content: space-between;
-z-index: 10;
+z-index: ${zIndex[10]};
 
 @media screen and (max-width: 1400px) {
     padding: 0 30px;
@@ -111,5 +112,5 @@ transition: 0.2s all ease-in-out;
 width: max-content;
 padding: 15px;
 background-color: ${colors.darkPurple};
-z-index: 5;
+z-index: ${zIndex[5]};
 `

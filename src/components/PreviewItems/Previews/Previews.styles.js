@@ -4,6 +4,7 @@ import colors from "constans/colors.js"
 import {IoIosArrowForward as ArrowIcon} from "react-icons/io"
 import {AiOutlineStar as LevelIcon} from "react-icons/ai"
 import {BiCommentDetail as CommentIcon} from "react-icons/bi"
+import zIndex from "constans/zIndex";
 
 export const Arrow = styled(ArrowIcon)`
 transition: 0.2s transform ease-in-out;
@@ -37,7 +38,7 @@ justify-content: center;
 export const Image = styled.img`
 width:100%;
 transition: 0.2s all ease-in-out;
-z-index: 10;
+z-index: ${zIndex[10]};
 `
 
 const ItemsContainer = css`

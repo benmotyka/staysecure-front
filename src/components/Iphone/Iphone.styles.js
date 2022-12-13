@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import colors from "constans/colors.js";
 import {BsFillUnlockFill as LockIcon} from "react-icons/bs"
+import zIndex from "constans/zIndex";
 
 
 export const Body = styled.div`
@@ -96,7 +97,7 @@ left: 0;
 right: 0;
 top: 0;
 text-align: center;
-z-index: 100;
+z-index: ${zIndex[100]};
 `
 
 export const ScreenTopBarText = styled.p`
@@ -116,7 +117,7 @@ bottom: 0;
 display: grid;
 grid-template-rows: 1fr;
 grid-template-columns: 1fr 1fr 1fr 1fr;
-z-index: 10;
+z-index: ${zIndex[10]};
 `
 
 export const ScreenBottomBarItem = styled.div`
@@ -226,7 +227,7 @@ export const HomeButton = styled.span`
 
 export const MessagesApp = styled.div`
 background-color: #000;
-z-index: 20;
+z-index: ${zIndex[20]};
 position: absolute;
 inset: 0;
 `
@@ -331,7 +332,7 @@ background-color: #1280FF;
 
 export const SmsApp = styled.div`
 background-color: #000;
-z-index: 30;
+z-index: ${zIndex[30]};
 position: absolute;
 inset: 0;
 `
@@ -390,7 +391,7 @@ left: 15px;
   height: 15px;
   background-color: #26252a;
   border-radius: 50%;
-  z-index: -10;
+  z-index: ${zIndex[-10]};
 }
 
 &:after {
@@ -402,7 +403,7 @@ left: 15px;
   height: 15px;
   background-color: #000;
   border-radius: 50%;
-  z-index: -1; 
+  z-index: ${zIndex[-1]}; 
 }
 `
 
@@ -421,7 +422,7 @@ cursor: pointer;
 
 export const WebpageApp = styled.div`
 background-color: #fff;
-z-index: 30;
+z-index: ${zIndex[30]};
 position: absolute;
 inset: 0;
 display: flex;
@@ -503,7 +504,7 @@ color: ${colors.red};
 
 export const BankpageApp = styled.div`
 background-color: #fff;
-z-index: 51110;
+z-index: ${zIndex[10000]};
 position: absolute;
 inset: 0;
 display: flex;

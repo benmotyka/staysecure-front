@@ -113,5 +113,5 @@ transition: 0.2s all ease-in-out;
 width: max-content;
 padding: 15px;
 background-color: ${colors.darkPurple};
-z-index: ${zIndex[5]};
+z-index: ${zIndex[100]};
 `

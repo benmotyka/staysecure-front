@@ -79,9 +79,10 @@ After completing the course, the user takes a quiz that summarizes the learning 
 
 ### Installation
 
-1. Clone this repo
+1. Clone this repo and enter project
    ```sh
    git clone https://github.com/benmotyka/staysecure_front.git
+   cd staysecure_front/
    ```
 2. Install NPM packages
    ```sh

@@ -98,7 +98,7 @@ const Routes = () => {
         <Route
           key={item.path}
           path={item.path}
-          component={(props) => AnimateWrapper({ Component: item.component, ...props })}
+          component={item.component}
           exact
         />
       ))}
